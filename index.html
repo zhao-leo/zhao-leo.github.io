@@ -209,7 +209,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/05/QQ%E5%A4%B4%E5%83%8F%E6%89%93%E5%B9%B4%E7%B3%95%E7%94%9F%E6%88%90%E5%B0%8F%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">QQ头像打年糕生成小工具</a>
+            <a href="/2024/05/QQ%E5%A4%B4%E5%83%8F%E6%89%93%E5%B9%B4%E7%B3%95%E7%94%9F%E6%88%90%E5%B0%8F%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">QQ头像表情包生成小工具</a>
         </h2>
 
         <div class="post-meta">
@@ -218,10 +218,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-05-23 22:21:46 / 修改时间：22:21:53" itemprop="dateCreated datePublished" datetime="2024-05-23T22:21:46+08:00">2024-05-23</time>
+              <time title="创建时间：2024-05-23 22:21:46" itemprop="dateCreated datePublished" datetime="2024-05-23T22:21:46+08:00">2024-05-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-05-24 00:53:05" itemprop="dateModified" datetime="2024-05-24T00:53:05+08:00">2024-05-24</time>
+              </span>
 
           
             <span class="post-meta-item" title="本文字数">
@@ -229,14 +235,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -249,68 +255,115 @@
 
       
           <html>
+<head>
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <h1><strong>Small Tools</strong></h1>
+  </div>
+</head>
 <body>
-    <input type="text" id="inputNumber" class="custom-input" placeholder="输入QQ号">
-    <button class="custom-button" onclick="callAPI()">下载</button>
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <div>
+      <input type="text" id="inputNumber" class="custom-input" placeholder="输入QQ号">
+      <select id="apiSelect" class="custom-select">
+        <option value="api1">打年糕</option>
+        <option value="api2">Klee Eat</option>
+        <option value="api3">咬~</option>
+        <option value="api4">顶球</option>
+        <option value="api5">拍瓜</option>
+        <option value="api6">抓~</option>
+      </select>
+      <button class="custom-button" onclick="callAPI()">生成表情包</button>
+    </div>
     <div id="loader" class="loading"></div>
-    <img id="outputImage" src="" alt="图片加载中...">
-    <a class="custom-button" id="downloadButton" download>下载图片</a>
-    <script>
-        function callAPI() {
-            var inputNumber = document.getElementById('inputNumber').value;
-            if (inputNumber) {
-                document.getElementById('loader').style.display = 'block';
-                fetch('https://api.xingzhige.com/API/pound/?qq=' + inputNumber)
-                    .then(response => response.blob())
-                    .then(image => {
-                        var outside = URL.createObjectURL(image);
-                        document.getElementById('outputImage').src = outside;
-                        document.getElementById('outputImage').style.display = 'block';
-                        document.getElementById('downloadButton').href = outside;
-                        document.getElementById('downloadButton').style.display = 'block';
-                        document.getElementById('loader').style.display = 'none';
-                    })
-                    .catch(error => console.error('Error:', error));
-            }
-        }
-    </script>
-        <style>
-        .custom-input {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-            margin-right: 10px;
-        }
-        .custom-button {
-            background-color: #409EFF;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .custom-button:hover {
-            background-color: #66B1FF;
-        }
-        #outputImage, #downloadButton, #loader {
-            display: none;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .loading {
-            border: 16px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 16px solid #3498db;
-            width: 120px;
-            height: 120px;
-            animation: spin 2s linear infinite;
-        }
-    </style>
+    <img id="outputImage" src="" alt="图片加载中..." style="margin-bottom: 10px;">
+    <a class="custom-button" id="downloadButton" download>下载表情包</a>
+  </div>
+  <script>
+    function callAPI() {
+      var inputNumber = document.getElementById('inputNumber').value;
+      var selectedAPI = document.getElementById('apiSelect').value;
+      var apiUrl;
+      if (selectedAPI === 'api1') {
+        apiUrl = 'https://api.xingzhige.com/API/pound/?qq=' + inputNumber;
+      } else if (selectedAPI === 'api2') {
+        apiUrl = 'https://api.xingzhige.com/API/chi/?qq=' + inputNumber;
+      } else if (selectedAPI === 'api3') {
+        apiUrl = 'https://api.xingzhige.com/API/bite/?qq=' + inputNumber;
+      } else if (selectedAPI === 'api4') {
+        apiUrl = 'https://api.xingzhige.com/API/dingqiu/?qq=' + inputNumber;
+      } else if (selectedAPI === 'api5') {
+        apiUrl = 'https://api.xingzhige.com/API/paigua/?qq=' + inputNumber;
+      } else if (selectedAPI === 'api6') {
+        apiUrl = 'https://api.xingzhige.com/API/grab/?qq=' + inputNumber;
+      } else {
+        alert('API not found');
+        return;
+      }
+      if (inputNumber) {
+        document.getElementById('loader').style.display = 'block';
+        fetch(apiUrl)
+          .then(response => response.blob())
+          .then(image => {
+            var outside = URL.createObjectURL(image);
+            document.getElementById('outputImage').src = outside;
+            document.getElementById('outputImage').style.display = 'block';
+            document.getElementById('downloadButton').href = outside;
+            document.getElementById('downloadButton').style.display = 'block';
+            document.getElementById('loader').style.display = 'none';
+          })
+          .catch(error => { alert('Error:', error) });
+      }
+    }
+  </script>
+  <style>
+    .custom-input,
+    .custom-select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .custom-input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+    .custom-button {
+      background-color: #409EFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .custom-button:hover {
+      background-color: #66B1FF;
+    }
+    #outputImage,
+    #downloadButton,
+    #loader {
+      display: none;
+    }
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    .loading {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 100px;
+      height: 100px;
+      animation: spin 2s linear infinite;
+    }
+  </style>
 </body>
 </html>
       
@@ -819,13 +872,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">15k</span>
+    <span title="站点总字数">16k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">14 分钟</span>
+    <span title="站点阅读时长">15 分钟</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
         
@@ -877,6 +930,19 @@
 
 
 
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
 
 
   

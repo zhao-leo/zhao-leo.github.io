@@ -6,7 +6,7 @@
   <link href="https://zhaocloud.work/atom.xml" rel="self"/>
   
   <link href="https://zhaocloud.work/"/>
-  <updated>2024-05-23T14:21:53.650Z</updated>
+  <updated>2024-05-23T16:53:05.144Z</updated>
   <id>https://zhaocloud.work/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>QQ头像打年糕生成小工具</title>
+    <title>QQ头像表情包生成小工具</title>
     <link href="https://zhaocloud.work/2024/05/QQ%E5%A4%B4%E5%83%8F%E6%89%93%E5%B9%B4%E7%B3%95%E7%94%9F%E6%88%90%E5%B0%8F%E5%B7%A5%E5%85%B7/"/>
     <id>https://zhaocloud.work/2024/05/QQ%E5%A4%B4%E5%83%8F%E6%89%93%E5%B9%B4%E7%B3%95%E7%94%9F%E6%88%90%E5%B0%8F%E5%B7%A5%E5%85%B7/</id>
     <published>2024-05-23T14:21:46.000Z</published>
-    <updated>2024-05-23T14:21:53.650Z</updated>
+    <updated>2024-05-23T16:53:05.144Z</updated>
     
     
       
@@ -29,9 +29,10 @@
         
         
     <summary type="html">&lt;html&gt;
-&lt;body&gt;
-    &lt;input type=&quot;text&quot; id=&quot;inputNumber&quot; class=&quot;custom-input&quot; placeholder=&quot;输入QQ号&quot;&gt;
-    &lt;button class=&quot;custom-button&quot;</summary>
+&lt;head&gt;
+  &lt;div style=&quot;display: flex; flex-direction: column; align-items: center;&quot;&gt;
+    &lt;h1&gt;&lt;strong&gt;Small Tools&lt;/strong&gt;&lt;/h1&gt;
+ </summary>
         
       
     
