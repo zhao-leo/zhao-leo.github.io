@@ -55,10 +55,10 @@
     
     
     
-    <category term="其他" scheme="https://zhaocloud.work/categories/%E5%85%B6%E4%BB%96/"/>
+    <category term="其他" scheme="https://zhaocloud.work/categories/other/"/>
     
     
-    <category term="GAME" scheme="https://zhaocloud.work/tags/GAME/"/>
+    <category term="GAME" scheme="https://zhaocloud.work/tags/game/"/>
     
   </entry>
   
@@ -76,10 +76,10 @@
     
     
     
-    <category term="其他" scheme="https://zhaocloud.work/categories/%E5%85%B6%E4%BB%96/"/>
+    <category term="其他" scheme="https://zhaocloud.work/categories/other/"/>
     
     
-    <category term="GAME" scheme="https://zhaocloud.work/tags/GAME/"/>
+    <category term="GAME" scheme="https://zhaocloud.work/tags/game/"/>
     
   </entry>
   
@@ -98,10 +98,10 @@
     
     
     
-    <category term="技术" scheme="https://zhaocloud.work/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://zhaocloud.work/categories/technology/"/>
     
     
-    <category term="HAM" scheme="https://zhaocloud.work/tags/HAM/"/>
+    <category term="HAM" scheme="https://zhaocloud.work/tags/radio-amateur/"/>
     
   </entry>
   
@@ -126,10 +126,10 @@
     
     
     
-    <category term="技术" scheme="https://zhaocloud.work/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://zhaocloud.work/categories/technology/"/>
     
     
-    <category term="HEXO" scheme="https://zhaocloud.work/tags/HEXO/"/>
+    <category term="HEXO" scheme="https://zhaocloud.work/tags/hexo/"/>
     
   </entry>
   
@@ -145,10 +145,10 @@
     
     
     
-    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://zhaocloud.work/categories/programming/"/>
     
     
-    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    <category term="C++" scheme="https://zhaocloud.work/tags/C-plus-plus/"/>
     
   </entry>
   
@@ -191,12 +191,12 @@
     
     
     
-    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://zhaocloud.work/categories/programming/"/>
     
     
-    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    <category term="C++" scheme="https://zhaocloud.work/tags/C-plus-plus/"/>
     
-    <category term="洛谷" scheme="https://zhaocloud.work/tags/%E6%B4%9B%E8%B0%B7/"/>
+    <category term="洛谷" scheme="https://zhaocloud.work/tags/luogu/"/>
     
   </entry>
   
@@ -220,10 +220,10 @@
     
     
     
-    <category term="技术" scheme="https://zhaocloud.work/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://zhaocloud.work/categories/technology/"/>
     
     
-    <category term="HEXO" scheme="https://zhaocloud.work/tags/HEXO/"/>
+    <category term="HEXO" scheme="https://zhaocloud.work/tags/hexo/"/>
     
   </entry>
   
@@ -243,10 +243,10 @@
     
     
     
-    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://zhaocloud.work/categories/programming/"/>
     
     
-    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    <category term="C++" scheme="https://zhaocloud.work/tags/C-plus-plus/"/>
     
     <category term="PTA" scheme="https://zhaocloud.work/tags/PTA/"/>
     
@@ -268,10 +268,10 @@
     
     
     
-    <category term="技术" scheme="https://zhaocloud.work/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://zhaocloud.work/categories/technology/"/>
     
     
-    <category term="HEXO" scheme="https://zhaocloud.work/tags/HEXO/"/>
+    <category term="HEXO" scheme="https://zhaocloud.work/tags/hexo/"/>
     
   </entry>
   
@@ -291,10 +291,10 @@
     
     
     
-    <category term="技术" scheme="https://zhaocloud.work/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://zhaocloud.work/categories/technology/"/>
     
     
-    <category term="HEXO" scheme="https://zhaocloud.work/tags/HEXO/"/>
+    <category term="HEXO" scheme="https://zhaocloud.work/tags/hexo/"/>
     
   </entry>
   
@@ -317,10 +317,10 @@
     
     
     
-    <category term="数学" scheme="https://zhaocloud.work/categories/%E6%95%B0%E5%AD%A6/"/>
+    <category term="数学" scheme="https://zhaocloud.work/categories/maths/"/>
     
     
-    <category term="数学分析" scheme="https://zhaocloud.work/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/"/>
+    <category term="数学分析" scheme="https://zhaocloud.work/tags/analysis/"/>
     
   </entry>
   
@@ -345,10 +345,10 @@
     
     
     
-    <category term="数学" scheme="https://zhaocloud.work/categories/%E6%95%B0%E5%AD%A6/"/>
+    <category term="数学" scheme="https://zhaocloud.work/categories/maths/"/>
     
     
-    <category term="数学分析" scheme="https://zhaocloud.work/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/"/>
+    <category term="数学分析" scheme="https://zhaocloud.work/tags/analysis/"/>
     
   </entry>
   
@@ -366,10 +366,10 @@
     
     
     
-    <category term="生活" scheme="https://zhaocloud.work/categories/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活" scheme="https://zhaocloud.work/categories/life/"/>
     
     
-    <category term="北京" scheme="https://zhaocloud.work/tags/%E5%8C%97%E4%BA%AC/"/>
+    <category term="北京" scheme="https://zhaocloud.work/tags/Beijing/"/>
     
   </entry>
   
@@ -387,10 +387,10 @@
     
     
     
-    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://zhaocloud.work/categories/programming/"/>
     
     
-    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    <category term="C++" scheme="https://zhaocloud.work/tags/C-plus-plus/"/>
     
     <category term="PTA" scheme="https://zhaocloud.work/tags/PTA/"/>
     
@@ -410,10 +410,10 @@
     
     
     
-    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://zhaocloud.work/categories/programming/"/>
     
     
-    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    <category term="C++" scheme="https://zhaocloud.work/tags/C-plus-plus/"/>
     
     <category term="PTA" scheme="https://zhaocloud.work/tags/PTA/"/>
     
@@ -434,10 +434,10 @@
     
     
     
-    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://zhaocloud.work/categories/programming/"/>
     
     
-    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    <category term="C++" scheme="https://zhaocloud.work/tags/C-plus-plus/"/>
     
     <category term="PTA" scheme="https://zhaocloud.work/tags/PTA/"/>
     
@@ -457,10 +457,10 @@
     
     
     
-    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://zhaocloud.work/categories/programming/"/>
     
     
-    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    <category term="C++" scheme="https://zhaocloud.work/tags/C-plus-plus/"/>
     
     <category term="PTA" scheme="https://zhaocloud.work/tags/PTA/"/>
     
@@ -481,10 +481,10 @@
     
     
     
-    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://zhaocloud.work/categories/programming/"/>
     
     
-    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    <category term="C++" scheme="https://zhaocloud.work/tags/C-plus-plus/"/>
     
     <category term="PTA" scheme="https://zhaocloud.work/tags/PTA/"/>
     
@@ -504,10 +504,10 @@
     
     
     
-    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://zhaocloud.work/categories/programming/"/>
     
     
-    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    <category term="C++" scheme="https://zhaocloud.work/tags/C-plus-plus/"/>
     
     <category term="PTA" scheme="https://zhaocloud.work/tags/PTA/"/>
     
@@ -529,10 +529,10 @@
     
     
     
-    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="编程" scheme="https://zhaocloud.work/categories/programming/"/>
     
     
-    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    <category term="C++" scheme="https://zhaocloud.work/tags/C-plus-plus/"/>
     
     <category term="PTA" scheme="https://zhaocloud.work/tags/PTA/"/>
     
