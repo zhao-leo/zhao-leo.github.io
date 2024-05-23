@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Zhao-Leo</title>
+  <icon>https://zhaocloud.work/icon.png</icon>
+  <subtitle>A BUPTer~</subtitle>
+  <link href="https://zhaocloud.work/atom.xml" rel="self"/>
+  
+  <link href="https://zhaocloud.work/"/>
+  <updated>2024-05-23T14:21:53.650Z</updated>
+  <id>https://zhaocloud.work/</id>
+  
+  <author>
+    <name>Zryake</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>QQ头像打年糕生成小工具</title>
+    <link href="https://zhaocloud.work/2024/05/QQ%E5%A4%B4%E5%83%8F%E6%89%93%E5%B9%B4%E7%B3%95%E7%94%9F%E6%88%90%E5%B0%8F%E5%B7%A5%E5%85%B7/"/>
+    <id>https://zhaocloud.work/2024/05/QQ%E5%A4%B4%E5%83%8F%E6%89%93%E5%B9%B4%E7%B3%95%E7%94%9F%E6%88%90%E5%B0%8F%E5%B7%A5%E5%85%B7/</id>
+    <published>2024-05-23T14:21:46.000Z</published>
+    <updated>2024-05-23T14:21:53.650Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;html&gt;
+&lt;body&gt;
+    &lt;input type=&quot;text&quot; id=&quot;inputNumber&quot; class=&quot;custom-input&quot; placeholder=&quot;输入QQ号&quot;&gt;
+    &lt;button class=&quot;custom-button&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>How To Play Unciv On Your Android Device</title>
+    <link href="https://zhaocloud.work/2024/03/How-To-Play-Unciv-By-F-Droid/"/>
+    <id>https://zhaocloud.work/2024/03/How-To-Play-Unciv-By-F-Droid/</id>
+    <published>2024-03-11T10:48:46.000Z</published>
+    <updated>2024-03-11T11:17:03.950Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;如何在Android设备上玩Unciv&lt;/h1&gt;
+&lt;h2 id=&quot;方式1：直接访问Github&quot;&gt;方式1：直接访问Github&lt;/h2&gt;
+&lt;h3 id=&quot;点击下载，截至本文发布时最新版本-Download-Here&quot;&gt;点击下载，截至本文发布时最新版本 &lt;a href=&quot;https://github.com/yairm210/Unciv/releases/download/4.10.17-patch1/Unciv-signed.apk&quot;&gt;Download Here&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;开源项目地址-Click-Here&quot;&gt;开源项目地址 &lt;a href=&quot;https://github.com/yairm210/Unciv&quot;&gt;Click Here&lt;/a&gt;&lt;/h3&gt;</summary>
+    
+    
+    
+    <category term="其他" scheme="https://zhaocloud.work/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="GAME" scheme="https://zhaocloud.work/tags/GAME/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>整活向——SSTV和音乐混响</title>
+    <link href="https://zhaocloud.work/2024/02/%E6%95%B4%E6%B4%BB%E5%90%91%E2%80%94%E2%80%94SSTV%E5%92%8C%E9%9F%B3%E4%B9%90%E6%B7%B7%E5%93%8D/"/>
+    <id>https://zhaocloud.work/2024/02/%E6%95%B4%E6%B4%BB%E5%90%91%E2%80%94%E2%80%94SSTV%E5%92%8C%E9%9F%B3%E4%B9%90%E6%B7%B7%E5%93%8D/</id>
+    <published>2024-02-08T15:06:39.000Z</published>
+    <updated>2024-02-08T15:13:50.840Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;整活向——SSTV和音乐混响&lt;/h1&gt;
+&lt;h3 id=&quot;把SSTV生成的音频和歌曲混流在一起，试试接收效果。&quot;&gt;把SSTV生成的音频和歌曲混流在一起，试试接收效果。&lt;/h3&gt;
+&lt;h3 id=&quot;PD120&quot;&gt;PD120&lt;/h3&gt;</summary>
+    
+    
+    
+    <category term="其他" scheme="https://zhaocloud.work/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="GAME" scheme="https://zhaocloud.work/tags/GAME/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一个有趣的python包——PySSTV</title>
+    <link href="https://zhaocloud.work/2024/02/%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84python%E5%8C%85%E2%80%94%E2%80%94PySSTV/"/>
+    <id>https://zhaocloud.work/2024/02/%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84python%E5%8C%85%E2%80%94%E2%80%94PySSTV/</id>
+    <published>2024-02-07T15:08:25.000Z</published>
+    <updated>2024-02-07T15:14:09.124Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;一个有趣的python包——PySSTV&lt;/h1&gt;
+&lt;h2 id=&quot;功能：&quot;&gt;功能：&lt;/h2&gt;
+&lt;p&gt;从 PIL 能够打开的任何图像（PNG、JPEG、GIF 等）生成 SSTV 调制 WAV 文件。&lt;/p&gt;
+&lt;h2 id=&quot;用法：&quot;&gt;用法：&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://zhaocloud.work/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="HAM" scheme="https://zhaocloud.work/tags/HAM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO图片的插入</title>
+    <link href="https://zhaocloud.work/2023/11/HEXO%E5%9B%BE%E7%89%87%E7%9A%84%E6%8F%92%E5%85%A5/"/>
+    <id>https://zhaocloud.work/2023/11/HEXO%E5%9B%BE%E7%89%87%E7%9A%84%E6%8F%92%E5%85%A5/</id>
+    <published>2023-11-28T05:41:23.000Z</published>
+    <updated>2023-11-28T05:43:54.999Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在Hexo的目录source中创建一个图片文件夹，例如images&lt;/p&gt;
+&lt;p&gt;把你要插入的图片文件放到该目录下面，在你的文章中正常使用markdown的语法插入图片即可&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="技术" scheme="https://zhaocloud.work/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="HEXO" scheme="https://zhaocloud.work/tags/HEXO/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VScode多文件编译</title>
+    <link href="https://zhaocloud.work/2023/11/VScode%E5%A4%9A%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91/"/>
+    <id>https://zhaocloud.work/2023/11/VScode%E5%A4%9A%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91/</id>
+    <published>2023-11-28T05:19:10.000Z</published>
+    <updated>2024-02-07T15:06:34.775Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;tasks.json&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>方块转换 Transformations-Luogu</title>
+    <link href="https://zhaocloud.work/2023/11/%E6%96%B9%E5%9D%97%E8%BD%AC%E6%8D%A2-Transformations-Luogu/"/>
+    <id>https://zhaocloud.work/2023/11/%E6%96%B9%E5%9D%97%E8%BD%AC%E6%8D%A2-Transformations-Luogu/</id>
+    <published>2023-11-21T05:45:04.000Z</published>
+    <updated>2023-11-21T05:55:42.815Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;[USACO1.2] 方块转换 Transformations&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;题目描述&lt;/h2&gt;
+&lt;p&gt;一块 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;×&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;n &#92;times n&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.6667em;vertical-align:-0.0833em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;×&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.4306em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 正方形的黑白瓦片的图案要被转换成新的正方形图案。写一个程序来找出将原始图案按照以下列转换方法转换成新图案的最小方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;转 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;90&lt;/mn&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;°&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;90&#92;degree&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.6944em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;90°&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;：图案按顺时针转 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;90&lt;/mn&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;°&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;90&#92;degree&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.6944em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;90°&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;转 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;180&lt;/mn&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;°&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;180&#92;degree&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.6944em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;180°&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;：图案按顺时针转 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;180&lt;/mn&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;°&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;180&#92;degree&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.6944em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;180°&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;转 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;270&lt;/mn&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;°&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;270&#92;degree&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.6944em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;270°&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;：图案按顺时针转 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;270&lt;/mn&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;°&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;270&#92;degree&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.6944em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;270°&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;反射：图案在水平方向翻转（以中央铅垂线为中心形成原图案的镜像）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;组合：图案在水平方向翻转，然后再按照 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;∼&lt;/mo&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;1 &#92;sim 3&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.6444em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;∼&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.6444em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 之间的一种再次转换。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不改变：原图案不改变。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;无效转换：无法用以上方法得到新图案。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果有多种可用的转换方法，请选择序号最小的那个。&lt;/p&gt;
+&lt;p&gt;只使用上述 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;7&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;7&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.6444em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;7&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 个中的一个步骤来完成这次转换。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    
+    <category term="洛谷" scheme="https://zhaocloud.work/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO添加视频</title>
+    <link href="https://zhaocloud.work/2023/11/HEXO%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91/"/>
+    <id>https://zhaocloud.work/2023/11/HEXO%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91/</id>
+    <published>2023-11-07T09:44:26.000Z</published>
+    <updated>2023-11-21T06:04:29.060Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;HEXO添加视频&lt;/h1&gt;
+&lt;p&gt;这里给出样例&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="技术" scheme="https://zhaocloud.work/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="HEXO" scheme="https://zhaocloud.work/tags/HEXO/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>老王赛马-PTA</title>
+    <link href="https://zhaocloud.work/2023/11/%E8%80%81%E7%8E%8B%E8%B5%9B%E9%A9%AC-PTA/"/>
+    <id>https://zhaocloud.work/2023/11/%E8%80%81%E7%8E%8B%E8%B5%9B%E9%A9%AC-PTA/</id>
+    <published>2023-11-07T09:33:26.000Z</published>
+    <updated>2023-11-21T05:55:21.491Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;北邮VC++实验题 老王赛马&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述：&quot;&gt;题目描述：&lt;/h2&gt;
+&lt;p&gt;赛马是一古老的游戏，早在公元前四世纪的中国，处在诸侯割据的状态，历史上称为“战国时期”。在魏国作官的孙膑，因为受到同僚庞涓的迫害，被齐国使臣救出后，到达齐国国都。&lt;br&gt;
+赛马是当时最受齐国贵族欢迎的娱乐项目。上至国王，下到大臣，常常以赛马取乐，并以重金赌输赢。田忌多次与国王及其他大臣赌输赢，屡赌屡输。一天他赛马又输了，回家后闷闷不乐。孙膑安慰他说：“下次有机会带我到马场看看，也许我能帮你。”&lt;br&gt;
+孙膑仔细观察后发现，田忌的马和其他人的马相差并不远，只是策略运用不当，以致失败。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    
+    <category term="PTA" scheme="https://zhaocloud.work/tags/PTA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO搜索配置</title>
+    <link href="https://zhaocloud.work/2023/10/HEXO%E6%90%9C%E7%B4%A2%E9%85%8D%E7%BD%AE/"/>
+    <id>https://zhaocloud.work/2023/10/HEXO%E6%90%9C%E7%B4%A2%E9%85%8D%E7%BD%AE/</id>
+    <published>2023-10-28T12:55:37.000Z</published>
+    <updated>2023-11-21T06:03:48.408Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;HEXO搜索配置&lt;/h1&gt;
+&lt;h2 id=&quot;在HEXO的-config-yml后添加如下字段&quot;&gt;在HEXO的_config.yml后添加如下字段&lt;/h2&gt;
+&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;search:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;path:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;search.xml&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;field:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;post&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;content:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;format:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;html&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;limit:&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;安装新插件&quot;&gt;安装新插件&lt;/h2&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-generator-searchdb&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://zhaocloud.work/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="HEXO" scheme="https://zhaocloud.work/tags/HEXO/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO数学公式配置</title>
+    <link href="https://zhaocloud.work/2023/10/HEXO%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E9%85%8D%E7%BD%AE/"/>
+    <id>https://zhaocloud.work/2023/10/HEXO%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E9%85%8D%E7%BD%AE/</id>
+    <published>2023-10-28T12:24:11.000Z</published>
+    <updated>2023-11-21T06:03:33.560Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;HEXO数学公式配置（LETEX）&lt;/h1&gt;
+&lt;h2 id=&quot;卸载旧编辑器，安装新编辑器和插件&quot;&gt;卸载旧编辑器，安装新编辑器和插件&lt;/h2&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm uninstall hexo-renderer-marked&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm i hexo-renderer-markdown-it&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm i markdown-it-katex&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;NexT主题-config-yml配置&quot;&gt;NexT主题_config.yml配置&lt;/h2&gt;
+&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;every_page:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;············&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;katex:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;attr&quot;&gt;enable:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;comment&quot;&gt;# See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;attr&quot;&gt;copy_tex:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://zhaocloud.work/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="HEXO" scheme="https://zhaocloud.work/tags/HEXO/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Stolz定理-数学分析</title>
+    <link href="https://zhaocloud.work/2023/10/Stolz%E5%AE%9A%E7%90%86-%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/"/>
+    <id>https://zhaocloud.work/2023/10/Stolz%E5%AE%9A%E7%90%86-%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/</id>
+    <published>2023-10-27T17:57:57.000Z</published>
+    <updated>2023-11-21T05:56:11.438Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;斯托尔茨（O.Stolz）定理&lt;/h1&gt;
+&lt;h3 id=&quot;数列的L’Hospital定理&quot;&gt;数列的L’Hospital定理&lt;/h3&gt;
+&lt;h2 id=&quot;定理一：-frac-infty-型&quot;&gt;定理一：(&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mfrac&gt;&lt;mo lspace=&quot;0em&quot; rspace=&quot;0em&quot;&gt;∗&lt;/mo&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∞&lt;/mi&gt;&lt;/mfrac&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;&#92;frac{*}{&#92;infty }&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1.0647em;vertical-align:-0.345em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7197em;&quot;&gt;&lt;span style=&quot;top:-2.655em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;∞&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.394em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;∗&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.345em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;型)&lt;/h2&gt;
+&lt;p&gt;设数列&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/msub&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;a_{n}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.5806em;vertical-align:-0.15em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.1514em;&quot;&gt;&lt;span style=&quot;top:-2.55em;margin-left:0em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;、&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/msub&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;b_{n}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.8444em;vertical-align:-0.15em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.1514em;&quot;&gt;&lt;span style=&quot;top:-2.55em;margin-left:0em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;满足：&lt;/p&gt;
+&lt;p&gt;①&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/msub&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;b_{n}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.8444em;vertical-align:-0.15em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.1514em;&quot;&gt;&lt;span style=&quot;top:-2.55em;margin-left:0em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;严格单调递增&lt;/p&gt;
+&lt;p&gt;②&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mrow&gt;&lt;mi&gt;lim&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∞&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;msub&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∞&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;&#92;lim_{n &#92;to &#92;infty } b_{n} =+  &#92;infty&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.8444em;vertical-align:-0.15em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop&quot;&gt;&lt;span class=&quot;mop&quot;&gt;lim&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.1514em;&quot;&gt;&lt;span style=&quot;top:-2.55em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mrel mtight&quot;&gt;→&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;∞&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.1667em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.1514em;&quot;&gt;&lt;span style=&quot;top:-2.55em;margin-left:0em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.6667em;vertical-align:-0.0833em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;∞&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;那么：&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mrow&gt;&lt;mi&gt;lim&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∞&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mfrac&gt;&lt;msub&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/msub&gt;&lt;msub&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/msub&gt;&lt;/mfrac&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;msub&gt;&lt;mrow&gt;&lt;mi&gt;lim&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∞&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mfrac&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/msub&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/msub&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;mrow&gt;&lt;mo fence=&quot;true&quot;&gt;(&lt;/mo&gt;&lt;mtext&gt;其中&lt;/mtext&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;mtext&gt;可为有限数，&lt;/mtext&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∞&lt;/mi&gt;&lt;mtext&gt;，&lt;/mtext&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∞&lt;/mi&gt;&lt;mo fence=&quot;true&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;&#92;lim_{n &#92;to &#92;infty } &#92;frac{a_{n}}{b_{n}} =&#92;lim_{n &#92;to &#92;infty } &#92;frac{a_{n+1}-a_{n}}{b_{n+1}-b_{n}}=L &#92;left (其中L可为有限数，+&#92;infty ，-&#92;infty  &#92;right )&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1.1566em;vertical-align:-0.4451em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop&quot;&gt;&lt;span class=&quot;mop&quot;&gt;lim&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.1514em;&quot;&gt;&lt;span style=&quot;top:-2.55em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mrel mtight&quot;&gt;→&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;∞&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.1667em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7115em;&quot;&gt;&lt;span style=&quot;top:-2.655em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.1645em;&quot;&gt;&lt;span style=&quot;top:-2.357em;margin-left:0em;margin-right:0.0714em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.5em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size3 size1 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.143em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.4101em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.1645em;&quot;&gt;&lt;span style=&quot;top:-2.357em;margin-left:0em;margin-right:0.0714em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.5em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size3 size1 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.143em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.4451em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1.3469em;vertical-align:-0.4868em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop&quot;&gt;&lt;span class=&quot;mop&quot;&gt;lim&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.1514em;&quot;&gt;&lt;span style=&quot;top:-2.55em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mrel mtight&quot;&gt;→&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;∞&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.1667em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8601em;&quot;&gt;&lt;span style=&quot;top:-2.655em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.3173em;&quot;&gt;&lt;span style=&quot;top:-2.357em;margin-left:0em;margin-right:0.0714em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.5em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size3 size1 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mbin mtight&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.2025em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mbin mtight&quot;&gt;−&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.1645em;&quot;&gt;&lt;span style=&quot;top:-2.357em;margin-left:0em;margin-right:0.0714em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.5em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size3 size1 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.143em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.4518em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.3173em;&quot;&gt;&lt;span style=&quot;top:-2.357em;margin-left:0em;margin-right:0.0714em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.5em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size3 size1 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mbin mtight&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.2025em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mbin mtight&quot;&gt;−&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.1645em;&quot;&gt;&lt;span style=&quot;top:-2.357em;margin-left:0em;margin-right:0.0714em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.5em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size3 size1 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.143em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.4868em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.1667em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;minner&quot;&gt;&lt;span class=&quot;mopen delimcenter&quot; style=&quot;top:0em;&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord cjk_fallback&quot;&gt;其中&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;mord cjk_fallback&quot;&gt;可为有限数，&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;∞&lt;/span&gt;&lt;span class=&quot;mord cjk_fallback&quot;&gt;，&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;−&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;∞&lt;/span&gt;&lt;span class=&quot;mclose delimcenter&quot; style=&quot;top:0em;&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;定理二：-frac-0-0-型&quot;&gt;定理二：(&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mfrac&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mfrac&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;&#92;frac{0}{0}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1.1901em;vertical-align:-0.345em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8451em;&quot;&gt;&lt;span style=&quot;top:-2.655em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.394em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.345em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;型)&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="数学" scheme="https://zhaocloud.work/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学分析" scheme="https://zhaocloud.work/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>夹逼定理-数分例题</title>
+    <link href="https://zhaocloud.work/2023/10/%E5%A4%B9%E9%80%BC%E5%AE%9A%E7%90%86-%E4%BE%8B%E9%A2%98/"/>
+    <id>https://zhaocloud.work/2023/10/%E5%A4%B9%E9%80%BC%E5%AE%9A%E7%90%86-%E4%BE%8B%E9%A2%98/</id>
+    <published>2023-10-27T14:53:51.000Z</published>
+    <updated>2023-11-21T05:55:35.529Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;一道数列极限&lt;/h1&gt;
+&lt;h2 id=&quot;题目如下：&quot;&gt;题目如下：&lt;/h2&gt;
+&lt;p&gt;求下列数列极限：&lt;/p&gt;
+&lt;p class=&quot;katex-block math-block&quot;&gt;&lt;span class=&quot;katex-display&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;munder&gt;&lt;mrow&gt;&lt;mi&gt;lim&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∞&lt;/mi&gt;&lt;/mrow&gt;&lt;/munder&gt;&lt;mrow&gt;&lt;mo fence=&quot;true&quot;&gt;(&lt;/mo&gt;&lt;mfrac&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mfrac&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mo&gt;⋯&lt;/mo&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mfrac&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;mo fence=&quot;true&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;&#92;lim_{n &#92;to &#92;infty} &#92;left ( &#92;frac{1}{n^{3}+1 }+ &#92;frac{4}{n^{3}+2 }+&#92;dots+&#92;frac{n^{2} }{n^{3}+n } &#92;right )
+&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:2.4411em;vertical-align:-0.95em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop op-limits&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.6944em;&quot;&gt;&lt;span style=&quot;top:-2.4em;margin-left:0em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mrel mtight&quot;&gt;→&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;∞&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;mop&quot;&gt;lim&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.1667em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;minner&quot;&gt;&lt;span class=&quot;mopen delimcenter&quot; style=&quot;top:0em;&quot;&gt;&lt;span class=&quot;delimsizing size3&quot;&gt;(&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.3214em;&quot;&gt;&lt;span style=&quot;top:-2.314em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7401em;&quot;&gt;&lt;span style=&quot;top:-2.989em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.677em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7693em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.3214em;&quot;&gt;&lt;span style=&quot;top:-2.314em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7401em;&quot;&gt;&lt;span style=&quot;top:-2.989em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.677em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;4&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7693em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;minner&quot;&gt;⋯&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.4911em;&quot;&gt;&lt;span style=&quot;top:-2.314em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7401em;&quot;&gt;&lt;span style=&quot;top:-2.989em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.677em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8141em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7693em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose delimcenter&quot; style=&quot;top:0em;&quot;&gt;&lt;span class=&quot;delimsizing size3&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;解答：&quot;&gt;解答：&lt;/h2&gt;
+&lt;h3 id=&quot;第一步：&quot;&gt;第一步：&lt;/h3&gt;
+&lt;p class=&quot;katex-block math-block&quot;&gt;&lt;span class=&quot;katex-display&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;munder&gt;&lt;mrow&gt;&lt;mi&gt;lim&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∞&lt;/mi&gt;&lt;/mrow&gt;&lt;/munder&gt;&lt;mrow&gt;&lt;mo fence=&quot;true&quot;&gt;(&lt;/mo&gt;&lt;mfrac&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mfrac&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mo&gt;⋯&lt;/mo&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mfrac&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;mo fence=&quot;true&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;mo&gt;&amp;gt;&lt;/mo&gt;&lt;mspace linebreak=&quot;newline&quot;&gt;&lt;/mspace&gt;&lt;munder&gt;&lt;mrow&gt;&lt;mi&gt;lim&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∞&lt;/mi&gt;&lt;/mrow&gt;&lt;/munder&gt;&lt;mrow&gt;&lt;mo fence=&quot;true&quot;&gt;(&lt;/mo&gt;&lt;mfrac&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mfrac&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mo&gt;⋯&lt;/mo&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mfrac&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;mo fence=&quot;true&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mspace linebreak=&quot;newline&quot;&gt;&lt;/mspace&gt;&lt;munder&gt;&lt;mrow&gt;&lt;mi&gt;lim&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∞&lt;/mi&gt;&lt;/mrow&gt;&lt;/munder&gt;&lt;mrow&gt;&lt;mo fence=&quot;true&quot;&gt;(&lt;/mo&gt;&lt;mfrac&gt;&lt;mrow&gt;&lt;mfrac&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mn&gt;6&lt;/mn&gt;&lt;/mfrac&gt;&lt;mo&gt;×&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;×&lt;/mo&gt;&lt;mrow&gt;&lt;mo fence=&quot;true&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo fence=&quot;true&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;mo&gt;×&lt;/mo&gt;&lt;mrow&gt;&lt;mo fence=&quot;true&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo fence=&quot;true&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;mo fence=&quot;true&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mfrac&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/mfrac&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;&#92;lim_{n &#92;to &#92;infty} &#92;left ( &#92;frac{1}{n^{3}+1 }+ &#92;frac{4}{n^{3}+2 }+&#92;dots+&#92;frac{n^{2} }{n^{3}+n } &#92;right )&amp;gt;&#92;&#92;
+&#92;lim_{n &#92;to &#92;infty} &#92;left ( &#92;frac{1}{n^{3}+n }+ &#92;frac{4}{n^{3}+n }+&#92;dots+&#92;frac{n^{2} }{n^{3}+n } &#92;right )=&#92;&#92;
+&#92;lim_{n &#92;to &#92;infty} &#92;left ( &#92;frac{&#92;frac{1}{6}&#92;times n&#92;times &#92;left ( n+1 &#92;right ) &#92;times &#92;left ( 2n+1 &#92;right )  }{n^{3}+n } &#92;right )=&#92;frac{1}{3}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:2.4411em;vertical-align:-0.95em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop op-limits&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.6944em;&quot;&gt;&lt;span style=&quot;top:-2.4em;margin-left:0em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mrel mtight&quot;&gt;→&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;∞&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;mop&quot;&gt;lim&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.1667em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;minner&quot;&gt;&lt;span class=&quot;mopen delimcenter&quot; style=&quot;top:0em;&quot;&gt;&lt;span class=&quot;delimsizing size3&quot;&gt;(&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.3214em;&quot;&gt;&lt;span style=&quot;top:-2.314em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7401em;&quot;&gt;&lt;span style=&quot;top:-2.989em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.677em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7693em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.3214em;&quot;&gt;&lt;span style=&quot;top:-2.314em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7401em;&quot;&gt;&lt;span style=&quot;top:-2.989em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.677em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;4&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7693em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;minner&quot;&gt;⋯&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.4911em;&quot;&gt;&lt;span style=&quot;top:-2.314em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7401em;&quot;&gt;&lt;span style=&quot;top:-2.989em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.677em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8141em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7693em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose delimcenter&quot; style=&quot;top:0em;&quot;&gt;&lt;span class=&quot;delimsizing size3&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace newline&quot;&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:2.4411em;vertical-align:-0.95em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop op-limits&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.6944em;&quot;&gt;&lt;span style=&quot;top:-2.4em;margin-left:0em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mrel mtight&quot;&gt;→&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;∞&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;mop&quot;&gt;lim&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.1667em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;minner&quot;&gt;&lt;span class=&quot;mopen delimcenter&quot; style=&quot;top:0em;&quot;&gt;&lt;span class=&quot;delimsizing size3&quot;&gt;(&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.3214em;&quot;&gt;&lt;span style=&quot;top:-2.314em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7401em;&quot;&gt;&lt;span style=&quot;top:-2.989em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.677em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7693em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.3214em;&quot;&gt;&lt;span style=&quot;top:-2.314em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7401em;&quot;&gt;&lt;span style=&quot;top:-2.989em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.677em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;4&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7693em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;minner&quot;&gt;⋯&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.4911em;&quot;&gt;&lt;span style=&quot;top:-2.314em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7401em;&quot;&gt;&lt;span style=&quot;top:-2.989em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.677em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8141em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7693em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose delimcenter&quot; style=&quot;top:0em;&quot;&gt;&lt;span class=&quot;delimsizing size3&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace newline&quot;&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:2.5301em;vertical-align:-0.95em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop op-limits&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.6944em;&quot;&gt;&lt;span style=&quot;top:-2.4em;margin-left:0em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathnormal mtight&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mrel mtight&quot;&gt;→&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;∞&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;mop&quot;&gt;lim&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.1667em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;minner&quot;&gt;&lt;span class=&quot;mopen delimcenter&quot; style=&quot;top:0em;&quot;&gt;&lt;span class=&quot;delimsizing size3&quot;&gt;(&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.5801em;&quot;&gt;&lt;span style=&quot;top:-2.314em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7401em;&quot;&gt;&lt;span style=&quot;top:-2.989em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.735em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8451em;&quot;&gt;&lt;span style=&quot;top:-2.655em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;6&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.394em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.345em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;×&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;×&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;minner&quot;&gt;&lt;span class=&quot;mopen delimcenter&quot; style=&quot;top:0em;&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mclose delimcenter&quot; style=&quot;top:0em;&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;×&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;minner&quot;&gt;&lt;span class=&quot;mopen delimcenter&quot; style=&quot;top:0em;&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mclose delimcenter&quot; style=&quot;top:0em;&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7693em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose delimcenter&quot; style=&quot;top:0em;&quot;&gt;&lt;span class=&quot;delimsizing size3&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:2.0074em;vertical-align:-0.686em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.3214em;&quot;&gt;&lt;span style=&quot;top:-2.314em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.677em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.686em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数学" scheme="https://zhaocloud.work/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学分析" scheme="https://zhaocloud.work/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>印象北京</title>
+    <link href="https://zhaocloud.work/2023/10/%E5%8D%B0%E8%B1%A1%E5%8C%97%E4%BA%AC/"/>
+    <id>https://zhaocloud.work/2023/10/%E5%8D%B0%E8%B1%A1%E5%8C%97%E4%BA%AC/</id>
+    <published>2023-10-24T14:08:00.000Z</published>
+    <updated>2023-10-24T14:30:05.437Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;北京的天&lt;/h1&gt;
+&lt;h5 id=&quot;晴空&quot;&gt;晴空&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;/images/posts/1.jpg&quot; alt=&quot;晴空&quot; title=&quot;晴空&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="生活" scheme="https://zhaocloud.work/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="北京" scheme="https://zhaocloud.work/tags/%E5%8C%97%E4%BA%AC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>明明的随机数-PTA</title>
+    <link href="https://zhaocloud.work/2023/10/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0-PTA/"/>
+    <id>https://zhaocloud.work/2023/10/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0-PTA/</id>
+    <published>2023-10-24T11:32:36.000Z</published>
+    <updated>2023-11-21T05:55:03.969Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;北邮VC++实验题 明明的随机数&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述：&quot;&gt;题目描述：&lt;/h2&gt;
+&lt;p&gt;明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用 计算机生成了N个1到1000之间的随机整数（N≤100），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然 后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    
+    <category term="PTA" scheme="https://zhaocloud.work/tags/PTA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>校园歌手大赛新规则-PTA</title>
+    <link href="https://zhaocloud.work/2023/10/%E6%A0%A1%E5%9B%AD%E6%AD%8C%E6%89%8B%E5%A4%A7%E8%B5%9B%E6%96%B0%E8%A7%84%E5%88%99-PTA/"/>
+    <id>https://zhaocloud.work/2023/10/%E6%A0%A1%E5%9B%AD%E6%AD%8C%E6%89%8B%E5%A4%A7%E8%B5%9B%E6%96%B0%E8%A7%84%E5%88%99-PTA/</id>
+    <published>2023-10-24T11:32:02.000Z</published>
+    <updated>2023-11-21T06:00:05.994Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;北邮VC++实验题 校园歌手大赛新规则&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述：&quot;&gt;题目描述：&lt;/h2&gt;
+&lt;p&gt;8号选手参加校园歌手大赛，编程读入20个整数(0 - 100之间)并存入数组中做为评委打分。最后得分计算规则：先计算20个数的平均分，然后去掉所有与平均分相差10分以上的分数，最后把剩下的分数再取平均做为最后得分。如果没有剩下分数，此次打分无效。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    
+    <category term="PTA" scheme="https://zhaocloud.work/tags/PTA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>水果颜色-PTA</title>
+    <link href="https://zhaocloud.work/2023/10/%E6%B0%B4%E6%9E%9C%E9%A2%9C%E8%89%B2-PTA/"/>
+    <id>https://zhaocloud.work/2023/10/%E6%B0%B4%E6%9E%9C%E9%A2%9C%E8%89%B2-PTA/</id>
+    <published>2023-10-24T11:31:35.000Z</published>
+    <updated>2023-11-21T05:58:52.058Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;北邮VC++实验题 判别水果颜色&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述：&quot;&gt;题目描述：&lt;/h2&gt;
+&lt;p&gt;现在有一堆水果，苹果红色，香蕉黄色，西瓜绿色，其余紫色。&lt;br&gt;
+当输入一种水果名字，要输入其对应的颜色。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    
+    <category term="PTA" scheme="https://zhaocloud.work/tags/PTA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>十六进制转二进制-PTA</title>
+    <link href="https://zhaocloud.work/2023/10/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E8%BD%AC%E4%BA%8C%E8%BF%9B%E5%88%B6-PTA/"/>
+    <id>https://zhaocloud.work/2023/10/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E8%BD%AC%E4%BA%8C%E8%BF%9B%E5%88%B6-PTA/</id>
+    <published>2023-10-24T11:30:30.000Z</published>
+    <updated>2023-11-21T05:58:28.090Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;北邮VC++实验题 将十六进制数转换为二进制数&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述：&quot;&gt;题目描述：&lt;/h2&gt;
+&lt;p&gt;将十六进制数转换为二进制数。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    
+    <category term="PTA" scheme="https://zhaocloud.work/tags/PTA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>破解简单密码-PTA</title>
+    <link href="https://zhaocloud.work/2023/10/%E7%A0%B4%E8%A7%A3%E7%AE%80%E5%8D%95%E5%AF%86%E7%A0%81-PTA/"/>
+    <id>https://zhaocloud.work/2023/10/%E7%A0%B4%E8%A7%A3%E7%AE%80%E5%8D%95%E5%AF%86%E7%A0%81-PTA/</id>
+    <published>2023-10-24T11:29:47.000Z</published>
+    <updated>2023-11-21T05:57:17.804Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;北邮VC++实验题 破解简单密码&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述：&quot;&gt;题目描述：&lt;/h2&gt;
+&lt;p&gt;假设老王原来一个BBS上的密码为zvbo941987,为了方便记忆，他通过一种算法把这个密码变换成YUANzi1987，这个密码是他的名字和出生年份，怎么忘都忘不了，而且可以明目张胆地放在显眼的地方而不被别人知道真正的密码。&lt;br&gt;
+他是这么变换的，大家都知道手机上的字母： 1–1， abc–2, def–3, ghi–4, jkl–5, mno–6, pqrs–7, tuv–8 wxyz–9, 0–0,就这么简单，老王把密码中出现的小写字母都变成对应的数字，数字和其他的符号都不做变换，声明：密码中没有空格，而密码中出现的大写字母则边成小写之后往后移一位，如：X，先边成小写，再往后移一位，不就是y了嘛，简单吧。记住，z往后移是a哦。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    
+    <category term="PTA" scheme="https://zhaocloud.work/tags/PTA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>字母统计-PTA</title>
+    <link href="https://zhaocloud.work/2023/10/%E5%AD%97%E6%AF%8D%E7%BB%9F%E8%AE%A1-PTA/"/>
+    <id>https://zhaocloud.work/2023/10/%E5%AD%97%E6%AF%8D%E7%BB%9F%E8%AE%A1-PTA/</id>
+    <published>2023-10-24T11:29:15.000Z</published>
+    <updated>2023-11-21T06:00:49.255Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;北邮VC++实验题 字母统计&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述：&quot;&gt;题目描述：&lt;/h2&gt;
+&lt;p&gt;从键盘输入一行或几行字符串，行数由键盘输入，一行字符串用字符数组存储。请统计所输入的字符串中26个字母（不区分大小写）出现的次数，并将出现次数非零的字母统计结果输出到屏幕上，格式参见样例。如果没有字母，请输出字符串中无字母。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    
+    <category term="PTA" scheme="https://zhaocloud.work/tags/PTA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>结构数组的使用-PTA</title>
+    <link href="https://zhaocloud.work/2023/10/%E7%BB%93%E6%9E%84%E6%95%B0%E7%BB%84%E7%9A%84%E4%BD%BF%E7%94%A8-PTA/"/>
+    <id>https://zhaocloud.work/2023/10/%E7%BB%93%E6%9E%84%E6%95%B0%E7%BB%84%E7%9A%84%E4%BD%BF%E7%94%A8-PTA/</id>
+    <published>2023-10-24T11:28:05.000Z</published>
+    <updated>2023-11-21T05:56:40.657Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;北邮VC++实验题 结构数组使用&lt;/h1&gt;
+&lt;h2 id=&quot;题目描述：&quot;&gt;题目描述：&lt;/h2&gt;
+&lt;p&gt;编写一个记录5个学生的姓名、性别、年龄和学号的程序，要求使用结构数组表示学生信息，用for循环获得键盘输入的学生记录的数据，所有数据输入完毕后，将5个学生的信息在屏幕上输出。&lt;/p&gt;
+&lt;h2 id=&quot;输入格式：&quot;&gt;输入格式：&lt;/h2&gt;
+&lt;p&gt;按表格行列格式输出，每行输出一个学生的信息，按照姓名、性别、年龄、学号的顺序，各列信息左对齐，各信息占10位。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程" scheme="https://zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="C++" scheme="https://zhaocloud.work/tags/C/"/>
+    
+    <category term="PTA" scheme="https://zhaocloud.work/tags/PTA/"/>
+    
+  </entry>
+  
+</feed>
