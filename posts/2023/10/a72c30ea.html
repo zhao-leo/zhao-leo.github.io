@@ -20,17 +20,21 @@
     var CONFIG = {"hostname":"zhaocloud.work","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="爱摸鱼、宅宿舍的小男娘~（bushi）">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zhao-Leo">
-<meta property="og:url" content="https://zhaocloud.work/tags/C-plus-plus/index.html">
+  <meta name="description" content="北邮VC++实验题 字母统计 题目描述： 从键盘输入一行或几行字符串，行数由键盘输入，一行字符串用字符数组存储。请统计所输入的字符串中26个字母（不区分大小写）出现的次数，并将出现次数非零的字母统计结果输出到屏幕上，格式参见样例。如果没有字母，请输出字符串中无字母。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字母统计-PTA">
+<meta property="og:url" content="https://zhaocloud.work/posts/2023/10/a72c30ea.html">
 <meta property="og:site_name" content="Zhao-Leo">
-<meta property="og:description" content="爱摸鱼、宅宿舍的小男娘~（bushi）">
+<meta property="og:description" content="北邮VC++实验题 字母统计 题目描述： 从键盘输入一行或几行字符串，行数由键盘输入，一行字符串用字符数组存储。请统计所输入的字符串中26个字母（不区分大小写）出现的次数，并将出现次数非零的字母统计结果输出到屏幕上，格式参见样例。如果没有字母，请输出字符串中无字母。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-24T11:29:15.000Z">
+<meta property="article:modified_time" content="2024-05-23T17:03:12.220Z">
 <meta property="article:author" content="Zryake">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="PTA">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://zhaocloud.work/tags/C-plus-plus/">
+<link rel="canonical" href="https://zhaocloud.work/posts/2023/10/a72c30ea.html">
 
 
 <script id="page-configurations">
@@ -38,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: C++ | Zhao-Leo</title>
+  <title>字母统计-PTA | Zhao-Leo</title>
   
 
 
@@ -189,231 +193,129 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">C++
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhaocloud.work/posts/2023/10/a72c30ea.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zryake">
+      <meta itemprop="description" content="爱摸鱼、宅宿舍的小男娘~（bushi）">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao-Leo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          字母统计-PTA
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-24 19:29:15" itemprop="dateCreated datePublished" datetime="2023-10-24T19:29:15+08:00">2023-10-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-05-24 01:03:12" itemprop="dateModified" datetime="2024-05-24T01:03:12+08:00">2024-05-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-11-28T13:19:10+08:00"
-              content="2023-11-28">
-          11-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2023/11/dc8c621d.html" itemprop="url">
-            <span itemprop="name">VScode多文件编译</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-11-21T13:45:04+08:00"
-              content="2023-11-21">
-          11-21
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2023/11/a562d873.html" itemprop="url">
-            <span itemprop="name">方块转换 Transformations-Luogu</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-11-07T17:33:26+08:00"
-              content="2023-11-07">
-          11-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2023/11/c0bbcf2.html" itemprop="url">
-            <span itemprop="name">老王赛马-PTA</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-10-24T19:32:36+08:00"
-              content="2023-10-24">
-          10-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2023/10/502ae66a.html" itemprop="url">
-            <span itemprop="name">明明的随机数-PTA</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-10-24T19:32:02+08:00"
-              content="2023-10-24">
-          10-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2023/10/f343d2f0.html" itemprop="url">
-            <span itemprop="name">校园歌手大赛新规则-PTA</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-10-24T19:31:35+08:00"
-              content="2023-10-24">
-          10-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2023/10/cab54e9e.html" itemprop="url">
-            <span itemprop="name">水果颜色-PTA</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-10-24T19:30:30+08:00"
-              content="2023-10-24">
-          10-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2023/10/4f4fb8d7.html" itemprop="url">
-            <span itemprop="name">十六进制转二进制-PTA</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-10-24T19:29:47+08:00"
-              content="2023-10-24">
-          10-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2023/10/8f754712.html" itemprop="url">
-            <span itemprop="name">破解简单密码-PTA</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-10-24T19:29:15+08:00"
-              content="2023-10-24">
-          10-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2023/10/a72c30ea.html" itemprop="url">
-            <span itemprop="name">字母统计-PTA</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-10-24T19:28:05+08:00"
-              content="2023-10-24">
-          10-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2023/10/652936fa.html" itemprop="url">
-            <span itemprop="name">结构数组的使用-PTA</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        <h1>北邮VC++实验题 字母统计</h1>
+<h2 id="题目描述：">题目描述：</h2>
+<p>从键盘输入一行或几行字符串，行数由键盘输入，一行字符串用字符数组存储。请统计所输入的字符串中26个字母（不区分大小写）出现的次数，并将出现次数非零的字母统计结果输出到屏幕上，格式参见样例。如果没有字母，请输出字符串中无字母。</p>
+<span id="more"></span>
+<h2 id="提示：">提示：</h2>
+<p>注意：输入行数后，换行再输入字符串。</p>
+<h3 id="输入样例1">输入样例1:</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">I come quickly !</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例1">输出样例1:</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">c:2</span><br><span class="line">e:1</span><br><span class="line">i:2</span><br><span class="line">k:1</span><br><span class="line">l:1</span><br><span class="line">m:1</span><br><span class="line">o:1</span><br><span class="line">q:1</span><br><span class="line">u:1</span><br><span class="line">y:1</span><br></pre></td></tr></table></figure>
+<h3 id="输入样例2">输入样例2:</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例2">输出样例2:</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串中无字母。</span><br></pre></td></tr></table></figure>
+<h1>解答：</h1>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;iomanip&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a[27]=&#123;0&#125;;</span><br><span class="line">    char s[500];</span><br><span class="line">    int n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    cin.get();</span><br><span class="line">    for(int i=1;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int z;</span><br><span class="line">        //cin.get();</span><br><span class="line">    cin.getline(s,500);</span><br><span class="line">    z=strlen(s);</span><br><span class="line">    for(int i=0;i&lt;=z;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(s[i]&gt;=&#x27;a&#x27;&amp;&amp; s[i]&lt;=&#x27;z&#x27;)</span><br><span class="line">        &#123;</span><br><span class="line">            a[s[i]-&#x27;a&#x27;]++;</span><br><span class="line">        &#125;</span><br><span class="line">        if(s[i]&gt;=&#x27;A&#x27;&amp;&amp; s[i]&lt;=&#x27;Z&#x27;)</span><br><span class="line">        &#123;</span><br><span class="line">            a[s[i]-&#x27;A&#x27;]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">        bool bon=false;</span><br><span class="line">    for(int i=0;i&lt;26;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(a[i]!=0)&#123;cout&lt;&lt;char(i+&#x27;a&#x27;)&lt;&lt;&quot;:&quot;&lt;&lt;a[i]&lt;&lt;endl;bon=true;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(bon==false)cout&lt;&lt;&quot;字符串中无字母。&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/C-plus-plus/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+              <a href="/tags/PTA/" rel="tag"><i class="fa fa-tag"></i> PTA</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/2023/10/652936fa.html" rel="prev" title="结构数组的使用-PTA">
+      <i class="fa fa-chevron-left"></i> 结构数组的使用-PTA
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/2023/10/8f754712.html" rel="next" title="破解简单密码-PTA">
+      破解简单密码-PTA <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -466,6 +368,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">北邮VC++实验题 字母统计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="nav-text">题目描述：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA%EF%BC%9A"><span class="nav-text">提示：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B1"><span class="nav-text">输入样例1:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B1"><span class="nav-text">输出样例1:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B2"><span class="nav-text">输入样例2:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B2"><span class="nav-text">输出样例2:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">解答：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>HEXO图片的插入</title>
-    <url>/2023/11/HEXO%E5%9B%BE%E7%89%87%E7%9A%84%E6%8F%92%E5%85%A5/</url>
+    <url>/posts/2023/11/7c28a84.html</url>
     <content><![CDATA[<p>在Hexo的目录source中创建一个图片文件夹，例如images</p>
 <p>把你要插入的图片文件放到该目录下面，在你的文章中正常使用markdown的语法插入图片即可</p>
 <p>例如：</p>
@@ -17,7 +17,7 @@
   </entry>
   <entry>
     <title>HEXO搜索配置</title>
-    <url>/2023/10/HEXO%E6%90%9C%E7%B4%A2%E9%85%8D%E7%BD%AE/</url>
+    <url>/posts/2023/10/24243c51.html</url>
     <content><![CDATA[<h1>HEXO搜索配置</h1>
 <h2 id="在HEXO的-config-yml后添加如下字段">在HEXO的_config.yml后添加如下字段</h2>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">1000</span></span><br></pre></td></tr></table></figure>
@@ -34,25 +34,8 @@
       </tags>
   </entry>
   <entry>
-    <title>HEXO添加视频</title>
-    <url>/2023/11/HEXO%E6%B7%BB%E5%8A%A0%E8%A7%86%E9%A2%91/</url>
-    <content><![CDATA[<h1>HEXO添加视频</h1>
-<p>这里给出样例</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% raw %&#125;</span><br><span class="line">&lt;div style=&quot;position: relative; width: 100%; height: 0; padding-bottom: 75%;&quot;&gt;</span><br><span class="line">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=875606884&amp;bvid=BV1oN4y1S7AB&amp;cid=1322856088&amp;p=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot; style=&quot;position: absolute; width: 100%; height: 100%; Left: 0; top: 0;&quot; &gt;&lt;/iframe&gt;&lt;/div&gt;</span><br><span class="line">&#123;% endraw %&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
-<iframe src="//player.bilibili.com/player.html?aid=875606884&bvid=BV1oN4y1S7AB&cid=1322856088&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; Left: 0; top: 0;" ></iframe></div>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>HEXO</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How To Play Unciv On Your Android Device</title>
-    <url>/2024/03/How-To-Play-Unciv-By-F-Droid/</url>
+    <url>/posts/2024/03/8048b551.html</url>
     <content><![CDATA[<h1>如何在Android设备上玩Unciv</h1>
 <h2 id="方式1：直接访问Github">方式1：直接访问Github</h2>
 <h3 id="点击下载，截至本文发布时最新版本-Download-Here">点击下载，截至本文发布时最新版本 <a href="https://github.com/yairm210/Unciv/releases/download/4.10.17-patch1/Unciv-signed.apk">Download Here</a></h3>
@@ -75,8 +58,228 @@
       </tags>
   </entry>
   <entry>
+    <title>HEXO添加视频</title>
+    <url>/posts/2023/11/d9d2e025.html</url>
+    <content><![CDATA[<h1>HEXO添加视频</h1>
+<p>这里给出样例</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% raw %&#125;</span><br><span class="line">&lt;div style=&quot;position: relative; width: 100%; height: 0; padding-bottom: 75%;&quot;&gt;</span><br><span class="line">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=875606884&amp;bvid=BV1oN4y1S7AB&amp;cid=1322856088&amp;p=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot; style=&quot;position: absolute; width: 100%; height: 100%; Left: 0; top: 0;&quot; &gt;&lt;/iframe&gt;&lt;/div&gt;</span><br><span class="line">&#123;% endraw %&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
+<iframe src="//player.bilibili.com/player.html?aid=875606884&bvid=BV1oN4y1S7AB&cid=1322856088&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; Left: 0; top: 0;" ></iframe></div>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>HEXO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>十六进制转二进制-PTA</title>
+    <url>/posts/2023/10/4f4fb8d7.html</url>
+    <content><![CDATA[<h1>北邮VC++实验题 将十六进制数转换为二进制数</h1>
+<h2 id="题目描述：">题目描述：</h2>
+<p>将十六进制数转换为二进制数。</p>
+<span id="more"></span>
+<h2 id="输入格式：">输入格式：</h2>
+<p>输入一个16进制数。</p>
+<h2 id="输出格式：">输出格式：</h2>
+<p>输出二进制数。</p>
+<h3 id="输入样例">输入样例:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">23</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例">输出样例:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">100011</span><br></pre></td></tr></table></figure>
+<h1>解答：</h1>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="comment">//十六进制转二进制</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,i=<span class="number">0</span>,s[<span class="number">10000</span>];</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%x&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">while</span>(n!=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        s[i]=n%<span class="number">2</span>;</span><br><span class="line">        <span class="comment">//printf(&quot;%d\n&quot;,s[i]);</span></span><br><span class="line">        n/=<span class="number">2</span>;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=i<span class="number">-1</span>;j&gt;=<span class="number">0</span>;j--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,s[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;0&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>PTA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个有趣的python包——PySSTV</title>
+    <url>/posts/2024/02/7c752a78.html</url>
+    <content><![CDATA[<h1>一个有趣的python包——PySSTV</h1>
+<h2 id="功能：">功能：</h2>
+<p>从 PIL 能够打开的任何图像（PNG、JPEG、GIF 等）生成 SSTV 调制 WAV 文件。</p>
+<h2 id="用法：">用法：</h2>
+<span id="more"></span>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">positional arguments:</span><br><span class="line">  image.png             input image file name</span><br><span class="line">  output.wav            output WAV file name</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help            show this help message and exit</span><br><span class="line">  --mode &#123;MartinM1,MartinM2,ScottieS1,ScottieS2,Robot36,PasokonP3,PasokonP5,PasokonP7,PD90,PD120D160,PD180,PD240,Robot8BW,Robot24BW&#125;</span><br><span class="line">                        image mode (default: Martin M1)</span><br><span class="line">  --rate RATE           sampling rate (default: 48000)</span><br><span class="line">  --bits BITS           bits per sample (default: 16)</span><br><span class="line">  --vox                 add VOX tones at the beginning</span><br><span class="line">  --fskid FSKID         add FSKID at the end</span><br><span class="line">  --chan CHAN           number of channels (default: mono)</span><br><span class="line">  --resize              resize the image to the correct size</span><br><span class="line">  --keep-aspect-ratio   keep the original aspect ratio when resizing </span><br><span class="line">                            (and cut off excess pixels)</span><br><span class="line">  --keep-aspect         keep the original aspect ratio when resizing </span><br><span class="line">                            (not cut off excess pixels)</span><br><span class="line">  --resample            which resampling filter to use for resizing</span><br><span class="line">                            (see Pillow documentation)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>HAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>印象北京</title>
+    <url>/posts/2023/10/9ea7b314.html</url>
+    <content><![CDATA[<h1>北京的天</h1>
+<h5 id="晴空">晴空</h5>
+<p><img src="/images/posts/1.jpg" alt="晴空" title="晴空"></p>
+<span id="more"></span>
+<h5 id="傍晚">傍晚</h5>
+<p><img src="/images/posts/2.jpg" alt="傍晚" title="傍晚"></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>北京</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>字母统计-PTA</title>
+    <url>/posts/2023/10/a72c30ea.html</url>
+    <content><![CDATA[<h1>北邮VC++实验题 字母统计</h1>
+<h2 id="题目描述：">题目描述：</h2>
+<p>从键盘输入一行或几行字符串，行数由键盘输入，一行字符串用字符数组存储。请统计所输入的字符串中26个字母（不区分大小写）出现的次数，并将出现次数非零的字母统计结果输出到屏幕上，格式参见样例。如果没有字母，请输出字符串中无字母。</p>
+<span id="more"></span>
+<h2 id="提示：">提示：</h2>
+<p>注意：输入行数后，换行再输入字符串。</p>
+<h3 id="输入样例1">输入样例1:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">I come quickly !</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例1">输出样例1:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">c:2</span><br><span class="line">e:1</span><br><span class="line">i:2</span><br><span class="line">k:1</span><br><span class="line">l:1</span><br><span class="line">m:1</span><br><span class="line">o:1</span><br><span class="line">q:1</span><br><span class="line">u:1</span><br><span class="line">y:1</span><br></pre></td></tr></table></figure>
+<h3 id="输入样例2">输入样例2:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例2">输出样例2:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">字符串中无字母。</span><br></pre></td></tr></table></figure>
+<h1>解答：</h1>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;iomanip&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a[27]=&#123;0&#125;;</span><br><span class="line">    char s[500];</span><br><span class="line">    int n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    cin.get();</span><br><span class="line">    for(int i=1;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int z;</span><br><span class="line">        //cin.get();</span><br><span class="line">    cin.getline(s,500);</span><br><span class="line">    z=strlen(s);</span><br><span class="line">    for(int i=0;i&lt;=z;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(s[i]&gt;=&#x27;a&#x27;&amp;&amp; s[i]&lt;=&#x27;z&#x27;)</span><br><span class="line">        &#123;</span><br><span class="line">            a[s[i]-&#x27;a&#x27;]++;</span><br><span class="line">        &#125;</span><br><span class="line">        if(s[i]&gt;=&#x27;A&#x27;&amp;&amp; s[i]&lt;=&#x27;Z&#x27;)</span><br><span class="line">        &#123;</span><br><span class="line">            a[s[i]-&#x27;A&#x27;]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">        bool bon=false;</span><br><span class="line">    for(int i=0;i&lt;26;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(a[i]!=0)&#123;cout&lt;&lt;char(i+&#x27;a&#x27;)&lt;&lt;&quot;:&quot;&lt;&lt;a[i]&lt;&lt;endl;bon=true;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(bon==false)cout&lt;&lt;&quot;字符串中无字母。&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>PTA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VScode多文件编译</title>
+    <url>/posts/2023/11/dc8c621d.html</url>
+    <content><![CDATA[<h1>tasks.json</h1>
+<span id="more"></span>
+<p>关键在通配符上：</p>
+<p>{fileDirname}是指文件所在的文件夹</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;tasks&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cppbuild&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;C/C++: g++.exe 生成活动文件&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;C:\\Program Files (x86)\\mingw64\\bin\\g++.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;-fdiagnostics-color=always&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-g&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;\\*.cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-o&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;options&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;fileDirname&#125;&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;problemMatcher&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;$gcc&quot;</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;group&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;kind&quot;</span><span class="punctuation">:</span> <span class="string">&quot;build&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;isDefault&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">            <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;detail&quot;</span><span class="punctuation">:</span> <span class="string">&quot;调试器生成的任务。&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2.0.0&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>整活向——SSTV和音乐混响</title>
+    <url>/posts/2024/02/75b62154.html</url>
+    <content><![CDATA[<h1>整活向——SSTV和音乐混响</h1>
+<h3 id="把SSTV生成的音频和歌曲混流在一起，试试接收效果。">把SSTV生成的音频和歌曲混流在一起，试试接收效果。</h3>
+<h3 id="PD120">PD120</h3>
+<span id="more"></span>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=1500258009&bvid=BV1bU421d7rw&cid=1434607435&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></div>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>GAME</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>方块转换 Transformations-Luogu</title>
+    <url>/posts/2023/11/a562d873.html</url>
+    <content><![CDATA[<h1>[USACO1.2] 方块转换 Transformations</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>一块 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n \times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mbin">×</span><span class="mord mathit">n</span></span></span></span> 正方形的黑白瓦片的图案要被转换成新的正方形图案。写一个程序来找出将原始图案按照以下列转换方法转换成新图案的最小方式：</p>
+<ul>
+<li>
+<p>转 90\degree：图案按顺时针转 90\degree。</p>
+</li>
+<li>
+<p>转 180\degree：图案按顺时针转 180\degree。</p>
+</li>
+<li>
+<p>转 270\degree：图案按顺时针转 270\degree。</p>
+</li>
+<li>
+<p>反射：图案在水平方向翻转（以中央铅垂线为中心形成原图案的镜像）。</p>
+</li>
+<li>
+<p>组合：图案在水平方向翻转，然后再按照 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>∼</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">1 \sim 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">∼</span><span class="mord mathrm">3</span></span></span></span> 之间的一种再次转换。</p>
+</li>
+<li>
+<p>不改变：原图案不改变。</p>
+</li>
+<li>
+<p>无效转换：无法用以上方法得到新图案。</p>
+</li>
+</ul>
+<p>如果有多种可用的转换方法，请选择序号最小的那个。</p>
+<p>只使用上述 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>7</mn></mrow><annotation encoding="application/x-tex">7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">7</span></span></span></span> 个中的一个步骤来完成这次转换。</p>
+<span id="more"></span>
+<h2 id="输入格式">输入格式</h2>
+<p>第一行一个正整数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>。</p>
+<p>然后 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 行，每行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 个字符，全部为 <code>@</code> 或 <code>-</code>，表示初始的正方形。</p>
+<p>接下来 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 行，每行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 个字符，全部为 <code>@</code> 或 <code>-</code>，表示最终的正方形。</p>
+<h2 id="输出格式">输出格式</h2>
+<p>单独的一行包括 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>∼</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">1 \sim 7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">∼</span><span class="mord mathrm">7</span></span></span></span> 之间的一个数字（在上文已描述）表明需要将转换前的正方形变为转换后的正方形的转换方法。</p>
+<h3 id="样例输入">样例输入</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3</span><br><span class="line">@-@</span><br><span class="line">---</span><br><span class="line">@@-</span><br><span class="line">@-@</span><br><span class="line">@--</span><br><span class="line">--@</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出">样例输出</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+<h2 id="提示">提示</h2>
+<p>【数据范围】<br>
+对于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn><mn>0</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">100\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">%</span></span></span></span> 的数据，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>1</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">1\le n \le 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span></span></span></span>。</p>
+<p>题目翻译来自 NOCOW。</p>
+<p>USACO Training Section 1.2</p>
+<h1>解答：</h1>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std; </span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">matrix</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> a[<span class="number">12</span>][<span class="number">12</span>];</span><br><span class="line">    <span class="type">int</span> dim;</span><br><span class="line">&#125;A,B;</span><br><span class="line"><span class="function">matrix <span class="title">Real_Reflex</span><span class="params">(matrix x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n = x.dim;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n/<span class="number">2</span>;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> temp = x.a[i][j];</span><br><span class="line">            x.a[i][j] = x.a[i][n-j<span class="number">-1</span>];</span><br><span class="line">            x.a[i][n-j<span class="number">-1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">matrix <span class="title">Real_Rorate</span><span class="params">(matrix x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n = x.dim;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n/<span class="number">2</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;n-i<span class="number">-1</span>;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> temp = x.a[i][j];</span><br><span class="line">            x.a[i][j] = x.a[n-j<span class="number">-1</span>][i];</span><br><span class="line">            x.a[n-j<span class="number">-1</span>][i] = x.a[n-i<span class="number">-1</span>][n-j<span class="number">-1</span>];</span><br><span class="line">            x.a[n-i<span class="number">-1</span>][n-j<span class="number">-1</span>] = x.a[j][n-i<span class="number">-1</span>];</span><br><span class="line">            x.a[j][n-i<span class="number">-1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Are_they_the_same</span><span class="params">(matrix X)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n = X.dim;</span><br><span class="line">    <span class="type">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(X.a[i][j]!=B.a[i][j])</span><br><span class="line">            &#123;</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(flag==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    A.dim = n;</span><br><span class="line">    B.dim = n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)<span class="comment">//cin the matrixA</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin&gt;&gt;A.a[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)<span class="comment">//cin the matrixB</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin&gt;&gt;B.a[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">Are_they_the_same</span>(<span class="built_in">Real_Rorate</span>(A))==<span class="number">1</span>)<span class="comment">//rorate 90 degrees</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;1&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">Are_they_the_same</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Rorate</span>(A))))<span class="comment">//rorate 180 degrees</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;2&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">Are_they_the_same</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Rorate</span>(A)))))<span class="comment">//rorate 270 degrees</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;3&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">Are_they_the_same</span>(<span class="built_in">Real_Reflex</span>(A))==<span class="number">1</span>)<span class="comment">//reflex</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;4&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">Are_they_the_same</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Reflex</span>(A)))==<span class="number">1</span>)<span class="comment">//rorate 90 degrees and reflex</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;5&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">Are_they_the_same</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Reflex</span>(A))))==<span class="number">1</span>)<span class="comment">//rorate 180 degrees and reflex</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;5&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">Are_they_the_same</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Reflex</span>(A))))))<span class="comment">//rorate 270 degrees and reflex</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;5&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">Are_they_the_same</span>(A))<span class="comment">//no rorate</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;6&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;7&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>洛谷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>明明的随机数-PTA</title>
+    <url>/posts/2023/10/502ae66a.html</url>
+    <content><![CDATA[<h1>北邮VC++实验题 明明的随机数</h1>
+<h2 id="题目描述：">题目描述：</h2>
+<p>明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用 计算机生成了N个1到1000之间的随机整数（N≤100），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然 后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作。</p>
+<span id="more"></span>
+<h2 id="输入格式：">输入格式：</h2>
+<p>有2行，第1行为1个正整数，表示所生成的随机数的个数：N<br>
+第2行有N个用空格隔开的正整数，为所产生的随机数。</p>
+<h2 id="输出格式：">输出格式：</h2>
+<p>也是2行，第1行为1个正整数M，表示不相同的随机数的个数。第2行为M个用空格隔开的正整数，为从小到大排好序的不相同的随机数。</p>
+<h3 id="输入样例">输入样例:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">10</span><br><span class="line">20 40 32 67 40 20 89 300 400 15</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例">输出样例:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">8</span><br><span class="line">15 20 32 40 67 89 300 400</span><br></pre></td></tr></table></figure>
+<h1>解答：</h1>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,total=<span class="number">0</span>;</span><br><span class="line">    <span class="type">short</span> <span class="type">int</span> a[<span class="number">1000000</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="type">int</span> z;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;z;</span><br><span class="line">        <span class="keyword">if</span>(a[z]==<span class="number">0</span>)total++;</span><br><span class="line">        a[z]++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;total&lt;&lt;endl;</span><br><span class="line">    <span class="type">int</span> zzz=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1000000</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]!=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(zzz==<span class="number">1</span>)&#123;cout&lt;&lt;i;zzz=<span class="number">0</span>;&#125;</span><br><span class="line">            <span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>PTA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>QQ头像表情包生成小工具</title>
-    <url>/2024/05/QQ%E5%A4%B4%E5%83%8F%E6%89%93%E5%B9%B4%E7%B3%95%E7%94%9F%E6%88%90%E5%B0%8F%E5%B7%A5%E5%85%B7/</url>
+    <url>/posts/2024/05/5603cdff.html</url>
     <content><![CDATA[<html>
 <head>
   <div style="display: flex; flex-direction: column; align-items: center;">
@@ -191,38 +394,23 @@
 </html>]]></content>
   </entry>
   <entry>
-    <title>VScode多文件编译</title>
-    <url>/2023/11/VScode%E5%A4%9A%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91/</url>
-    <content><![CDATA[<h1>tasks.json</h1>
-<span id="more"></span>
-<p>关键在通配符上：</p>
-<p>{fileDirname}是指文件所在的文件夹</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;tasks&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cppbuild&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;C/C++: g++.exe 生成活动文件&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;C:\\Program Files (x86)\\mingw64\\bin\\g++.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;-fdiagnostics-color=always&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-g&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;\\*.cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-o&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;options&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;fileDirname&#125;&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;problemMatcher&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;$gcc&quot;</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;group&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;kind&quot;</span><span class="punctuation">:</span> <span class="string">&quot;build&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;isDefault&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">            <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;detail&quot;</span><span class="punctuation">:</span> <span class="string">&quot;调试器生成的任务。&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2.0.0&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>十六进制转二进制-PTA</title>
-    <url>/2023/10/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E8%BD%AC%E4%BA%8C%E8%BF%9B%E5%88%B6-PTA/</url>
-    <content><![CDATA[<h1>北邮VC++实验题 将十六进制数转换为二进制数</h1>
+    <title>水果颜色-PTA</title>
+    <url>/posts/2023/10/cab54e9e.html</url>
+    <content><![CDATA[<h1>北邮VC++实验题 判别水果颜色</h1>
 <h2 id="题目描述：">题目描述：</h2>
-<p>将十六进制数转换为二进制数。</p>
+<p>现在有一堆水果，苹果红色，香蕉黄色，西瓜绿色，其余紫色。<br>
+当输入一种水果名字，要输入其对应的颜色。</p>
 <span id="more"></span>
 <h2 id="输入格式：">输入格式：</h2>
-<p>输入一个16进制数。</p>
+<p>输入水果名字，如：苹果。</p>
 <h2 id="输出格式：">输出格式：</h2>
-<p>输出二进制数。</p>
+<p>输出颜色，如：红色。</p>
 <h3 id="输入样例">输入样例:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">23</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">苹果</span><br></pre></td></tr></table></figure>
 <h3 id="输出样例">输出样例:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">100011</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">红色</span><br></pre></td></tr></table></figure>
 <h1>解答：</h1>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="comment">//十六进制转二进制</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,i=<span class="number">0</span>,s[<span class="number">10000</span>];</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%x&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">while</span>(n!=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        s[i]=n%<span class="number">2</span>;</span><br><span class="line">        <span class="comment">//printf(&quot;%d\n&quot;,s[i]);</span></span><br><span class="line">        n/=<span class="number">2</span>;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=i<span class="number">-1</span>;j&gt;=<span class="number">0</span>;j--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,s[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;0&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="comment">//判断水果颜色</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    cin&gt;&gt;s;</span><br><span class="line">    <span class="keyword">if</span>(s==<span class="string">&quot;苹果&quot;</span>)cout&lt;&lt;<span class="string">&quot;红色&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(s==<span class="string">&quot;香蕉&quot;</span>)cout&lt;&lt;<span class="string">&quot;黄色&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(s==<span class="string">&quot;西瓜&quot;</span>)cout&lt;&lt;<span class="string">&quot;绿色&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;紫色&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>编程</category>
@@ -230,145 +418,11 @@
       <tags>
         <tag>C++</tag>
         <tag>PTA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一个有趣的python包——PySSTV</title>
-    <url>/2024/02/%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84python%E5%8C%85%E2%80%94%E2%80%94PySSTV/</url>
-    <content><![CDATA[<h1>一个有趣的python包——PySSTV</h1>
-<h2 id="功能：">功能：</h2>
-<p>从 PIL 能够打开的任何图像（PNG、JPEG、GIF 等）生成 SSTV 调制 WAV 文件。</p>
-<h2 id="用法：">用法：</h2>
-<span id="more"></span>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">positional arguments:</span><br><span class="line">  image.png             input image file name</span><br><span class="line">  output.wav            output WAV file name</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help            show this help message and exit</span><br><span class="line">  --mode &#123;MartinM1,MartinM2,ScottieS1,ScottieS2,Robot36,PasokonP3,PasokonP5,PasokonP7,PD90,PD120D160,PD180,PD240,Robot8BW,Robot24BW&#125;</span><br><span class="line">                        image mode (default: Martin M1)</span><br><span class="line">  --rate RATE           sampling rate (default: 48000)</span><br><span class="line">  --bits BITS           bits per sample (default: 16)</span><br><span class="line">  --vox                 add VOX tones at the beginning</span><br><span class="line">  --fskid FSKID         add FSKID at the end</span><br><span class="line">  --chan CHAN           number of channels (default: mono)</span><br><span class="line">  --resize              resize the image to the correct size</span><br><span class="line">  --keep-aspect-ratio   keep the original aspect ratio when resizing </span><br><span class="line">                            (and cut off excess pixels)</span><br><span class="line">  --keep-aspect         keep the original aspect ratio when resizing </span><br><span class="line">                            (not cut off excess pixels)</span><br><span class="line">  --resample            which resampling filter to use for resizing</span><br><span class="line">                            (see Pillow documentation)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>HAM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>印象北京</title>
-    <url>/2023/10/%E5%8D%B0%E8%B1%A1%E5%8C%97%E4%BA%AC/</url>
-    <content><![CDATA[<h1>北京的天</h1>
-<h5 id="晴空">晴空</h5>
-<p><img src="/images/posts/1.jpg" alt="晴空" title="晴空"></p>
-<span id="more"></span>
-<h5 id="傍晚">傍晚</h5>
-<p><img src="/images/posts/2.jpg" alt="傍晚" title="傍晚"></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>北京</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>整活向——SSTV和音乐混响</title>
-    <url>/2024/02/%E6%95%B4%E6%B4%BB%E5%90%91%E2%80%94%E2%80%94SSTV%E5%92%8C%E9%9F%B3%E4%B9%90%E6%B7%B7%E5%93%8D/</url>
-    <content><![CDATA[<h1>整活向——SSTV和音乐混响</h1>
-<h3 id="把SSTV生成的音频和歌曲混流在一起，试试接收效果。">把SSTV生成的音频和歌曲混流在一起，试试接收效果。</h3>
-<h3 id="PD120">PD120</h3>
-<span id="more"></span>
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=1500258009&bvid=BV1bU421d7rw&cid=1434607435&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></div>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>GAME</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>字母统计-PTA</title>
-    <url>/2023/10/%E5%AD%97%E6%AF%8D%E7%BB%9F%E8%AE%A1-PTA/</url>
-    <content><![CDATA[<h1>北邮VC++实验题 字母统计</h1>
-<h2 id="题目描述：">题目描述：</h2>
-<p>从键盘输入一行或几行字符串，行数由键盘输入，一行字符串用字符数组存储。请统计所输入的字符串中26个字母（不区分大小写）出现的次数，并将出现次数非零的字母统计结果输出到屏幕上，格式参见样例。如果没有字母，请输出字符串中无字母。</p>
-<span id="more"></span>
-<h2 id="提示：">提示：</h2>
-<p>注意：输入行数后，换行再输入字符串。</p>
-<h3 id="输入样例1">输入样例1:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">I come quickly !</span><br></pre></td></tr></table></figure>
-<h3 id="输出样例1">输出样例1:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">c:2</span><br><span class="line">e:1</span><br><span class="line">i:2</span><br><span class="line">k:1</span><br><span class="line">l:1</span><br><span class="line">m:1</span><br><span class="line">o:1</span><br><span class="line">q:1</span><br><span class="line">u:1</span><br><span class="line">y:1</span><br></pre></td></tr></table></figure>
-<h3 id="输入样例2">输入样例2:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-<h3 id="输出样例2">输出样例2:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">字符串中无字母。</span><br></pre></td></tr></table></figure>
-<h1>解答：</h1>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;iomanip&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a[27]=&#123;0&#125;;</span><br><span class="line">    char s[500];</span><br><span class="line">    int n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    cin.get();</span><br><span class="line">    for(int i=1;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int z;</span><br><span class="line">        //cin.get();</span><br><span class="line">    cin.getline(s,500);</span><br><span class="line">    z=strlen(s);</span><br><span class="line">    for(int i=0;i&lt;=z;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(s[i]&gt;=&#x27;a&#x27;&amp;&amp; s[i]&lt;=&#x27;z&#x27;)</span><br><span class="line">        &#123;</span><br><span class="line">            a[s[i]-&#x27;a&#x27;]++;</span><br><span class="line">        &#125;</span><br><span class="line">        if(s[i]&gt;=&#x27;A&#x27;&amp;&amp; s[i]&lt;=&#x27;Z&#x27;)</span><br><span class="line">        &#123;</span><br><span class="line">            a[s[i]-&#x27;A&#x27;]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">        bool bon=false;</span><br><span class="line">    for(int i=0;i&lt;26;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(a[i]!=0)&#123;cout&lt;&lt;char(i+&#x27;a&#x27;)&lt;&lt;&quot;:&quot;&lt;&lt;a[i]&lt;&lt;endl;bon=true;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(bon==false)cout&lt;&lt;&quot;字符串中无字母。&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>PTA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>方块转换 Transformations-Luogu</title>
-    <url>/2023/11/%E6%96%B9%E5%9D%97%E8%BD%AC%E6%8D%A2-Transformations-Luogu/</url>
-    <content><![CDATA[<h1>[USACO1.2] 方块转换 Transformations</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>一块 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n \times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="mbin">×</span><span class="mord mathit">n</span></span></span></span> 正方形的黑白瓦片的图案要被转换成新的正方形图案。写一个程序来找出将原始图案按照以下列转换方法转换成新图案的最小方式：</p>
-<ul>
-<li>
-<p>转 90\degree：图案按顺时针转 90\degree。</p>
-</li>
-<li>
-<p>转 180\degree：图案按顺时针转 180\degree。</p>
-</li>
-<li>
-<p>转 270\degree：图案按顺时针转 270\degree。</p>
-</li>
-<li>
-<p>反射：图案在水平方向翻转（以中央铅垂线为中心形成原图案的镜像）。</p>
-</li>
-<li>
-<p>组合：图案在水平方向翻转，然后再按照 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>∼</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">1 \sim 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">∼</span><span class="mord mathrm">3</span></span></span></span> 之间的一种再次转换。</p>
-</li>
-<li>
-<p>不改变：原图案不改变。</p>
-</li>
-<li>
-<p>无效转换：无法用以上方法得到新图案。</p>
-</li>
-</ul>
-<p>如果有多种可用的转换方法，请选择序号最小的那个。</p>
-<p>只使用上述 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>7</mn></mrow><annotation encoding="application/x-tex">7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">7</span></span></span></span> 个中的一个步骤来完成这次转换。</p>
-<span id="more"></span>
-<h2 id="输入格式">输入格式</h2>
-<p>第一行一个正整数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span>。</p>
-<p>然后 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 行，每行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 个字符，全部为 <code>@</code> 或 <code>-</code>，表示初始的正方形。</p>
-<p>接下来 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 行，每行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span></span></span></span> 个字符，全部为 <code>@</code> 或 <code>-</code>，表示最终的正方形。</p>
-<h2 id="输出格式">输出格式</h2>
-<p>单独的一行包括 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>∼</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">1 \sim 7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">∼</span><span class="mord mathrm">7</span></span></span></span> 之间的一个数字（在上文已描述）表明需要将转换前的正方形变为转换后的正方形的转换方法。</p>
-<h3 id="样例输入">样例输入</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3</span><br><span class="line">@-@</span><br><span class="line">---</span><br><span class="line">@@-</span><br><span class="line">@-@</span><br><span class="line">@--</span><br><span class="line">--@</span><br></pre></td></tr></table></figure>
-<h3 id="样例输出">样例输出</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
-<h2 id="提示">提示</h2>
-<p>【数据范围】<br>
-对于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn><mn>0</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">100\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">%</span></span></span></span> 的数据，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>1</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">1\le n \le 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span></span></span></span>。</p>
-<p>题目翻译来自 NOCOW。</p>
-<p>USACO Training Section 1.2</p>
-<h1>解答：</h1>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std; </span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">matrix</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> a[<span class="number">12</span>][<span class="number">12</span>];</span><br><span class="line">    <span class="type">int</span> dim;</span><br><span class="line">&#125;A,B;</span><br><span class="line"><span class="function">matrix <span class="title">Real_Reflex</span><span class="params">(matrix x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n = x.dim;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n/<span class="number">2</span>;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> temp = x.a[i][j];</span><br><span class="line">            x.a[i][j] = x.a[i][n-j<span class="number">-1</span>];</span><br><span class="line">            x.a[i][n-j<span class="number">-1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">matrix <span class="title">Real_Rorate</span><span class="params">(matrix x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n = x.dim;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n/<span class="number">2</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;n-i<span class="number">-1</span>;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> temp = x.a[i][j];</span><br><span class="line">            x.a[i][j] = x.a[n-j<span class="number">-1</span>][i];</span><br><span class="line">            x.a[n-j<span class="number">-1</span>][i] = x.a[n-i<span class="number">-1</span>][n-j<span class="number">-1</span>];</span><br><span class="line">            x.a[n-i<span class="number">-1</span>][n-j<span class="number">-1</span>] = x.a[j][n-i<span class="number">-1</span>];</span><br><span class="line">            x.a[j][n-i<span class="number">-1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Are_they_the_same</span><span class="params">(matrix X)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n = X.dim;</span><br><span class="line">    <span class="type">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(X.a[i][j]!=B.a[i][j])</span><br><span class="line">            &#123;</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(flag==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    A.dim = n;</span><br><span class="line">    B.dim = n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)<span class="comment">//cin the matrixA</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin&gt;&gt;A.a[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)<span class="comment">//cin the matrixB</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin&gt;&gt;B.a[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">Are_they_the_same</span>(<span class="built_in">Real_Rorate</span>(A))==<span class="number">1</span>)<span class="comment">//rorate 90 degrees</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;1&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">Are_they_the_same</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Rorate</span>(A))))<span class="comment">//rorate 180 degrees</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;2&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">Are_they_the_same</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Rorate</span>(A)))))<span class="comment">//rorate 270 degrees</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;3&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">Are_they_the_same</span>(<span class="built_in">Real_Reflex</span>(A))==<span class="number">1</span>)<span class="comment">//reflex</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;4&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">Are_they_the_same</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Reflex</span>(A)))==<span class="number">1</span>)<span class="comment">//rorate 90 degrees and reflex</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;5&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">Are_they_the_same</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Reflex</span>(A))))==<span class="number">1</span>)<span class="comment">//rorate 180 degrees and reflex</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;5&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">Are_they_the_same</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Rorate</span>(<span class="built_in">Real_Reflex</span>(A))))))<span class="comment">//rorate 270 degrees and reflex</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;5&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">Are_they_the_same</span>(A))<span class="comment">//no rorate</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;6&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;7&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>洛谷</tag>
       </tags>
   </entry>
   <entry>
     <title>校园歌手大赛新规则-PTA</title>
-    <url>/2023/10/%E6%A0%A1%E5%9B%AD%E6%AD%8C%E6%89%8B%E5%A4%A7%E8%B5%9B%E6%96%B0%E8%A7%84%E5%88%99-PTA/</url>
+    <url>/posts/2023/10/f343d2f0.html</url>
     <content><![CDATA[<h1>北邮VC++实验题 校园歌手大赛新规则</h1>
 <h2 id="题目描述：">题目描述：</h2>
 <p>8号选手参加校园歌手大赛，编程读入20个整数(0 - 100之间)并存入数组中做为评委打分。最后得分计算规则：先计算20个数的平均分，然后去掉所有与平均分相差10分以上的分数，最后把剩下的分数再取平均做为最后得分。如果没有剩下分数，此次打分无效。</p>
@@ -397,62 +451,8 @@
       </tags>
   </entry>
   <entry>
-    <title>明明的随机数-PTA</title>
-    <url>/2023/10/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0-PTA/</url>
-    <content><![CDATA[<h1>北邮VC++实验题 明明的随机数</h1>
-<h2 id="题目描述：">题目描述：</h2>
-<p>明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用 计算机生成了N个1到1000之间的随机整数（N≤100），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然 后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作。</p>
-<span id="more"></span>
-<h2 id="输入格式：">输入格式：</h2>
-<p>有2行，第1行为1个正整数，表示所生成的随机数的个数：N<br>
-第2行有N个用空格隔开的正整数，为所产生的随机数。</p>
-<h2 id="输出格式：">输出格式：</h2>
-<p>也是2行，第1行为1个正整数M，表示不相同的随机数的个数。第2行为M个用空格隔开的正整数，为从小到大排好序的不相同的随机数。</p>
-<h3 id="输入样例">输入样例:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">10</span><br><span class="line">20 40 32 67 40 20 89 300 400 15</span><br></pre></td></tr></table></figure>
-<h3 id="输出样例">输出样例:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">8</span><br><span class="line">15 20 32 40 67 89 300 400</span><br></pre></td></tr></table></figure>
-<h1>解答：</h1>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,total=<span class="number">0</span>;</span><br><span class="line">    <span class="type">short</span> <span class="type">int</span> a[<span class="number">1000000</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="type">int</span> z;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;z;</span><br><span class="line">        <span class="keyword">if</span>(a[z]==<span class="number">0</span>)total++;</span><br><span class="line">        a[z]++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;total&lt;&lt;endl;</span><br><span class="line">    <span class="type">int</span> zzz=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1000000</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]!=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(zzz==<span class="number">1</span>)&#123;cout&lt;&lt;i;zzz=<span class="number">0</span>;&#125;</span><br><span class="line">            <span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>PTA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>水果颜色-PTA</title>
-    <url>/2023/10/%E6%B0%B4%E6%9E%9C%E9%A2%9C%E8%89%B2-PTA/</url>
-    <content><![CDATA[<h1>北邮VC++实验题 判别水果颜色</h1>
-<h2 id="题目描述：">题目描述：</h2>
-<p>现在有一堆水果，苹果红色，香蕉黄色，西瓜绿色，其余紫色。<br>
-当输入一种水果名字，要输入其对应的颜色。</p>
-<span id="more"></span>
-<h2 id="输入格式：">输入格式：</h2>
-<p>输入水果名字，如：苹果。</p>
-<h2 id="输出格式：">输出格式：</h2>
-<p>输出颜色，如：红色。</p>
-<h3 id="输入样例">输入样例:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">苹果</span><br></pre></td></tr></table></figure>
-<h3 id="输出样例">输出样例:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">红色</span><br></pre></td></tr></table></figure>
-<h1>解答：</h1>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="comment">//判断水果颜色</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    cin&gt;&gt;s;</span><br><span class="line">    <span class="keyword">if</span>(s==<span class="string">&quot;苹果&quot;</span>)cout&lt;&lt;<span class="string">&quot;红色&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(s==<span class="string">&quot;香蕉&quot;</span>)cout&lt;&lt;<span class="string">&quot;黄色&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(s==<span class="string">&quot;西瓜&quot;</span>)cout&lt;&lt;<span class="string">&quot;绿色&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;紫色&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>PTA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>破解简单密码-PTA</title>
-    <url>/2023/10/%E7%A0%B4%E8%A7%A3%E7%AE%80%E5%8D%95%E5%AF%86%E7%A0%81-PTA/</url>
+    <url>/posts/2023/10/8f754712.html</url>
     <content><![CDATA[<h1>北邮VC++实验题 破解简单密码</h1>
 <h2 id="题目描述：">题目描述：</h2>
 <p>假设老王原来一个BBS上的密码为zvbo941987,为了方便记忆，他通过一种算法把这个密码变换成YUANzi1987，这个密码是他的名字和出生年份，怎么忘都忘不了，而且可以明目张胆地放在显眼的地方而不被别人知道真正的密码。<br>
@@ -479,7 +479,7 @@
   </entry>
   <entry>
     <title>结构数组的使用-PTA</title>
-    <url>/2023/10/%E7%BB%93%E6%9E%84%E6%95%B0%E7%BB%84%E7%9A%84%E4%BD%BF%E7%94%A8-PTA/</url>
+    <url>/posts/2023/10/652936fa.html</url>
     <content><![CDATA[<h1>北邮VC++实验题 结构数组使用</h1>
 <h2 id="题目描述：">题目描述：</h2>
 <p>编写一个记录5个学生的姓名、性别、年龄和学号的程序，要求使用结构数组表示学生信息，用for循环获得键盘输入的学生记录的数据，所有数据输入完毕后，将5个学生的信息在屏幕上输出。</p>
@@ -509,7 +509,7 @@
   </entry>
   <entry>
     <title>老王赛马-PTA</title>
-    <url>/2023/11/%E8%80%81%E7%8E%8B%E8%B5%9B%E9%A9%AC-PTA/</url>
+    <url>/posts/2023/11/c0bbcf2.html</url>
     <content><![CDATA[<h1>北邮VC++实验题 老王赛马</h1>
 <h2 id="题目描述：">题目描述：</h2>
 <p>赛马是一古老的游戏，早在公元前四世纪的中国，处在诸侯割据的状态，历史上称为“战国时期”。在魏国作官的孙膑，因为受到同僚庞涓的迫害，被齐国使臣救出后，到达齐国国都。<br>
