@@ -255,6 +255,124 @@
       </tags>
   </entry>
   <entry>
+    <title>印象北京</title>
+    <url>/posts/2023/10/9ea7b314.html</url>
+    <content><![CDATA[<h1>北京的天</h1>
+<h5 id="晴空">晴空</h5>
+<p><img src="/images/posts/1.jpg" alt="晴空" title="晴空"></p>
+<span id="more"></span>
+<h5 id="傍晚">傍晚</h5>
+<p><img src="/images/posts/2.jpg" alt="傍晚" title="傍晚"></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>北京</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>字母统计-PTA</title>
+    <url>/posts/2023/10/a72c30ea.html</url>
+    <content><![CDATA[<h1>北邮VC++实验题 字母统计</h1>
+<h2 id="题目描述：">题目描述：</h2>
+<p>从键盘输入一行或几行字符串，行数由键盘输入，一行字符串用字符数组存储。请统计所输入的字符串中26个字母（不区分大小写）出现的次数，并将出现次数非零的字母统计结果输出到屏幕上，格式参见样例。如果没有字母，请输出字符串中无字母。</p>
+<span id="more"></span>
+<h2 id="提示：">提示：</h2>
+<p>注意：输入行数后，换行再输入字符串。</p>
+<h3 id="输入样例1">输入样例1:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">I come quickly !</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例1">输出样例1:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">c:2</span><br><span class="line">e:1</span><br><span class="line">i:2</span><br><span class="line">k:1</span><br><span class="line">l:1</span><br><span class="line">m:1</span><br><span class="line">o:1</span><br><span class="line">q:1</span><br><span class="line">u:1</span><br><span class="line">y:1</span><br></pre></td></tr></table></figure>
+<h3 id="输入样例2">输入样例2:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例2">输出样例2:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">字符串中无字母。</span><br></pre></td></tr></table></figure>
+<h1>解答：</h1>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;iomanip&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a[27]=&#123;0&#125;;</span><br><span class="line">    char s[500];</span><br><span class="line">    int n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    cin.get();</span><br><span class="line">    for(int i=1;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int z;</span><br><span class="line">        //cin.get();</span><br><span class="line">    cin.getline(s,500);</span><br><span class="line">    z=strlen(s);</span><br><span class="line">    for(int i=0;i&lt;=z;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(s[i]&gt;=&#x27;a&#x27;&amp;&amp; s[i]&lt;=&#x27;z&#x27;)</span><br><span class="line">        &#123;</span><br><span class="line">            a[s[i]-&#x27;a&#x27;]++;</span><br><span class="line">        &#125;</span><br><span class="line">        if(s[i]&gt;=&#x27;A&#x27;&amp;&amp; s[i]&lt;=&#x27;Z&#x27;)</span><br><span class="line">        &#123;</span><br><span class="line">            a[s[i]-&#x27;A&#x27;]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">        bool bon=false;</span><br><span class="line">    for(int i=0;i&lt;26;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(a[i]!=0)&#123;cout&lt;&lt;char(i+&#x27;a&#x27;)&lt;&lt;&quot;:&quot;&lt;&lt;a[i]&lt;&lt;endl;bon=true;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(bon==false)cout&lt;&lt;&quot;字符串中无字母。&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>PTA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>整活向——SSTV和音乐混响</title>
+    <url>/posts/2024/02/75b62154.html</url>
+    <content><![CDATA[<h1>整活向——SSTV和音乐混响</h1>
+<h3 id="把SSTV生成的音频和歌曲混流在一起，试试接收效果。">把SSTV生成的音频和歌曲混流在一起，试试接收效果。</h3>
+<h3 id="PD120">PD120</h3>
+<span id="more"></span>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=1500258009&bvid=BV1bU421d7rw&cid=1434607435&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></div>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>游戏</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>明明的随机数-PTA</title>
+    <url>/posts/2023/10/502ae66a.html</url>
+    <content><![CDATA[<h1>北邮VC++实验题 明明的随机数</h1>
+<h2 id="题目描述：">题目描述：</h2>
+<p>明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用 计算机生成了N个1到1000之间的随机整数（N≤100），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然 后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作。</p>
+<span id="more"></span>
+<h2 id="输入格式：">输入格式：</h2>
+<p>有2行，第1行为1个正整数，表示所生成的随机数的个数：N<br>
+第2行有N个用空格隔开的正整数，为所产生的随机数。</p>
+<h2 id="输出格式：">输出格式：</h2>
+<p>也是2行，第1行为1个正整数M，表示不相同的随机数的个数。第2行为M个用空格隔开的正整数，为从小到大排好序的不相同的随机数。</p>
+<h3 id="输入样例">输入样例:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">10</span><br><span class="line">20 40 32 67 40 20 89 300 400 15</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例">输出样例:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">8</span><br><span class="line">15 20 32 40 67 89 300 400</span><br></pre></td></tr></table></figure>
+<h1>解答：</h1>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,total=<span class="number">0</span>;</span><br><span class="line">    <span class="type">short</span> <span class="type">int</span> a[<span class="number">1000000</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="type">int</span> z;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;z;</span><br><span class="line">        <span class="keyword">if</span>(a[z]==<span class="number">0</span>)total++;</span><br><span class="line">        a[z]++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;total&lt;&lt;endl;</span><br><span class="line">    <span class="type">int</span> zzz=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1000000</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]!=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(zzz==<span class="number">1</span>)&#123;cout&lt;&lt;i;zzz=<span class="number">0</span>;&#125;</span><br><span class="line">            <span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>PTA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>校园歌手大赛新规则-PTA</title>
+    <url>/posts/2023/10/f343d2f0.html</url>
+    <content><![CDATA[<h1>北邮VC++实验题 校园歌手大赛新规则</h1>
+<h2 id="题目描述：">题目描述：</h2>
+<p>8号选手参加校园歌手大赛，编程读入20个整数(0 - 100之间)并存入数组中做为评委打分。最后得分计算规则：先计算20个数的平均分，然后去掉所有与平均分相差10分以上的分数，最后把剩下的分数再取平均做为最后得分。如果没有剩下分数，此次打分无效。</p>
+<span id="more"></span>
+<h2 id="输入格式：">输入格式：</h2>
+<p>输入20个整数。</p>
+<h2 id="输出格式：">输出格式：</h2>
+<p>输出三行，具体详见输出样例。</p>
+<h3 id="输入样例1">输入样例1:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">86 87 83 70 99 94 78 89 86 80 97 84 90 87 95 87 84 99 84 95</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例1">输出样例1:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">所有评委平均分:87.700分.</span><br><span class="line">不合格得分:70 99 99.</span><br><span class="line">最后得分:87.412分.</span><br></pre></td></tr></table></figure>
+<h3 id="输入样例2">输入样例2:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">72 72 73 71 71 72 73 71 71 72 98 98 97 100 99 97 97 99 99 99</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例2">输出样例2:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">所有评委平均分:85.050分.</span><br><span class="line">不合格得分:72 72 73 71 71 72 73 71 71 72 98 98 97 100 99 97 97 99 99 99.</span><br><span class="line">无合格打分.</span><br></pre></td></tr></table></figure>
+<h1>解答：</h1>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> zzz=<span class="number">1</span>;</span><br><span class="line">    <span class="type">double</span> a[<span class="number">20</span>],sum=<span class="number">0</span>,total=<span class="number">20</span>,sum2=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        sum+=a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    sum/=<span class="number">20</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;所有评委平均分:%.3lf分.\n&quot;</span>,sum);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;不合格得分:&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">fabs</span>(a[i]-sum)&gt;<span class="number">10.00</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(zzz==<span class="number">1</span>)&#123;cout&lt;&lt;a[i];zzz=<span class="number">0</span>;total-=<span class="number">1</span>;&#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;cout&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;a[i];total-=<span class="number">1</span>;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> sum2+=a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;.&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">if</span>(total==<span class="number">0</span>)&#123;cout&lt;&lt;<span class="string">&quot;无合格打分.&quot;</span>;<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;最后得分:%.3lf分.&quot;</span>,sum2/total);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>PTA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>方块转换 Transformations-Luogu</title>
     <url>/posts/2023/11/a562d873.html</url>
     <content><![CDATA[<h1>[USACO1.2] 方块转换 Transformations</h1>
@@ -312,69 +430,6 @@
       </tags>
   </entry>
   <entry>
-    <title>校园歌手大赛新规则-PTA</title>
-    <url>/posts/2023/10/f343d2f0.html</url>
-    <content><![CDATA[<h1>北邮VC++实验题 校园歌手大赛新规则</h1>
-<h2 id="题目描述：">题目描述：</h2>
-<p>8号选手参加校园歌手大赛，编程读入20个整数(0 - 100之间)并存入数组中做为评委打分。最后得分计算规则：先计算20个数的平均分，然后去掉所有与平均分相差10分以上的分数，最后把剩下的分数再取平均做为最后得分。如果没有剩下分数，此次打分无效。</p>
-<span id="more"></span>
-<h2 id="输入格式：">输入格式：</h2>
-<p>输入20个整数。</p>
-<h2 id="输出格式：">输出格式：</h2>
-<p>输出三行，具体详见输出样例。</p>
-<h3 id="输入样例1">输入样例1:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">86 87 83 70 99 94 78 89 86 80 97 84 90 87 95 87 84 99 84 95</span><br></pre></td></tr></table></figure>
-<h3 id="输出样例1">输出样例1:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">所有评委平均分:87.700分.</span><br><span class="line">不合格得分:70 99 99.</span><br><span class="line">最后得分:87.412分.</span><br></pre></td></tr></table></figure>
-<h3 id="输入样例2">输入样例2:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">72 72 73 71 71 72 73 71 71 72 98 98 97 100 99 97 97 99 99 99</span><br></pre></td></tr></table></figure>
-<h3 id="输出样例2">输出样例2:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">所有评委平均分:85.050分.</span><br><span class="line">不合格得分:72 72 73 71 71 72 73 71 71 72 98 98 97 100 99 97 97 99 99 99.</span><br><span class="line">无合格打分.</span><br></pre></td></tr></table></figure>
-<h1>解答：</h1>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> zzz=<span class="number">1</span>;</span><br><span class="line">    <span class="type">double</span> a[<span class="number">20</span>],sum=<span class="number">0</span>,total=<span class="number">20</span>,sum2=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        sum+=a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    sum/=<span class="number">20</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;所有评委平均分:%.3lf分.\n&quot;</span>,sum);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;不合格得分:&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">fabs</span>(a[i]-sum)&gt;<span class="number">10.00</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(zzz==<span class="number">1</span>)&#123;cout&lt;&lt;a[i];zzz=<span class="number">0</span>;total-=<span class="number">1</span>;&#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;cout&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;a[i];total-=<span class="number">1</span>;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> sum2+=a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;.&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">if</span>(total==<span class="number">0</span>)&#123;cout&lt;&lt;<span class="string">&quot;无合格打分.&quot;</span>;<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;最后得分:%.3lf分.&quot;</span>,sum2/total);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>PTA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>印象北京</title>
-    <url>/posts/2023/10/9ea7b314.html</url>
-    <content><![CDATA[<h1>北京的天</h1>
-<h5 id="晴空">晴空</h5>
-<p><img src="/images/posts/1.jpg" alt="晴空" title="晴空"></p>
-<span id="more"></span>
-<h5 id="傍晚">傍晚</h5>
-<p><img src="/images/posts/2.jpg" alt="傍晚" title="傍晚"></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>北京</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>整活向——SSTV和音乐混响</title>
-    <url>/posts/2024/02/75b62154.html</url>
-    <content><![CDATA[<h1>整活向——SSTV和音乐混响</h1>
-<h3 id="把SSTV生成的音频和歌曲混流在一起，试试接收效果。">把SSTV生成的音频和歌曲混流在一起，试试接收效果。</h3>
-<h3 id="PD120">PD120</h3>
-<span id="more"></span>
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=1500258009&bvid=BV1bU421d7rw&cid=1434607435&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></div>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>游戏</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>水果颜色-PTA</title>
     <url>/posts/2023/10/cab54e9e.html</url>
     <content><![CDATA[<h1>北邮VC++实验题 判别水果颜色</h1>
@@ -392,34 +447,6 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">红色</span><br></pre></td></tr></table></figure>
 <h1>解答：</h1>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="comment">//判断水果颜色</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    cin&gt;&gt;s;</span><br><span class="line">    <span class="keyword">if</span>(s==<span class="string">&quot;苹果&quot;</span>)cout&lt;&lt;<span class="string">&quot;红色&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(s==<span class="string">&quot;香蕉&quot;</span>)cout&lt;&lt;<span class="string">&quot;黄色&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(s==<span class="string">&quot;西瓜&quot;</span>)cout&lt;&lt;<span class="string">&quot;绿色&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;紫色&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>PTA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>字母统计-PTA</title>
-    <url>/posts/2023/10/a72c30ea.html</url>
-    <content><![CDATA[<h1>北邮VC++实验题 字母统计</h1>
-<h2 id="题目描述：">题目描述：</h2>
-<p>从键盘输入一行或几行字符串，行数由键盘输入，一行字符串用字符数组存储。请统计所输入的字符串中26个字母（不区分大小写）出现的次数，并将出现次数非零的字母统计结果输出到屏幕上，格式参见样例。如果没有字母，请输出字符串中无字母。</p>
-<span id="more"></span>
-<h2 id="提示：">提示：</h2>
-<p>注意：输入行数后，换行再输入字符串。</p>
-<h3 id="输入样例1">输入样例1:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">I come quickly !</span><br></pre></td></tr></table></figure>
-<h3 id="输出样例1">输出样例1:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">c:2</span><br><span class="line">e:1</span><br><span class="line">i:2</span><br><span class="line">k:1</span><br><span class="line">l:1</span><br><span class="line">m:1</span><br><span class="line">o:1</span><br><span class="line">q:1</span><br><span class="line">u:1</span><br><span class="line">y:1</span><br></pre></td></tr></table></figure>
-<h3 id="输入样例2">输入样例2:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-<h3 id="输出样例2">输出样例2:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">字符串中无字母。</span><br></pre></td></tr></table></figure>
-<h1>解答：</h1>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;iomanip&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a[27]=&#123;0&#125;;</span><br><span class="line">    char s[500];</span><br><span class="line">    int n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    cin.get();</span><br><span class="line">    for(int i=1;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int z;</span><br><span class="line">        //cin.get();</span><br><span class="line">    cin.getline(s,500);</span><br><span class="line">    z=strlen(s);</span><br><span class="line">    for(int i=0;i&lt;=z;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(s[i]&gt;=&#x27;a&#x27;&amp;&amp; s[i]&lt;=&#x27;z&#x27;)</span><br><span class="line">        &#123;</span><br><span class="line">            a[s[i]-&#x27;a&#x27;]++;</span><br><span class="line">        &#125;</span><br><span class="line">        if(s[i]&gt;=&#x27;A&#x27;&amp;&amp; s[i]&lt;=&#x27;Z&#x27;)</span><br><span class="line">        &#123;</span><br><span class="line">            a[s[i]-&#x27;A&#x27;]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">        bool bon=false;</span><br><span class="line">    for(int i=0;i&lt;26;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(a[i]!=0)&#123;cout&lt;&lt;char(i+&#x27;a&#x27;)&lt;&lt;&quot;:&quot;&lt;&lt;a[i]&lt;&lt;endl;bon=true;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(bon==false)cout&lt;&lt;&quot;字符串中无字母。&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>编程</category>
@@ -460,41 +487,6 @@
       </tags>
   </entry>
   <entry>
-    <title>老王赛马-PTA</title>
-    <url>/posts/2023/11/c0bbcf2.html</url>
-    <content><![CDATA[<h1>北邮VC++实验题 老王赛马</h1>
-<h2 id="题目描述：">题目描述：</h2>
-<p>赛马是一古老的游戏，早在公元前四世纪的中国，处在诸侯割据的状态，历史上称为“战国时期”。在魏国作官的孙膑，因为受到同僚庞涓的迫害，被齐国使臣救出后，到达齐国国都。<br>
-赛马是当时最受齐国贵族欢迎的娱乐项目。上至国王，下到大臣，常常以赛马取乐，并以重金赌输赢。田忌多次与国王及其他大臣赌输赢，屡赌屡输。一天他赛马又输了，回家后闷闷不乐。孙膑安慰他说：“下次有机会带我到马场看看，也许我能帮你。”<br>
-孙膑仔细观察后发现，田忌的马和其他人的马相差并不远，只是策略运用不当，以致失败。</p>
-<span id="more"></span>
-<p>比赛前田忌按照孙膑的主意，用上等马鞍将下等马装饰起来，冒充上等马，与齐王的上等马比赛。第二场比赛，还是按照孙膑的安排，田忌用自己的上等马与国王的中等马比赛，在一片喝彩中，只见田忌的马竟然冲到齐王的马前面，赢了第二场。关键的第三场，田忌的中等马和国王的下等马比赛，田忌的马又一次冲到国王的马前面，结果二比一，田忌赢了国王。<br>
-就是这么简单，现在老王也来赛一赛马。假设每匹马都有恒定的速度，所以速度大的马一定比速度小的马先到终点（没有意外！！）。不允许出现平局。最后谁赢的场数多于一半(不包括一半)，谁就是赢家(可能没有赢家)。老王有N(1≤N≤1000)匹马参加比赛。对手的马的数量与渊子马的数量一样，并且知道所有的马的速度。聪明的你来预测一下这场世纪之战的结果，看看老王能否赢得比赛。</p>
-<h2 id="输入格式：">输入格式：</h2>
-<p>输入有多组测试数据。<br>
-每组测试数据包括3行：<br>
-第一行输入N(1≤N≤1000)。表示马的数量。<br>
-第二行有N个整型数字，即老王的N匹马的速度。<br>
-第三行有N个整型数字，即对手的N匹马的速度。<br>
-当N为0时退出。</p>
-<h2 id="输出格式：">输出格式：</h2>
-<p>若通过聪明的你精心安排，如果老王能赢得比赛，那么输出“YES”。<br>
-否则输出“NO”。</p>
-<h3 id="输入样例">输入样例:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">5</span><br><span class="line">2 3 3 4 5</span><br><span class="line">1 2 3 4 5</span><br><span class="line">4</span><br><span class="line">2 2 1 2</span><br><span class="line">2 2 3 1</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-<h3 id="输出样例：">输出样例：</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">YES</span><br><span class="line">NO</span><br></pre></td></tr></table></figure>
-<h1>解答：</h1>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n = <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> flag=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (flag!=<span class="number">1</span>)&#123;cout&lt;&lt;endl;&#125;</span><br><span class="line">        flag=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> a[n], b[n], c[n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;b[i]);</span><br><span class="line">        <span class="built_in">sort</span>(a, a + n);</span><br><span class="line">        <span class="built_in">sort</span>(b, b + n);</span><br><span class="line">        <span class="type">int</span> win = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">1</span>; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (a[i] &gt; b[j])&#123;</span><br><span class="line">                    win++;</span><br><span class="line">                b[j] = a[i];</span><br><span class="line">                <span class="keyword">break</span>;&#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (win &gt; n / <span class="number">2</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;YES&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;NO&quot;</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>PTA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>破解简单密码-PTA</title>
     <url>/posts/2023/10/8f754712.html</url>
     <content><![CDATA[<h1>北邮VC++实验题 破解简单密码</h1>
@@ -522,24 +514,32 @@
       </tags>
   </entry>
   <entry>
-    <title>明明的随机数-PTA</title>
-    <url>/posts/2023/10/502ae66a.html</url>
-    <content><![CDATA[<h1>北邮VC++实验题 明明的随机数</h1>
+    <title>老王赛马-PTA</title>
+    <url>/posts/2023/11/c0bbcf2.html</url>
+    <content><![CDATA[<h1>北邮VC++实验题 老王赛马</h1>
 <h2 id="题目描述：">题目描述：</h2>
-<p>明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用 计算机生成了N个1到1000之间的随机整数（N≤100），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然 后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作。</p>
+<p>赛马是一古老的游戏，早在公元前四世纪的中国，处在诸侯割据的状态，历史上称为“战国时期”。在魏国作官的孙膑，因为受到同僚庞涓的迫害，被齐国使臣救出后，到达齐国国都。<br>
+赛马是当时最受齐国贵族欢迎的娱乐项目。上至国王，下到大臣，常常以赛马取乐，并以重金赌输赢。田忌多次与国王及其他大臣赌输赢，屡赌屡输。一天他赛马又输了，回家后闷闷不乐。孙膑安慰他说：“下次有机会带我到马场看看，也许我能帮你。”<br>
+孙膑仔细观察后发现，田忌的马和其他人的马相差并不远，只是策略运用不当，以致失败。</p>
 <span id="more"></span>
+<p>比赛前田忌按照孙膑的主意，用上等马鞍将下等马装饰起来，冒充上等马，与齐王的上等马比赛。第二场比赛，还是按照孙膑的安排，田忌用自己的上等马与国王的中等马比赛，在一片喝彩中，只见田忌的马竟然冲到齐王的马前面，赢了第二场。关键的第三场，田忌的中等马和国王的下等马比赛，田忌的马又一次冲到国王的马前面，结果二比一，田忌赢了国王。<br>
+就是这么简单，现在老王也来赛一赛马。假设每匹马都有恒定的速度，所以速度大的马一定比速度小的马先到终点（没有意外！！）。不允许出现平局。最后谁赢的场数多于一半(不包括一半)，谁就是赢家(可能没有赢家)。老王有N(1≤N≤1000)匹马参加比赛。对手的马的数量与渊子马的数量一样，并且知道所有的马的速度。聪明的你来预测一下这场世纪之战的结果，看看老王能否赢得比赛。</p>
 <h2 id="输入格式：">输入格式：</h2>
-<p>有2行，第1行为1个正整数，表示所生成的随机数的个数：N<br>
-第2行有N个用空格隔开的正整数，为所产生的随机数。</p>
+<p>输入有多组测试数据。<br>
+每组测试数据包括3行：<br>
+第一行输入N(1≤N≤1000)。表示马的数量。<br>
+第二行有N个整型数字，即老王的N匹马的速度。<br>
+第三行有N个整型数字，即对手的N匹马的速度。<br>
+当N为0时退出。</p>
 <h2 id="输出格式：">输出格式：</h2>
-<p>也是2行，第1行为1个正整数M，表示不相同的随机数的个数。第2行为M个用空格隔开的正整数，为从小到大排好序的不相同的随机数。</p>
+<p>若通过聪明的你精心安排，如果老王能赢得比赛，那么输出“YES”。<br>
+否则输出“NO”。</p>
 <h3 id="输入样例">输入样例:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">10</span><br><span class="line">20 40 32 67 40 20 89 300 400 15</span><br></pre></td></tr></table></figure>
-<h3 id="输出样例">输出样例:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">8</span><br><span class="line">15 20 32 40 67 89 300 400</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">5</span><br><span class="line">2 3 3 4 5</span><br><span class="line">1 2 3 4 5</span><br><span class="line">4</span><br><span class="line">2 2 1 2</span><br><span class="line">2 2 3 1</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例：">输出样例：</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">YES</span><br><span class="line">NO</span><br></pre></td></tr></table></figure>
 <h1>解答：</h1>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,total=<span class="number">0</span>;</span><br><span class="line">    <span class="type">short</span> <span class="type">int</span> a[<span class="number">1000000</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="type">int</span> z;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;z;</span><br><span class="line">        <span class="keyword">if</span>(a[z]==<span class="number">0</span>)total++;</span><br><span class="line">        a[z]++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;total&lt;&lt;endl;</span><br><span class="line">    <span class="type">int</span> zzz=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1000000</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]!=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(zzz==<span class="number">1</span>)&#123;cout&lt;&lt;i;zzz=<span class="number">0</span>;&#125;</span><br><span class="line">            <span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n = <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> flag=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (flag!=<span class="number">1</span>)&#123;cout&lt;&lt;endl;&#125;</span><br><span class="line">        flag=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> a[n], b[n], c[n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;b[i]);</span><br><span class="line">        <span class="built_in">sort</span>(a, a + n);</span><br><span class="line">        <span class="built_in">sort</span>(b, b + n);</span><br><span class="line">        <span class="type">int</span> win = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">1</span>; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (a[i] &gt; b[j])&#123;</span><br><span class="line">                    win++;</span><br><span class="line">                b[j] = a[i];</span><br><span class="line">                <span class="keyword">break</span>;&#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (win &gt; n / <span class="number">2</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;YES&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;NO&quot;</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>编程</category>
       </categories>

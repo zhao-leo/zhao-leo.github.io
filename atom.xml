@@ -41,7 +41,7 @@
     <category term="其他" scheme="https://zhaocloud.work/categories/other/"/>
     
     
-    <category term="游戏" scheme="https://zhaocloud.work/tags/GAME/"/>
+    <category term="游戏" scheme="https://zhaocloud.work/tags/game/"/>
     
   </entry>
   
@@ -63,7 +63,7 @@
     <category term="其他" scheme="https://zhaocloud.work/categories/other/"/>
     
     
-    <category term="游戏" scheme="https://zhaocloud.work/tags/GAME/"/>
+    <category term="游戏" scheme="https://zhaocloud.work/tags/game/"/>
     
   </entry>
   
@@ -84,7 +84,7 @@
     <category term="其他" scheme="https://zhaocloud.work/categories/other/"/>
     
     
-    <category term="游戏" scheme="https://zhaocloud.work/tags/GAME/"/>
+    <category term="游戏" scheme="https://zhaocloud.work/tags/game/"/>
     
   </entry>
   
@@ -134,7 +134,7 @@
     <category term="技术" scheme="https://zhaocloud.work/categories/technology/"/>
     
     
-    <category term="博客" scheme="https://zhaocloud.work/tags/HEXO/"/>
+    <category term="博客" scheme="https://zhaocloud.work/tags/hexo/"/>
     
   </entry>
   
@@ -228,7 +228,7 @@
     <category term="技术" scheme="https://zhaocloud.work/categories/technology/"/>
     
     
-    <category term="博客" scheme="https://zhaocloud.work/tags/HEXO/"/>
+    <category term="博客" scheme="https://zhaocloud.work/tags/hexo/"/>
     
   </entry>
   
@@ -276,7 +276,7 @@
     <category term="技术" scheme="https://zhaocloud.work/categories/technology/"/>
     
     
-    <category term="博客" scheme="https://zhaocloud.work/tags/HEXO/"/>
+    <category term="博客" scheme="https://zhaocloud.work/tags/hexo/"/>
     
   </entry>
   
