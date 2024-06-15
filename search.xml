@@ -548,4 +548,43 @@
         <tag>PTA</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Minecraft联机指南</title>
+    <url>/posts/2024/06/b538cf64.html</url>
+    <content><![CDATA[<h1>Mineraft-Java Edition 简单联机教程</h1>
+<h2 id="情况1-玩家们在同一网络范围内">情况1:玩家们在同一网络范围内</h2>
+<p>比如:连接同一个路由器 Or 同时连接同一所学校的校园网</p>
+<h3 id="1-1-进入待联机世界">1.1 进入待联机世界</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Step1:点按Esc键进入游戏菜单</span><br><span class="line">Step2:点击对局域网开放</span><br><span class="line">Step3:点击创造一个局域网世界</span><br><span class="line">（在较高版本上可以自定义端口，在较低版本端口号会显示在聊天框中）</span><br></pre></td></tr></table></figure>
+<p>Notice:不论如何，请记住这个端口号！！！</p>
+<h3 id="1-2-回到桌面（不要退出MC）">1.2 回到桌面（不要退出MC）</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Step1:按组合键Windows+R进入运行，在弹出的框中输入cmd，回车运行</span><br><span class="line">Step2:在弹出的界面输入ipconfig，浏览内容，找到&quot;IPv4 地址&quot;一行，记住后面形如xxx.xxx.xxx.xxx的部分</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-回到MC">1.3 回到MC</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Step1:在好友的电脑上点击多人游戏————直接连接，并输入&quot;IPv4 地址:端口号&quot;连接进入</span><br></pre></td></tr></table></figure>
+<h3 id="举例说明">举例说明:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在上述 1.1 步骤中获取（设置）的端口号为25565</span><br><span class="line">在上述 1.2 步骤中获取的IPv4地址为192.168.3.5</span><br><span class="line">那么好友就应当输入192.168.3.5:25565</span><br></pre></td></tr></table></figure>
+<h2 id="情况2-玩家们不在同一网络范围内">情况2:玩家们不在同一网络范围内</h2>
+<p>比如:在两个不同的城市</p>
+<h3 id="2-1-进入待联机世界">2.1 进入待联机世界</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">同 1.1</span><br></pre></td></tr></table></figure>
+<p>P.S.:如果端口可以自定义，建议 25565</p>
+<h3 id="2-2-寻找端口映射服务器">2.2 寻找端口映射服务器</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Step1:建议访问https://panel.chmlfrp.cn/login注册并实名</span><br><span class="line">Step2:在 隧道管理————隧道列表 页面下点击&quot;添加隧道&quot;，选一个节点（建议海外节点）</span><br><span class="line">Step3:点击，在&quot;内网端口&quot;一栏填写 1.1 获取（设置）的端口号，点击确定，保存</span><br><span class="line">Step4*:第一次使用的用户，点击软件下载，下载对应客户端并解压</span><br><span class="line">Step5:在 隧道管理————配置文件 页面下点击&quot;节点选择&quot;,选择刚刚创建的节点，</span><br><span class="line">点击&quot;复制配置文件&quot;</span><br><span class="line">Step6:在客户端文件中找到&quot;frpc.ini&quot;，右键，用记事本打开</span><br><span class="line">Step7:将Step5中生成的配置文件复制到&quot;frpc.ini&quot;文件中，保存，</span><br><span class="line">      同时记录server_addr=后面的地址和remote_port=后面的端口号记录下来</span><br><span class="line">Step8:关闭记事本，打开&quot;frpc.ini&quot;所在的文件夹，右键&quot;在终端中打开&quot;，</span><br><span class="line">      在弹出的框中输入&quot;./frpc&quot;（没有双引号）即可</span><br></pre></td></tr></table></figure>
+<p>Notice:&quot;frpc.ini&quot;中local_port=后面的端口号必须和 2.1 中的端口号完全相同！！！<br>
+Notice:在整个联机过程中不要关闭终端窗口！！！</p>
+<h3 id="2-3-回到MC">2.3 回到MC</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Step1:在好友的电脑上点击多人游戏————直接连接，并输入&quot;server_addr:remote_port&quot;连接进入</span><br></pre></td></tr></table></figure>
+<h3 id="举例说明-2">举例说明:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在上述 2.1 步骤中获取（设置）的端口号为25565</span><br><span class="line">在上述 2.2 步骤中的配置文件如下</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">server_addr</span> = <span class="number">38.299</span>.<span class="number">130.211</span></span><br><span class="line"><span class="attr">server_port</span> = <span class="number">7000</span></span><br><span class="line"><span class="attr">tls_enable</span> = <span class="literal">false</span></span><br><span class="line"><span class="attr">user</span> = XXXXXXXXXXXXXXXXXXX</span><br><span class="line"><span class="attr">token</span> = ChmlFrpToken</span><br><span class="line"></span><br><span class="line"><span class="section">[3dyziJm]</span></span><br><span class="line"><span class="attr">type</span> = tcp</span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">25565</span></span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">45486</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">那么好友就应当输入 38.299.130.211:45486</span><br></pre></td></tr></table></figure>
+<h2 id="现在，开始你们的MC之旅吧">现在，开始你们的MC之旅吧~</h2>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>游戏</tag>
+      </tags>
+  </entry>
 </search>

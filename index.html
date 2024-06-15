@@ -195,6 +195,115 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhaocloud.work/posts/2024/06/b538cf64.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zryake">
+      <meta itemprop="description" content="爱摸鱼、宅宿舍的小男娘~（bushi）">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao-Leo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/2024/06/b538cf64.html" class="post-title-link" itemprop="url">Minecraft联机指南</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-06-15 19:56:53 / 修改时间：19:59:14" itemprop="dateCreated datePublished" datetime="2024-06-15T19:56:53+08:00">2024-06-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/other/" itemprop="url" rel="index"><span itemprop="name">其他</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>Mineraft-Java Edition 简单联机教程</h1>
+<h2 id="情况1-玩家们在同一网络范围内">情况1:玩家们在同一网络范围内</h2>
+<p>比如:连接同一个路由器 Or 同时连接同一所学校的校园网</p>
+<h3 id="1-1-进入待联机世界">1.1 进入待联机世界</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Step1:点按Esc键进入游戏菜单</span><br><span class="line">Step2:点击对局域网开放</span><br><span class="line">Step3:点击创造一个局域网世界</span><br><span class="line">（在较高版本上可以自定义端口，在较低版本端口号会显示在聊天框中）</span><br></pre></td></tr></table></figure>
+<p>Notice:不论如何，请记住这个端口号！！！</p>
+<h3 id="1-2-回到桌面（不要退出MC）">1.2 回到桌面（不要退出MC）</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Step1:按组合键Windows+R进入运行，在弹出的框中输入cmd，回车运行</span><br><span class="line">Step2:在弹出的界面输入ipconfig，浏览内容，找到&quot;IPv4 地址&quot;一行，记住后面形如xxx.xxx.xxx.xxx的部分</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-回到MC">1.3 回到MC</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Step1:在好友的电脑上点击多人游戏————直接连接，并输入&quot;IPv4 地址:端口号&quot;连接进入</span><br></pre></td></tr></table></figure>
+<h3 id="举例说明">举例说明:</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在上述 1.1 步骤中获取（设置）的端口号为25565</span><br><span class="line">在上述 1.2 步骤中获取的IPv4地址为192.168.3.5</span><br><span class="line">那么好友就应当输入192.168.3.5:25565</span><br></pre></td></tr></table></figure>
+<h2 id="情况2-玩家们不在同一网络范围内">情况2:玩家们不在同一网络范围内</h2>
+<p>比如:在两个不同的城市</p>
+<h3 id="2-1-进入待联机世界">2.1 进入待联机世界</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">同 1.1</span><br></pre></td></tr></table></figure>
+<p>P.S.:如果端口可以自定义，建议 25565</p>
+<h3 id="2-2-寻找端口映射服务器">2.2 寻找端口映射服务器</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Step1:建议访问https://panel.chmlfrp.cn/login注册并实名</span><br><span class="line">Step2:在 隧道管理————隧道列表 页面下点击&quot;添加隧道&quot;，选一个节点（建议海外节点）</span><br><span class="line">Step3:点击，在&quot;内网端口&quot;一栏填写 1.1 获取（设置）的端口号，点击确定，保存</span><br><span class="line">Step4*:第一次使用的用户，点击软件下载，下载对应客户端并解压</span><br><span class="line">Step5:在 隧道管理————配置文件 页面下点击&quot;节点选择&quot;,选择刚刚创建的节点，</span><br><span class="line">点击&quot;复制配置文件&quot;</span><br><span class="line">Step6:在客户端文件中找到&quot;frpc.ini&quot;，右键，用记事本打开</span><br><span class="line">Step7:将Step5中生成的配置文件复制到&quot;frpc.ini&quot;文件中，保存，</span><br><span class="line">      同时记录server_addr=后面的地址和remote_port=后面的端口号记录下来</span><br><span class="line">Step8:关闭记事本，打开&quot;frpc.ini&quot;所在的文件夹，右键&quot;在终端中打开&quot;，</span><br><span class="line">      在弹出的框中输入&quot;./frpc&quot;（没有双引号）即可</span><br></pre></td></tr></table></figure>
+<p>Notice:&quot;frpc.ini&quot;中local_port=后面的端口号必须和 2.1 中的端口号完全相同！！！<br>
+Notice:在整个联机过程中不要关闭终端窗口！！！</p>
+<h3 id="2-3-回到MC">2.3 回到MC</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Step1:在好友的电脑上点击多人游戏————直接连接，并输入&quot;server_addr:remote_port&quot;连接进入</span><br></pre></td></tr></table></figure>
+<h3 id="举例说明-2">举例说明:</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在上述 2.1 步骤中获取（设置）的端口号为25565</span><br><span class="line">在上述 2.2 步骤中的配置文件如下</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">server_addr</span> = <span class="number">38.299</span>.<span class="number">130.211</span></span><br><span class="line"><span class="attr">server_port</span> = <span class="number">7000</span></span><br><span class="line"><span class="attr">tls_enable</span> = <span class="literal">false</span></span><br><span class="line"><span class="attr">user</span> = XXXXXXXXXXXXXXXXXXX</span><br><span class="line"><span class="attr">token</span> = ChmlFrpToken</span><br><span class="line"></span><br><span class="line"><span class="section">[3dyziJm]</span></span><br><span class="line"><span class="attr">type</span> = tcp</span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">25565</span></span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">45486</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">那么好友就应当输入 38.299.130.211:45486</span><br></pre></td></tr></table></figure>
+<h2 id="现在，开始你们的MC之旅吧">现在，开始你们的MC之旅吧~</h2>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://zhaocloud.work/posts/2024/05/5603cdff.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -682,97 +791,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zhaocloud.work/posts/2023/11/7c28a84.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Zryake">
-      <meta itemprop="description" content="爱摸鱼、宅宿舍的小男娘~（bushi）">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao-Leo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/2023/11/7c28a84.html" class="post-title-link" itemprop="url">HEXO图片的插入</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-11-28 13:41:23" itemprop="dateCreated datePublished" datetime="2023-11-28T13:41:23+08:00">2023-11-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-06-10 19:01:27" itemprop="dateModified" datetime="2024-06-10T19:01:27+08:00">2024-06-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>102</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在Hexo的目录source中创建一个图片文件夹，例如images</p>
-<p>把你要插入的图片文件放到该目录下面，在你的文章中正常使用markdown的语法插入图片即可</p>
-<p>例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![img](/pic/xxx.png)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -844,7 +862,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -905,13 +923,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">16k</span>
+    <span title="站点总字数">17k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">15 分钟</span>
+    <span title="站点阅读时长">16 分钟</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
         
