@@ -557,6 +557,7 @@
 <h3 id="1-1-进入待联机世界">1.1 进入待联机世界</h3>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Step1:点按Esc键进入游戏菜单</span><br><span class="line">Step2:点击对局域网开放</span><br><span class="line">Step3:点击创造一个局域网世界</span><br><span class="line">（在较高版本上可以自定义端口，在较低版本端口号会显示在聊天框中）</span><br></pre></td></tr></table></figure>
 <p>Notice:不论如何，请记住这个端口号！！！</p>
+<span id="more"></span>
 <h3 id="1-2-回到桌面（不要退出MC）">1.2 回到桌面（不要退出MC）</h3>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Step1:按组合键Windows+R进入运行，在弹出的框中输入cmd，回车运行</span><br><span class="line">Step2:在弹出的界面输入ipconfig，浏览内容，找到&quot;IPv4 地址&quot;一行，记住后面形如xxx.xxx.xxx.xxx的部分</span><br></pre></td></tr></table></figure>
 <h3 id="1-3-回到MC">1.3 回到MC</h3>

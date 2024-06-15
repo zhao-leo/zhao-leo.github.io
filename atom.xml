@@ -6,7 +6,7 @@
   <link href="https://zhaocloud.work/atom.xml" rel="self"/>
   
   <link href="https://zhaocloud.work/"/>
-  <updated>2024-06-15T11:59:24.500Z</updated>
+  <updated>2024-06-15T12:17:33.652Z</updated>
   <id>https://zhaocloud.work/</id>
   
   <author>
@@ -21,19 +21,15 @@
     <link href="https://zhaocloud.work/posts/2024/06/b538cf64.html"/>
     <id>https://zhaocloud.work/posts/2024/06/b538cf64.html</id>
     <published>2024-06-15T11:56:53.000Z</published>
-    <updated>2024-06-15T11:59:24.500Z</updated>
+    <updated>2024-06-15T12:17:33.652Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h1&gt;Mineraft-Java Edition 简单联机教程&lt;/h1&gt;
 &lt;h2 id=&quot;情况1-玩家们在同一网络范围内&quot;&gt;情况1:玩家们在同一网络范围内&lt;/h2&gt;
 &lt;p&gt;比如:连接同一个路由器 Or 同时连接同一所学校的校园网&lt;/p&gt;
-&lt;h3</summary>
-        
-      
+&lt;h3 id=&quot;1-1-进入待联机世界&quot;&gt;1.1 进入待联机世界&lt;/h3&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Step1:点按Esc键进入游戏菜单&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Step2:点击对局域网开放&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Step3:点击创造一个局域网世界&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;（在较高版本上可以自定义端口，在较低版本端口号会显示在聊天框中）&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Notice:不论如何，请记住这个端口号！！！&lt;/p&gt;</summary>
     
     
     
