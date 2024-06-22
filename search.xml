@@ -598,20 +598,20 @@ Notice:在整个联机过程中不要关闭终端窗口！！！</p>
 <body>
   <select id="backgroundSelector">
     <option value="">选择背景图片</option>
-    <option value="./images/firefly/1.png">图片1</option>
-    <option value="./images/firefly/2.png">图片2</option>
-    <option value="./images/firefly/3.png">图片3</option>
-    <option value="./images/firefly/4.png">图片4</option>
-    <option value="./images/firefly/5.png">图片5</option>
-    <option value="./images/firefly/6.png">图片6</option>
-    <option value="./images/firefly/7.png">图片7</option>
-    <option value="./images/firefly/8.png">图片8</option>
+    <option value="https://zhaocloud.work/images/firefly/1.png">图片1</option>
+    <option value="https://zhaocloud.work/images/firefly/2.png">图片2</option>
+    <option value="https://zhaocloud.work/images/firefly/3.png">图片3</option>
+    <option value="https://zhaocloud.work/images/firefly/4.png">图片4</option>
+    <option value="https://zhaocloud.work/images/firefly/5.png">图片5</option>
+    <option value="https://zhaocloud.work/images/firefly/6.png">图片6</option>
+    <option value="https://zhaocloud.work/images/firefly/7.png">图片7</option>
+    <option value="https://zhaocloud.work/images/firefly/8.png">图片8</option>
   </select>
   <input type="text" id="textInput" placeholder="输入文本" />
   <button id="addTextBtn">添加文字</button>
   <button id="clearCanvasBtn">清除画板</button>
   <button id="exportBtn">导出图片</button>
-  <canvas id="c" width="800" height="600"></canvas>
+  <canvas id="c" width="600" height="600"></canvas>
   <script>
     const canvas = new fabric.Canvas("c");
     document
