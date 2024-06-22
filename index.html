@@ -220,7 +220,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-06-22 20:50:44 / 修改时间：21:08:10" itemprop="dateCreated datePublished" datetime="2024-06-22T20:50:44+08:00">2024-06-22</time>
+              <time title="创建时间：2024-06-22 20:50:44 / 修改时间：21:15:37" itemprop="dateCreated datePublished" datetime="2024-06-22T20:50:44+08:00">2024-06-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -275,10 +275,16 @@
   </select>
   <input type="text" id="textInput" placeholder="输入文本" />
   <button id="addTextBtn">添加文字</button>
+  <button id="clearCanvasBtn">清除画板</button>
   <button id="exportBtn">导出图片</button>
   <canvas id="c" width="800" height="600"></canvas>
   <script>
     const canvas = new fabric.Canvas("c");
+    document
+      .getElementById("clearCanvasBtn")
+      .addEventListener("click", function () {
+        canvas.clear(); // 删除画板上的所有对象
+      });
     document
       .getElementById("addTextBtn")
       .addEventListener("click", function () {

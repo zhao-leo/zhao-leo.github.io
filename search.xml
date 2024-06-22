@@ -609,10 +609,16 @@ Notice:在整个联机过程中不要关闭终端窗口！！！</p>
   </select>
   <input type="text" id="textInput" placeholder="输入文本" />
   <button id="addTextBtn">添加文字</button>
+  <button id="clearCanvasBtn">清除画板</button>
   <button id="exportBtn">导出图片</button>
   <canvas id="c" width="800" height="600"></canvas>
   <script>
     const canvas = new fabric.Canvas("c");
+    document
+      .getElementById("clearCanvasBtn")
+      .addEventListener("click", function () {
+        canvas.clear(); // 删除画板上的所有对象
+      });
     document
       .getElementById("addTextBtn")
       .addEventListener("click", function () {
