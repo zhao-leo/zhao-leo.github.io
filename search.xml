@@ -588,4 +588,85 @@ Notice:在整个联机过程中不要关闭终端窗口！！！</p>
         <tag>游戏</tag>
       </tags>
   </entry>
+  <entry>
+    <title>流萤表情包生成器</title>
+    <url>/posts/2024/06/94292614.html</url>
+    <content><![CDATA[<head>
+  <meta charset="UTF-8" />
+  <script src="https://zhaocloud.work/js/fabric.min.js"></script>
+</head>
+<body>
+  <select id="backgroundSelector">
+    <option value="">选择背景图片</option>
+    <option value="./images/firefly/1.png">图片1</option>
+    <option value="./images/firefly/2.png">图片2</option>
+    <option value="./images/firefly/3.png">图片3</option>
+    <option value="./images/firefly/4.png">图片4</option>
+    <option value="./images/firefly/5.png">图片5</option>
+    <option value="./images/firefly/6.png">图片6</option>
+    <option value="./images/firefly/7.png">图片7</option>
+    <option value="./images/firefly/8.png">图片8</option>
+  </select>
+  <input type="text" id="textInput" placeholder="输入文本" />
+  <button id="addTextBtn">添加文字</button>
+  <button id="exportBtn">导出图片</button>
+  <canvas id="c" width="800" height="600"></canvas>
+  <script>
+    const canvas = new fabric.Canvas("c");
+    document
+      .getElementById("addTextBtn")
+      .addEventListener("click", function () {
+        const textValue = document.getElementById("textInput").value;
+        if (textValue) {
+          const text = new fabric.Text(textValue, {
+            left: 100,
+            top: 100,
+            fontSize: 100,
+          });
+          canvas.add(text);
+        }
+      });
+    document.getElementById("exportBtn").addEventListener("click", function () {
+      canvas.renderAll();
+      const dataURL = canvas.toDataURL({
+        format: "png",
+        quality: 1,
+      });
+      const link = document.createElement("a");
+      link.download = "canvas-image.png";
+      link.href = dataURL;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+    document
+      .getElementById("backgroundSelector")
+      .addEventListener("change", function (e) {
+        const imageUrl = e.target.value;
+        if (imageUrl) {
+          fabric.Image.fromURL(imageUrl, function (img) {
+            const scale = Math.min(600 / img.width, 600 / img.height);
+            img.scaleX = scale;
+            img.scaleY = scale;
+            canvas.setWidth(600);
+            canvas.setHeight(600);
+            canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas), {
+              originX: "left",
+              originY: "top",
+              scaleX: scale,
+              scaleY: scale,
+            });
+          });
+        }
+      });
+  </script>
+</body>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>游戏</tag>
+      </tags>
+  </entry>
 </search>

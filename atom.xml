@@ -6,7 +6,7 @@
   <link href="https://zhaocloud.work/atom.xml" rel="self"/>
   
   <link href="https://zhaocloud.work/"/>
-  <updated>2024-06-15T12:17:33.652Z</updated>
+  <updated>2024-06-22T13:08:10.023Z</updated>
   <id>https://zhaocloud.work/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>流萤表情包生成器</title>
+    <link href="https://zhaocloud.work/posts/2024/06/94292614.html"/>
+    <id>https://zhaocloud.work/posts/2024/06/94292614.html</id>
+    <published>2024-06-22T12:50:44.000Z</published>
+    <updated>2024-06-22T13:08:10.023Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot; /&gt;
+  &lt;script src=&quot;https://zhaocloud.work/js/fabric.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;select</summary>
+        
+      
+    
+    
+    
+    <category term="其他" scheme="https://zhaocloud.work/categories/other/"/>
+    
+    
+    <category term="游戏" scheme="https://zhaocloud.work/tags/GAME/"/>
+    
+  </entry>
   
   <entry>
     <title>Minecraft联机指南</title>
