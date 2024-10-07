@@ -2,7 +2,7 @@
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="BUPT大一上习题">
-<title>字母统计-PTA</title>
+<title>校园歌手大赛新规则-PTA</title>
 
 <link rel='canonical' href='https://www.zhaocloud.work/p/singer_rules/'>
 
@@ -254,7 +254,8 @@
             <nav id="TableOfContents">
   <ol>
     <li><a href="#题目描述">题目描述</a></li>
-    <li><a href="#提示">提示</a></li>
+    <li><a href="#输入格式">输入格式</a></li>
+    <li><a href="#输出格式">输出格式</a></li>
   </ol>
 
   <ol>
@@ -294,7 +295,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/singer_rules/">校园歌手大赛新规则-PTA</a>
+            <a href="/p/singer_rules/">字母统计-PTA</a>
         </h2>
     
         
@@ -335,7 +336,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 1 分钟
                 </time>
             </div>
         
@@ -350,68 +351,56 @@
     <section class="article-content">
     
     
-    <h1 id="北邮vc实验题-字母统计">北邮VC++实验题 字母统计
+    <h1 id="北邮vc实验题-校园歌手大赛新规则">北邮VC++实验题 校园歌手大赛新规则
 </h1><h2 id="题目描述">题目描述
-</h2><p>从键盘输入一行或几行字符串，行数由键盘输入，一行字符串用字符数组存储。请统计所输入的字符串中26个字母（不区分大小写）出现的次数，并将出现次数非零的字母统计结果输出到屏幕上，格式参见样例。如果没有字母，请输出字符串中无字母。</p>
-<h2 id="提示">提示
-</h2><p>注意：输入行数后，换行再输入字符串。</p>
+</h2><p>8号选手参加校园歌手大赛，编程读入20个整数(0 - 100之间)并存入数组中做为评委打分。最后得分计算规则：先计算20个数的平均分，然后去掉所有与平均分相差10分以上的分数，最后把剩下的分数再取平均做为最后得分。如果没有剩下分数，此次打分无效。</p>
+<h2 id="输入格式">输入格式
+</h2><p>输入20个整数。</p>
+<h2 id="输出格式">输出格式
+</h2><p>输出三行，具体详见输出样例。</p>
 <h1 id="样例">样例
 </h1><h3 id="样例输入-1">样例输入 #1
 </h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1
-</span></span><span class="line"><span class="cl">I come quickly !
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">86 87 83 70 99 94 78 89 86 80 97 84 90 87 95 87 84 99 84 95
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="样例输出-1">样例输出 #1
 </h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">c:2
-</span></span><span class="line"><span class="cl">e:1
-</span></span><span class="line"><span class="cl">i:2
-</span></span><span class="line"><span class="cl">k:1
-</span></span><span class="line"><span class="cl">l:1
-</span></span><span class="line"><span class="cl">m:1
-</span></span><span class="line"><span class="cl">o:1
-</span></span><span class="line"><span class="cl">q:1
-</span></span><span class="line"><span class="cl">u:1
-</span></span><span class="line"><span class="cl">y:1
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">所有评委平均分:87.700分.
+</span></span><span class="line"><span class="cl">不合格得分:70 99 99.
+</span></span><span class="line"><span class="cl">最后得分:87.412分.
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="样例输入-2">样例输入 #2
 </h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1
-</span></span><span class="line"><span class="cl">1
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">72 72 73 71 71 72 73 71 71 72 98 98 97 100 99 97 97 99 99 99
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="样例输出-2">样例输出 #2
 </h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">字符串中无字母。
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">所有评委平均分:85.050分.
+</span></span><span class="line"><span class="cl">不合格得分:72 72 73 71 71 72 73 71 71 72 98 98 97 100 99 97 97 99 99 99.
+</span></span><span class="line"><span class="cl">无合格打分.
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="解答">解答
@@ -446,52 +435,36 @@
 </span><span class="lnt">27
 </span><span class="lnt">28
 </span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iomanip&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bitset&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">27</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">500</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">zzz</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">a</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span><span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">total</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">sum2</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">20</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">z</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//cin.get();
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="mi">500</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">z</span><span class="o">=</span><span class="n">strlen</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">z</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sum</span><span class="o">+=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sum</span><span class="o">/=</span><span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;所有评委平均分:%.3lf分.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">sum</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;不合格得分:&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">20</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;=</span><span class="sc">&#39;a&#39;</span><span class="o">&amp;&amp;</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;=</span><span class="sc">&#39;z&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">a</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">sum</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">10.00</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">zzz</span><span class="o">==</span><span class="mi">1</span><span class="p">){</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="n">zzz</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">total</span><span class="o">-=</span><span class="mi">1</span><span class="p">;}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">{</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34; &#34;</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="n">total</span><span class="o">-=</span><span class="mi">1</span><span class="p">;}</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;=</span><span class="sc">&#39;A&#39;</span><span class="o">&amp;&amp;</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;=</span><span class="sc">&#39;Z&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">a</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="sc">&#39;A&#39;</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="n">sum2</span><span class="o">+=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">bool</span> <span class="n">bon</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">26</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="kt">char</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="sc">&#39;a&#39;</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="s">&#34;:&#34;</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="n">bon</span><span class="o">=</span><span class="nb">true</span><span class="p">;}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">bon</span><span class="o">==</span><span class="nb">false</span><span class="p">)</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;字符串中无字母。&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;.&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">total</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;无合格打分.&#34;</span><span class="p">;</span><span class="k">return</span> <span class="mi">0</span><span class="p">;}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;最后得分:%.3lf分.&#34;</span><span class="p">,</span><span class="n">sum2</span><span class="o">/</span><span class="n">total</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -576,12 +549,12 @@
             
                 
 <article class="">
-    <a href="/p/mingming_random/">
+    <a href="/p/singer_rules/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">明明的随机数-PTA</h2>
+            <h2 class="article-title">字母统计-PTA</h2>
         </div>
     </a>
 </article>
@@ -589,12 +562,12 @@
             
                 
 <article class="">
-    <a href="/p/singer_rules/">
+    <a href="/p/mingming_random/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">校园歌手大赛新规则-PTA</h2>
+            <h2 class="article-title">明明的随机数-PTA</h2>
         </div>
     </a>
 </article>
@@ -750,7 +723,30 @@
         document.head.appendChild(customFont);
     }());
 </script>
+<script type="text/javascript" src="https://l2dwidget.js.org/lib/L2Dwidget.min.js"></script>
+<script>
+      L2Dwidget
+        .init({
+          dialog: {
+            
+            enable: true,
+            script: {
+              
+              'every idle 10s': '$hitokoto$',
+              
+              'hover .site-logo': '星星在天上而你在我心里 (*/ω＼*)',
+              
+              'tap body': '哎呀！别碰我！',
+              
+              'tap face': '人家已经不是小孩子了！'
+            }
+          },
+          display: {
+            "width": 200,
+            "height": 200
+          }
+        });
+</script>
 
-<script src="https://www.zhaocloud.work/JavaScript/autoload.js"></script>
     </body>
 </html>
