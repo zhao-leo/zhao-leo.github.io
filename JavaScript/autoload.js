@@ -1,6 +1,6 @@
 // live2d_path 参数建议使用绝对路径
 // const live2d_path = "https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
-const live2d_path = "./";
+const live2d_path = "https://www.zhaocloud.work/";
 //const live2d_path = "/live2d-widget/";
 
 // 封装异步加载资源的方法
@@ -34,7 +34,7 @@ if (screen.width >= 768) {
 	]).then(() => {
 		// 配置选项的具体用法见 README.md
 		initWidget({
-			waifuPath: live2d_path + "waifu-tips.json",
+			waifuPath: live2d_path + "JavaScript/waifu-tips.json",
 			//apiPath: "https://live2d.fghrsh.net/api/",
 			cdnPath: "https://github.moeyy.xyz/https://raw.githubusercontent.com/fghrsh/live2d_api/1.0.1/",//"https://cdn.jsdelivr.net/gh/fghrsh/live2d_api/",
 			tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
