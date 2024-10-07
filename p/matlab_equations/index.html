@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="BUPT大一下Matlab选修">
+<title>第七周作业-线性方程组求解</title>
+
+<link rel='canonical' href='https://www.zhaocloud.work/p/matlab_equations/'>
+
+<link rel="stylesheet" href="/scss/style.min.e8c7fca7d1c9294aa7a4f3426c225ee26540f7d94e39be0b5a4a5c8a49ca5a25.css"><meta property='og:title' content="第七周作业-线性方程组求解">
+<meta property='og:description' content="BUPT大一下Matlab选修">
+<meta property='og:url' content='https://www.zhaocloud.work/p/matlab_equations/'>
+<meta property='og:site_name' content='Zhao-Leo'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Matlab' /><meta property='article:tag' content='University' /><meta property='article:published_time' content='2024-08-05T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-08-05T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="第七周作业-线性方程组求解">
+<meta name="twitter:description" content="BUPT大一下Matlab选修">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu3088eb0118f631e5085ad34d8a1ac4e4_97515_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">♊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Zhao-Leo</a></h1>
+            <h2 class="site-description">无限进步!</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/zhao-leo'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                   	<a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener" title="开往-友链接力">
+						<img src="https://www.travellings.cn/assets/logo.gif" alt="开往-友链接力" width="120">
+					</a>
+					<li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#从课程所讲授的线性方程组求解方法中任选一种方法实现对下面的线性方程组的求解">从课程所讲授的线性方程组求解方法中任选一种方法实现对下面的线性方程组的求解</a>
+      <ol>
+        <li><a href="#问题描述">问题描述</a></li>
+        <li><a href="#程序设计">程序设计</a></li>
+        <li><a href="#计算结果">计算结果</a></li>
+      </ol>
+    </li>
+    <li><a href="#电路问题">电路问题</a>
+      <ol>
+        <li><a href="#问题描述-1">问题描述</a></li>
+        <li><a href="#数学模型">数学模型</a>
+          <ol>
+            <li><a href="#物理关系">物理关系</a></li>
+            <li><a href="#转化成数学问题">转化成数学问题</a></li>
+          </ol>
+        </li>
+        <li><a href="#程序设计-1">程序设计</a></li>
+        <li><a href="#计算结果-1">计算结果</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BC%96%E7%A8%8B/" >
+                编程
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/matlab_equations/">第七周作业-线性方程组求解</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            BUPT大一下Matlab选修
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 05, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="北邮matlab选修-week-7-线性方程组求解">北邮Matlab选修 Week 7 线性方程组求解
+</h1><h2 id="从课程所讲授的线性方程组求解方法中任选一种方法实现对下面的线性方程组的求解">从课程所讲授的线性方程组求解方法中任选一种方法实现对下面的线性方程组的求解
+</h2><h3 id="问题描述">问题描述
+</h3><p>解方程</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" width="24.056ex" height="11.765ex" viewBox="0 -2850 10632.9 5200" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style=""><defs><path id="MJX-62-TEX-S4-23A7" d="M712 899L718 893V876V865Q718 854 704 846Q627 793 577 710T510 525Q510 524 509 521Q505 493 504 349Q504 345 504 334Q504 277 504 240Q504 -2 503 -4Q502 -8 494 -9T444 -10Q392 -10 390 -9Q387 -8 386 -5Q384 5 384 230Q384 262 384 312T383 382Q383 481 392 535T434 656Q510 806 664 892L677 899H712Z"></path><path id="MJX-62-TEX-S4-23A9" d="M718 -893L712 -899H677L666 -893Q542 -825 468 -714T385 -476Q384 -466 384 -282Q384 3 385 5L389 9Q392 10 444 10Q486 10 494 9T503 4Q504 2 504 -239V-310V-366Q504 -470 508 -513T530 -609Q546 -657 569 -698T617 -767T661 -812T699 -843T717 -856T718 -876V-893Z"></path><path id="MJX-62-TEX-S4-23A8" d="M389 1159Q391 1160 455 1160Q496 1160 498 1159Q501 1158 502 1155Q504 1145 504 924Q504 691 503 682Q494 549 425 439T243 259L229 250L243 241Q349 175 421 66T503 -182Q504 -191 504 -424Q504 -600 504 -629T499 -659H498Q496 -660 444 -660T390 -659Q387 -658 386 -655Q384 -645 384 -425V-282Q384 -176 377 -116T342 10Q325 54 301 92T255 155T214 196T183 222T171 232Q170 233 170 250T171 268Q171 269 191 284T240 331T300 407T354 524T383 679Q384 691 384 925Q384 1152 385 1155L389 1159Z"></path><path id="MJX-62-TEX-S4-23AA" d="M384 150V266Q384 304 389 309Q391 310 455 310Q496 310 498 309Q502 308 503 298Q504 283 504 150Q504 32 504 12T499 -9H498Q496 -10 444 -10T390 -9Q386 -8 385 2Q384 17 384 150Z"></path><path id="MJX-62-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-62-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path><path id="MJX-62-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-62-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-62-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-62-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path id="MJX-62-TEX-I-1D467" d="M347 338Q337 338 294 349T231 360Q211 360 197 356T174 346T162 335T155 324L153 320Q150 317 138 317Q117 317 117 325Q117 330 120 339Q133 378 163 406T229 440Q241 442 246 442Q271 442 291 425T329 392T367 375Q389 375 411 408T434 441Q435 442 449 442H462Q468 436 468 434Q468 430 463 420T449 399T432 377T418 358L411 349Q368 298 275 214T160 106L148 94L163 93Q185 93 227 82T290 71Q328 71 360 90T402 140Q406 149 409 151T424 153Q443 153 443 143Q443 138 442 134Q425 72 376 31T278 -11Q252 -11 232 6T193 40T155 57Q111 57 76 -3Q70 -11 59 -11H54H41Q35 -5 35 -2Q35 13 93 84Q132 129 225 214T340 322Q352 338 347 338Z"></path><path id="MJX-62-TEX-N-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path id="MJX-62-TEX-I-1D464" d="M580 385Q580 406 599 424T641 443Q659 443 674 425T690 368Q690 339 671 253Q656 197 644 161T609 80T554 12T482 -11Q438 -11 404 5T355 48Q354 47 352 44Q311 -11 252 -11Q226 -11 202 -5T155 14T118 53T104 116Q104 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Q21 293 29 315T52 366T96 418T161 441Q204 441 227 416T250 358Q250 340 217 250T184 111Q184 65 205 46T258 26Q301 26 334 87L339 96V119Q339 122 339 128T340 136T341 143T342 152T345 165T348 182T354 206T362 238T373 281Q402 395 406 404Q419 431 449 431Q468 431 475 421T483 402Q483 389 454 274T422 142Q420 131 420 107V100Q420 85 423 71T442 42T487 26Q558 26 600 148Q609 171 620 213T632 273Q632 306 619 325T593 357T580 385Z"></path><path id="MJX-62-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-62-TEX-N-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><g data-mml-node="math"><g data-mml-node="mrow"><g data-mml-node="mo"><use xlink:href="#MJX-62-TEX-S4-23A7" transform="translate(0, 1951)"></use><use xlink:href="#MJX-62-TEX-S4-23A9" transform="translate(0, -1451)"></use><use xlink:href="#MJX-62-TEX-S4-23A8" transform="translate(0, 0)"></use><svg width="889" height="981" y="1060" x="0" viewBox="0 172.9 889 981"><use xlink:href="#MJX-62-TEX-S4-23AA" transform="scale(1, 4.825)"></use></svg><svg width="889" height="981" y="-1541" x="0" viewBox="0 172.9 889 981"><use xlink:href="#MJX-62-TEX-S4-23AA" transform="scale(1, 4.825)"></use></svg></g><g data-mml-node="mtable" transform="translate(889, 0)"><g data-mml-node="mtr" transform="translate(0, 2100)"><g data-mml-node="mtd"><g data-mml-node="mn"><use xlink:href="#MJX-62-TEX-N-31"></use></g><g data-mml-node="mi" transform="translate(500, 0)"><use xlink:href="#MJX-62-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(1294.2, 0)"><use xlink:href="#MJX-62-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(2294.4, 0)"><use xlink:href="#MJX-62-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(2794.4, 0)"><use xlink:href="#MJX-62-TEX-I-1D466"></use></g><g data-mml-node="mo" transform="translate(3506.7, 0)"><use xlink:href="#MJX-62-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(4506.9, 0)"><use xlink:href="#MJX-62-TEX-N-33"></use></g><g data-mml-node="mi" transform="translate(5006.9, 0)"><use xlink:href="#MJX-62-TEX-I-1D467"></use></g><g data-mml-node="mo" transform="translate(5694.1, 0)"><use xlink:href="#MJX-62-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(6694.3, 0)"><use xlink:href="#MJX-62-TEX-N-34"></use></g><g data-mml-node="mi" transform="translate(7194.3, 0)"><use xlink:href="#MJX-62-TEX-I-1D464"></use></g><g data-mml-node="mo" transform="translate(8188.1, 0)"><use xlink:href="#MJX-62-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(9243.9, 0)"><use xlink:href="#MJX-62-TEX-N-35"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, 700)"><g data-mml-node="mtd"><g data-mml-node="mn"><use xlink:href="#MJX-62-TEX-N-34"></use></g><g data-mml-node="mi" transform="translate(500, 0)"><use xlink:href="#MJX-62-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(1294.2, 0)"><use xlink:href="#MJX-62-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(2294.4, 0)"><use xlink:href="#MJX-62-TEX-N-33"></use></g><g data-mml-node="mi" transform="translate(2794.4, 0)"><use xlink:href="#MJX-62-TEX-I-1D466"></use></g><g data-mml-node="mo" transform="translate(3506.7, 0)"><use xlink:href="#MJX-62-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(4506.9, 0)"><use xlink:href="#MJX-62-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(5006.9, 0)"><use xlink:href="#MJX-62-TEX-I-1D467"></use></g><g data-mml-node="mo" transform="translate(5694.1, 0)"><use xlink:href="#MJX-62-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(6694.3, 0)"><use xlink:href="#MJX-62-TEX-N-31"></use></g><g data-mml-node="mi" transform="translate(7194.3, 0)"><use xlink:href="#MJX-62-TEX-I-1D464"></use></g><g data-mml-node="mo" transform="translate(8188.1, 0)"><use xlink:href="#MJX-62-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(9243.9, 0)"><use xlink:href="#MJX-62-TEX-N-34"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, -700)"><g data-mml-node="mtd"><g data-mml-node="mn"><use xlink:href="#MJX-62-TEX-N-31"></use></g><g data-mml-node="mi" transform="translate(500, 0)"><use xlink:href="#MJX-62-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(1294.2, 0)"><use xlink:href="#MJX-62-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(2294.4, 0)"><use xlink:href="#MJX-62-TEX-N-33"></use></g><g data-mml-node="mi" transform="translate(2794.4, 0)"><use xlink:href="#MJX-62-TEX-I-1D466"></use></g><g data-mml-node="mo" transform="translate(3506.7, 0)"><use xlink:href="#MJX-62-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(4506.9, 0)"><use xlink:href="#MJX-62-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(5006.9, 0)"><use xlink:href="#MJX-62-TEX-I-1D467"></use></g><g data-mml-node="mo" transform="translate(5694.1, 0)"><use xlink:href="#MJX-62-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(6694.3, 0)"><use xlink:href="#MJX-62-TEX-N-34"></use></g><g data-mml-node="mi" transform="translate(7194.3, 0)"><use xlink:href="#MJX-62-TEX-I-1D464"></use></g><g data-mml-node="mo" transform="translate(8188.1, 0)"><use xlink:href="#MJX-62-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(9243.9, 0)"><use xlink:href="#MJX-62-TEX-N-33"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, -2100)"><g data-mml-node="mtd"><g data-mml-node="mn"><use xlink:href="#MJX-62-TEX-N-34"></use></g><g data-mml-node="mi" transform="translate(500, 0)"><use xlink:href="#MJX-62-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(1294.2, 0)"><use xlink:href="#MJX-62-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(2294.4, 0)"><use xlink:href="#MJX-62-TEX-N-31"></use></g><g data-mml-node="mi" transform="translate(2794.4, 0)"><use xlink:href="#MJX-62-TEX-I-1D466"></use></g><g data-mml-node="mo" transform="translate(3506.7, 0)"><use xlink:href="#MJX-62-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(4506.9, 0)"><use xlink:href="#MJX-62-TEX-N-33"></use></g><g data-mml-node="mi" transform="translate(5006.9, 0)"><use xlink:href="#MJX-62-TEX-I-1D467"></use></g><g data-mml-node="mo" transform="translate(5694.1, 0)"><use xlink:href="#MJX-62-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(6694.3, 0)"><use xlink:href="#MJX-62-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(7194.3, 0)"><use xlink:href="#MJX-62-TEX-I-1D464"></use></g><g data-mml-node="mo" transform="translate(8188.1, 0)"><use xlink:href="#MJX-62-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(9243.9, 0)"><use xlink:href="#MJX-62-TEX-N-32"></use></g></g></g></g><g data-mml-node="mo" transform="translate(10632.9, 0)"></g></g></g></g></svg></p>
+<h3 id="程序设计">程序设计
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="c">%solveByCramer.m</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span><span class="w"> </span>x <span class="p">=</span><span class="w"> </span><span class="nf">solveByCramer</span><span class="p">(</span>A, b<span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">n</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">detA</span> <span class="p">=</span> <span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Ai</span> <span class="p">=</span> <span class="n">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Ai</span><span class="p">(:,</span><span class="nb">i</span><span class="p">)</span> <span class="p">=</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="p">=</span> <span class="n">det</span><span class="p">(</span><span class="n">Ai</span><span class="p">)</span> <span class="o">/</span> <span class="n">detA</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="计算结果">计算结果
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&gt;&gt;  A=[1,2,3,4;4,3,2,1;1,3,2,4;4,1,3,2]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">A =
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     1     2     3     4
+</span></span><span class="line"><span class="cl">     4     3     2     1
+</span></span><span class="line"><span class="cl">     1     3     2     4
+</span></span><span class="line"><span class="cl">     4     1     3     2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&gt;&gt;  b=[5;4;3;2]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">b =
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     5
+</span></span><span class="line"><span class="cl">     4
+</span></span><span class="line"><span class="cl">     3
+</span></span><span class="line"><span class="cl">     2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&gt;&gt;  result=solveByCramer(A,b)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">result =
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   -1.8000
+</span></span><span class="line"><span class="cl">    1.8667
+</span></span><span class="line"><span class="cl">    3.8667
+</span></span><span class="line"><span class="cl">   -2.1333
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="电路问题">电路问题
+</h2><h3 id="问题描述-1">问题描述
+</h3><p>一种大型输电网络可以简化为下图所示电路，其中$R_i$表示负载电阻，$r_i$表示线路内阻，设电源电压为$V$。若$R_i=6$，$r_i=1$，$V=18$，求出各个负载上的电流$I_1,I_2,I_3, \cdots , I_n$及总电流$I_0$。</p>
+<h3 id="数学模型">数学模型
+</h3><h4 id="物理关系">物理关系
+</h4><ul>
+<li>
+<p>对于支路电源和$R_1$，$r_1$，有：
+$$ V=U_{R_1}+U_{r_1} $$</p>
+<p>即：
+$$ V=I_1 \times R_1 + I_0 \times r_1 $$</p>
+<p>可化为：
+$$ I_0+6 I_1 = 18 $$
+(共 <code>1</code> 个方程)</p>
+</li>
+<li>
+<p>对于支路$R_{k+1}$，$r_{k+1}$，$R_k$，有：
+$$ U_{R_k}=U_{R_{k+1}}+U_{r_{k+1}} (1 \leq k &lt; n) $$</p>
+<p>即：
+$$ I_k \times R_k = I_{k+1} \times R_{k+1} + \sum_{j=k+1}^{n} I_j \times r_k $$</p>
+<p>可化为：
+$$ -6I_k+7I_{k+1}+\sum_{j=k+2}^{n} I_j = 0 $$
+(共 <code>n-1</code> 个方程)</p>
+</li>
+<li>
+<p>根据电流关系，有：
+$$ I_0=\sum_{j=1}^{n} I_j $$
+(共 <code>1</code> 个方程)</p>
+</li>
+</ul>
+<p>以上共计<code>n+1</code>个方程，对应$I_0$到$I_n$<code>n+1</code>个未知数。</p>
+<h4 id="转化成数学问题">转化成数学问题
+</h4><ul>
+<li>
+<p>转化成矩阵运算：</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" width="53.276ex" height="26.176ex" viewBox="0 -6035 23547.9 11570" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style=""><defs><path id="MJX-483-TEX-S4-23A1" d="M319 -645V1154H666V1070H403V-645H319Z"></path><path id="MJX-483-TEX-S4-23A3" d="M319 -644V1155H403V-560H666V-644H319Z"></path><path id="MJX-483-TEX-S4-23A2" d="M319 0V602H403V0H319Z"></path><path id="MJX-483-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-483-TEX-N-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path id="MJX-483-TEX-N-22EF" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250ZM525 250Q525 274 542 292T585 310Q609 310 627 294T646 251Q646 226 629 208T586 190T543 207T525 250ZM972 250Q972 274 989 292T1032 310Q1056 310 1074 294T1093 251Q1093 226 1076 208T1033 190T990 207T972 250Z"></path><path id="MJX-483-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-483-TEX-N-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path id="MJX-483-TEX-N-37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path><path id="MJX-483-TEX-N-22EE" d="M78 30Q78 54 95 72T138 90Q162 90 180 74T199 31Q199 6 182 -12T139 -30T96 -13T78 30ZM78 440Q78 464 95 482T138 500Q162 500 180 484T199 441Q199 416 182 398T139 380T96 397T78 440ZM78 840Q78 864 95 882T138 900Q162 900 180 884T199 841Q199 816 182 798T139 780T96 797T78 840Z"></path><path id="MJX-483-TEX-N-22F1" d="M133 760Q133 784 150 802T193 820Q217 820 235 804T254 761Q254 736 237 718T194 700T151 717T133 760ZM580 460Q580 484 597 502T640 520Q664 520 682 504T701 461Q701 436 684 418T641 400T598 417T580 460ZM1027 160Q1027 184 1044 202T1087 220Q1111 220 1129 204T1148 161Q1148 136 1131 118T1088 100T1045 117T1027 160Z"></path><path id="MJX-483-TEX-S4-23A4" d="M0 1070V1154H347V-645H263V1070H0Z"></path><path id="MJX-483-TEX-S4-23A6" d="M263 -560V1155H347V-644H0V-560H263Z"></path><path id="MJX-483-TEX-S4-23A5" d="M263 0V602H347V0H263Z"></path><path id="MJX-483-TEX-N-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path id="MJX-483-TEX-I-1D43C" d="M43 1Q26 1 26 10Q26 12 29 24Q34 43 39 45Q42 46 54 46H60Q120 46 136 53Q137 53 138 54Q143 56 149 77T198 273Q210 318 216 344Q286 624 286 626Q284 630 284 631Q274 637 213 637H193Q184 643 189 662Q193 677 195 680T209 683H213Q285 681 359 681Q481 681 487 683H497Q504 676 504 672T501 655T494 639Q491 637 471 637Q440 637 407 634Q393 631 388 623Q381 609 337 432Q326 385 315 341Q245 65 245 59Q245 52 255 50T307 46H339Q345 38 345 37T342 19Q338 6 332 0H316Q279 2 179 2Q143 2 113 2T65 2T43 1Z"></path><path id="MJX-483-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-483-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path id="MJX-483-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-483-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-483-TEX-N-38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><g data-mml-node="math"><g data-mml-node="mrow"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-S4-23A1" transform="translate(0, 4881)"></use><use xlink:href="#MJX-483-TEX-S4-23A3" transform="translate(0, -4891)"></use><svg width="667" height="8172" y="-3836" x="0" viewBox="0 2043 667 8172"><use xlink:href="#MJX-483-TEX-S4-23A2" transform="scale(1, 20.362)"></use></svg></g><g data-mml-node="mtable" transform="translate(667, 0)"><g data-mml-node="mtr" transform="translate(0, 5285)"><g data-mml-node="mtd"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g><g data-mml-node="mtd" transform="translate(1500, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(778, 0)"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g><g data-mml-node="mtd" transform="translate(3778, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(778, 0)"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g><g data-mml-node="mtd" transform="translate(6056, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(778, 0)"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g><g data-mml-node="mtd" transform="translate(8389, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-22EF"></use></g></g><g data-mml-node="mtd" transform="translate(10616, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(778, 0)"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g><g data-mml-node="mtd" transform="translate(12894, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(778, 0)"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, 3885)"><g data-mml-node="mtd"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g><g data-mml-node="mtd" transform="translate(1500, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(778, 0)"><use xlink:href="#MJX-483-TEX-N-36"></use></g></g><g data-mml-node="mtd" transform="translate(4167, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-37"></use></g></g><g data-mml-node="mtd" transform="translate(6445, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g><g data-mml-node="mtd" transform="translate(8389, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-22EF"></use></g></g><g data-mml-node="mtd" transform="translate(11005, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g><g data-mml-node="mtd" transform="translate(13283, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, 2485)"><g data-mml-node="mtd"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g><g data-mml-node="mtd" transform="translate(1889, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g><g data-mml-node="mtd" transform="translate(3778, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(778, 0)"><use xlink:href="#MJX-483-TEX-N-36"></use></g></g><g data-mml-node="mtd" transform="translate(6445, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-37"></use></g></g><g data-mml-node="mtd" transform="translate(8389, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-22EF"></use></g></g><g data-mml-node="mtd" transform="translate(11005, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g><g data-mml-node="mtd" transform="translate(13283, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, 1085)"><g data-mml-node="mtd"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g><g data-mml-node="mtd" transform="translate(1889, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g><g data-mml-node="mtd" transform="translate(4167, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g><g data-mml-node="mtd" transform="translate(6056, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(778, 0)"><use xlink:href="#MJX-483-TEX-N-36"></use></g></g><g data-mml-node="mtd" transform="translate(8389, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-22EF"></use></g></g><g data-mml-node="mtd" transform="translate(11005, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g><g data-mml-node="mtd" transform="translate(13283, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, -1085)"><g data-mml-node="mtd" transform="translate(111, 0)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-22EE"></use></g></g></g><g data-mml-node="mtd" transform="translate(2000, 0)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-22EE"></use></g></g></g><g data-mml-node="mtd" transform="translate(4278, 0)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-22EE"></use></g></g></g><g data-mml-node="mtd" transform="translate(6556, 0)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-22EE"></use></g></g></g><g data-mml-node="mtd" transform="translate(8334, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-22F1"></use></g></g><g data-mml-node="mtd" transform="translate(11116, 0)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-22EE"></use></g></g></g><g data-mml-node="mtd" transform="translate(13394, 0)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-22EE"></use></g></g></g></g><g data-mml-node="mtr" transform="translate(0, -2485)"><g data-mml-node="mtd"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g><g data-mml-node="mtd" transform="translate(1889, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g><g data-mml-node="mtd" transform="translate(4167, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g><g data-mml-node="mtd" transform="translate(6445, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g><g data-mml-node="mtd" transform="translate(8389, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-22EF"></use></g></g><g data-mml-node="mtd" transform="translate(11005, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-37"></use></g></g><g data-mml-node="mtd" transform="translate(13283, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, -3885)"><g data-mml-node="mtd"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g><g data-mml-node="mtd" transform="translate(1889, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g><g data-mml-node="mtd" transform="translate(4167, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g><g data-mml-node="mtd" transform="translate(6056, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(778, 0)"><use xlink:href="#MJX-483-TEX-N-36"></use></g></g><g data-mml-node="mtd" transform="translate(8389, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-22EF"></use></g></g><g data-mml-node="mtd" transform="translate(10616, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(778, 0)"><use xlink:href="#MJX-483-TEX-N-36"></use></g></g><g data-mml-node="mtd" transform="translate(13283, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-37"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, -5285)"><g data-mml-node="mtd"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g><g data-mml-node="mtd" transform="translate(1889, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-36"></use></g></g><g data-mml-node="mtd" transform="translate(4167, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g><g data-mml-node="mtd" transform="translate(6445, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g><g data-mml-node="mtd" transform="translate(8389, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-22EF"></use></g></g><g data-mml-node="mtd" transform="translate(11005, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g><g data-mml-node="mtd" transform="translate(13283, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g></g></g><g data-mml-node="mo" transform="translate(14839, 0)"><use xlink:href="#MJX-483-TEX-S4-23A4" transform="translate(0, 4881)"></use><use xlink:href="#MJX-483-TEX-S4-23A6" transform="translate(0, -4891)"></use><svg width="667" height="8172" y="-3836" x="0" viewBox="0 2043 667 8172"><use xlink:href="#MJX-483-TEX-S4-23A5" transform="scale(1, 20.362)"></use></svg></g></g><g data-mml-node="mo" transform="translate(15728.2, 0)"><use xlink:href="#MJX-483-TEX-N-D7"></use></g><g data-mml-node="mrow" transform="translate(16728.4, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-S4-23A1" transform="translate(0, 4771)"></use><use xlink:href="#MJX-483-TEX-S4-23A3" transform="translate(0, -4781)"></use><svg width="667" height="7952" y="-3726" x="0" viewBox="0 1988 667 7952"><use xlink:href="#MJX-483-TEX-S4-23A2" transform="scale(1, 19.814)"></use></svg></g><g data-mml-node="mtable" transform="translate(667, 0)"><g data-mml-node="mtr" transform="translate(0, 5175)"><g data-mml-node="mtd" transform="translate(487.2, 0)"><g data-mml-node="msub"><g data-mml-node="mi"><use xlink:href="#MJX-483-TEX-I-1D43C"></use></g><g data-mml-node="mn" transform="translate(440, -150) scale(0.707)"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g></g></g><g data-mml-node="mtr" transform="translate(0, 3775)"><g data-mml-node="mtd" transform="translate(487.2, 0)"><g data-mml-node="msub"><g data-mml-node="mi"><use xlink:href="#MJX-483-TEX-I-1D43C"></use></g><g data-mml-node="mn" transform="translate(440, -150) scale(0.707)"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g></g></g><g data-mml-node="mtr" transform="translate(0, 2375)"><g data-mml-node="mtd" transform="translate(487.2, 0)"><g data-mml-node="msub"><g data-mml-node="mi"><use xlink:href="#MJX-483-TEX-I-1D43C"></use></g><g data-mml-node="mn" transform="translate(440, -150) scale(0.707)"><use xlink:href="#MJX-483-TEX-N-32"></use></g></g></g></g><g data-mml-node="mtr" transform="translate(0, 975)"><g data-mml-node="mtd" transform="translate(487.2, 0)"><g data-mml-node="msub"><g data-mml-node="mi"><use xlink:href="#MJX-483-TEX-I-1D43C"></use></g><g data-mml-node="mn" transform="translate(440, -150) scale(0.707)"><use xlink:href="#MJX-483-TEX-N-33"></use></g></g></g></g><g data-mml-node="mtr" transform="translate(0, -975)"><g data-mml-node="mtd" transform="translate(770, 0)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-22EE"></use></g></g></g></g><g data-mml-node="mtr" transform="translate(0, -2375)"><g data-mml-node="mtd"><g data-mml-node="msub"><g data-mml-node="mi"><use xlink:href="#MJX-483-TEX-I-1D43C"></use></g><g data-mml-node="TeXAtom" transform="translate(440, -150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use xlink:href="#MJX-483-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(600, 0)"><use xlink:href="#MJX-483-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(1378, 0)"><use xlink:href="#MJX-483-TEX-N-32"></use></g></g></g></g></g><g data-mml-node="mtr" transform="translate(0, -3775)"><g data-mml-node="mtd"><g data-mml-node="msub"><g data-mml-node="mi"><use xlink:href="#MJX-483-TEX-I-1D43C"></use></g><g data-mml-node="TeXAtom" transform="translate(440, -150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use xlink:href="#MJX-483-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(600, 0)"><use xlink:href="#MJX-483-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(1378, 0)"><use xlink:href="#MJX-483-TEX-N-31"></use></g></g></g></g></g><g data-mml-node="mtr" transform="translate(0, -5175)"><g data-mml-node="mtd" transform="translate(451.8, 0)"><g data-mml-node="msub"><g data-mml-node="mi"><use xlink:href="#MJX-483-TEX-I-1D43C"></use></g><g data-mml-node="TeXAtom" transform="translate(440, -150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use xlink:href="#MJX-483-TEX-I-1D45B"></use></g></g></g></g></g></g><g data-mml-node="mo" transform="translate(2484.9, 0)"><use xlink:href="#MJX-483-TEX-S4-23A4" transform="translate(0, 4771)"></use><use xlink:href="#MJX-483-TEX-S4-23A6" transform="translate(0, -4781)"></use><svg width="667" height="7952" y="-3726" x="0" viewBox="0 1988 667 7952"><use xlink:href="#MJX-483-TEX-S4-23A5" transform="scale(1, 19.814)"></use></svg></g></g><g data-mml-node="mo" transform="translate(20158.2, 0)"><use xlink:href="#MJX-483-TEX-N-3D"></use></g><g data-mml-node="mrow" transform="translate(21213.9, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-S4-23A1" transform="translate(0, 4771)"></use><use xlink:href="#MJX-483-TEX-S4-23A3" transform="translate(0, -4781)"></use><svg width="667" height="7952" y="-3726" x="0" viewBox="0 1988 667 7952"><use xlink:href="#MJX-483-TEX-S4-23A2" transform="scale(1, 19.814)"></use></svg></g><g data-mml-node="mtable" transform="translate(667, 0)"><g data-mml-node="mtr" transform="translate(0, 5175)"><g data-mml-node="mtd" transform="translate(250, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, 3775)"><g data-mml-node="mtd" transform="translate(250, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, 2375)"><g data-mml-node="mtd" transform="translate(250, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, 975)"><g data-mml-node="mtd" transform="translate(250, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, -975)"><g data-mml-node="mtd" transform="translate(361, 0)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mo"><use xlink:href="#MJX-483-TEX-N-22EE"></use></g></g></g></g><g data-mml-node="mtr" transform="translate(0, -2375)"><g data-mml-node="mtd" transform="translate(250, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, -3775)"><g data-mml-node="mtd" transform="translate(250, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-30"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, -5175)"><g data-mml-node="mtd"><g data-mml-node="mn"><use xlink:href="#MJX-483-TEX-N-31"></use><use xlink:href="#MJX-483-TEX-N-38" transform="translate(500, 0)"></use></g></g></g></g><g data-mml-node="mo" transform="translate(1667, 0)"><use xlink:href="#MJX-483-TEX-S4-23A4" transform="translate(0, 4771)"></use><use xlink:href="#MJX-483-TEX-S4-23A6" transform="translate(0, -4781)"></use><svg width="667" height="7952" y="-3726" x="0" viewBox="0 1988 667 7952"><use xlink:href="#MJX-483-TEX-S4-23A5" transform="scale(1, 19.814)"></use></svg></g></g></g></g></svg></p>
+</li>
+<li>
+<p>解以上方程组可得解向量$I_0$~$I_n$</p>
+</li>
+</ul>
+<h3 id="程序设计-1">程序设计
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="c">%Circuit.m</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span><span class="w"> </span>result <span class="p">=</span><span class="w"> </span><span class="nf">Circuit</span><span class="p">(</span>n<span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">% -6*x_{k} + 7*x_{k+1} + (x_{k+2} + x_{k+3} + ... + x_{n}) = 0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">b</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">b</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="mi">18</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">% Fill in the matrix A according to the recursive relation</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">2</span><span class="p">:</span><span class="n">n</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="p">=</span> <span class="o">-</span><span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="mi">7</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">k</span><span class="o">+</span><span class="mi">2</span> <span class="o">&lt;</span><span class="p">=</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="o">+</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">end</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)=</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">A</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)=</span><span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="p">=</span> <span class="n">solveByCramer</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span><span class="w"> </span>x <span class="p">=</span><span class="w"> </span><span class="nf">solveByCramer</span><span class="p">(</span>A, b<span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">n</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">detA</span> <span class="p">=</span> <span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Ai</span> <span class="p">=</span> <span class="n">A</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Ai</span><span class="p">(:,</span><span class="nb">i</span><span class="p">)</span> <span class="p">=</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="p">=</span> <span class="n">det</span><span class="p">(</span><span class="n">Ai</span><span class="p">)</span> <span class="o">/</span> <span class="n">detA</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="计算结果-1">计算结果
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&gt;&gt; Circuit(10)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ans =
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    5.9970
+</span></span><span class="line"><span class="cl">    2.0005
+</span></span><span class="line"><span class="cl">    1.3344
+</span></span><span class="line"><span class="cl">    0.8907
+</span></span><span class="line"><span class="cl">    0.5955
+</span></span><span class="line"><span class="cl">    0.3995
+</span></span><span class="line"><span class="cl">    0.2702
+</span></span><span class="line"><span class="cl">    0.1858
+</span></span><span class="line"><span class="cl">    0.1324
+</span></span><span class="line"><span class="cl">    0.1011
+</span></span><span class="line"><span class="cl">    0.0867
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/matlab/">Matlab</a>
+        
+            <a href="/tags/university/">University</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/matlab_midterm/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Matlab 期中作业</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/matlab_final/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Matlab 期末作业</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/matlab_interrupt_advanced/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第九周作业-插值升级版</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/matlab_newton/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第五周作业-牛顿迭代法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/matlab_matching/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第十二周作业-拟合</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 zhao leo
+    </section>
+    
+    <section class="powerby">
+        
+            Progress Infinite! <br/>
+        
+		使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://stack.jimmycai.com/" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script src="https://www.zhaocloud.work/JavaScript/autoload.js"></script>
+    </body>
+</html>

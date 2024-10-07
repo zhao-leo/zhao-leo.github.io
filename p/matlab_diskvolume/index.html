@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="BUPT大一下Matlab选修">
+<title>第三周作业-涂料计算</title>
+
+<link rel='canonical' href='https://www.zhaocloud.work/p/matlab_diskvolume/'>
+
+<link rel="stylesheet" href="/scss/style.min.e8c7fca7d1c9294aa7a4f3426c225ee26540f7d94e39be0b5a4a5c8a49ca5a25.css"><meta property='og:title' content="第三周作业-涂料计算">
+<meta property='og:description' content="BUPT大一下Matlab选修">
+<meta property='og:url' content='https://www.zhaocloud.work/p/matlab_diskvolume/'>
+<meta property='og:site_name' content='Zhao-Leo'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Matlab' /><meta property='article:tag' content='University' /><meta property='article:published_time' content='2024-08-03T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-08-03T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="第三周作业-涂料计算">
+<meta name="twitter:description" content="BUPT大一下Matlab选修">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu3088eb0118f631e5085ad34d8a1ac4e4_97515_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">♊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Zhao-Leo</a></h1>
+            <h2 class="site-description">无限进步!</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/zhao-leo'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                   	<a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener" title="开往-友链接力">
+						<img src="https://www.travellings.cn/assets/logo.gif" alt="开往-友链接力" width="120">
+					</a>
+					<li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#问题描述">问题描述</a></li>
+    <li><a href="#数学模型">数学模型</a>
+      <ol>
+        <li><a href="#体积计算">体积计算</a></li>
+        <li><a href="#润湿面积计算">润湿面积计算</a></li>
+      </ol>
+    </li>
+    <li><a href="#程序设计">程序设计</a></li>
+    <li><a href="#计算结果">计算结果</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BC%96%E7%A8%8B/" >
+                编程
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/matlab_diskvolume/">第三周作业-涂料计算</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            BUPT大一下Matlab选修
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 03, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="北邮matlab选修-week-3-涂料计算">北邮Matlab选修 Week 3 涂料计算
+</h1><h2 id="问题描述">问题描述
+</h2><p><img src="/p/matlab_diskvolume/1.png"
+	width="593"
+	height="162"
+	srcset="/p/matlab_diskvolume/1_hu737e2c065c91a8ccb1106e1c5a7af092_116005_480x0_resize_box_3.png 480w, /p/matlab_diskvolume/1_hu737e2c065c91a8ccb1106e1c5a7af092_116005_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="366"
+		data-flex-basis="878px"
+	
+></p>
+<p>如图所示的磁盘，半径为<code>R</code>，高度为<code>h</code>，它有<code>8</code>个圆柱形的孔，每个孔的半径为<code>r</code>，这可能是一个需要刷漆的机器零件，刷完后再与其他零件进行组装。在设计这台机器的过程中，我们可能需要知道这个磁盘的重量和它所需的油漆量。机器的重量和油漆量是各个零件的总和。由于磁盘的重量与它的体积成正比，油漆量与它的“润湿面积”成正比，所以我们需要知道这个磁盘的体积和面积。</p>
+<p>请编写一个函数，用于求该磁盘的体积和面积，并用一个实例对编写的函数进行测试。</p>
+<h2 id="数学模型">数学模型
+</h2><h3 id="体积计算">体积计算
+</h3><ul>
+<li>
+<p>原始磁盘体积</p>
+<p>磁盘是一个圆柱体，其体积$V_{disk}$可以通过以下公式计算：</p>
+<p>$$ V_{disk}=\pi R^2h $$</p>
+<p>其中，$R$是磁盘的半径，$h$是磁盘的高度。</p>
+</li>
+<li>
+<p>孔的体积</p>
+<p>每个孔也是一个圆柱体，其体积$V_{hole}$可以通过以下公式计算：</p>
+<p>$$ V_{hole}=\pi r^2 h $$</p>
+<p>其中：$r$是孔的半径。</p>
+</li>
+<li>
+<p>实际磁盘体积</p>
+<p>实际磁盘体积 $V_{actual}$ 是原始体积减去总孔体积：</p>
+<p>$$ V_{actual}=V_{disk}-totalholes \times V_{hole} $$</p>
+</li>
+</ul>
+<h3 id="润湿面积计算">润湿面积计算
+</h3><ul>
+<li>
+<p>原始磁盘表面积</p>
+<p>磁盘的表面积包括两个底面和一个侧面，其表面积 $S_{disk}$ 可以通过以下公式计算：</p>
+<p>$$ S_{disk}=2\pi R^2 + 2\pi Rh $$</p>
+<p>其中，$R$ 是磁盘的半径，$h$是磁盘的高度。</p>
+</li>
+<li>
+<p>孔的侧面积</p>
+<p>每个孔的侧面积$S_{holeside}$可以通过以下公式计算：</p>
+<p>$$ S_{holeside} = 2 \pi r h $$</p>
+<p>这里不考虑孔的底面，因为它们位于磁盘内部，不会增加润湿面积，其中，$r$是孔的半径。</p>
+</li>
+<li>
+<p>孔的底面和顶面面积</p>
+<p>每个孔的侧面积$S_{topbuttom}$可以通过以下公式计算：</p>
+<p>$$ S_{topbuttom} = 2 \pi r^2 $$</p>
+</li>
+<li>
+<p>实际磁盘体积</p>
+<p>最后，实际润湿面积$S_{actual}$是原始表面积加上总孔侧面积减去总孔底面和顶面面积：</p>
+<p>$$ S_{actual}=S_{disk}+totalholes \times (S_{holeside} - S_{topbuttom}) $$</p>
+</li>
+</ul>
+<h2 id="程序设计">程序设计
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="line"><span class="cl"><span class="k">function</span><span class="w"> </span>[volume, surface_area] <span class="p">=</span><span class="w"> </span><span class="nf">disk_volume_area</span><span class="p">(</span>R, h, r<span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">% R - 磁盘的半径  </span>
+</span></span><span class="line"><span class="cl">    <span class="c">% h - 磁盘的高度  </span>
+</span></span><span class="line"><span class="cl">    <span class="c">% r - 每个孔的半径  </span>
+</span></span><span class="line"><span class="cl">    <span class="c">% n_holes - 孔的数量  </span>
+</span></span><span class="line"><span class="cl">    <span class="n">n_holes</span><span class="p">=</span><span class="mi">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">% 计算原始磁盘的体积  </span>
+</span></span><span class="line"><span class="cl">    <span class="n">original_volume</span> <span class="p">=</span> <span class="nb">pi</span> <span class="o">*</span> <span class="n">R</span>^<span class="mi">2</span> <span class="o">*</span> <span class="n">h</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">    <span class="c">% 计算原始磁盘的表面积（包括两个底面和一个侧面）  </span>
+</span></span><span class="line"><span class="cl">    <span class="n">original_surface_area</span> <span class="p">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">pi</span> <span class="o">*</span> <span class="n">R</span>^<span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">pi</span> <span class="o">*</span> <span class="n">R</span> <span class="o">*</span> <span class="n">h</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">    <span class="c">% 计算每个孔的体积  </span>
+</span></span><span class="line"><span class="cl">    <span class="n">hole_volume</span> <span class="p">=</span> <span class="nb">pi</span> <span class="o">*</span> <span class="n">r</span>^<span class="mi">2</span> <span class="o">*</span> <span class="n">h</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">    <span class="c">% 计算每个孔的侧面积（不包括底面，因为底面在磁盘内部，不参与润湿）  </span>
+</span></span><span class="line"><span class="cl">    <span class="n">hole_side_area</span> <span class="p">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">h</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c">%计算每个孔的顶、底面积</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hole_top_buttom_area</span> <span class="p">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">% 计算所有孔的总体积  </span>
+</span></span><span class="line"><span class="cl">    <span class="n">total_hole_volume</span> <span class="p">=</span> <span class="n">n_holes</span> <span class="o">*</span> <span class="n">hole_volume</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">    <span class="c">% 计算所有孔的顶、底面积总和  </span>
+</span></span><span class="line"><span class="cl">    <span class="n">total_hole_side_area</span> <span class="p">=</span> <span class="n">n_holes</span> <span class="o">*</span> <span class="n">hole_side_area</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">    <span class="c">% 计算所有孔的侧面积总和  </span>
+</span></span><span class="line"><span class="cl">    <span class="n">total_hole_top_buttom_area</span> <span class="p">=</span> <span class="n">n_holes</span> <span class="o">*</span> <span class="n">hole_top_buttom_area</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">% 计算磁盘的实际体积（减去孔的体积）  </span>
+</span></span><span class="line"><span class="cl">    <span class="n">volume</span> <span class="p">=</span> <span class="n">original_volume</span> <span class="o">-</span> <span class="n">total_hole_volume</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">    <span class="c">% 计算磁盘的实际润湿面积</span>
+</span></span><span class="line"><span class="cl">    <span class="n">surface_area</span> <span class="p">=</span> <span class="n">original_surface_area</span> <span class="o">+</span> <span class="n">total_hole_side_area</span> <span class="o">-</span> <span class="n">total_hole_top_buttom_area</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="计算结果">计算结果
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&gt;&gt; R=10;
+</span></span><span class="line"><span class="cl">&gt;&gt; h=5;
+</span></span><span class="line"><span class="cl">&gt;&gt; r=2;
+</span></span><span class="line"><span class="cl">&gt;&gt; [volume, surface_area] = disk_volume_area(R, h, r); 
+</span></span><span class="line"><span class="cl">&gt;&gt; fprintf(&#39;磁盘的体积为: %f\n&#39;, volume); 
+</span></span><span class="line"><span class="cl">磁盘的体积为: 1068.141502
+</span></span><span class="line"><span class="cl">&gt;&gt; fprintf(&#39;磁盘的润湿面积为: %f\n&#39;, surface_area);
+</span></span><span class="line"><span class="cl">磁盘的润湿面积为: 1244.070691
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/matlab/">Matlab</a>
+        
+            <a href="/tags/university/">University</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/matlab_midterm/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Matlab 期中作业</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/matlab_final/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Matlab 期末作业</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/matlab_equations/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第七周作业-线性方程组求解</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/matlab_interrupt_advanced/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第九周作业-插值升级版</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/matlab_newton/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第五周作业-牛顿迭代法</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2024 zhao leo
+    </section>
+    
+    <section class="powerby">
+        
+            Progress Infinite! <br/>
+        
+		使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://stack.jimmycai.com/" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script src="https://www.zhaocloud.work/JavaScript/autoload.js"></script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>北京 on Zhao-Leo</title>
+        <link>https://www.zhaocloud.work/tags/%E5%8C%97%E4%BA%AC/</link>
+        <description>Recent content in 北京 on Zhao-Leo</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>zhao leo</copyright>
+        <lastBuildDate>Tue, 24 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.zhaocloud.work/tags/%E5%8C%97%E4%BA%AC/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>印象北京</title>
+        <link>https://www.zhaocloud.work/p/beijing_picture_1/</link>
+        <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.zhaocloud.work/p/beijing_picture_1/</guid>
+        <description>&lt;h1 id=&#34;北京的天&#34;&gt;北京的天
+&lt;/h1&gt;&lt;h2 id=&#34;晴空&#34;&gt;晴空
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://www.zhaocloud.work/p/beijing_picture_1/1.jpg&#34;
+	width=&#34;3648&#34;
+	height=&#34;2736&#34;
+	srcset=&#34;https://www.zhaocloud.work/p/beijing_picture_1/1_hu41e4fea9c774e87a187b7fe336273c50_2327819_480x0_resize_q75_box.jpg 480w, https://www.zhaocloud.work/p/beijing_picture_1/1_hu41e4fea9c774e87a187b7fe336273c50_2327819_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;晴空&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;傍晚&#34;&gt;傍晚
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://www.zhaocloud.work/p/beijing_picture_1/2.jpg&#34;
+	width=&#34;3264&#34;
+	height=&#34;1836&#34;
+	srcset=&#34;https://www.zhaocloud.work/p/beijing_picture_1/2_hu06b48550530adf239ffc3a29facbd4d7_1733142_480x0_resize_q75_box.jpg 480w, https://www.zhaocloud.work/p/beijing_picture_1/2_hu06b48550530adf239ffc3a29facbd4d7_1733142_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;傍晚&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

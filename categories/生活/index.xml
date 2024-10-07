@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>生活 on Zhao-Leo</title>
+        <link>https://www.zhaocloud.work/categories/%E7%94%9F%E6%B4%BB/</link>
+        <description>Recent content in 生活 on Zhao-Leo</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>zhao leo</copyright>
+        <lastBuildDate>Wed, 04 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.zhaocloud.work/categories/%E7%94%9F%E6%B4%BB/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>姐姐和猫猫的歌</title>
+        <link>https://www.zhaocloud.work/p/sister_songs/</link>
+        <pubDate>Wed, 04 Sep 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.zhaocloud.work/p/sister_songs/</guid>
+        <description>&lt;img src="https://www.zhaocloud.work/p/sister_songs/cover.webp" alt="Featured image of post 姐姐和猫猫的歌" /&gt;&lt;h1 id=&#34;姐姐和猫猫的歌&#34;&gt;姐姐和猫猫的歌
+&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;&lt;big&gt; 感谢姐姐在闲暇之时为猫猫唱的歌啦~ &lt;/big&gt;&lt;strong&gt;&lt;/p&gt;
+
+
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&#34;&gt;
+
+
+
+    &lt;script src=&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;aplayer&#34;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    const ap = new APlayer({
+        container: document.getElementById(&#39;aplayer&#39;),
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        audio: [
+                {
+                    name: &#34;特别的人&#34;,
+                    
+                    url: &#34;特别的人.mp3&#34;,
+
+                    
+                        artist: &#34;Jin\u003c2024-09-05\u003e&#34;,
+                    
+
+                    
+                        cover: &#34;1.jpg&#34;,
+                    
+                    
+                    
+
+                    
+                },
+                {
+                    name: &#34;最后一页&#34;,
+                    
+                    url: &#34;最后一页.mp3&#34;,
+
+                    
+                        artist: &#34;Jin\u003c2024-09-17\u003e&#34;,
+                    
+
+                    
+                        cover: &#34;2.jpg&#34;,
+                    
+                    
+                    
+
+                    
+                },
+                {
+                    name: &#34;青花瓷&#34;,
+                    
+                    url: &#34;青花瓷.mp3&#34;,
+
+                    
+                        artist: &#34;Leo\u003c2024-09-17\u003e&#34;,
+                    
+
+                    
+                        cover: &#34;3.jpg&#34;,
+                    
+                    
+                    
+
+                    
+                },
+                {
+                    name: &#34;红尘客栈&#34;,
+                    
+                    url: &#34;红尘客栈.mp3&#34;,
+
+                    
+                        artist: &#34;Leo\u003c2024-09-20\u003e&#34;,
+                    
+
+                    
+                        cover: &#34;4jpg&#34;,
+                    
+                    
+                    
+
+                    
+                }]
+
+    });
+
+    
+    
+&lt;/script&gt;
+</description>
+        </item>
+        <item>
+        <title>印象北京</title>
+        <link>https://www.zhaocloud.work/p/beijing_picture_1/</link>
+        <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.zhaocloud.work/p/beijing_picture_1/</guid>
+        <description>&lt;h1 id=&#34;北京的天&#34;&gt;北京的天
+&lt;/h1&gt;&lt;h2 id=&#34;晴空&#34;&gt;晴空
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://www.zhaocloud.work/p/beijing_picture_1/1.jpg&#34;
+	width=&#34;3648&#34;
+	height=&#34;2736&#34;
+	srcset=&#34;https://www.zhaocloud.work/p/beijing_picture_1/1_hu41e4fea9c774e87a187b7fe336273c50_2327819_480x0_resize_q75_box.jpg 480w, https://www.zhaocloud.work/p/beijing_picture_1/1_hu41e4fea9c774e87a187b7fe336273c50_2327819_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;晴空&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;傍晚&#34;&gt;傍晚
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://www.zhaocloud.work/p/beijing_picture_1/2.jpg&#34;
+	width=&#34;3264&#34;
+	height=&#34;1836&#34;
+	srcset=&#34;https://www.zhaocloud.work/p/beijing_picture_1/2_hu06b48550530adf239ffc3a29facbd4d7_1733142_480x0_resize_q75_box.jpg 480w, https://www.zhaocloud.work/p/beijing_picture_1/2_hu06b48550530adf239ffc3a29facbd4d7_1733142_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;傍晚&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
