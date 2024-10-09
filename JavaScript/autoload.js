@@ -23,5 +23,9 @@ $.ajax({
 /* 可直接修改部分参数 */
 live2d_settings['modelId'] = 5;                  // 默认模型 ID
 live2d_settings['modelTexturesId'] = 1;          // 默认材质 ID
+live2d_settings['waifuEdgeSide'] = 'right:30';	 // 看板娘贴边方向
+live2d_settings['waifuDraggable'] = 'axis-x';	 // 拖拽样式
+live2d_settings['homePageUrl'] = 'https://www.zhaocloud.work';	 // 主页地址
+live2d_settings['aboutPageUrl'] = 'https://www.zhaocloud.work/about/';	 // 关于页地址
 /* 在 initModel 前添加 */
 initModel('https://www.zhaocloud.work/JavaScript/waifu-tips.json');
