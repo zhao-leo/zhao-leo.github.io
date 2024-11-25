@@ -360,28 +360,15 @@
 </h3><h3 id="step2用微信自带扫一扫打开将结果直接发给你填入下面的格子中">Step2：用微信自带扫一扫打开，将结果直接发给你填入下面的格子中
 </h3><h3 id="step3点击按钮然后用bupt企业号扫码">Step3：点击按钮，然后用BUPT企业号扫码
 </h3><head>
-    <script src="/JavaScript/qrcode.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
+            margin: 20px;
         }
-        h1 {
-            color: #333;
-        }
-        input[type="text"] {
+        #inputText {
+            width: 20%;
             padding: 10px;
             margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 80%;
-            max-width: 500px;
         }
         button {
             padding: 10px 20px;
@@ -396,66 +383,41 @@
         button:hover {
             background-color: #0056b3;
         }
-        #qrcode {
-            margin: 20px 0;
-        }
-        #nextRefreshTime {
-            margin: 10px 0;
-            color: #555;
-        }
-        progress {
-            width: 80%;
-            max-width: 500px;
-            height: 20px;
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <input type="text" id="inputText" value="" placeholder="输入二维码内容" style="width: 20%;">
+    <input type="text" id="inputText" value="" placeholder="输入二维码内容">
     <button onclick="startGenerating()">开始生成二维码</button>
-    <div id="qrcode"></div>
-    <p id="nextRefreshTime"></p>
-    <progress id="refreshProgress" value="0" max="3000" style="width: 100%;"></progress>
+    <button onclick="copyToClipboard()">复制链接</button>
+    <iframe id="qrIframe" style="display:none;"></iframe>
     <script>
-        var intervalId;
-        var progressIntervalId;
-        function generateQRCode() {
-            var qrcodeContainer = document.getElementById("qrcode");
-            qrcodeContainer.innerHTML = ""; // 清空之前的二维码
-            var inputText = document.getElementById("inputText").value;
-            // 获取东八区时间
-            var currentTime = new Date();
-            currentTime.setHours(currentTime.getHours() + 8);
-            var isoTime = currentTime.toISOString().slice(0, -1);
-            var updatedText = inputText.replace(/createTime=[^&]*/, `createTime=${isoTime}`);
-            var qrcode = new QRCode(qrcodeContainer, {
-                text: updatedText,
-                width: 256,
-                height: 256,
-            });
-            // 显示下次刷新时间
-            var nextRefreshTime = new Date(currentTime.getTime() + 3000);
-            document.getElementById("nextRefreshTime").innerText = "下次刷新时间: " + nextRefreshTime.toISOString().slice(0, -1);
-            // 重置进度条
-            var progressBar = document.getElementById("refreshProgress");
-            progressBar.value = 0;
-            clearInterval(progressIntervalId);
-            progressIntervalId = setInterval(updateProgressBar, 30);
-        }
-        function updateProgressBar() {
-            var progressBar = document.getElementById("refreshProgress");
-            if (progressBar.value < progressBar.max) {
-                progressBar.value += 30;
-            } else {
-                clearInterval(progressIntervalId);
-            }
-        }
         function startGenerating() {
-            generateQRCode();
-            intervalId = setInterval(generateQRCode, 3000);
+            const inputText = document.getElementById('inputText').value;
+            const baseUrl = '/PersonalHTML/qrcode.html?';
+            const fullUrl = baseUrl + inputText;
+            const qrIframe = document.getElementById('qrIframe');
+            qrIframe.src = fullUrl;
+            qrIframe.style.display = 'block';
+        }
+        function copyToClipboard() {
+            const inputText = document.getElementById('inputText').value;
+            const baseUrl = '/PersonalHTML/qrcode.html?';
+            const fullUrl = window.location.protocol + '//' + window.location.host + baseUrl + inputText;
+            navigator.clipboard.writeText(fullUrl).then(function() {
+                alert('链接已复制到剪贴板');
+            }, function(err) {
+                alert('复制失败: ', err);
+            });
         }
     </script>
 </body>
+
 </section>
 
 
