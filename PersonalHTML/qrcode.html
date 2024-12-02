@@ -18,8 +18,12 @@
             const createTime = urlParams.get('createTime');
             const classLessonId = urlParams.get('classLessonId');
             
-            const currentTime = new Date().toISOString();
-            const fullUrl = `checkwork|id=${id}&siteId=${siteId}&createTime=${currentTime}&classLessonId=${classLessonId}`;
+            const currentTime = new Date();
+            const utcTime = currentTime.getTime() + (currentTime.getTimezoneOffset() * 60000);
+            const eastEightTime = new Date(utcTime + 16 * 60 * 60 * 1000); // 东八区时间
+            const isoTime = eastEightTime.toISOString();
+
+            const fullUrl = `checkwork|id=${id}&siteId=${siteId}&createTime=${isoTime}&classLessonId=${classLessonId}`;
             console.log(fullUrl);
             var qrcode = new QRCode(qrcodeContainer, {
                 text: fullUrl,
