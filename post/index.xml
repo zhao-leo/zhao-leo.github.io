@@ -161,6 +161,22 @@
             padding: 10px;
             margin: 10px 0;
         }
+        #customFileInputButton {
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        #customFileInputButton:hover {
+            background: linear-gradient(135deg, #a777e3, #6e8efb);
+            transform: translateY(-2px);
+        }
         button {
             padding: 10px 20px;
             margin: 10px 0;
@@ -176,17 +192,21 @@
         }
         iframe {
             width: 100%;
-            height: 500px;
+            height: 300px;
             border: none;
             margin-top: 20px;
         }
     &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
+    &lt;input type=&#34;file&#34; id=&#34;fileInput&#34; accept=&#34;image/*&#34; style = &#34;display: none;&#34;&gt;
+    &lt;button id=&#34;customFileInputButton&#34;&gt;选择文件&lt;/button&gt;
     &lt;input type=&#34;text&#34; id=&#34;inputText&#34; value=&#34;&#34; placeholder=&#34;输入二维码内容&#34;&gt;
     &lt;button onclick=&#34;startGenerating()&#34;&gt;开始生成二维码&lt;/button&gt;
     &lt;button onclick=&#34;copyToClipboard()&#34;&gt;复制链接&lt;/button&gt;
     &lt;iframe id=&#34;qrIframe&#34; style=&#34;display:none;&#34;&gt;&lt;/iframe&gt;
+    &lt;p id=&#34;qrResult&#34;&gt;QR Code Content: &lt;/p&gt;
+    &lt;script src=&#34;https://www.zhaocloud.work/JavaScript/jsQR.js&#34;&gt;&lt;/script&gt;
     &lt;script&gt;
         function startGenerating() {
             const inputText = document.getElementById(&#39;inputText&#39;).value;
@@ -206,6 +226,36 @@
                 alert(&#39;复制失败: &#39;, err);
             });
         }
+    document.getElementById(&#39;customFileInputButton&#39;).addEventListener(&#39;click&#39;, function() {
+        document.getElementById(&#39;fileInput&#39;).click();
+    });
+    document.getElementById(&#39;fileInput&#39;).addEventListener(&#39;change&#39;, function(event) {
+    const file = event.target.files[0];
+    if (!file) {
+        return;
+    }
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+            const canvas = document.createElement(&#39;canvas&#39;);
+            const context = canvas.getContext(&#39;2d&#39;);
+            canvas.width = img.width;
+            canvas.height = img.height;
+            context.drawImage(img, 0, 0, img.width, img.height);
+            const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+            const code = jsQR(imageData.data, imageData.width, imageData.height);
+            if (code) {
+                document.getElementById(&#39;qrResult&#39;).textContent = &#39;QR Code Content: &#39; + code.data;
+                document.getElementById(&#39;inputText&#39;).value = code.data;
+            } else {
+                document.getElementById(&#39;qrResult&#39;).textContent = &#39;No QR code found.&#39;;
+            }
+        };
+        img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+});
     &lt;/script&gt;
 &lt;/body&gt;
 </description>
