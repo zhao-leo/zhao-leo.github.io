@@ -7,20 +7,28 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>zhao leo</copyright>
-        <lastBuildDate>Tue, 08 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.zhaocloud.work/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 21 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.zhaocloud.work/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>University</title>
+        <link>https://www.zhaocloud.work/tags/university/</link>
+        <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.zhaocloud.work/tags/university/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Verilog</title>
+        <link>https://www.zhaocloud.work/tags/verilog/</link>
+        <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.zhaocloud.work/tags/verilog/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Python</title>
         <link>https://www.zhaocloud.work/tags/python/</link>
         <pubDate>Tue, 08 Oct 2024 00:00:00 +0000</pubDate>
         
         <guid>https://www.zhaocloud.work/tags/python/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>University</title>
-        <link>https://www.zhaocloud.work/tags/university/</link>
-        <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
-        
-        <guid>https://www.zhaocloud.work/tags/university/</guid>
         <description></description>
         </item>
         <item>
