@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<title>Matlab第九周插值问题（升级版）</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="Matlab选修作业记录（其他的简介懒得写了/2025-01-25/）">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="https://www.zhaocloud.work/posts/matlab_%E6%8F%92%E5%80%BC%E5%8D%87%E7%BA%A7%E7%89%88/">
+  <meta property="og:site_name" content="April Diary">
+  <meta property="og:title" content="Matlab第九周插值问题（升级版）">
+  <meta property="og:description" content="Matlab选修作业记录（其他的简介懒得写了/2025-01-25/）">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-08-05T00:00:00+00:00">
+    <meta property="article:tag" content="Matlab">
+    <meta property="article:tag" content="大学">
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "pz9g1z5otp");
+</script>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://www.zhaocloud.work/favicon.svg">
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>console.log("Hello from 'layouts/partials/extended_head.html'")</script>
+<link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/yozai/dist/Yozai-Bold/result.css' />
+<style>
+    body {
+        font-family: 'Yozai';
+        font-weight: '300'
+    };
+</style>
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    时间线
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    归档
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    标签
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8c%97%e9%82%aematlab%e9%80%89%e4%bf%ae-week-9-%e6%8f%92%e5%80%bc%e5%8d%87%e7%ba%a7%e7%89%88" class="nav-北邮matlab选修-week-9-插值升级版">
+									北邮Matlab选修 Week 9 插值(升级版)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e6%8f%92%e5%80%bc%e8%ae%a1%e7%ae%97" class="nav-插值计算">
+									插值计算
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0" class="nav-问题描述">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1" class="nav-程序设计">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c" class="nav-计算结果">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e4%bb%a3%e7%a0%81%e4%bf%ae%e6%94%b9" class="nav-代码修改">
+									代码修改
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0-1" class="nav-问题描述-1">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1-1" class="nav-程序设计-1">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c-1" class="nav-计算结果-1">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://www.zhaocloud.work/">
+            April Diary
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://www.zhaocloud.work/">
+        <div class="single-column-header-title">April Diary</div>
+        
+        <div class="single-column-header-subtitle">人间四月芳菲尽</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    Matlab第九周插值问题（升级版）
+                    
+                    <div class="post-subtitle">
+                        Matlab选修作业记录（其他的简介懒得写了/2025-01-25/）
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2024-08-05 00:00
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/matlab">Matlab</a>
+                                &nbsp;
+                            
+                                <a href="/tags/%E5%A4%A7%E5%AD%A6">大学</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="北邮matlab选修-week-9-插值升级版">北邮Matlab选修 Week 9 插值(升级版)</h1>
+<h2 id="插值计算">插值计算</h2>
+<h3 id="问题描述">问题描述</h3>
+<p>已知如下函数表，利用牛顿插值计算 $f(1.5)$：</p>
+<table>
+  <tbody>
+    <tr>
+      <td>$x$</td>
+      <td>-1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>$f(x)$</td>
+      <td>3</td>
+      <td>4</td>
+      <td>6</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+  <colgroup>
+    <col>
+    <col>
+    <col>
+    <col>
+    <col>
+  </colgroup>
+</table>
+<h3 id="程序设计">程序设计</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%lagrange_interp.m</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">function</span> y=<span style="color:#57c7ff">lagrange_interp</span>(xdata,ydata,x)
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% Lagrange 插值</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 输入参数：</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% ---xdata：给定的节点横坐标</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% ---ydata：给定的节点纵坐标</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% ---x：需要进行插值的节点横坐标</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 输出参数：</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% ---y：Lagrange 插值函数在 x 处的函数值</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% = </span>
+</span></span><span style="display:flex;"><span>n=<span style="color:#ff5c57">length</span>(xdata);
+</span></span><span style="display:flex;"><span>m=<span style="color:#ff5c57">length</span>(ydata);
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">if</span> n<span style="color:#ff6ac1">~=</span>m
+</span></span><span style="display:flex;"><span>error(<span style="color:#5af78e">&#39;插值数据长度不等！&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">end</span>
+</span></span><span style="display:flex;"><span>ii=<span style="color:#ff9f43">1</span>:n;
+</span></span><span style="display:flex;"><span>y=<span style="color:#ff5c57">zeros</span>(<span style="color:#ff5c57">size</span>(x));
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">for</span> <span style="color:#ff5c57">i</span>=ii
+</span></span><span style="display:flex;"><span>ij=<span style="color:#ff5c57">find</span>(ii<span style="color:#ff6ac1">~=</span><span style="color:#ff5c57">i</span>);V=<span style="color:#ff9f43">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% if sum(abs(xdata(i)-xdata(ij))&lt;eps)&gt;0</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% error()</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% end</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">for</span> <span style="color:#ff5c57">j</span>=<span style="color:#ff9f43">1</span>:<span style="color:#ff5c57">length</span>(ij)
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">if</span> <span style="color:#ff5c57">abs</span>(xdata(<span style="color:#ff5c57">i</span>)<span style="color:#ff6ac1">-</span>xdata(ij(<span style="color:#ff5c57">j</span>)))<span style="color:#ff6ac1">&lt;</span><span style="color:#ff5c57">eps</span>
+</span></span><span style="display:flex;"><span>error(<span style="color:#5af78e">&#39;输入的 n+1 个节点不是互异的。&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">end</span>
+</span></span><span style="display:flex;"><span>V=V<span style="color:#ff6ac1">.*</span>(x<span style="color:#ff6ac1">-</span>xdata(ij(<span style="color:#ff5c57">j</span>)));
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%prod(x-xdata(ij)&#39;)</span>
+</span></span><span style="display:flex;"><span>y=y<span style="color:#ff6ac1">+</span>V<span style="color:#ff6ac1">*</span>ydata(<span style="color:#ff5c57">i</span>)<span style="color:#ff6ac1">/</span>prod(xdata(<span style="color:#ff5c57">i</span>)<span style="color:#ff6ac1">-</span>xdata(ij));
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">end</span>
+</span></span></code></pre></div><h3 id="计算结果">计算结果</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%question1.m</span>
+</span></span><span style="display:flex;"><span>x=<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1.5</span>:<span style="color:#ff9f43">0.01</span>:<span style="color:#ff9f43">5.2</span>; <span style="color:#78787e">% 加密数据点</span>
+</span></span><span style="display:flex;"><span>xdata=[<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>]; <span style="color:#78787e">% 已知数据点</span>
+</span></span><span style="display:flex;"><span>ydata=[<span style="color:#ff9f43">3</span>,<span style="color:#ff9f43">4</span>,<span style="color:#ff9f43">6</span>,<span style="color:#ff9f43">5</span>]; <span style="color:#78787e">% 点 xdata 处的函数值</span>
+</span></span><span style="display:flex;"><span>y=lagrange_interp(xdata,ydata,x); <span style="color:#78787e">% Lagrange 插值</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 计算在 x = 1.5 处的预测值</span>
+</span></span><span style="display:flex;"><span>x_pred = <span style="color:#ff9f43">1.5</span>;
+</span></span><span style="display:flex;"><span>y_pred = lagrange_interp(xdata,ydata,x_pred);
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 绘制图形</span>
+</span></span><span style="display:flex;"><span>figure; <span style="color:#78787e">% 创建新的图形窗口</span>
+</span></span><span style="display:flex;"><span>plot(xdata,ydata,<span style="color:#5af78e">&#39;ko&#39;</span>,<span style="color:#5af78e">&#39;MarkerSize&#39;</span>,<span style="color:#ff9f43">10</span>,<span style="color:#5af78e">&#39;LineWidth&#39;</span>,<span style="color:#ff9f43">2</span>); <span style="color:#78787e">% 绘制原始数据点，设置点的大小和线宽</span>
+</span></span><span style="display:flex;"><span>hold on; <span style="color:#78787e">% 保持当前图形，以便在同一图形上添加更多的线或点</span>
+</span></span><span style="display:flex;"><span>plot(x,y,<span style="color:#5af78e">&#39;r&#39;</span>,<span style="color:#5af78e">&#39;LineWidth&#39;</span>,<span style="color:#ff9f43">2</span>); <span style="color:#78787e">% 绘制拉格朗日插值的结果，设置线的颜色和线宽</span>
+</span></span><span style="display:flex;"><span>plot(x_pred,y_pred,<span style="color:#5af78e">&#39;bo&#39;</span>,<span style="color:#5af78e">&#39;MarkerSize&#39;</span>,<span style="color:#ff9f43">10</span>,<span style="color:#5af78e">&#39;LineWidth&#39;</span>,<span style="color:#ff9f43">2</span>); <span style="color:#78787e">% 绘制预测点，设置点的颜色、大小和线宽</span>
+</span></span><span style="display:flex;"><span>text(x_pred,y_pred,sprintf(<span style="color:#5af78e">&#39;(%0.1f, %0.2f)&#39;</span>,x_pred,y_pred),<span style="color:#5af78e">&#39;VerticalAlignment&#39;</span>,<span style="color:#5af78e">&#39;bottom&#39;</span>); <span style="color:#78787e">% 在图上显示预测值</span>
+</span></span><span style="display:flex;"><span>hold off; <span style="color:#78787e">% 取消保持图形</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 添加标题和轴标签</span>
+</span></span><span style="display:flex;"><span>title(<span style="color:#5af78e">&#39;Lagrange Interpolation&#39;</span>);
+</span></span><span style="display:flex;"><span>xlabel(<span style="color:#5af78e">&#39;x&#39;</span>);
+</span></span><span style="display:flex;"><span>ylabel(<span style="color:#5af78e">&#39;y&#39;</span>);
+</span></span></code></pre></div><pre tabindex="0"><code class="language-terminal" data-lang="terminal">&gt;&gt; question1
+</code></pre><p><img src="question1.png" alt=""></p>
+<h2 id="代码修改">代码修改</h2>
+<h3 id="问题描述-1">问题描述</h3>
+<p>书上给的牛顿插值函数 newton 代码示例中，利用矩阵来记录差商表。但注意到，牛顿插值中实际上只用到了差商表第一行上的元素，因此，只保留第一行元素就够了，其它中间结果并不需保存。请编写一个函数，用于求该磁盘的体积和面积，并用一个实例对编写的函数进行测试。请对书上给出的 newton 代码进行修改：</p>
+<ul>
+<li>1.将数据合规性检查挪到函数代码执行顺序的前方位置，独立于插值计算；</li>
+<li>2.修改 newton 函数，用向量来表示差商表中第一行数据的存储。</li>
+</ul>
+<p>完成以上代码修改后，计算作业 1 ，检验程序是否正确。</p>
+<h3 id="程序设计-1">程序设计</h3>
+<p>原代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%newton_interp.m</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">function</span> [y,D]=<span style="color:#57c7ff">newton_interp</span>(xdata,ydata,x)
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% Newton 插值</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 输入参数：</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% ---xdata：给定的节点横坐标</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% ---ydata：给定的节点纵坐标</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% ---x：需要进行插值的节点横坐标</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 输出参数：</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% ---y：Newton 插值函数在 x 处的函数值</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% ---D：差商表</span>
+</span></span><span style="display:flex;"><span>n=<span style="color:#ff5c57">length</span>(xdata);
+</span></span><span style="display:flex;"><span>m=<span style="color:#ff5c57">length</span>(ydata);
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">if</span> n<span style="color:#ff6ac1">~=</span>m
+</span></span><span style="display:flex;"><span>error(<span style="color:#5af78e">&#39;插值数据长度不等！&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">end</span>
+</span></span><span style="display:flex;"><span>D=<span style="color:#ff5c57">zeros</span>(n);D(:,<span style="color:#ff9f43">1</span>)=ydata<span style="color:#ff6ac1">&#39;</span>;H=<span style="color:#ff9f43">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">for</span> <span style="color:#ff5c57">j</span>=<span style="color:#ff9f43">1</span>:n<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">for</span> k=<span style="color:#ff9f43">1</span>:n<span style="color:#ff6ac1">-</span><span style="color:#ff5c57">j</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">if</span> <span style="color:#ff5c57">abs</span>(xdata(<span style="color:#ff5c57">j</span><span style="color:#ff6ac1">+</span>k)<span style="color:#ff6ac1">-</span>xdata(k))<span style="color:#ff6ac1">&lt;</span><span style="color:#ff5c57">eps</span>
+</span></span><span style="display:flex;"><span>error(<span style="color:#5af78e">&#39;输入的 n+1 个节点不是互异的。&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">end</span>
+</span></span><span style="display:flex;"><span>D(k,<span style="color:#ff5c57">j</span><span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>)=(D(k<span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>,<span style="color:#ff5c57">j</span>)<span style="color:#ff6ac1">-</span>D(k,<span style="color:#ff5c57">j</span>))<span style="color:#ff6ac1">/</span>(xdata(<span style="color:#ff5c57">j</span><span style="color:#ff6ac1">+</span>k)<span style="color:#ff6ac1">-</span>xdata(k));
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">end</span>
+</span></span><span style="display:flex;"><span>H=H<span style="color:#ff6ac1">.*</span>(x<span style="color:#ff6ac1">-</span>xdata(<span style="color:#ff5c57">j</span>));
+</span></span><span style="display:flex;"><span>L(<span style="color:#ff5c57">j</span>,:)=H;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">end</span>
+</span></span><span style="display:flex;"><span>L=[<span style="color:#ff5c57">ones</span>(<span style="color:#ff5c57">size</span>(x));L];
+</span></span><span style="display:flex;"><span>y=L<span style="color:#ff6ac1">.*</span><span style="color:#ff5c57">repmat</span>(D(<span style="color:#ff9f43">1</span>,:)<span style="color:#ff6ac1">&#39;</span>,<span style="color:#ff9f43">1</span>,<span style="color:#ff5c57">length</span>(x));
+</span></span><span style="display:flex;"><span>y=sum(y);
+</span></span></code></pre></div><p>改进后的代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%newton_interp_advanced.m</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">function</span> [y,D]=<span style="color:#57c7ff">newton_interp_advanced</span>(xdata,ydata,x)
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% Newton 插值</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 输入参数：</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% ---xdata：给定的节点横坐标</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% ---ydata：给定的节点纵坐标</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% ---x：需要进行插值的节点横坐标</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 输出参数：</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% ---y：Newton 插值函数在 x 处的函数值</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% ---D：差商表</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>n = <span style="color:#ff5c57">length</span>(xdata);
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">if</span> n <span style="color:#ff6ac1">~=</span> <span style="color:#ff5c57">length</span>(ydata)
+</span></span><span style="display:flex;"><span>    error(<span style="color:#5af78e">&#39;插值数据长度不等！&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">for</span> <span style="color:#ff5c57">i</span> = <span style="color:#ff9f43">1</span>:n<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">if</span> <span style="color:#ff5c57">abs</span>(xdata(<span style="color:#ff5c57">i</span><span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>) <span style="color:#ff6ac1">-</span> xdata(<span style="color:#ff5c57">i</span>)) <span style="color:#ff6ac1">&lt;</span> <span style="color:#ff5c57">eps</span>
+</span></span><span style="display:flex;"><span>        error(<span style="color:#5af78e">&#39;输入的 n+1 个节点不是互异的。&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>D = ydata;
+</span></span><span style="display:flex;"><span>H = <span style="color:#ff9f43">1</span>;
+</span></span><span style="display:flex;"><span>L = <span style="color:#ff5c57">zeros</span>(n<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>, <span style="color:#ff5c57">length</span>(x)); <span style="color:#78787e">% 预先分配 L 的大小</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">for</span> <span style="color:#ff5c57">j</span> = <span style="color:#ff9f43">1</span>:n<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">for</span> k = n:<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>:<span style="color:#ff5c57">j</span><span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>
+</span></span><span style="display:flex;"><span>        D(k) = (D(k) <span style="color:#ff6ac1">-</span> D(k<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>)) <span style="color:#ff6ac1">/</span> (xdata(k) <span style="color:#ff6ac1">-</span> xdata(k<span style="color:#ff6ac1">-</span><span style="color:#ff5c57">j</span>));
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">end</span>
+</span></span><span style="display:flex;"><span>    H = H <span style="color:#ff6ac1">.*</span> (x <span style="color:#ff6ac1">-</span> xdata(<span style="color:#ff5c57">j</span>));
+</span></span><span style="display:flex;"><span>    L(<span style="color:#ff5c57">j</span>,:) = H;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">end</span>
+</span></span><span style="display:flex;"><span>L=[<span style="color:#ff5c57">ones</span>(<span style="color:#ff5c57">size</span>(x));L];
+</span></span><span style="display:flex;"><span>y=L<span style="color:#ff6ac1">.*</span><span style="color:#ff5c57">repmat</span>(D(<span style="color:#ff9f43">1</span>,:)<span style="color:#ff6ac1">&#39;</span>,<span style="color:#ff9f43">1</span>,<span style="color:#ff5c57">length</span>(x));
+</span></span><span style="display:flex;"><span>y=sum(y);
+</span></span></code></pre></div><h3 id="计算结果-1">计算结果</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%question2_newton.m</span>
+</span></span><span style="display:flex;"><span>x=<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1.5</span>:<span style="color:#ff9f43">0.01</span>:<span style="color:#ff9f43">5.2</span>; <span style="color:#78787e">% 加密数据点</span>
+</span></span><span style="display:flex;"><span>xdata=[<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>]; <span style="color:#78787e">% 已知数据点</span>
+</span></span><span style="display:flex;"><span>ydata=[<span style="color:#ff9f43">3</span>,<span style="color:#ff9f43">4</span>,<span style="color:#ff9f43">6</span>,<span style="color:#ff9f43">5</span>]; <span style="color:#78787e">% 点 xdata 处的函数值</span>
+</span></span><span style="display:flex;"><span>y=newton_interp(xdata,ydata,x); <span style="color:#78787e">% Lagrange 插值</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 计算在 x = 1.5 处的预测值</span>
+</span></span><span style="display:flex;"><span>x_pred = <span style="color:#ff9f43">1.5</span>;
+</span></span><span style="display:flex;"><span>y_pred = newton_interp(xdata,ydata,x_pred);
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 绘制图形</span>
+</span></span><span style="display:flex;"><span>figure; <span style="color:#78787e">% 创建新的图形窗口</span>
+</span></span><span style="display:flex;"><span>plot(xdata,ydata,<span style="color:#5af78e">&#39;ko&#39;</span>,<span style="color:#5af78e">&#39;MarkerSize&#39;</span>,<span style="color:#ff9f43">10</span>,<span style="color:#5af78e">&#39;LineWidth&#39;</span>,<span style="color:#ff9f43">2</span>); <span style="color:#78787e">% 绘制原始数据点，设置点的大小和线宽</span>
+</span></span><span style="display:flex;"><span>hold on; <span style="color:#78787e">% 保持当前图形，以便在同一图形上添加更多的线或点</span>
+</span></span><span style="display:flex;"><span>plot(x,y,<span style="color:#5af78e">&#39;r&#39;</span>,<span style="color:#5af78e">&#39;LineWidth&#39;</span>,<span style="color:#ff9f43">2</span>); <span style="color:#78787e">% 绘制拉格朗日插值的结果，设置线的颜色和线宽</span>
+</span></span><span style="display:flex;"><span>plot(x_pred,y_pred,<span style="color:#5af78e">&#39;bo&#39;</span>,<span style="color:#5af78e">&#39;MarkerSize&#39;</span>,<span style="color:#ff9f43">10</span>,<span style="color:#5af78e">&#39;LineWidth&#39;</span>,<span style="color:#ff9f43">2</span>); <span style="color:#78787e">% 绘制预测点，设置点的颜色、大小和线宽</span>
+</span></span><span style="display:flex;"><span>text(x_pred,y_pred,sprintf(<span style="color:#5af78e">&#39;(%0.1f, %0.2f)&#39;</span>,x_pred,y_pred),<span style="color:#5af78e">&#39;VerticalAlignment&#39;</span>,<span style="color:#5af78e">&#39;bottom&#39;</span>); <span style="color:#78787e">% 在图上显示预测值</span>
+</span></span><span style="display:flex;"><span>hold off; <span style="color:#78787e">% 取消保持图形</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 添加标题和轴标签</span>
+</span></span><span style="display:flex;"><span>title(<span style="color:#5af78e">&#39;Newton Interpolation&#39;</span>);
+</span></span><span style="display:flex;"><span>xlabel(<span style="color:#5af78e">&#39;x&#39;</span>);
+</span></span><span style="display:flex;"><span>ylabel(<span style="color:#5af78e">&#39;y&#39;</span>);
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%question2_newton_advanced.m</span>
+</span></span><span style="display:flex;"><span>x=<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1.5</span>:<span style="color:#ff9f43">0.01</span>:<span style="color:#ff9f43">5.2</span>; <span style="color:#78787e">% 加密数据点</span>
+</span></span><span style="display:flex;"><span>xdata=[<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>]; <span style="color:#78787e">% 已知数据点</span>
+</span></span><span style="display:flex;"><span>ydata=[ <span style="color:#ff9f43">3</span>,<span style="color:#ff9f43">4</span>,<span style="color:#ff9f43">6</span>,<span style="color:#ff9f43">5</span>]; <span style="color:#78787e">% 点 xdata 处的函数值</span>
+</span></span><span style="display:flex;"><span>y=newton_interp_advanced(xdata,ydata,x); <span style="color:#78787e">% Lagrange 插值</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 计算在 x = 1.5 处的预测值</span>
+</span></span><span style="display:flex;"><span>x_pred = <span style="color:#ff9f43">1.5</span>;
+</span></span><span style="display:flex;"><span>y_pred = newton_interp_advanced(xdata,ydata,x_pred);
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 绘制图形</span>
+</span></span><span style="display:flex;"><span>figure; <span style="color:#78787e">% 创建新的图形窗口</span>
+</span></span><span style="display:flex;"><span>plot(xdata,ydata,<span style="color:#5af78e">&#39;ko&#39;</span>,<span style="color:#5af78e">&#39;MarkerSize&#39;</span>,<span style="color:#ff9f43">10</span>,<span style="color:#5af78e">&#39;LineWidth&#39;</span>,<span style="color:#ff9f43">2</span>); <span style="color:#78787e">% 绘制原始数据点，设置点的大小和线宽</span>
+</span></span><span style="display:flex;"><span>hold on; <span style="color:#78787e">% 保持当前图形，以便在同一图形上添加更多的线或点</span>
+</span></span><span style="display:flex;"><span>plot(x,y,<span style="color:#5af78e">&#39;r&#39;</span>,<span style="color:#5af78e">&#39;LineWidth&#39;</span>,<span style="color:#ff9f43">2</span>); <span style="color:#78787e">% 绘制拉格朗日插值的结果，设置线的颜色和线宽</span>
+</span></span><span style="display:flex;"><span>plot(x_pred,y_pred,<span style="color:#5af78e">&#39;bo&#39;</span>,<span style="color:#5af78e">&#39;MarkerSize&#39;</span>,<span style="color:#ff9f43">10</span>,<span style="color:#5af78e">&#39;LineWidth&#39;</span>,<span style="color:#ff9f43">2</span>); <span style="color:#78787e">% 绘制预测点，设置点的颜色、大小和线宽</span>
+</span></span><span style="display:flex;"><span>text(x_pred,y_pred,sprintf(<span style="color:#5af78e">&#39;(%0.1f, %0.2f)&#39;</span>,x_pred,y_pred),<span style="color:#5af78e">&#39;VerticalAlignment&#39;</span>,<span style="color:#5af78e">&#39;bottom&#39;</span>); <span style="color:#78787e">% 在图上显示预测值</span>
+</span></span><span style="display:flex;"><span>hold off; <span style="color:#78787e">% 取消保持图形</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 添加标题和轴标签</span>
+</span></span><span style="display:flex;"><span>title(<span style="color:#5af78e">&#39;Newton Interpolation Advanced&#39;</span>);
+</span></span><span style="display:flex;"><span>xlabel(<span style="color:#5af78e">&#39;x&#39;</span>);
+</span></span><span style="display:flex;"><span>ylabel(<span style="color:#5af78e">&#39;y&#39;</span>);
+</span></span></code></pre></div><pre tabindex="0"><code class="language-terminal" data-lang="terminal">&gt;&gt; question2_newton
+&gt;&gt; question2_newton_advanced
+</code></pre><p><img src="question2_newton.png" alt="">
+<img src="question2_newton_advanced.png" alt=""></p>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2024-08-05</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/posts/matlab_%E8%B4%B7%E6%AC%BE%E9%97%AE%E9%A2%98/">
+			下回<br>Matlab第二周贷款问题
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/matlab_%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%E6%B1%82%E8%A7%A3/">
+			上回<br>Matlab第七周线性方程组求解
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://www.zhaocloud.work/">
+    
+        <div class="nav-title">
+            April Diary
+        </div>
+        
+        <div class="nav-subtitle">
+            人间四月芳菲尽
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                时间线
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                归档
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8c%97%e9%82%aematlab%e9%80%89%e4%bf%ae-week-9-%e6%8f%92%e5%80%bc%e5%8d%87%e7%ba%a7%e7%89%88" class="nav-北邮matlab选修-week-9-插值升级版">
+									北邮Matlab选修 Week 9 插值(升级版)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e6%8f%92%e5%80%bc%e8%ae%a1%e7%ae%97" class="nav-插值计算">
+									插值计算
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0" class="nav-问题描述">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1" class="nav-程序设计">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c" class="nav-计算结果">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e4%bb%a3%e7%a0%81%e4%bf%ae%e6%94%b9" class="nav-代码修改">
+									代码修改
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0-1" class="nav-问题描述-1">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1-1" class="nav-程序设计-1">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c-1" class="nav-计算结果-1">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>

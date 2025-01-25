@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<title>校园歌手大赛新规则-PTA</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="BUPT大一上习题 校园歌手大赛新规则">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="https://www.zhaocloud.work/posts/%E6%A0%A1%E5%9B%AD%E6%AD%8C%E6%89%8B%E5%A4%A7%E8%B5%9B%E6%96%B0%E8%A7%84%E5%88%99/">
+  <meta property="og:site_name" content="April Diary">
+  <meta property="og:title" content="校园歌手大赛新规则-PTA">
+  <meta property="og:description" content="BUPT大一上习题 校园歌手大赛新规则">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-10-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-10-24T00:00:00+00:00">
+    <meta property="article:tag" content="Cpp">
+    <meta property="article:tag" content="PTA">
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "pz9g1z5otp");
+</script>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://www.zhaocloud.work/favicon.svg">
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>console.log("Hello from 'layouts/partials/extended_head.html'")</script>
+<link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/yozai/dist/Yozai-Bold/result.css' />
+<style>
+    body {
+        font-family: 'Yozai';
+        font-weight: '300'
+    };
+</style>
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    时间线
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    归档
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    标签
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8c%97%e9%82%aevc%e5%ae%9e%e9%aa%8c%e9%a2%98-%e6%a0%a1%e5%9b%ad%e6%ad%8c%e6%89%8b%e5%a4%a7%e8%b5%9b%e6%96%b0%e8%a7%84%e5%88%99" class="nav-北邮vc实验题-校园歌手大赛新规则">
+									北邮VC&#43;&#43;实验题 校园歌手大赛新规则
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%a2%98%e7%9b%ae%e6%8f%8f%e8%bf%b0" class="nav-题目描述">
+									题目描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%be%93%e5%85%a5%e6%a0%bc%e5%bc%8f" class="nav-输入格式">
+									输入格式
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%be%93%e5%87%ba%e6%a0%bc%e5%bc%8f" class="nav-输出格式">
+									输出格式
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e6%a0%b7%e4%be%8b" class="nav-样例">
+									样例
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e6%a0%b7%e4%be%8b%e8%be%93%e5%85%a5-1" class="nav-样例输入-1">
+									样例输入 #1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%a0%b7%e4%be%8b%e8%be%93%e5%87%ba-1" class="nav-样例输出-1">
+									样例输出 #1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%a0%b7%e4%be%8b%e8%be%93%e5%85%a5-2" class="nav-样例输入-2">
+									样例输入 #2
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%a0%b7%e4%be%8b%e8%be%93%e5%87%ba-2" class="nav-样例输出-2">
+									样例输出 #2
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e8%a7%a3%e7%ad%94" class="nav-解答">
+									解答
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://www.zhaocloud.work/">
+            April Diary
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://www.zhaocloud.work/">
+        <div class="single-column-header-title">April Diary</div>
+        
+        <div class="single-column-header-subtitle">人间四月芳菲尽</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    校园歌手大赛新规则-PTA
+                    
+                    <div class="post-subtitle">
+                        BUPT大一上习题 校园歌手大赛新规则
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2023-10-24 00:00
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/cpp">Cpp</a>
+                                &nbsp;
+                            
+                                <a href="/tags/pta">PTA</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="北邮vc实验题-校园歌手大赛新规则">北邮VC++实验题 校园歌手大赛新规则</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>8号选手参加校园歌手大赛，编程读入20个整数(0 - 100之间)并存入数组中做为评委打分。最后得分计算规则：先计算20个数的平均分，然后去掉所有与平均分相差10分以上的分数，最后把剩下的分数再取平均做为最后得分。如果没有剩下分数，此次打分无效。</p>
+<h2 id="输入格式">输入格式</h2>
+<p>输入20个整数。</p>
+<h2 id="输出格式">输出格式</h2>
+<p>输出三行，具体详见输出样例。</p>
+<h1 id="样例">样例</h1>
+<h3 id="样例输入-1">样例输入 #1</h3>
+<pre tabindex="0"><code>86 87 83 70 99 94 78 89 86 80 97 84 90 87 95 87 84 99 84 95
+</code></pre><h3 id="样例输出-1">样例输出 #1</h3>
+<pre tabindex="0"><code>所有评委平均分:87.700分.
+不合格得分:70 99 99.
+最后得分:87.412分.
+</code></pre><h3 id="样例输入-2">样例输入 #2</h3>
+<pre tabindex="0"><code>72 72 73 71 71 72 73 71 71 72 98 98 97 100 99 97 97 99 99 99
+</code></pre><h3 id="样例输出-2">样例输出 #2</h3>
+<pre tabindex="0"><code>所有评委平均分:85.050分.
+不合格得分:72 72 73 71 71 72 73 71 71 72 98 98 97 100 99 97 97 99 99 99.
+无合格打分.
+</code></pre><h2 id="解答">解答</h2>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#78787e">#include</span> <span style="color:#78787e">&lt;iostream&gt;</span><span style="color:#78787e">
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">#include</span> <span style="color:#78787e">&lt;cstring&gt;</span><span style="color:#78787e">
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">#include</span> <span style="color:#78787e">&lt;bitset&gt;</span><span style="color:#78787e">
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">#include</span> <span style="color:#78787e">&lt;cmath&gt;</span><span style="color:#78787e">
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">using</span> <span style="color:#ff6ac1">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#9aedfe">int</span> <span style="color:#57c7ff">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#9aedfe">int</span> zzz<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#9aedfe">double</span> a[<span style="color:#ff9f43">20</span>],sum<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">0</span>,total<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">20</span>,sum2<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">for</span>(<span style="color:#9aedfe">int</span> i<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">0</span>;i<span style="color:#ff6ac1">&lt;</span><span style="color:#ff9f43">20</span>;i<span style="color:#ff6ac1">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        cin<span style="color:#ff6ac1">&gt;&gt;</span>a[i];
+</span></span><span style="display:flex;"><span>        sum<span style="color:#ff6ac1">+=</span>a[i];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    sum<span style="color:#ff6ac1">/=</span><span style="color:#ff9f43">20</span>;
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#5af78e">&#34;所有评委平均分:%.3lf分.</span><span style="color:#5af78e">\n</span><span style="color:#5af78e">&#34;</span>,sum);
+</span></span><span style="display:flex;"><span>    cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34;不合格得分:&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">for</span>(<span style="color:#9aedfe">int</span> i<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">0</span>;i<span style="color:#ff6ac1">&lt;</span><span style="color:#ff9f43">20</span>;i<span style="color:#ff6ac1">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">if</span>(fabs(a[i]<span style="color:#ff6ac1">-</span>sum)<span style="color:#ff6ac1">&gt;</span><span style="color:#ff9f43">10.00</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">if</span>(zzz<span style="color:#ff6ac1">==</span><span style="color:#ff9f43">1</span>){cout<span style="color:#ff6ac1">&lt;&lt;</span>a[i];zzz<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">0</span>;total<span style="color:#ff6ac1">-=</span><span style="color:#ff9f43">1</span>;}
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">else</span>{cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34; &#34;</span><span style="color:#ff6ac1">&lt;&lt;</span>a[i];total<span style="color:#ff6ac1">-=</span><span style="color:#ff9f43">1</span>;}
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">else</span> sum2<span style="color:#ff6ac1">+=</span>a[i];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34;.&#34;</span><span style="color:#ff6ac1">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">if</span>(total<span style="color:#ff6ac1">==</span><span style="color:#ff9f43">0</span>){cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34;无合格打分.&#34;</span>;<span style="color:#ff6ac1">return</span> <span style="color:#ff9f43">0</span>;}
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#5af78e">&#34;最后得分:%.3lf分.&#34;</span>,sum2<span style="color:#ff6ac1">/</span>total);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2023-10-24</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/posts/%E6%B0%B4%E6%9E%9C%E9%A2%9C%E8%89%B2/">
+			下回<br>水果颜色-PTA
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/%E5%8D%B0%E8%B1%A1%E5%8C%97%E4%BA%AC/">
+			上回<br>也是随手一拍
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://www.zhaocloud.work/">
+    
+        <div class="nav-title">
+            April Diary
+        </div>
+        
+        <div class="nav-subtitle">
+            人间四月芳菲尽
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                时间线
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                归档
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8c%97%e9%82%aevc%e5%ae%9e%e9%aa%8c%e9%a2%98-%e6%a0%a1%e5%9b%ad%e6%ad%8c%e6%89%8b%e5%a4%a7%e8%b5%9b%e6%96%b0%e8%a7%84%e5%88%99" class="nav-北邮vc实验题-校园歌手大赛新规则">
+									北邮VC&#43;&#43;实验题 校园歌手大赛新规则
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%a2%98%e7%9b%ae%e6%8f%8f%e8%bf%b0" class="nav-题目描述">
+									题目描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%be%93%e5%85%a5%e6%a0%bc%e5%bc%8f" class="nav-输入格式">
+									输入格式
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%be%93%e5%87%ba%e6%a0%bc%e5%bc%8f" class="nav-输出格式">
+									输出格式
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e6%a0%b7%e4%be%8b" class="nav-样例">
+									样例
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e6%a0%b7%e4%be%8b%e8%be%93%e5%85%a5-1" class="nav-样例输入-1">
+									样例输入 #1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%a0%b7%e4%be%8b%e8%be%93%e5%87%ba-1" class="nav-样例输出-1">
+									样例输出 #1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%a0%b7%e4%be%8b%e8%be%93%e5%85%a5-2" class="nav-样例输入-2">
+									样例输入 #2
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%a0%b7%e4%be%8b%e8%be%93%e5%87%ba-2" class="nav-样例输出-2">
+									样例输出 #2
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e8%a7%a3%e7%ad%94" class="nav-解答">
+									解答
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>

@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<title>Matlab期末考试</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="Matlab选修作业记录（其他的简介懒得写了/2025-01-25/）">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="https://www.zhaocloud.work/posts/matlab_%E6%9C%9F%E6%9C%AB/">
+  <meta property="og:site_name" content="April Diary">
+  <meta property="og:title" content="Matlab期末考试">
+  <meta property="og:description" content="Matlab选修作业记录（其他的简介懒得写了/2025-01-25/）">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-08-05T00:00:00+00:00">
+    <meta property="article:tag" content="Matlab">
+    <meta property="article:tag" content="大学">
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "pz9g1z5otp");
+</script>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://www.zhaocloud.work/favicon.svg">
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>console.log("Hello from 'layouts/partials/extended_head.html'")</script>
+<link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/yozai/dist/Yozai-Bold/result.css' />
+<style>
+    body {
+        font-family: 'Yozai';
+        font-weight: '300'
+    };
+</style>
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    时间线
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    归档
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    标签
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8c%97%e9%82%aematlab%e9%80%89%e4%bf%ae-%e6%9c%9f%e6%9c%ab%e4%bd%9c%e4%b8%9a" class="nav-北邮matlab选修-期末作业">
+									北邮Matlab选修 期末作业
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%a2%98%e7%9b%ae-1" class="nav-题目-1">
+									题目 #1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0" class="nav-问题描述">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%95%b0%e5%ad%a6%e6%a8%a1%e5%9e%8b" class="nav-数学模型">
+									数学模型
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1" class="nav-程序设计">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c" class="nav-计算结果">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e9%a2%98%e7%9b%ae-2" class="nav-题目-2">
+									题目 #2
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0-1" class="nav-问题描述-1">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%95%b0%e5%ad%a6%e6%a8%a1%e5%9e%8b-1" class="nav-数学模型-1">
+									数学模型
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1-1" class="nav-程序设计-1">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c-1" class="nav-计算结果-1">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://www.zhaocloud.work/">
+            April Diary
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://www.zhaocloud.work/">
+        <div class="single-column-header-title">April Diary</div>
+        
+        <div class="single-column-header-subtitle">人间四月芳菲尽</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    Matlab期末考试
+                    
+                    <div class="post-subtitle">
+                        Matlab选修作业记录（其他的简介懒得写了/2025-01-25/）
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2024-08-05 00:00
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/matlab">Matlab</a>
+                                &nbsp;
+                            
+                                <a href="/tags/%E5%A4%A7%E5%AD%A6">大学</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="北邮matlab选修-期末作业">北邮Matlab选修 期末作业</h1>
+<h2 id="题目-1">题目 #1</h2>
+<h3 id="问题描述">问题描述</h3>
+<p>对于自由降落的伞兵，其阻力为线性函数，速度的解析表达式为：
+$$v\left(t\right)=\frac{gm}{c}\left(1-e^{-\frac{c}{m}t}\right)$$
+其中<code>v(t)</code>是速度$m/s$，<code>t</code>是时间$s$，$g=9.81m/s^2$，<code>m</code>是质量(kg)，<code>c</code>是线性阻力系数$kg/s$。使用数值积分算法计算跳伞员在自由落体最初的<code>8</code>秒内下降的高度。给定$m=80kg$，$c=10kg/s$</p>
+<h3 id="数学模型">数学模型</h3>
+<p>对于给定的$v\left(t\right)$，在时间从$t_0$到$t_1$时行过的路程：
+$$x=\int_{t_0}^{t_1}v\left(t\right)dt$$</p>
+<p>为了求自由落体最初的8秒内下降的高度，即求$\int_{0}^{8}v\left(t\right)dt$的数值。</p>
+<h3 id="程序设计">程序设计</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%question1.m</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 定义参数</span>
+</span></span><span style="display:flex;"><span>g = <span style="color:#ff9f43">9.81</span>; <span style="color:#78787e">% 重力加速度，单位 m/s^2</span>
+</span></span><span style="display:flex;"><span>m = <span style="color:#ff9f43">80</span>;  <span style="color:#78787e">% 质量，单位 kg</span>
+</span></span><span style="display:flex;"><span>c = <span style="color:#ff9f43">10</span>;  <span style="color:#78787e">% 线性阻力系数，单位 kg/s</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 定义符号变量</span>
+</span></span><span style="display:flex;"><span>syms t
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 速度函数</span>
+</span></span><span style="display:flex;"><span>v = g<span style="color:#ff6ac1">*</span>m<span style="color:#ff6ac1">/</span>c <span style="color:#ff6ac1">*</span> (<span style="color:#ff9f43">1</span> <span style="color:#ff6ac1">-</span> <span style="color:#ff5c57">exp</span>(<span style="color:#ff6ac1">-</span>c<span style="color:#ff6ac1">/</span>m<span style="color:#ff6ac1">*</span>t));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 定义时间向量，这里我们使用足够小的时间间隔来确保积分的准确性</span>
+</span></span><span style="display:flex;"><span>t_span = <span style="color:#ff9f43">0</span>:<span style="color:#ff9f43">0.001</span>:<span style="color:#ff9f43">8</span>; <span style="color:#78787e">% 从0秒到8秒，步长为0.01秒</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 计算对应时间点的速度值</span>
+</span></span><span style="display:flex;"><span>v_values = double(subs(v, t, t_span)); <span style="color:#78787e">% 将符号表达式替换为数值，并转换为双精度浮点数</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 使用梯形法计算位移（即高度），初始高度设为0</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 注意：这里的高度实际上是相对于初始位置的位移，因此初始值设置为0</span>
+</span></span><span style="display:flex;"><span>height_increase = trapz(t_span, v_values); <span style="color:#78787e">% trapz函数计算的是增量，所以结果就是从0开始的位移</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 输出结果</span>
+</span></span><span style="display:flex;"><span>fprintf(<span style="color:#5af78e">&#39;跳伞员在最初的8秒内下降的高度为:%.2f m\n&#39;</span>, height_increase);
+</span></span></code></pre></div><h3 id="计算结果">计算结果</h3>
+<pre tabindex="0"><code class="language-terminal" data-lang="terminal">&gt;&gt; question1
+跳伞员在最初的8秒内下降的高度为:230.97 m
+</code></pre><h2 id="题目-2">题目 #2</h2>
+<h3 id="问题描述-1">问题描述</h3>
+<p>在加热盘的不同点上测量温度如下表所示。估计下面各点的温度：（a）$x=4$，$y=3.2$；（b）$x=4.3$，$y=2.7$。</p>
+<table>
+    <tr>
+        <td></td>
+        <td>$x=0$</td>
+        <td>$x=2$</td>
+        <td>$x=4$</td>
+        <td>$x=6$</td>
+        <td>$x=8$</td>
+    </tr>
+    <tr>
+        <td>$y=0$</td>
+        <td>100.00</td>
+        <td>90.00</td>
+        <td>80.00</td>
+        <td>70.00</td>
+        <td>60.00</td>
+    </tr>
+    <tr>
+        <td>$y=2$</td>
+        <td>85.00</td>
+        <td>64.49</td>
+        <td>53.50</td>
+        <td>48.15</td>
+        <td>50.00</td>
+    </tr>
+    <tr>
+        <td>$y=4$</td>
+        <td>70.00</td>
+        <td>48.90</td>
+        <td>38.43</td>
+        <td>35.03</td>
+        <td>40.00</td>
+    </tr>
+    <tr>
+        <td>$y=6$</td>
+        <td>55.00</td>
+        <td>38.78</td>
+        <td>30.39</td>
+        <td>27.07</td>
+        <td>30.00</td>
+    </tr>
+    <tr>
+        <td>$y=8$</td>
+        <td>40.00</td>
+        <td>35.00</td>
+        <td>30.00</td>
+        <td>25.00</td>
+        <td>20.00</td>
+    </tr>
+</table>
+<h3 id="数学模型-1">数学模型</h3>
+<p>题目中给定了有限的温度取样点，要得知a和b点的温度，需要我们根据给定点的温度进行插值，如果采用线性插值，显然不符合事实， 这里我选择三次样条插值，使结果更加平滑。</p>
+<h3 id="程序设计-1">程序设计</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%question2.m</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 定义x和y的网格点</span>
+</span></span><span style="display:flex;"><span>[x_grid, y_grid] = <span style="color:#ff5c57">meshgrid</span>(<span style="color:#ff9f43">0</span>:<span style="color:#ff9f43">2</span>:<span style="color:#ff9f43">8</span>, <span style="color:#ff9f43">0</span>:<span style="color:#ff9f43">2</span>:<span style="color:#ff9f43">8</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 温度矩阵（索引从1开始，与x_grid和y_grid匹配）</span>
+</span></span><span style="display:flex;"><span>T = [
+</span></span><span style="display:flex;"><span>  <span style="color:#ff9f43">100.00</span>,<span style="color:#ff9f43">90.00</span>,<span style="color:#ff9f43">80.00</span>,<span style="color:#ff9f43">70.00</span>,<span style="color:#ff9f43">60.00</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff9f43">85.00</span>,<span style="color:#ff9f43">64.49</span>,<span style="color:#ff9f43">53.50</span>,<span style="color:#ff9f43">48.15</span>,<span style="color:#ff9f43">50.00</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff9f43">70.00</span>,<span style="color:#ff9f43">48.90</span>,<span style="color:#ff9f43">38.43</span>,<span style="color:#ff9f43">35.03</span>,<span style="color:#ff9f43">40.00</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff9f43">55.00</span>,<span style="color:#ff9f43">38.78</span>,<span style="color:#ff9f43">30.39</span>,<span style="color:#ff9f43">27.07</span>,<span style="color:#ff9f43">30.00</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff9f43">40.00</span>,<span style="color:#ff9f43">35.00</span>,<span style="color:#ff9f43">30.00</span>,<span style="color:#ff9f43">25.00</span>,<span style="color:#ff9f43">20.00</span>
+</span></span><span style="display:flex;"><span>  ];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 创建一个更精细的网格用于绘图</span>
+</span></span><span style="display:flex;"><span>[xq, yq] = <span style="color:#ff5c57">meshgrid</span>(<span style="color:#ff9f43">0</span>:<span style="color:#ff9f43">0.01</span>:<span style="color:#ff9f43">8</span>, <span style="color:#ff9f43">0</span>:<span style="color:#ff9f43">0.01</span>:<span style="color:#ff9f43">8</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 使用线性插值估计温度</span>
+</span></span><span style="display:flex;"><span>Tq_spline = interp2(x_grid, y_grid, T, xq, yq,&#34;spline&#34;);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 估计特定点的温度</span>
+</span></span><span style="display:flex;"><span>point_a_x = <span style="color:#ff9f43">4</span>;
+</span></span><span style="display:flex;"><span>point_a_y = <span style="color:#ff9f43">3.2</span>;
+</span></span><span style="display:flex;"><span>point_b_x = <span style="color:#ff9f43">4.3</span>;
+</span></span><span style="display:flex;"><span>point_b_y = <span style="color:#ff9f43">2.7</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 使用interp2函数估计温度</span>
+</span></span><span style="display:flex;"><span>temp_a = interp2(x_grid, y_grid, T, point_a_x, point_a_y, <span style="color:#5af78e">&#39;spline&#39;</span>);
+</span></span><span style="display:flex;"><span>temp_b = interp2(x_grid, y_grid, T, point_b_x, point_b_y, <span style="color:#5af78e">&#39;spline&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 显示估计的温度</span>
+</span></span><span style="display:flex;"><span>fprintf(<span style="color:#5af78e">&#39;点(a)x=4, y=3.2 的温度估计为：%.2f°C\n&#39;</span>, temp_a);
+</span></span><span style="display:flex;"><span>fprintf(<span style="color:#5af78e">&#39;点(b)x=4.3, y=2.7 的温度估计为：%.2f°C\n&#39;</span>, temp_b);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 绘制二维彩色网格图</span>
+</span></span><span style="display:flex;"><span>pcolor(xq, yq, Tq_spline);  <span style="color:#78787e">% 使用pcolor绘制二维彩色网格图</span>
+</span></span><span style="display:flex;"><span>shading interp;  <span style="color:#78787e">% 平滑颜色过渡</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 设置颜色映射</span>
+</span></span><span style="display:flex;"><span>colormap(<span style="color:#5af78e">&#39;jet&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 添加颜色条</span>
+</span></span><span style="display:flex;"><span>colorbar;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 添加坐标轴标签和标题</span>
+</span></span><span style="display:flex;"><span>xlabel(<span style="color:#5af78e">&#39;X坐标&#39;</span>);
+</span></span><span style="display:flex;"><span>ylabel(<span style="color:#5af78e">&#39;Y坐标&#39;</span>);
+</span></span><span style="display:flex;"><span>title(<span style="color:#5af78e">&#39;温度分布二维图像&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 可以在图上添加估计点的标记</span>
+</span></span><span style="display:flex;"><span>hold on;
+</span></span><span style="display:flex;"><span>plot(point_a_x, point_a_y, <span style="color:#5af78e">&#39;r*-&#39;</span>); <span style="color:#78787e">% 点（a）红色</span>
+</span></span><span style="display:flex;"><span>plot(point_b_x, point_b_y, <span style="color:#5af78e">&#39;b*-&#39;</span>); <span style="color:#78787e">% 点（b）绿色</span>
+</span></span><span style="display:flex;"><span>hold off;
+</span></span></code></pre></div><h3 id="计算结果-1">计算结果</h3>
+<pre tabindex="0"><code class="language-terminal" data-lang="terminal">&gt;&gt; question2
+点(a)x=4, y=3.2 的温度估计为：43.45°C
+点(b)x=4.3, y=2.7 的温度估计为：46.15°C
+</code></pre><p><img src="question.png" alt=""></p>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2024-08-05</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/posts/matlab_%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E6%B3%95/">
+			下回<br>Matlab第五周牛顿迭代法
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/matlab_%E6%9C%9F%E4%B8%AD/">
+			上回<br>Matlab期中作业
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://www.zhaocloud.work/">
+    
+        <div class="nav-title">
+            April Diary
+        </div>
+        
+        <div class="nav-subtitle">
+            人间四月芳菲尽
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                时间线
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                归档
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8c%97%e9%82%aematlab%e9%80%89%e4%bf%ae-%e6%9c%9f%e6%9c%ab%e4%bd%9c%e4%b8%9a" class="nav-北邮matlab选修-期末作业">
+									北邮Matlab选修 期末作业
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%a2%98%e7%9b%ae-1" class="nav-题目-1">
+									题目 #1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0" class="nav-问题描述">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%95%b0%e5%ad%a6%e6%a8%a1%e5%9e%8b" class="nav-数学模型">
+									数学模型
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1" class="nav-程序设计">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c" class="nav-计算结果">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e9%a2%98%e7%9b%ae-2" class="nav-题目-2">
+									题目 #2
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0-1" class="nav-问题描述-1">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%95%b0%e5%ad%a6%e6%a8%a1%e5%9e%8b-1" class="nav-数学模型-1">
+									数学模型
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1-1" class="nav-程序设计-1">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c-1" class="nav-计算结果-1">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>

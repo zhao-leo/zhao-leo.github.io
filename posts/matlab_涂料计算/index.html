@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<title>Matlab第三周涂料计算</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="Matlab选修作业记录（其他的简介懒得写了/2025-01-25/）">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="https://www.zhaocloud.work/posts/matlab_%E6%B6%82%E6%96%99%E8%AE%A1%E7%AE%97/">
+  <meta property="og:site_name" content="April Diary">
+  <meta property="og:title" content="Matlab第三周涂料计算">
+  <meta property="og:description" content="Matlab选修作业记录（其他的简介懒得写了/2025-01-25/）">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-08-05T00:00:00+00:00">
+    <meta property="article:tag" content="Matlab">
+    <meta property="article:tag" content="大学">
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "pz9g1z5otp");
+</script>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://www.zhaocloud.work/favicon.svg">
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>console.log("Hello from 'layouts/partials/extended_head.html'")</script>
+<link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/yozai/dist/Yozai-Bold/result.css' />
+<style>
+    body {
+        font-family: 'Yozai';
+        font-weight: '300'
+    };
+</style>
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    时间线
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    归档
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    标签
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8c%97%e9%82%aematlab%e9%80%89%e4%bf%ae-week-3-%e6%b6%82%e6%96%99%e8%ae%a1%e7%ae%97" class="nav-北邮matlab选修-week-3-涂料计算">
+									北邮Matlab选修 Week 3 涂料计算
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0" class="nav-问题描述">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%95%b0%e5%ad%a6%e6%a8%a1%e5%9e%8b" class="nav-数学模型">
+									数学模型
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e4%bd%93%e7%a7%af%e8%ae%a1%e7%ae%97" class="nav-体积计算">
+									体积计算
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%b6%a6%e6%b9%bf%e9%9d%a2%e7%a7%af%e8%ae%a1%e7%ae%97" class="nav-润湿面积计算">
+									润湿面积计算
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1" class="nav-程序设计">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c" class="nav-计算结果">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://www.zhaocloud.work/">
+            April Diary
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://www.zhaocloud.work/">
+        <div class="single-column-header-title">April Diary</div>
+        
+        <div class="single-column-header-subtitle">人间四月芳菲尽</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    Matlab第三周涂料计算
+                    
+                    <div class="post-subtitle">
+                        Matlab选修作业记录（其他的简介懒得写了/2025-01-25/）
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2024-08-05 00:00
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/matlab">Matlab</a>
+                                &nbsp;
+                            
+                                <a href="/tags/%E5%A4%A7%E5%AD%A6">大学</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="北邮matlab选修-week-3-涂料计算">北邮Matlab选修 Week 3 涂料计算</h1>
+<h2 id="问题描述">问题描述</h2>
+<p><img src="1.png" alt=""></p>
+<p>如图所示的磁盘，半径为<code>R</code>，高度为<code>h</code>，它有<code>8</code>个圆柱形的孔，每个孔的半径为<code>r</code>，这可能是一个需要刷漆的机器零件，刷完后再与其他零件进行组装。在设计这台机器的过程中，我们可能需要知道这个磁盘的重量和它所需的油漆量。机器的重量和油漆量是各个零件的总和。由于磁盘的重量与它的体积成正比，油漆量与它的“润湿面积”成正比，所以我们需要知道这个磁盘的体积和面积。</p>
+<p>请编写一个函数，用于求该磁盘的体积和面积，并用一个实例对编写的函数进行测试。</p>
+<h2 id="数学模型">数学模型</h2>
+<h3 id="体积计算">体积计算</h3>
+<ul>
+<li>
+<p>原始磁盘体积</p>
+<p>磁盘是一个圆柱体，其体积$V_{disk}$可以通过以下公式计算：</p>
+<p>$$ V_{disk}=\pi R^2h $$</p>
+<p>其中，$R$是磁盘的半径，$h$是磁盘的高度。</p>
+</li>
+<li>
+<p>孔的体积</p>
+<p>每个孔也是一个圆柱体，其体积$V_{hole}$可以通过以下公式计算：</p>
+<p>$$ V_{hole}=\pi r^2 h $$</p>
+<p>其中：$r$是孔的半径。</p>
+</li>
+<li>
+<p>实际磁盘体积</p>
+<p>实际磁盘体积 $V_{actual}$ 是原始体积减去总孔体积：</p>
+<p>$$ V_{actual}=V_{disk}-totalholes \times V_{hole} $$</p>
+</li>
+</ul>
+<h3 id="润湿面积计算">润湿面积计算</h3>
+<ul>
+<li>
+<p>原始磁盘表面积</p>
+<p>磁盘的表面积包括两个底面和一个侧面，其表面积 $S_{disk}$ 可以通过以下公式计算：</p>
+<p>$$ S_{disk}=2\pi R^2 + 2\pi Rh $$</p>
+<p>其中，$R$ 是磁盘的半径，$h$是磁盘的高度。</p>
+</li>
+<li>
+<p>孔的侧面积</p>
+<p>每个孔的侧面积$S_{holeside}$可以通过以下公式计算：</p>
+<p>$$ S_{holeside} = 2 \pi r h $$</p>
+<p>这里不考虑孔的底面，因为它们位于磁盘内部，不会增加润湿面积，其中，$r$是孔的半径。</p>
+</li>
+<li>
+<p>孔的底面和顶面面积</p>
+<p>每个孔的侧面积$S_{topbuttom}$可以通过以下公式计算：</p>
+<p>$$ S_{topbuttom} = 2 \pi r^2 $$</p>
+</li>
+<li>
+<p>实际磁盘体积</p>
+<p>最后，实际润湿面积$S_{actual}$是原始表面积加上总孔侧面积减去总孔底面和顶面面积：</p>
+<p>$$ S_{actual}=S_{disk}+totalholes \times (S_{holeside} - S_{topbuttom}) $$</p>
+</li>
+</ul>
+<h2 id="程序设计">程序设计</h2>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#ff6ac1">function</span> [volume, surface_area] = <span style="color:#57c7ff">disk_volume_area</span>(R, h, r)  
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">% R - 磁盘的半径  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">% h - 磁盘的高度  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">% r - 每个孔的半径  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">% n_holes - 孔的数量  </span>
+</span></span><span style="display:flex;"><span>    n_holes=<span style="color:#ff9f43">8</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">% 计算原始磁盘的体积  </span>
+</span></span><span style="display:flex;"><span>    original_volume = <span style="color:#ff5c57">pi</span> <span style="color:#ff6ac1">*</span> R^<span style="color:#ff9f43">2</span> <span style="color:#ff6ac1">*</span> h;  
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">% 计算原始磁盘的表面积（包括两个底面和一个侧面）  </span>
+</span></span><span style="display:flex;"><span>    original_surface_area = <span style="color:#ff9f43">2</span> <span style="color:#ff6ac1">*</span> <span style="color:#ff5c57">pi</span> <span style="color:#ff6ac1">*</span> R^<span style="color:#ff9f43">2</span> <span style="color:#ff6ac1">+</span> <span style="color:#ff9f43">2</span> <span style="color:#ff6ac1">*</span> <span style="color:#ff5c57">pi</span> <span style="color:#ff6ac1">*</span> R <span style="color:#ff6ac1">*</span> h;  
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">% 计算每个孔的体积  </span>
+</span></span><span style="display:flex;"><span>    hole_volume = <span style="color:#ff5c57">pi</span> <span style="color:#ff6ac1">*</span> r^<span style="color:#ff9f43">2</span> <span style="color:#ff6ac1">*</span> h;  
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">% 计算每个孔的侧面积（不包括底面，因为底面在磁盘内部，不参与润湿）  </span>
+</span></span><span style="display:flex;"><span>    hole_side_area = <span style="color:#ff9f43">2</span> <span style="color:#ff6ac1">*</span> <span style="color:#ff5c57">pi</span> <span style="color:#ff6ac1">*</span> r <span style="color:#ff6ac1">*</span> h;  
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">%计算每个孔的顶、底面积</span>
+</span></span><span style="display:flex;"><span>    hole_top_buttom_area = <span style="color:#ff9f43">2</span> <span style="color:#ff6ac1">*</span> <span style="color:#ff5c57">pi</span> <span style="color:#ff6ac1">*</span> r <span style="color:#ff6ac1">*</span> r;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">% 计算所有孔的总体积  </span>
+</span></span><span style="display:flex;"><span>    total_hole_volume = n_holes <span style="color:#ff6ac1">*</span> hole_volume;  
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">% 计算所有孔的顶、底面积总和  </span>
+</span></span><span style="display:flex;"><span>    total_hole_side_area = n_holes <span style="color:#ff6ac1">*</span> hole_side_area;  
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">% 计算所有孔的侧面积总和  </span>
+</span></span><span style="display:flex;"><span>    total_hole_top_buttom_area = n_holes <span style="color:#ff6ac1">*</span> hole_top_buttom_area;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">% 计算磁盘的实际体积（减去孔的体积）  </span>
+</span></span><span style="display:flex;"><span>    volume = original_volume <span style="color:#ff6ac1">-</span> total_hole_volume;  
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">% 计算磁盘的实际润湿面积</span>
+</span></span><span style="display:flex;"><span>    surface_area = original_surface_area <span style="color:#ff6ac1">+</span> total_hole_side_area <span style="color:#ff6ac1">-</span> total_hole_top_buttom_area;  
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">end</span>
+</span></span></code></pre></div><h2 id="计算结果">计算结果</h2>
+<pre tabindex="0"><code class="language-terminal" data-lang="terminal">&gt;&gt; R=10;
+&gt;&gt; h=5;
+&gt;&gt; r=2;
+&gt;&gt; [volume, surface_area] = disk_volume_area(R, h, r); 
+&gt;&gt; fprintf(&#39;磁盘的体积为: %f\n&#39;, volume); 
+磁盘的体积为: 1068.141502
+&gt;&gt; fprintf(&#39;磁盘的润湿面积为: %f\n&#39;, surface_area);
+磁盘的润湿面积为: 1244.070691
+</code></pre>
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2024-08-05</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/posts/matlab_%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%E6%B1%82%E8%A7%A3/">
+			下回<br>Matlab第七周线性方程组求解
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/matlab_%E6%8B%9F%E5%90%88/">
+			上回<br>Matlab第十二周拟合问题
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://www.zhaocloud.work/">
+    
+        <div class="nav-title">
+            April Diary
+        </div>
+        
+        <div class="nav-subtitle">
+            人间四月芳菲尽
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                时间线
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                归档
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8c%97%e9%82%aematlab%e9%80%89%e4%bf%ae-week-3-%e6%b6%82%e6%96%99%e8%ae%a1%e7%ae%97" class="nav-北邮matlab选修-week-3-涂料计算">
+									北邮Matlab选修 Week 3 涂料计算
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0" class="nav-问题描述">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%95%b0%e5%ad%a6%e6%a8%a1%e5%9e%8b" class="nav-数学模型">
+									数学模型
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e4%bd%93%e7%a7%af%e8%ae%a1%e7%ae%97" class="nav-体积计算">
+									体积计算
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%b6%a6%e6%b9%bf%e9%9d%a2%e7%a7%af%e8%ae%a1%e7%ae%97" class="nav-润湿面积计算">
+									润湿面积计算
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1" class="nav-程序设计">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c" class="nav-计算结果">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>

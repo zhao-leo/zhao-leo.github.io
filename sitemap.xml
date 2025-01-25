@@ -2,146 +2,219 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.zhaocloud.work/</loc>
-    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+    <loc>https://www.zhaocloud.work/posts/2025%E6%96%B0%E5%B9%B4%E5%A5%BD/</loc>
+    <lastmod>2025-01-25T13:09:16+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/water_detection/</loc>
-    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+    <loc>https://www.zhaocloud.work/</loc>
+    <lastmod>2025-01-25T13:09:16+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://www.zhaocloud.work/categories/</loc>
-    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-25T13:09:16+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/post/</loc>
-    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+    <loc>https://www.zhaocloud.work/posts/</loc>
+    <lastmod>2025-01-25T13:09:16+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://www.zhaocloud.work/tags/</loc>
-    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-25T13:09:16+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/tags/university/</loc>
-    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+    <loc>https://www.zhaocloud.work/tags/%E5%8D%9A%E5%AE%A2%E7%BB%B4%E6%8A%A4/</loc>
+    <lastmod>2025-01-25T13:09:16+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://www.zhaocloud.work/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2025-01-25T13:09:16+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://www.zhaocloud.work/categories/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2025-01-25T13:09:16+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://www.zhaocloud.work/tags/verilog/</loc>
     <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://www.zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/chatglm_proxy/</loc>
+    <loc>https://www.zhaocloud.work/tags/%E5%A4%A7%E5%AD%A6/</loc>
+    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://www.zhaocloud.work/posts/bupt%E6%B0%B4%E4%BD%8D%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C/</loc>
+    <lastmod>2024-12-21T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://www.zhaocloud.work/tags/cpp/</loc>
     <lastmod>2024-10-08T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://www.zhaocloud.work/tags/python/</loc>
     <lastmod>2024-10-08T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/bupt_class/</loc>
-    <lastmod>2024-09-22T00:00:00+00:00</lastmod>
+    <loc>https://www.zhaocloud.work/posts/luogu_%E6%96%B9%E5%9D%97%E8%BD%AC%E6%8D%A2/</loc>
+    <lastmod>2024-10-08T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/categories/%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2024-09-22T00:00:00+00:00</lastmod>
+    <loc>https://www.zhaocloud.work/posts/chatglm%E4%BB%A3%E7%90%86%E5%88%B0%E6%9C%AC%E5%9C%B0-sse%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2024-10-08T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/tags/rust/</loc>
-    <lastmod>2024-08-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.zhaocloud.work/p/rust_installation/</loc>
-    <lastmod>2024-08-29T00:00:00+00:00</lastmod>
+    <loc>https://www.zhaocloud.work/tags/%E6%B4%9B%E8%B0%B7/</loc>
+    <lastmod>2024-10-08T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://www.zhaocloud.work/tags/matlab/</loc>
     <lastmod>2024-08-05T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/matlab_final/</loc>
+    <loc>https://www.zhaocloud.work/posts/matlab_%E8%B4%B7%E6%AC%BE%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2024-08-05T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/matlab_midterm/</loc>
+    <loc>https://www.zhaocloud.work/posts/matlab_%E6%8F%92%E5%80%BC%E5%8D%87%E7%BA%A7%E7%89%88/</loc>
     <lastmod>2024-08-05T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/matlab_interrupt_advanced/</loc>
+    <loc>https://www.zhaocloud.work/posts/matlab_%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%E6%B1%82%E8%A7%A3/</loc>
     <lastmod>2024-08-05T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/matlab_equations/</loc>
+    <loc>https://www.zhaocloud.work/posts/matlab_%E6%B6%82%E6%96%99%E8%AE%A1%E7%AE%97/</loc>
     <lastmod>2024-08-05T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/matlab_matching/</loc>
+    <loc>https://www.zhaocloud.work/posts/matlab_%E6%8B%9F%E5%90%88/</loc>
     <lastmod>2024-08-05T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/matlab_integration/</loc>
+    <loc>https://www.zhaocloud.work/posts/matlab_%E6%95%B0%E5%80%BC%E7%A7%AF%E5%88%86/</loc>
     <lastmod>2024-08-05T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/matlab_newton/</loc>
+    <loc>https://www.zhaocloud.work/posts/matlab_%E6%8F%92%E5%80%BC/</loc>
     <lastmod>2024-08-05T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/matlab_interrupt/</loc>
-    <lastmod>2024-08-04T00:00:00+00:00</lastmod>
+    <loc>https://www.zhaocloud.work/posts/matlab_%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E6%B3%95/</loc>
+    <lastmod>2024-08-05T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/matlab_loan/</loc>
-    <lastmod>2024-08-03T00:00:00+00:00</lastmod>
+    <loc>https://www.zhaocloud.work/posts/matlab_%E6%9C%9F%E6%9C%AB/</loc>
+    <lastmod>2024-08-05T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/matlab_diskvolume/</loc>
-    <lastmod>2024-08-03T00:00:00+00:00</lastmod>
+    <loc>https://www.zhaocloud.work/posts/matlab_%E6%9C%9F%E4%B8%AD/</loc>
+    <lastmod>2024-08-05T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/minecraftconnection/</loc>
+    <loc>https://www.zhaocloud.work/tags/rust/</loc>
+    <lastmod>2024-08-05T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://www.zhaocloud.work/posts/rust%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2024-08-05T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://www.zhaocloud.work/posts/minecraft%E8%81%94%E6%9C%BA%E6%8C%87%E5%8D%97/</loc>
     <lastmod>2024-06-15T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://www.zhaocloud.work/tags/%E6%B8%B8%E6%88%8F/</loc>
     <lastmod>2024-06-15T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/qqfavicon/</loc>
-    <lastmod>2024-05-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.zhaocloud.work/p/fireflyfavicon/</loc>
-    <lastmod>2024-05-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.zhaocloud.work/tags/c&#43;&#43;/</loc>
+    <loc>https://www.zhaocloud.work/tags/pta/</loc>
     <lastmod>2023-10-24T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/tags/luogu/</loc>
+    <loc>https://www.zhaocloud.work/posts/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E8%BD%AC%E4%BA%8C%E8%BF%9B%E5%88%B6/</loc>
     <lastmod>2023-10-24T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/transformations/</loc>
+    <loc>https://www.zhaocloud.work/posts/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/</loc>
     <lastmod>2023-10-24T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/tags/%E5%8C%97%E4%BA%AC/</loc>
+    <loc>https://www.zhaocloud.work/posts/%E7%BB%93%E6%9E%84%E6%95%B0%E7%BB%84%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2023-10-24T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/array_of_structures/</loc>
+    <loc>https://www.zhaocloud.work/posts/%E8%80%81%E7%8E%8B%E8%B5%9B%E9%A9%AC/</loc>
     <lastmod>2023-10-24T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/wang_racing/</loc>
+    <loc>https://www.zhaocloud.work/posts/%E7%A0%B4%E8%A7%A3%E7%AE%80%E5%8D%95%E5%AF%86%E7%A0%81/</loc>
     <lastmod>2023-10-24T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/mingming_random/</loc>
+    <loc>https://www.zhaocloud.work/tags/%E6%91%84%E5%BD%B1/</loc>
     <lastmod>2023-10-24T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/solve_basic_pwd/</loc>
+    <loc>https://www.zhaocloud.work/posts/%E6%B0%B4%E6%9E%9C%E9%A2%9C%E8%89%B2/</loc>
     <lastmod>2023-10-24T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/categories/%E7%94%9F%E6%B4%BB/</loc>
+    <loc>https://www.zhaocloud.work/posts/%E6%A0%A1%E5%9B%AD%E6%AD%8C%E6%89%8B%E5%A4%A7%E8%B5%9B%E6%96%B0%E8%A7%84%E5%88%99/</loc>
     <lastmod>2023-10-24T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/hex_to_bin/</loc>
+    <loc>https://www.zhaocloud.work/posts/%E5%8D%B0%E8%B1%A1%E5%8C%97%E4%BA%AC/</loc>
     <lastmod>2023-10-24T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url><url>
-    <loc>https://www.zhaocloud.work/p/fruit_color/</loc>
+    <loc>https://www.zhaocloud.work/posts/%E5%AD%97%E6%AF%8D%E7%BB%9F%E8%AE%A1/</loc>
     <lastmod>2023-10-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.zhaocloud.work/p/singer_rules/</loc>
-    <lastmod>2023-10-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.zhaocloud.work/p/beijing_picture_1/</loc>
-    <lastmod>2023-10-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.zhaocloud.work/p/character_count/</loc>
-    <lastmod>2023-10-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.zhaocloud.work/page/</loc>
-    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.zhaocloud.work/archives/</loc>
-    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.zhaocloud.work/about/</loc>
-    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.zhaocloud.work/links/</loc>
-  </url><url>
-    <loc>https://www.zhaocloud.work/search/</loc>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

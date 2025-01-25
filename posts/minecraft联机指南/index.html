@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<title>Minecraft简单联机教程</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="网配好了，但是一起玩的日子什么时候才能来呢……">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="https://www.zhaocloud.work/posts/minecraft%E8%81%94%E6%9C%BA%E6%8C%87%E5%8D%97/">
+  <meta property="og:site_name" content="April Diary">
+  <meta property="og:title" content="Minecraft简单联机教程">
+  <meta property="og:description" content="网配好了，但是一起玩的日子什么时候才能来呢……">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-06-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-06-15T00:00:00+00:00">
+    <meta property="article:tag" content="游戏">
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "pz9g1z5otp");
+</script>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://www.zhaocloud.work/favicon.svg">
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>console.log("Hello from 'layouts/partials/extended_head.html'")</script>
+<link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/yozai/dist/Yozai-Bold/result.css' />
+<style>
+    body {
+        font-family: 'Yozai';
+        font-weight: '300'
+    };
+</style>
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    时间线
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    归档
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    标签
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#mineraft-java-edition-%e7%ae%80%e5%8d%95%e8%81%94%e6%9c%ba%e6%95%99%e7%a8%8b" class="nav-mineraft-java-edition-简单联机教程">
+									Mineraft-Java Edition 简单联机教程
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e6%83%85%e5%86%b51%e7%8e%a9%e5%ae%b6%e4%bb%ac%e5%9c%a8%e5%90%8c%e4%b8%80%e7%bd%91%e7%bb%9c%e8%8c%83%e5%9b%b4%e5%86%85" class="nav-情况1玩家们在同一网络范围内">
+									情况1:玩家们在同一网络范围内
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#11-%e8%bf%9b%e5%85%a5%e5%be%85%e8%81%94%e6%9c%ba%e4%b8%96%e7%95%8c" class="nav-11-进入待联机世界">
+									1.1 进入待联机世界
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#12-%e5%9b%9e%e5%88%b0%e6%a1%8c%e9%9d%a2%e4%b8%8d%e8%a6%81%e9%80%80%e5%87%bamc" class="nav-12-回到桌面不要退出mc">
+									1.2 回到桌面（不要退出MC）
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#13-%e5%9b%9e%e5%88%b0mc" class="nav-13-回到mc">
+									1.3 回到MC
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%be%e4%be%8b%e8%af%b4%e6%98%8e" class="nav-举例说明">
+									举例说明:
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e6%83%85%e5%86%b52%e7%8e%a9%e5%ae%b6%e4%bb%ac%e4%b8%8d%e5%9c%a8%e5%90%8c%e4%b8%80%e7%bd%91%e7%bb%9c%e8%8c%83%e5%9b%b4%e5%86%85" class="nav-情况2玩家们不在同一网络范围内">
+									情况2:玩家们不在同一网络范围内
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#21-%e8%bf%9b%e5%85%a5%e5%be%85%e8%81%94%e6%9c%ba%e4%b8%96%e7%95%8c" class="nav-21-进入待联机世界">
+									2.1 进入待联机世界
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#22-%e5%af%bb%e6%89%be%e7%ab%af%e5%8f%a3%e6%98%a0%e5%b0%84%e6%9c%8d%e5%8a%a1%e5%99%a8" class="nav-22-寻找端口映射服务器">
+									2.2 寻找端口映射服务器
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#23-%e5%9b%9e%e5%88%b0mc" class="nav-23-回到mc">
+									2.3 回到MC
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%be%e4%be%8b%e8%af%b4%e6%98%8e-1" class="nav-举例说明-1">
+									举例说明:
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e7%8e%b0%e5%9c%a8%e5%bc%80%e5%a7%8b%e4%bd%a0%e4%bb%ac%e7%9a%84mc%e4%b9%8b%e6%97%85%e5%90%a7" class="nav-现在开始你们的mc之旅吧">
+									现在，开始你们的MC之旅吧~
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://www.zhaocloud.work/">
+            April Diary
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://www.zhaocloud.work/">
+        <div class="single-column-header-title">April Diary</div>
+        
+        <div class="single-column-header-subtitle">人间四月芳菲尽</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    Minecraft简单联机教程
+                    
+                    <div class="post-subtitle">
+                        网配好了，但是一起玩的日子什么时候才能来呢……
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2024-06-15 00:00
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/%E7%94%9F%E6%B4%BB">生活</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/%E6%B8%B8%E6%88%8F">游戏</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="mineraft-java-edition-简单联机教程">Mineraft-Java Edition 简单联机教程</h1>
+<h2 id="情况1玩家们在同一网络范围内">情况1:玩家们在同一网络范围内</h2>
+<p>比如:连接同一个路由器 Or 同时连接同一所学校的校园网</p>
+<h3 id="11-进入待联机世界">1.1 进入待联机世界</h3>
+<pre tabindex="0"><code>Step1:点按Esc键进入游戏菜单
+Step2:点击对局域网开放
+Step3:点击创造一个局域网世界
+（在较高版本上可以自定义端口，在较低版本端口号会显示在聊天框中）
+</code></pre><p>Notice:不论如何，请记住这个端口号！！！</p>
+<!-- more -->
+<h3 id="12-回到桌面不要退出mc">1.2 回到桌面（不要退出MC）</h3>
+<pre tabindex="0"><code>Step1:按组合键Windows+R进入运行，在弹出的框中输入cmd，回车运行
+Step2:在弹出的界面输入ipconfig，浏览内容，找到&#34;IPv4 地址&#34;一行，记住后面形如xxx.xxx.xxx.xxx的部分
+</code></pre><h3 id="13-回到mc">1.3 回到MC</h3>
+<pre tabindex="0"><code>Step1:在好友的电脑上点击多人游戏————直接连接，并输入&#34;IPv4 地址:端口号&#34;连接进入
+</code></pre><h3 id="举例说明">举例说明:</h3>
+<pre tabindex="0"><code>在上述 1.1 步骤中获取（设置）的端口号为25565
+在上述 1.2 步骤中获取的IPv4地址为192.168.3.5
+那么好友就应当输入192.168.3.5:25565
+</code></pre><h2 id="情况2玩家们不在同一网络范围内">情况2:玩家们不在同一网络范围内</h2>
+<p>比如:在两个不同的城市</p>
+<h3 id="21-进入待联机世界">2.1 进入待联机世界</h3>
+<pre tabindex="0"><code>同 1.1
+</code></pre><p>P.S.:如果端口可以自定义，建议 25565</p>
+<h3 id="22-寻找端口映射服务器">2.2 寻找端口映射服务器</h3>
+<pre tabindex="0"><code>Step1:建议访问https://panel.chmlfrp.cn/login注册并实名
+Step2:在 隧道管理————隧道列表 页面下点击&#34;添加隧道&#34;，选一个节点（建议海外节点）
+Step3:点击，在&#34;内网端口&#34;一栏填写 1.1 获取（设置）的端口号，点击确定，保存
+Step4*:第一次使用的用户，点击软件下载，下载对应客户端并解压
+Step5:在 隧道管理————配置文件 页面下点击&#34;节点选择&#34;,选择刚刚创建的节点，
+点击&#34;复制配置文件&#34;
+Step6:在客户端文件中找到&#34;frpc.ini&#34;，右键，用记事本打开
+Step7:将Step5中生成的配置文件复制到&#34;frpc.ini&#34;文件中，保存，
+      同时记录server_addr=后面的地址和remote_port=后面的端口号记录下来
+Step8:关闭记事本，打开&#34;frpc.ini&#34;所在的文件夹，右键&#34;在终端中打开&#34;，
+      在弹出的框中输入&#34;./frpc&#34;（没有双引号）即可
+</code></pre><p>Notice:&ldquo;frpc.ini&quot;中local_port=后面的端口号必须和 2.1 中的端口号完全相同！！！
+Notice:在整个联机过程中不要关闭终端窗口！！！</p>
+<h3 id="23-回到mc">2.3 回到MC</h3>
+<pre tabindex="0"><code>Step1:在好友的电脑上点击多人游戏————直接连接，并输入&#34;server_addr:remote_port&#34;连接进入
+</code></pre><h3 id="举例说明-1">举例说明:</h3>
+<pre tabindex="0"><code>在上述 2.1 步骤中获取（设置）的端口号为25565
+在上述 2.2 步骤中的配置文件如下
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#ff6ac1">[common]</span>
+</span></span><span style="display:flex;"><span><span style="color:#57c7ff">server_addr</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">38.299.130.211</span>
+</span></span><span style="display:flex;"><span><span style="color:#57c7ff">server_port</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">7000</span>
+</span></span><span style="display:flex;"><span><span style="color:#57c7ff">tls_enable</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#57c7ff">user</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">XXXXXXXXXXXXXXXXXXX</span>
+</span></span><span style="display:flex;"><span><span style="color:#57c7ff">token</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">ChmlFrpToken</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">[3dyziJm]</span>
+</span></span><span style="display:flex;"><span><span style="color:#57c7ff">type</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">tcp</span>
+</span></span><span style="display:flex;"><span><span style="color:#57c7ff">local_ip</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">127.0.0.1</span>
+</span></span><span style="display:flex;"><span><span style="color:#57c7ff">local_port</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">25565</span>
+</span></span><span style="display:flex;"><span><span style="color:#57c7ff">remote_port</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">45486</span>
+</span></span></code></pre></div><pre tabindex="0"><code>那么好友就应当输入 38.299.130.211:45486
+</code></pre><h2 id="现在开始你们的mc之旅吧">现在，开始你们的MC之旅吧~</h2>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2024-06-15</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/posts/rust%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/">
+			下回<br>在Windows安装Mingw版本的Rust工具链
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E8%BD%AC%E4%BA%8C%E8%BF%9B%E5%88%B6/">
+			上回<br>将十六进制数转换成为二进制数-PTA
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://www.zhaocloud.work/">
+    
+        <div class="nav-title">
+            April Diary
+        </div>
+        
+        <div class="nav-subtitle">
+            人间四月芳菲尽
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                时间线
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                归档
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#mineraft-java-edition-%e7%ae%80%e5%8d%95%e8%81%94%e6%9c%ba%e6%95%99%e7%a8%8b" class="nav-mineraft-java-edition-简单联机教程">
+									Mineraft-Java Edition 简单联机教程
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e6%83%85%e5%86%b51%e7%8e%a9%e5%ae%b6%e4%bb%ac%e5%9c%a8%e5%90%8c%e4%b8%80%e7%bd%91%e7%bb%9c%e8%8c%83%e5%9b%b4%e5%86%85" class="nav-情况1玩家们在同一网络范围内">
+									情况1:玩家们在同一网络范围内
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#11-%e8%bf%9b%e5%85%a5%e5%be%85%e8%81%94%e6%9c%ba%e4%b8%96%e7%95%8c" class="nav-11-进入待联机世界">
+									1.1 进入待联机世界
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#12-%e5%9b%9e%e5%88%b0%e6%a1%8c%e9%9d%a2%e4%b8%8d%e8%a6%81%e9%80%80%e5%87%bamc" class="nav-12-回到桌面不要退出mc">
+									1.2 回到桌面（不要退出MC）
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#13-%e5%9b%9e%e5%88%b0mc" class="nav-13-回到mc">
+									1.3 回到MC
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%be%e4%be%8b%e8%af%b4%e6%98%8e" class="nav-举例说明">
+									举例说明:
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e6%83%85%e5%86%b52%e7%8e%a9%e5%ae%b6%e4%bb%ac%e4%b8%8d%e5%9c%a8%e5%90%8c%e4%b8%80%e7%bd%91%e7%bb%9c%e8%8c%83%e5%9b%b4%e5%86%85" class="nav-情况2玩家们不在同一网络范围内">
+									情况2:玩家们不在同一网络范围内
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#21-%e8%bf%9b%e5%85%a5%e5%be%85%e8%81%94%e6%9c%ba%e4%b8%96%e7%95%8c" class="nav-21-进入待联机世界">
+									2.1 进入待联机世界
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#22-%e5%af%bb%e6%89%be%e7%ab%af%e5%8f%a3%e6%98%a0%e5%b0%84%e6%9c%8d%e5%8a%a1%e5%99%a8" class="nav-22-寻找端口映射服务器">
+									2.2 寻找端口映射服务器
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#23-%e5%9b%9e%e5%88%b0mc" class="nav-23-回到mc">
+									2.3 回到MC
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%be%e4%be%8b%e8%af%b4%e6%98%8e-1" class="nav-举例说明-1">
+									举例说明:
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e7%8e%b0%e5%9c%a8%e5%bc%80%e5%a7%8b%e4%bd%a0%e4%bb%ac%e7%9a%84mc%e4%b9%8b%e6%97%85%e5%90%a7" class="nav-现在开始你们的mc之旅吧">
+									现在，开始你们的MC之旅吧~
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>

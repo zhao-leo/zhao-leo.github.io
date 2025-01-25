@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<title>方块转换</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="Luogu_P1205 刷题记录（其他的简介懒得写了/2025-01-25/）">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="https://www.zhaocloud.work/posts/luogu_%E6%96%B9%E5%9D%97%E8%BD%AC%E6%8D%A2/">
+  <meta property="og:site_name" content="April Diary">
+  <meta property="og:title" content="方块转换">
+  <meta property="og:description" content="Luogu_P1205 刷题记录（其他的简介懒得写了/2025-01-25/）">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-08T00:00:00+00:00">
+    <meta property="article:tag" content="Cpp">
+    <meta property="article:tag" content="洛谷">
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "pz9g1z5otp");
+</script>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://www.zhaocloud.work/favicon.svg">
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>console.log("Hello from 'layouts/partials/extended_head.html'")</script>
+<link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/yozai/dist/Yozai-Bold/result.css' />
+<style>
+    body {
+        font-family: 'Yozai';
+        font-weight: '300'
+    };
+</style>
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    时间线
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    归档
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    标签
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#p1205-usaco12-%e6%96%b9%e5%9d%97%e8%bd%ac%e6%8d%a2-transformations" class="nav-p1205-usaco12-方块转换-transformations">
+									P1205 [USACO1.2] 方块转换 Transformations
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%a2%98%e7%9b%ae%e6%8f%8f%e8%bf%b0" class="nav-题目描述">
+									题目描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%be%93%e5%85%a5%e6%a0%bc%e5%bc%8f" class="nav-输入格式">
+									输入格式
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%be%93%e5%87%ba%e6%a0%bc%e5%bc%8f" class="nav-输出格式">
+									输出格式
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%a0%b7%e4%be%8b-1" class="nav-样例-1">
+									样例 #1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e6%a0%b7%e4%be%8b%e8%be%93%e5%85%a5-1" class="nav-样例输入-1">
+									样例输入 #1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%a0%b7%e4%be%8b%e8%be%93%e5%87%ba-1" class="nav-样例输出-1">
+									样例输出 #1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e6%8f%90%e7%a4%ba" class="nav-提示">
+									提示
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%a7%a3%e7%ad%94" class="nav-解答">
+									解答
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://www.zhaocloud.work/">
+            April Diary
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://www.zhaocloud.work/">
+        <div class="single-column-header-title">April Diary</div>
+        
+        <div class="single-column-header-subtitle">人间四月芳菲尽</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    方块转换
+                    
+                    <div class="post-subtitle">
+                        Luogu_P1205 刷题记录（其他的简介懒得写了/2025-01-25/）
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2024-10-08 00:00
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/cpp">Cpp</a>
+                                &nbsp;
+                            
+                                <a href="/tags/%E6%B4%9B%E8%B0%B7">洛谷</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="p1205-usaco12-方块转换-transformations">P1205 [USACO1.2] 方块转换 Transformations</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>一块 $n \times n$ 正方形的黑白瓦片的图案要被转换成新的正方形图案。写一个程序来找出将原始图案按照以下列转换方法转换成新图案的最小方式：</p>
+<ul>
+<li>
+<p>转 $90\degree$：图案按顺时针转 $90\degree$。</p>
+</li>
+<li>
+<p>转 $180\degree$：图案按顺时针转 $180\degree$。</p>
+</li>
+<li>
+<p>转 $270\degree$：图案按顺时针转 $270\degree$。</p>
+</li>
+<li>
+<p>反射：图案在水平方向翻转（以中央铅垂线为中心形成原图案的镜像）。</p>
+</li>
+<li>
+<p>组合：图案在水平方向翻转，然后再按照 $1 \sim 3$ 之间的一种再次转换。</p>
+</li>
+<li>
+<p>不改变：原图案不改变。</p>
+</li>
+<li>
+<p>无效转换：无法用以上方法得到新图案。</p>
+</li>
+</ul>
+<p>如果有多种可用的转换方法，请选择序号最小的那个。</p>
+<p>只使用上述 $7$ 个中的一个步骤来完成这次转换。</p>
+<h2 id="输入格式">输入格式</h2>
+<p>第一行一个正整数 $n$。</p>
+<p>然后 $n$ 行，每行 $n$ 个字符，全部为 <code>@</code> 或 <code>-</code>，表示初始的正方形。</p>
+<p>接下来 $n$ 行，每行 $n$ 个字符，全部为 <code>@</code> 或 <code>-</code>，表示最终的正方形。</p>
+<h2 id="输出格式">输出格式</h2>
+<p>单独的一行包括 $1 \sim 7$ 之间的一个数字（在上文已描述）表明需要将转换前的正方形变为转换后的正方形的转换方法。</p>
+<h2 id="样例-1">样例 #1</h2>
+<h3 id="样例输入-1">样例输入 #1</h3>
+<pre tabindex="0"><code>3
+@-@
+---
+@@-
+@-@
+@--
+--@
+</code></pre><h3 id="样例输出-1">样例输出 #1</h3>
+<pre tabindex="0"><code>1
+</code></pre><h2 id="提示">提示</h2>
+<p>【数据范围】<br>
+对于 $100%$ 的数据，$1\le n \le 10$。</p>
+<p>题目翻译来自 NOCOW。</p>
+<p>USACO Training Section 1.2</p>
+<h2 id="解答">解答</h2>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#78787e">#include</span> <span style="color:#78787e">&lt;bits/stdc++.h&gt;</span><span style="color:#78787e">
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">using</span> <span style="color:#ff6ac1">namespace</span> std; 
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">struct</span> <span style="color:#f3f99d">matrix</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#9aedfe">char</span> a[<span style="color:#ff9f43">12</span>][<span style="color:#ff9f43">12</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#9aedfe">int</span> dim;
+</span></span><span style="display:flex;"><span>}A,B;
+</span></span><span style="display:flex;"><span>matrix <span style="color:#57c7ff">Real_Reflex</span>(matrix x)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#9aedfe">int</span> n <span style="color:#ff6ac1">=</span> x.dim;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">for</span>(<span style="color:#9aedfe">int</span> i<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">0</span>;i<span style="color:#ff6ac1">&lt;</span>n;i<span style="color:#ff6ac1">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">for</span>(<span style="color:#9aedfe">int</span> j<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">0</span>;j<span style="color:#ff6ac1">&lt;</span>n<span style="color:#ff6ac1">/</span><span style="color:#ff9f43">2</span>;j<span style="color:#ff6ac1">++</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#9aedfe">int</span> temp <span style="color:#ff6ac1">=</span> x.a[i][j];
+</span></span><span style="display:flex;"><span>            x.a[i][j] <span style="color:#ff6ac1">=</span> x.a[i][n<span style="color:#ff6ac1">-</span>j<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>];
+</span></span><span style="display:flex;"><span>            x.a[i][n<span style="color:#ff6ac1">-</span>j<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>] <span style="color:#ff6ac1">=</span> temp;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> x;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>matrix <span style="color:#57c7ff">Real_Rorate</span>(matrix x)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#9aedfe">int</span> n <span style="color:#ff6ac1">=</span> x.dim;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">for</span>(<span style="color:#9aedfe">int</span> i<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">0</span>;i<span style="color:#ff6ac1">&lt;</span>n<span style="color:#ff6ac1">/</span><span style="color:#ff9f43">2</span>;i<span style="color:#ff6ac1">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">for</span>(<span style="color:#9aedfe">int</span> j<span style="color:#ff6ac1">=</span>i;j<span style="color:#ff6ac1">&lt;</span>n<span style="color:#ff6ac1">-</span>i<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>;j<span style="color:#ff6ac1">++</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#9aedfe">int</span> temp <span style="color:#ff6ac1">=</span> x.a[i][j];
+</span></span><span style="display:flex;"><span>            x.a[i][j] <span style="color:#ff6ac1">=</span> x.a[n<span style="color:#ff6ac1">-</span>j<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>][i];
+</span></span><span style="display:flex;"><span>            x.a[n<span style="color:#ff6ac1">-</span>j<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>][i] <span style="color:#ff6ac1">=</span> x.a[n<span style="color:#ff6ac1">-</span>i<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>][n<span style="color:#ff6ac1">-</span>j<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>];
+</span></span><span style="display:flex;"><span>            x.a[n<span style="color:#ff6ac1">-</span>i<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>][n<span style="color:#ff6ac1">-</span>j<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>] <span style="color:#ff6ac1">=</span> x.a[j][n<span style="color:#ff6ac1">-</span>i<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>];
+</span></span><span style="display:flex;"><span>            x.a[j][n<span style="color:#ff6ac1">-</span>i<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>] <span style="color:#ff6ac1">=</span> temp;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> x;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#9aedfe">int</span> <span style="color:#57c7ff">Are_they_the_same</span>(matrix X)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#9aedfe">int</span> n <span style="color:#ff6ac1">=</span> X.dim;
+</span></span><span style="display:flex;"><span>    <span style="color:#9aedfe">int</span> flag <span style="color:#ff6ac1">=</span> <span style="color:#ff9f43">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">for</span>(<span style="color:#9aedfe">int</span> i<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">0</span>;i<span style="color:#ff6ac1">&lt;</span>n;i<span style="color:#ff6ac1">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">for</span>(<span style="color:#9aedfe">int</span> j<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">0</span>;j<span style="color:#ff6ac1">&lt;</span>n;j<span style="color:#ff6ac1">++</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">if</span>(X.a[i][j]<span style="color:#ff6ac1">!=</span>B.a[i][j])
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                flag <span style="color:#ff6ac1">=</span> <span style="color:#ff9f43">1</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">break</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">if</span>(flag<span style="color:#ff6ac1">==</span><span style="color:#ff9f43">0</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff9f43">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> <span style="color:#ff9f43">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#9aedfe">int</span> <span style="color:#57c7ff">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#9aedfe">int</span> n;
+</span></span><span style="display:flex;"><span>    cin<span style="color:#ff6ac1">&gt;&gt;</span>n;
+</span></span><span style="display:flex;"><span>    A.dim <span style="color:#ff6ac1">=</span> n;
+</span></span><span style="display:flex;"><span>    B.dim <span style="color:#ff6ac1">=</span> n;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">for</span>(<span style="color:#9aedfe">int</span> i<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">0</span>;i<span style="color:#ff6ac1">&lt;</span>n;i<span style="color:#ff6ac1">++</span>)<span style="color:#78787e">//cin the matrixA
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">for</span>(<span style="color:#9aedfe">int</span> j<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">0</span>;j<span style="color:#ff6ac1">&lt;</span>n;j<span style="color:#ff6ac1">++</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            cin<span style="color:#ff6ac1">&gt;&gt;</span>A.a[i][j];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">for</span>(<span style="color:#9aedfe">int</span> i<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">0</span>;i<span style="color:#ff6ac1">&lt;</span>n;i<span style="color:#ff6ac1">++</span>)<span style="color:#78787e">//cin the matrixB
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">for</span>(<span style="color:#9aedfe">int</span> j<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">0</span>;j<span style="color:#ff6ac1">&lt;</span>n;j<span style="color:#ff6ac1">++</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            cin<span style="color:#ff6ac1">&gt;&gt;</span>B.a[i][j];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">if</span>(Are_they_the_same(Real_Rorate(A))<span style="color:#ff6ac1">==</span><span style="color:#ff9f43">1</span>)<span style="color:#78787e">//rorate 90 degrees
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    {
+</span></span><span style="display:flex;"><span>        cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34;1&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff9f43">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">else</span> <span style="color:#ff6ac1">if</span>(Are_they_the_same(Real_Rorate(Real_Rorate(A))))<span style="color:#78787e">//rorate 180 degrees
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    {
+</span></span><span style="display:flex;"><span>        cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34;2&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff9f43">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">else</span> <span style="color:#ff6ac1">if</span>(Are_they_the_same(Real_Rorate(Real_Rorate(Real_Rorate(A)))))<span style="color:#78787e">//rorate 270 degrees
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    {
+</span></span><span style="display:flex;"><span>        cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34;3&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff9f43">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">else</span> <span style="color:#ff6ac1">if</span>(Are_they_the_same(Real_Reflex(A))<span style="color:#ff6ac1">==</span><span style="color:#ff9f43">1</span>)<span style="color:#78787e">//reflex
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    {
+</span></span><span style="display:flex;"><span>        cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34;4&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff9f43">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">else</span> <span style="color:#ff6ac1">if</span>(Are_they_the_same(Real_Rorate(Real_Reflex(A)))<span style="color:#ff6ac1">==</span><span style="color:#ff9f43">1</span>)<span style="color:#78787e">//rorate 90 degrees and reflex
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    {
+</span></span><span style="display:flex;"><span>        cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34;5&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff9f43">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">else</span> <span style="color:#ff6ac1">if</span>(Are_they_the_same(Real_Rorate(Real_Rorate(Real_Reflex(A))))<span style="color:#ff6ac1">==</span><span style="color:#ff9f43">1</span>)<span style="color:#78787e">//rorate 180 degrees and reflex
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    {
+</span></span><span style="display:flex;"><span>        cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34;5&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff9f43">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">else</span> <span style="color:#ff6ac1">if</span>(Are_they_the_same(Real_Rorate(Real_Rorate(Real_Rorate(Real_Reflex(A))))))<span style="color:#78787e">//rorate 270 degrees and reflex
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    {
+</span></span><span style="display:flex;"><span>        cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34;5&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff9f43">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">else</span> <span style="color:#ff6ac1">if</span>(Are_they_the_same(A))<span style="color:#78787e">//no rorate
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    {
+</span></span><span style="display:flex;"><span>        cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34;6&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff9f43">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34;7&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff9f43">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> <span style="color:#ff9f43">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2024-10-08</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/posts/bupt%E6%B0%B4%E4%BD%8D%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C/">
+			下回<br>数字系统实验报告——水位监测
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/chatglm%E4%BB%A3%E7%90%86%E5%88%B0%E6%9C%AC%E5%9C%B0-sse%E6%A8%A1%E5%BC%8F/">
+			上回<br>将ChatGLM以SSE模式代理到本地
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://www.zhaocloud.work/">
+    
+        <div class="nav-title">
+            April Diary
+        </div>
+        
+        <div class="nav-subtitle">
+            人间四月芳菲尽
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                时间线
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                归档
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#p1205-usaco12-%e6%96%b9%e5%9d%97%e8%bd%ac%e6%8d%a2-transformations" class="nav-p1205-usaco12-方块转换-transformations">
+									P1205 [USACO1.2] 方块转换 Transformations
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%a2%98%e7%9b%ae%e6%8f%8f%e8%bf%b0" class="nav-题目描述">
+									题目描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%be%93%e5%85%a5%e6%a0%bc%e5%bc%8f" class="nav-输入格式">
+									输入格式
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%be%93%e5%87%ba%e6%a0%bc%e5%bc%8f" class="nav-输出格式">
+									输出格式
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%a0%b7%e4%be%8b-1" class="nav-样例-1">
+									样例 #1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e6%a0%b7%e4%be%8b%e8%be%93%e5%85%a5-1" class="nav-样例输入-1">
+									样例输入 #1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%a0%b7%e4%be%8b%e8%be%93%e5%87%ba-1" class="nav-样例输出-1">
+									样例输出 #1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e6%8f%90%e7%a4%ba" class="nav-提示">
+									提示
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%a7%a3%e7%ad%94" class="nav-解答">
+									解答
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>

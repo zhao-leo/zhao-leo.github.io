@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<title>Matlab第十二周拟合问题</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="Matlab选修作业记录（其他的简介懒得写了/2025-01-25/）">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="https://www.zhaocloud.work/posts/matlab_%E6%8B%9F%E5%90%88/">
+  <meta property="og:site_name" content="April Diary">
+  <meta property="og:title" content="Matlab第十二周拟合问题">
+  <meta property="og:description" content="Matlab选修作业记录（其他的简介懒得写了/2025-01-25/）">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-08-05T00:00:00+00:00">
+    <meta property="article:tag" content="Matlab">
+    <meta property="article:tag" content="大学">
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "pz9g1z5otp");
+</script>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://www.zhaocloud.work/favicon.svg">
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>console.log("Hello from 'layouts/partials/extended_head.html'")</script>
+<link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/yozai/dist/Yozai-Bold/result.css' />
+<style>
+    body {
+        font-family: 'Yozai';
+        font-weight: '300'
+    };
+</style>
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    时间线
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    归档
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    标签
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8c%97%e9%82%aematlab%e9%80%89%e4%bf%ae-week-12-%e6%8b%9f%e5%90%88" class="nav-北邮matlab选修-week-12-拟合">
+									北邮Matlab选修 Week 12 拟合
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e6%8b%9f%e5%90%88%e5%87%bd%e6%95%b0" class="nav-拟合函数">
+									拟合函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0" class="nav-问题描述">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1" class="nav-程序设计">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c" class="nav-计算结果">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e5%8f%82%e6%95%b0" class="nav-计算参数">
+									计算参数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0-1" class="nav-问题描述-1">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1-1" class="nav-程序设计-1">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c-1" class="nav-计算结果-1">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e9%9d%a2%e7%a7%af%e8%ae%a1%e7%ae%97" class="nav-面积计算">
+									面积计算
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0-2" class="nav-问题描述-2">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%95%b0%e5%ad%a6%e6%a8%a1%e5%9e%8b" class="nav-数学模型">
+									数学模型
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1-2" class="nav-程序设计-2">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c-2" class="nav-计算结果-2">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://www.zhaocloud.work/">
+            April Diary
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://www.zhaocloud.work/">
+        <div class="single-column-header-title">April Diary</div>
+        
+        <div class="single-column-header-subtitle">人间四月芳菲尽</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    Matlab第十二周拟合问题
+                    
+                    <div class="post-subtitle">
+                        Matlab选修作业记录（其他的简介懒得写了/2025-01-25/）
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2024-08-05 00:00
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/matlab">Matlab</a>
+                                &nbsp;
+                            
+                                <a href="/tags/%E5%A4%A7%E5%AD%A6">大学</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="北邮matlab选修-week-12-拟合">北邮Matlab选修 Week 12 拟合</h1>
+<h2 id="拟合函数">拟合函数</h2>
+<h3 id="问题描述">问题描述</h3>
+<p>设$f(x)=xe^x,x \in [0,1.5]$，求$f(x)$的三次近似最佳平方逼近多项式。</p>
+<h3 id="程序设计">程序设计</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%question1.m</span>
+</span></span><span style="display:flex;"><span>x0=[<span style="color:#ff9f43">10</span>;<span style="color:#ff9f43">10</span>;<span style="color:#ff9f43">10</span>;<span style="color:#ff9f43">10</span>];<span style="color:#78787e">%初始参数猜测值</span>
+</span></span><span style="display:flex;"><span>xdata=<span style="color:#ff5c57">linspace</span>(<span style="color:#ff9f43">0</span>,<span style="color:#ff9f43">1.5</span>,<span style="color:#ff9f43">5000</span>);<span style="color:#78787e">%生成x数据点</span>
+</span></span><span style="display:flex;"><span>ydata=xdata<span style="color:#ff6ac1">.*</span><span style="color:#ff5c57">exp</span>(xdata);<span style="color:#78787e">%生成对应的y数据点</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%定义函数模型</span>
+</span></span><span style="display:flex;"><span>fun=@(x,xdata)x(<span style="color:#ff9f43">1</span>)<span style="color:#ff6ac1">*</span>xdata<span style="color:#ff6ac1">.^</span><span style="color:#ff9f43">3</span><span style="color:#ff6ac1">+</span>x(<span style="color:#ff9f43">2</span>)<span style="color:#ff6ac1">*</span>xdata<span style="color:#ff6ac1">.^</span><span style="color:#ff9f43">2</span><span style="color:#ff6ac1">+</span>x(<span style="color:#ff9f43">3</span>)<span style="color:#ff6ac1">*</span>xdata<span style="color:#ff6ac1">+</span>x(<span style="color:#ff9f43">4</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[x,resnorm]=lsqcurvefit(fun,x0,xdata,ydata);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%打印出拟合的参数</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">disp</span>([<span style="color:#5af78e">&#39;拟合的参数:a=&#39;</span>,num2str(x(<span style="color:#ff9f43">1</span>)),<span style="color:#5af78e">&#39;,b=&#39;</span>,num2str(x(<span style="color:#ff9f43">2</span>)),<span style="color:#5af78e">&#39;,c=&#39;</span>,num2str(x(<span style="color:#ff9f43">3</span>)),<span style="color:#5af78e">&#39;,d=&#39;</span>,num2str(x(<span style="color:#ff9f43">4</span>))]);
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">disp</span>([<span style="color:#5af78e">&#39;拟合的方程:&#39;</span>,num2str(x(<span style="color:#ff9f43">1</span>)),<span style="color:#5af78e">&#39;*x^3+&#39;</span>,num2str(x(<span style="color:#ff9f43">2</span>)),<span style="color:#5af78e">&#39;*x^2+&#39;</span>,num2str(x(<span style="color:#ff9f43">3</span>)),<span style="color:#5af78e">&#39;*x+&#39;</span>,num2str(x(<span style="color:#ff9f43">4</span>))]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%绘制图形</span>
+</span></span><span style="display:flex;"><span>plot(xdata,fun(x,xdata),<span style="color:#5af78e">&#39;r-&#39;</span>,xdata,ydata,<span style="color:#5af78e">&#39;b--&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%添加图例和标题</span>
+</span></span><span style="display:flex;"><span>legend(<span style="color:#5af78e">&#39;拟合曲线&#39;</span>,<span style="color:#5af78e">&#39;原始数据&#39;</span>);
+</span></span><span style="display:flex;"><span>title(<span style="color:#5af78e">&#39;使用lsqcurvefit拟合的曲线&#39;</span>);
+</span></span><span style="display:flex;"><span>xlabel(<span style="color:#5af78e">&#39;x&#39;</span>);
+</span></span><span style="display:flex;"><span>ylabel(<span style="color:#5af78e">&#39;y&#39;</span>);
+</span></span></code></pre></div><h3 id="计算结果">计算结果</h3>
+<pre tabindex="0"><code class="language-terminal" data-lang="terminal">&gt;&gt; question1
+拟合的参数:a=1.3877,b=-0.0047124,c=1.3623,d=-0.028475
+拟合的方程:1.3877*x^3+-0.0047124*x^2+1.3623*x+-0.028475
+</code></pre><p><img src="question1.png" alt=""></p>
+<h2 id="计算参数">计算参数</h2>
+<h3 id="问题描述-1">问题描述</h3>
+<p>已知一组观测数据$(x_i,y_i)$见下表，函数的原型为$y=a_1+a_2x^2+a_3e^{-5x^3}+a_4cos(-2x)+a_5x^4$，试用所给数据求出待定系数$a_i$的值。</p>
+<table>
+  <thead>
+      <tr>
+          <th>$x_i$</th>
+          <th>$y_i$</th>
+          <th>$x_i$</th>
+          <th>$y_i$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>6.3700</td>
+          <td>1.1</td>
+          <td>5.4941</td>
+      </tr>
+      <tr>
+          <td>0.1</td>
+          <td>6.3888</td>
+          <td>1.3</td>
+          <td>5.9187</td>
+      </tr>
+      <tr>
+          <td>0.3</td>
+          <td>6.2056</td>
+          <td>1.8</td>
+          <td>4.5944</td>
+      </tr>
+      <tr>
+          <td>0.4</td>
+          <td>5.8676</td>
+          <td>2.1</td>
+          <td>1.1440</td>
+      </tr>
+      <tr>
+          <td>0.7</td>
+          <td>4.7256</td>
+          <td>2.6</td>
+          <td>-11.4326</td>
+      </tr>
+      <tr>
+          <td>0.9</td>
+          <td>4.8990</td>
+          <td>3.0</td>
+          <td>30.0009</td>
+      </tr>
+      <tr>
+          <td>0.95</td>
+          <td>5.0383</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="程序设计-1">程序设计</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%question2.m</span>
+</span></span><span style="display:flex;"><span>x0=[<span style="color:#ff9f43">10</span>;<span style="color:#ff9f43">10</span>;<span style="color:#ff9f43">10</span>;<span style="color:#ff9f43">10</span>;<span style="color:#ff9f43">10</span>];<span style="color:#78787e">%初始参数猜测值</span>
+</span></span><span style="display:flex;"><span>x1=<span style="color:#ff5c57">linspace</span>(<span style="color:#ff9f43">0</span>,<span style="color:#ff9f43">3</span>,<span style="color:#ff9f43">5000</span>);<span style="color:#78787e">%生成x数据点</span>
+</span></span><span style="display:flex;"><span>xdata=[<span style="color:#ff9f43">0</span>;<span style="color:#ff9f43">0.1</span>;<span style="color:#ff9f43">0.3</span>;<span style="color:#ff9f43">0.4</span>;<span style="color:#ff9f43">0.7</span>;<span style="color:#ff9f43">0.9</span>;<span style="color:#ff9f43">0.95</span>;<span style="color:#ff9f43">1.1</span>;<span style="color:#ff9f43">1.3</span>;<span style="color:#ff9f43">1.8</span>;<span style="color:#ff9f43">2.1</span>;<span style="color:#ff9f43">2.6</span>;<span style="color:#ff9f43">3.0</span>];<span style="color:#78787e">%生成x数据点</span>
+</span></span><span style="display:flex;"><span>ydata=[<span style="color:#ff9f43">6.3700</span>;<span style="color:#ff9f43">6.3888</span>;<span style="color:#ff9f43">6.2056</span>;<span style="color:#ff9f43">5.8676</span>;<span style="color:#ff9f43">4.7256</span>;<span style="color:#ff9f43">4.8990</span>;<span style="color:#ff9f43">5.0383</span>;<span style="color:#ff9f43">5.4941</span>;<span style="color:#ff9f43">5.9187</span>;<span style="color:#ff9f43">4.5944</span>;<span style="color:#ff9f43">1.1440</span>;<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">11.4326</span>;<span style="color:#ff9f43">30.0009</span>];<span style="color:#78787e">%生成对应的y数据点</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%定义函数模型</span>
+</span></span><span style="display:flex;"><span>fun=@(x,xdata)x(<span style="color:#ff9f43">1</span>)<span style="color:#ff6ac1">+</span>x(<span style="color:#ff9f43">2</span>)<span style="color:#ff6ac1">*</span>xdata<span style="color:#ff6ac1">.^</span><span style="color:#ff9f43">2</span><span style="color:#ff6ac1">+</span>x(<span style="color:#ff9f43">3</span>)<span style="color:#ff6ac1">*</span><span style="color:#ff5c57">exp</span>(<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">5</span><span style="color:#ff6ac1">*</span>xdata<span style="color:#ff6ac1">.^</span><span style="color:#ff9f43">3</span>)<span style="color:#ff6ac1">+</span>x(<span style="color:#ff9f43">4</span>)<span style="color:#ff6ac1">*</span><span style="color:#ff5c57">cos</span>(<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">2</span><span style="color:#ff6ac1">*</span>xdata)<span style="color:#ff6ac1">+</span>x(<span style="color:#ff9f43">5</span>)<span style="color:#ff6ac1">*</span>xdata<span style="color:#ff6ac1">.^</span><span style="color:#ff9f43">4</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[x,resnorm]=lsqcurvefit(fun,x0,xdata,ydata);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%打印出拟合的参数</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">disp</span>([<span style="color:#5af78e">&#39;拟合的参数:a1=&#39;</span>,num2str(x(<span style="color:#ff9f43">1</span>)),<span style="color:#5af78e">&#39;,a2=&#39;</span>,num2str(x(<span style="color:#ff9f43">2</span>)),<span style="color:#5af78e">&#39;,a3=&#39;</span>,num2str(x(<span style="color:#ff9f43">3</span>)),<span style="color:#5af78e">&#39;,a4=&#39;</span>,num2str(x(<span style="color:#ff9f43">4</span>)),<span style="color:#5af78e">&#39;,a5=&#39;</span>,num2str(x(<span style="color:#ff9f43">5</span>))]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%绘制图形</span>
+</span></span><span style="display:flex;"><span>plot(x1,fun(x,x1),<span style="color:#5af78e">&#39;r-&#39;</span>,xdata,ydata,<span style="color:#5af78e">&#39;b--&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%添加图例和标题</span>
+</span></span><span style="display:flex;"><span>legend(<span style="color:#5af78e">&#39;拟合曲线&#39;</span>,<span style="color:#5af78e">&#39;原始数据&#39;</span>);
+</span></span><span style="display:flex;"><span>title(<span style="color:#5af78e">&#39;使用lsqcurvefit拟合的曲线&#39;</span>);
+</span></span><span style="display:flex;"><span>xlabel(<span style="color:#5af78e">&#39;x&#39;</span>);
+</span></span><span style="display:flex;"><span>ylabel(<span style="color:#5af78e">&#39;y&#39;</span>);
+</span></span></code></pre></div><h3 id="计算结果-1">计算结果</h3>
+<pre tabindex="0"><code class="language-terminal" data-lang="terminal">&gt;&gt; question2
+拟合的参数:a1=9.4777,a2=-16.5136,a3=22.4145,a4=-25.3911,a5=2.3676
+</code></pre><p><img src="question2.png" alt=""></p>
+<h2 id="面积计算">面积计算</h2>
+<h3 id="问题描述-2">问题描述</h3>
+<p>已知欧洲某个国家的地图如下图所示，为了计算出它的国土面积，首先对地图进行如下测量：以由西向东方为$x$轴，由南向北方为$y$轴，选择方便的原点，并将从最西边界点到最东边界点在$x$轴上的区间适当的分成若干段，在每个点的$y$方向测出南边界点和北边界点的$y$坐标$y_1$和$y_2$，这样就得到了表中所示的测量数据（单位：mm）。
+<img src="%E9%A2%98%E7%9B%AE.png" alt="map"></p>
+<table>
+  <thead>
+      <tr>
+          <th>$x$</th>
+          <th>$y_1$</th>
+          <th>$y_2$</th>
+          <th>$x$</th>
+          <th>$y_1$</th>
+          <th>$y_2$</th>
+          <th>$x$</th>
+          <th>$y_1$</th>
+          <th>$y_2$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>7.0</td>
+          <td>44</td>
+          <td>44</td>
+          <td>61</td>
+          <td>36</td>
+          <td>117</td>
+          <td>111.5</td>
+          <td>32</td>
+          <td>121</td>
+      </tr>
+      <tr>
+          <td>10.5</td>
+          <td>45</td>
+          <td>59</td>
+          <td>68.5</td>
+          <td>34</td>
+          <td>118</td>
+          <td>118</td>
+          <td>65</td>
+          <td>122</td>
+      </tr>
+      <tr>
+          <td>13.0</td>
+          <td>47</td>
+          <td>70</td>
+          <td>76.5</td>
+          <td>41</td>
+          <td>116</td>
+          <td>123.5</td>
+          <td>55</td>
+          <td>116</td>
+      </tr>
+      <tr>
+          <td>17.5</td>
+          <td>50</td>
+          <td>72</td>
+          <td>80.5</td>
+          <td>45</td>
+          <td>118</td>
+          <td>136.5</td>
+          <td>54</td>
+          <td>83</td>
+      </tr>
+      <tr>
+          <td>34</td>
+          <td>50</td>
+          <td>93</td>
+          <td>91</td>
+          <td>46</td>
+          <td>118</td>
+          <td>142</td>
+          <td>52</td>
+          <td>81</td>
+      </tr>
+      <tr>
+          <td>40.5</td>
+          <td>38</td>
+          <td>100</td>
+          <td>96</td>
+          <td>43</td>
+          <td>121</td>
+          <td>146</td>
+          <td>50</td>
+          <td>82</td>
+      </tr>
+      <tr>
+          <td>44.5</td>
+          <td>30</td>
+          <td>110</td>
+          <td>101</td>
+          <td>37</td>
+          <td>124</td>
+          <td>150</td>
+          <td>66</td>
+          <td>86</td>
+      </tr>
+      <tr>
+          <td>48</td>
+          <td>30</td>
+          <td>110</td>
+          <td>104</td>
+          <td>33</td>
+          <td>121</td>
+          <td>157</td>
+          <td>66</td>
+          <td>85</td>
+      </tr>
+      <tr>
+          <td>56</td>
+          <td>34</td>
+          <td>110</td>
+          <td>106</td>
+          <td>28</td>
+          <td>121</td>
+          <td>158</td>
+          <td>68</td>
+          <td>68</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="数学模型">数学模型</h3>
+<p>事实上，由图像不难看出，该国家的国土面积实际上是由$y_1=f_1(x)$和$y_2=f_2(x)$两条曲线包围起来的。因此，我们只需要求解$f_1(x)$和$f_2(x)$，然后通过积分$\int\limits_{7.0}^{56}(f_2(x)-f_1(x))dx $就可以得到。</p>
+<h3 id="程序设计-2">程序设计</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%question3.m</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%定义初始值</span>
+</span></span><span style="display:flex;"><span>x=[<span style="color:#ff9f43">7.0</span>,<span style="color:#ff9f43">10.5</span>,<span style="color:#ff9f43">13.0</span>,<span style="color:#ff9f43">17.5</span>,<span style="color:#ff9f43">34</span>,<span style="color:#ff9f43">40.5</span>,<span style="color:#ff9f43">44.5</span>,<span style="color:#ff9f43">48</span>,<span style="color:#ff9f43">56</span>,<span style="color:#ff9f43">61</span>,<span style="color:#ff9f43">68.5</span>,<span style="color:#ff9f43">76.5</span>,<span style="color:#ff9f43">80.5</span>,<span style="color:#ff9f43">91</span>,<span style="color:#ff9f43">96</span>,<span style="color:#ff9f43">101</span>,<span style="color:#ff9f43">104</span>,<span style="color:#ff9f43">106</span>,<span style="color:#ff9f43">111.5</span>,<span style="color:#ff9f43">118</span>,<span style="color:#ff9f43">123.5</span>,<span style="color:#ff9f43">136.5</span>,<span style="color:#ff9f43">142</span>,<span style="color:#ff9f43">146</span>,<span style="color:#ff9f43">150</span>,<span style="color:#ff9f43">157</span>,<span style="color:#ff9f43">158</span>];
+</span></span><span style="display:flex;"><span>y1=[<span style="color:#ff9f43">44</span>,<span style="color:#ff9f43">45</span>,<span style="color:#ff9f43">47</span>,<span style="color:#ff9f43">50</span>,<span style="color:#ff9f43">50</span>,<span style="color:#ff9f43">38</span>,<span style="color:#ff9f43">30</span>,<span style="color:#ff9f43">30</span>,<span style="color:#ff9f43">34</span>,<span style="color:#ff9f43">36</span>,<span style="color:#ff9f43">34</span>,<span style="color:#ff9f43">41</span>,<span style="color:#ff9f43">45</span>,<span style="color:#ff9f43">46</span>,<span style="color:#ff9f43">43</span>,<span style="color:#ff9f43">37</span>,<span style="color:#ff9f43">33</span>,<span style="color:#ff9f43">28</span>,<span style="color:#ff9f43">32</span>,<span style="color:#ff9f43">65</span>,<span style="color:#ff9f43">55</span>,<span style="color:#ff9f43">54</span>,<span style="color:#ff9f43">52</span>,<span style="color:#ff9f43">50</span>,<span style="color:#ff9f43">66</span>,<span style="color:#ff9f43">66</span>,<span style="color:#ff9f43">68</span>];
+</span></span><span style="display:flex;"><span>y2=[<span style="color:#ff9f43">44</span>,<span style="color:#ff9f43">59</span>,<span style="color:#ff9f43">70</span>,<span style="color:#ff9f43">72</span>,<span style="color:#ff9f43">93</span>,<span style="color:#ff9f43">100</span>,<span style="color:#ff9f43">110</span>,<span style="color:#ff9f43">110</span>,<span style="color:#ff9f43">110</span>,<span style="color:#ff9f43">117</span>,<span style="color:#ff9f43">118</span>,<span style="color:#ff9f43">116</span>,<span style="color:#ff9f43">118</span>,<span style="color:#ff9f43">118</span>,<span style="color:#ff9f43">121</span>,<span style="color:#ff9f43">124</span>,<span style="color:#ff9f43">121</span>,<span style="color:#ff9f43">121</span>,<span style="color:#ff9f43">121</span>,<span style="color:#ff9f43">122</span>,<span style="color:#ff9f43">116</span>,<span style="color:#ff9f43">83</span>,<span style="color:#ff9f43">81</span>,<span style="color:#ff9f43">82</span>,<span style="color:#ff9f43">86</span>,<span style="color:#ff9f43">85</span>,<span style="color:#ff9f43">68</span>];
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%定义微分间隔</span>
+</span></span><span style="display:flex;"><span>d=<span style="color:#ff9f43">0.01</span>;
+</span></span><span style="display:flex;"><span>dx=<span style="color:#ff9f43">7</span>:d:<span style="color:#ff9f43">158</span>;
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%插值</span>
+</span></span><span style="display:flex;"><span>y1_=interp1(x,y1,dx,<span style="color:#5af78e">&#39;linear&#39;</span>);
+</span></span><span style="display:flex;"><span>y2_=interp1(x,y2,dx,<span style="color:#5af78e">&#39;linear&#39;</span>);
+</span></span><span style="display:flex;"><span>s=sum(y2_<span style="color:#ff6ac1">-</span>y1_)<span style="color:#ff6ac1">*</span>d<span style="color:#ff6ac1">/</span><span style="color:#ff9f43">18</span>^<span style="color:#ff9f43">2</span><span style="color:#ff6ac1">*</span><span style="color:#ff9f43">1600</span>;
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%输出结果</span>
+</span></span><span style="display:flex;"><span>fprintf(<span style="color:#5af78e">&#39;The sum of the differences between the two curves is %.2f km^2\n&#39;</span>,s);
+</span></span><span style="display:flex;"><span>plot(x,y1,<span style="color:#5af78e">&#39;b&#39;</span>,x,y2,<span style="color:#5af78e">&#39;b&#39;</span>);
+</span></span></code></pre></div><h3 id="计算结果-2">计算结果</h3>
+<pre tabindex="0"><code class="language-terminal" data-lang="terminal">&gt;&gt; question3
+The sum of the differences between the two curves is 42414.81 km^2
+</code></pre><p><img src="question3.png" alt=""></p>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2024-08-05</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/posts/matlab_%E6%B6%82%E6%96%99%E8%AE%A1%E7%AE%97/">
+			下回<br>Matlab第三周涂料计算
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/matlab_%E6%95%B0%E5%80%BC%E7%A7%AF%E5%88%86/">
+			上回<br>Matlab第十四周数值积分
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://www.zhaocloud.work/">
+    
+        <div class="nav-title">
+            April Diary
+        </div>
+        
+        <div class="nav-subtitle">
+            人间四月芳菲尽
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                时间线
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                归档
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8c%97%e9%82%aematlab%e9%80%89%e4%bf%ae-week-12-%e6%8b%9f%e5%90%88" class="nav-北邮matlab选修-week-12-拟合">
+									北邮Matlab选修 Week 12 拟合
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e6%8b%9f%e5%90%88%e5%87%bd%e6%95%b0" class="nav-拟合函数">
+									拟合函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0" class="nav-问题描述">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1" class="nav-程序设计">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c" class="nav-计算结果">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e5%8f%82%e6%95%b0" class="nav-计算参数">
+									计算参数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0-1" class="nav-问题描述-1">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1-1" class="nav-程序设计-1">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c-1" class="nav-计算结果-1">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e9%9d%a2%e7%a7%af%e8%ae%a1%e7%ae%97" class="nav-面积计算">
+									面积计算
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0-2" class="nav-问题描述-2">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%95%b0%e5%ad%a6%e6%a8%a1%e5%9e%8b" class="nav-数学模型">
+									数学模型
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1-2" class="nav-程序设计-2">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c-2" class="nav-计算结果-2">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>

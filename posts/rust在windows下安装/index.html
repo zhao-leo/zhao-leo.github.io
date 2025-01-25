@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<title>在Windows安装Mingw版本的Rust工具链</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="兼容性真不怎么样，可以（只能）当小玩具用">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="https://www.zhaocloud.work/posts/rust%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/">
+  <meta property="og:site_name" content="April Diary">
+  <meta property="og:title" content="在Windows安装Mingw版本的Rust工具链">
+  <meta property="og:description" content="兼容性真不怎么样，可以（只能）当小玩具用">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-08-05T00:00:00+00:00">
+    <meta property="article:tag" content="Rust">
+    <meta property="og:image" content="https://www.zhaocloud.work/posts/rust%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/cover.jpg">
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "pz9g1z5otp");
+</script>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://www.zhaocloud.work/favicon.svg">
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>console.log("Hello from 'layouts/partials/extended_head.html'")</script>
+<link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/yozai/dist/Yozai-Bold/result.css' />
+<style>
+    body {
+        font-family: 'Yozai';
+        font-weight: '300'
+    };
+</style>
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    时间线
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    归档
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    标签
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%9c%a8windows%e4%b8%8b%e5%ae%89%e8%a3%85mingw%e7%89%88%e6%9c%ac%e7%9a%84rust" class="nav-在windows下安装mingw版本的rust">
+									在windows下安装mingw版本的Rust
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e4%ba%8b%e5%89%8d%e5%87%86%e5%a4%87" class="nav-事前准备">
+									事前准备
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%8b%e8%bd%bdrust%e5%ae%89%e8%a3%85%e7%a8%8b%e5%ba%8f" class="nav-下载rust安装程序">
+									下载Rust安装程序
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%bf%90%e8%a1%8crustup-initexe" class="nav-运行rustup-initexe">
+									运行rustup-init.exe
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://www.zhaocloud.work/">
+            April Diary
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://www.zhaocloud.work/">
+        <div class="single-column-header-title">April Diary</div>
+        
+        <div class="single-column-header-subtitle">人间四月芳菲尽</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    在Windows安装Mingw版本的Rust工具链
+                    
+                    <div class="post-subtitle">
+                        兼容性真不怎么样，可以（只能）当小玩具用
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2024-08-05 00:00
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/rust">Rust</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="在windows下安装mingw版本的rust">在windows下安装mingw版本的Rust</h1>
+<h2 id="事前准备">事前准备</h2>
+<p>确保你的电脑安装了MinGW-64,可以使用以下命令：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>gcc --version
+</span></span></code></pre></div><p>应当有类似如下的结果:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>gcc (MinGW-W64 x86_64-msvcrt-posix-seh, built by Brecht Sanders) 13.2.0
+</span></span><span style="display:flex;"><span>Copyright (C) 2023 Free Software Foundation, Inc.
+</span></span><span style="display:flex;"><span>This is free software; see the source for copying conditions.  There is NO
+</span></span><span style="display:flex;"><span>warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</span></span></code></pre></div><h2 id="下载rust安装程序">下载Rust安装程序</h2>
+<p>下载GNU版本的Rust安装程序： <a href="https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-gnu/rustup-init.exe">Windows-GNU版本</a></p>
+<h2 id="运行rustup-initexe">运行<code>rustup-init.exe</code></h2>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>Rust Visual C++ prerequisites
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Rust requires a linker and Windows API libraries but they don&#39;t seem to be
+</span></span><span style="display:flex;"><span>available.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>These components can be acquired through a Visual Studio installer.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>1) Quick install via the Visual Studio Community installer
+</span></span><span style="display:flex;"><span>   (free for individuals, academic uses, and open source).
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>2) Manually install the prerequisites
+</span></span><span style="display:flex;"><span>   (<span style="color:#ff6ac1">for</span> enterprise and advanced users).
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>3) Don&#39;t install the prerequisites
+</span></span><span style="display:flex;"><span>   (if you&#39;re targeting the GNU ABI).
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt;
+</span></span></code></pre></div><p>在这一步选择<code>3</code>，然后<code>Enter</code></p>
+<p>得到如下页面:</p>
+<pre tabindex="0"><code>Welcome to Rust!
+
+This will download and install the official compiler for the Rust
+programming language, and its package manager, Cargo.
+
+Rustup metadata and toolchains will be installed into the Rustup
+home directory, located at:
+
+  D:\environment\rustup
+
+This can be modified with the RUSTUP_HOME environment variable.
+
+The Cargo home directory is located at:
+
+  D:\environment\cargo
+
+This can be modified with the CARGO_HOME environment variable.
+
+The cargo, rustc, rustup and other commands will be added to
+Cargo&#39;s bin directory, located at:
+
+  D:\environment\cargo\bin
+
+This path will then be added to your PATH environment variable by
+modifying the HKEY_CURRENT_USER/Environment/PATH registry key.
+
+You can uninstall at any time with rustup self uninstall and
+these changes will be reverted.
+
+Current installation options:
+
+
+   default host triple: x86_64-pc-windows-msvc
+     default toolchain: stable (default)
+               profile: default
+  modify PATH variable: yes
+
+1) Proceed with standard installation (default - just press enter)
+2) Customize installation
+3) Cancel installation
+&gt;
+</code></pre><p><strong>如果你要把Rust安装在其他位置，一定要根据提示修改系统环境变量<code>RUSTUP_HOME</code>和<code>CARGO_HOME</code></strong></p>
+<p>在这一步选择<code>2</code>，然后<code>Enter</code></p>
+<p>有如下内容：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>I&#39;m going to ask you the value of each of these installation options.
+</span></span><span style="display:flex;"><span>You may simply press the Enter key to leave unchanged.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Default host triple? [x86_64-pc-windows-msvc]
+</span></span></code></pre></div><p><strong><big> 注意!!! </big></strong></p>
+<p>键入如下内容:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>x86_64-pc-windows-gnu
+</span></span></code></pre></div><p>其他选项不要修改，一路<code>Enter</code>即可。</p>
+<p>最后你的页面应该如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>Current installation options:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   default host triple: x86_64-pc-windows-gnu
+</span></span><span style="display:flex;"><span>     default toolchain: stable
+</span></span><span style="display:flex;"><span>               profile: default
+</span></span><span style="display:flex;"><span>  modify PATH variable: yes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>1) Proceed with selected options (default - just press enter)
+</span></span><span style="display:flex;"><span>2) Customize installation
+</span></span><span style="display:flex;"><span>3) Cancel installation
+</span></span></code></pre></div><p>最后回车一次，等待程序自动运行即可。</p>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2024-08-05</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/posts/matlab_%E6%9C%9F%E4%B8%AD/">
+			下回<br>Matlab期中作业
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/minecraft%E8%81%94%E6%9C%BA%E6%8C%87%E5%8D%97/">
+			上回<br>Minecraft简单联机教程
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://www.zhaocloud.work/">
+    
+        <div class="nav-title">
+            April Diary
+        </div>
+        
+        <div class="nav-subtitle">
+            人间四月芳菲尽
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                时间线
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                归档
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%9c%a8windows%e4%b8%8b%e5%ae%89%e8%a3%85mingw%e7%89%88%e6%9c%ac%e7%9a%84rust" class="nav-在windows下安装mingw版本的rust">
+									在windows下安装mingw版本的Rust
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e4%ba%8b%e5%89%8d%e5%87%86%e5%a4%87" class="nav-事前准备">
+									事前准备
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%8b%e8%bd%bdrust%e5%ae%89%e8%a3%85%e7%a8%8b%e5%ba%8f" class="nav-下载rust安装程序">
+									下载Rust安装程序
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%bf%90%e8%a1%8crustup-initexe" class="nav-运行rustup-initexe">
+									运行rustup-init.exe
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>

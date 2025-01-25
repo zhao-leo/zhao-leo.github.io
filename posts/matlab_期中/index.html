@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<title>Matlab期中作业</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="Matlab选修作业记录（其他的简介懒得写了/2025-01-25/）">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="https://www.zhaocloud.work/posts/matlab_%E6%9C%9F%E4%B8%AD/">
+  <meta property="og:site_name" content="April Diary">
+  <meta property="og:title" content="Matlab期中作业">
+  <meta property="og:description" content="Matlab选修作业记录（其他的简介懒得写了/2025-01-25/）">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-08-05T00:00:00+00:00">
+    <meta property="article:tag" content="Matlab">
+    <meta property="article:tag" content="大学">
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "pz9g1z5otp");
+</script>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://www.zhaocloud.work/favicon.svg">
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>console.log("Hello from 'layouts/partials/extended_head.html'")</script>
+<link rel='stylesheet' href='https://chinese-fonts-cdn.deno.dev/packages/yozai/dist/Yozai-Bold/result.css' />
+<style>
+    body {
+        font-family: 'Yozai';
+        font-weight: '300'
+    };
+</style>
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    时间线
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    归档
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    标签
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8c%97%e9%82%aematlab%e9%80%89%e4%bf%ae-%e6%9c%9f%e4%b8%ad%e4%bd%9c%e4%b8%9a" class="nav-北邮matlab选修-期中作业">
+									北邮Matlab选修 期中作业
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%a2%98%e7%9b%ae-1" class="nav-题目-1">
+									题目 #1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0" class="nav-问题描述">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%95%b0%e5%ad%a6%e6%a8%a1%e5%9e%8b" class="nav-数学模型">
+									数学模型
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e6%95%b0%e5%ad%a6%e5%85%b3%e7%b3%bb" class="nav-数学关系">
+									数学关系
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8c%96%e7%ae%80%e5%b9%b6%e5%be%97%e5%88%b0%e5%af%b9%e5%ba%94%e6%96%b9%e7%a8%8b" class="nav-化简并得到对应方程">
+									化简并得到对应方程
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1" class="nav-程序设计">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c" class="nav-计算结果">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e9%a2%98%e7%9b%ae-2" class="nav-题目-2">
+									题目 #2
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0-1" class="nav-问题描述-1">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1-1" class="nav-程序设计-1">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c-1" class="nav-计算结果-1">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://www.zhaocloud.work/">
+            April Diary
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://www.zhaocloud.work/">
+        <div class="single-column-header-title">April Diary</div>
+        
+        <div class="single-column-header-subtitle">人间四月芳菲尽</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    Matlab期中作业
+                    
+                    <div class="post-subtitle">
+                        Matlab选修作业记录（其他的简介懒得写了/2025-01-25/）
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2024-08-05 00:00
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/matlab">Matlab</a>
+                                &nbsp;
+                            
+                                <a href="/tags/%E5%A4%A7%E5%AD%A6">大学</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="北邮matlab选修-期中作业">北邮Matlab选修 期中作业</h1>
+<h2 id="题目-1">题目 #1</h2>
+<h3 id="问题描述">问题描述</h3>
+<p>下图给出了一个用管道连接的三个反应的系统。如图所示，化学物质通过每个管道传输的速率等于流率<code>Q</code>(单位为$m^3/s$)乘以导致流动的反应浓度<code>c</code>(单位为$mg/m^3$)。如果系统状态稳定，则每个反应输入的化学物质和输出的达到平衡。为每个反应构建质量平衡方程，并求解得到它们的浓度。</p>
+<p><img src="%E5%9B%BE%E7%89%871.png" alt=""></p>
+<h3 id="数学模型">数学模型</h3>
+<h4 id="数学关系">数学关系</h4>
+<p>对于所有的反应，在稳定状态时，都有流入的速率等于流出的速率，以此为基础，可以得到三个方程如下：</p>
+<ul>
+<li>
+<p>反应 #1</p>
+<p>$$ 500+Q_{21}c_2 = Q_{12}c_1 + Q_{13}c_1 $$</p>
+</li>
+<li>
+<p>反应 #2</p>
+<p>$$ Q_{12}c_1=Q_{21}c_2+Q_{23}c_2 $$</p>
+</li>
+<li>
+<p>反应 #3</p>
+<p>$$ 500 + Q_{13}c_1+Q{23}c_2=Q_{33}c_3 $$</p>
+</li>
+</ul>
+<h4 id="化简并得到对应方程">化简并得到对应方程</h4>
+<p>其中：</p>
+<center>$ Q_{33}=120$,$Q_{13}=40$,$Q_{23}=60$,$Q_{21}=30$</center>
+<p>替换并转化成矩阵形式如下：</p>
+<center>
+<svg xmlns="http://www.w3.org/2000/svg" width="38.979ex" height="8.597ex" viewBox="0 -2150 17228.6 3800" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style=""><defs><path id="MJX-70-TEX-S4-23A1" d="M319 -645V1154H666V1070H403V-645H319Z"></path><path id="MJX-70-TEX-S4-23A3" d="M319 -644V1155H403V-560H666V-644H319Z"></path><path id="MJX-70-TEX-S4-23A2" d="M319 0V602H403V0H319Z"></path><path id="MJX-70-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-70-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path id="MJX-70-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-70-TEX-N-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path id="MJX-70-TEX-N-39" d="M352 287Q304 211 232 211Q154 211 104 270T44 396Q42 412 42 436V444Q42 537 111 606Q171 666 243 666Q245 666 249 666T257 665H261Q273 665 286 663T323 651T370 619T413 560Q456 472 456 334Q456 194 396 97Q361 41 312 10T208 -22Q147 -22 108 7T68 93T121 149Q143 149 158 135T173 96Q173 78 164 65T148 49T135 44L131 43Q131 41 138 37T164 27T206 22H212Q272 22 313 86Q352 142 352 280V287ZM244 248Q292 248 321 297T351 430Q351 508 343 542Q341 552 337 562T323 588T293 615T246 625Q208 625 181 598Q160 576 154 546T147 441Q147 358 152 329T172 282Q197 248 244 248Z"></path><path id="MJX-70-TEX-N-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path id="MJX-70-TEX-N-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path id="MJX-70-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-70-TEX-S4-23A4" d="M0 1070V1154H347V-645H263V1070H0Z"></path><path id="MJX-70-TEX-S4-23A6" d="M263 -560V1155H347V-644H0V-560H263Z"></path><path id="MJX-70-TEX-S4-23A5" d="M263 0V602H347V0H263Z"></path><path id="MJX-70-TEX-N-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path id="MJX-70-TEX-I-1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path><path id="MJX-70-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-70-TEX-N-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><g data-mml-node="math"><g data-mml-node="mrow"><g data-mml-node="mo"><use xlink:href="#MJX-70-TEX-S4-23A1" transform="translate(0, 996)"></use><use xlink:href="#MJX-70-TEX-S4-23A3" transform="translate(0, -1006)"></use><svg width="667" height="402" y="49" x="0" viewBox="0 100.5 667 402"><use xlink:href="#MJX-70-TEX-S4-23A2" transform="scale(1, 1.002)"></use></svg></g><g data-mml-node="mtable" transform="translate(667, 0)"><g data-mml-node="mtr" transform="translate(0, 1400)"><g data-mml-node="mtd"><g data-mml-node="mn"><use xlink:href="#MJX-70-TEX-N-31"></use><use xlink:href="#MJX-70-TEX-N-33" transform="translate(500, 0)"></use><use xlink:href="#MJX-70-TEX-N-30" transform="translate(1000, 0)"></use></g></g><g data-mml-node="mtd" transform="translate(2500, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-70-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(778, 0)"><use xlink:href="#MJX-70-TEX-N-33"></use><use xlink:href="#MJX-70-TEX-N-30" transform="translate(500, 0)"></use></g></g><g data-mml-node="mtd" transform="translate(6167, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-70-TEX-N-30"></use></g></g></g><g data-mml-node="mtr"><g data-mml-node="mtd" transform="translate(250, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-70-TEX-N-39"></use><use xlink:href="#MJX-70-TEX-N-30" transform="translate(500, 0)"></use></g></g><g data-mml-node="mtd" transform="translate(2500, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-70-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(778, 0)"><use xlink:href="#MJX-70-TEX-N-39"></use><use xlink:href="#MJX-70-TEX-N-30" transform="translate(500, 0)"></use></g></g><g data-mml-node="mtd" transform="translate(6167, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-70-TEX-N-30"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, -1400)"><g data-mml-node="mtd" transform="translate(250, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-70-TEX-N-34"></use><use xlink:href="#MJX-70-TEX-N-30" transform="translate(500, 0)"></use></g></g><g data-mml-node="mtd" transform="translate(2889, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-70-TEX-N-36"></use><use xlink:href="#MJX-70-TEX-N-30" transform="translate(500, 0)"></use></g></g><g data-mml-node="mtd" transform="translate(5278, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-70-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(778, 0)"><use xlink:href="#MJX-70-TEX-N-31"></use><use xlink:href="#MJX-70-TEX-N-32" transform="translate(500, 0)"></use><use xlink:href="#MJX-70-TEX-N-30" transform="translate(1000, 0)"></use></g></g></g></g><g data-mml-node="mo" transform="translate(8223, 0)"><use xlink:href="#MJX-70-TEX-S4-23A4" transform="translate(0, 996)"></use><use xlink:href="#MJX-70-TEX-S4-23A6" transform="translate(0, -1006)"></use><svg width="667" height="402" y="49" x="0" viewBox="0 100.5 667 402"><use xlink:href="#MJX-70-TEX-S4-23A5" transform="scale(1, 1.002)"></use></svg></g></g><g data-mml-node="mo" transform="translate(9112.2, 0)"><use xlink:href="#MJX-70-TEX-N-D7"></use></g><g data-mml-node="mrow" transform="translate(10112.4, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-70-TEX-S4-23A1" transform="translate(0, 996)"></use><use xlink:href="#MJX-70-TEX-S4-23A3" transform="translate(0, -1006)"></use><svg width="667" height="402" y="49" x="0" viewBox="0 100.5 667 402"><use xlink:href="#MJX-70-TEX-S4-23A2" transform="scale(1, 1.002)"></use></svg></g><g data-mml-node="mtable" transform="translate(667, 0)"><g data-mml-node="mtr" transform="translate(0, 1400)"><g data-mml-node="mtd"><g data-mml-node="msub"><g data-mml-node="mi"><use xlink:href="#MJX-70-TEX-I-1D450"></use></g><g data-mml-node="mn" transform="translate(433, -150) scale(0.707)"><use xlink:href="#MJX-70-TEX-N-31"></use></g></g></g></g><g data-mml-node="mtr"><g data-mml-node="mtd"><g data-mml-node="msub"><g data-mml-node="mi"><use xlink:href="#MJX-70-TEX-I-1D450"></use></g><g data-mml-node="mn" transform="translate(433, -150) scale(0.707)"><use xlink:href="#MJX-70-TEX-N-32"></use></g></g></g></g><g data-mml-node="mtr" transform="translate(0, -1400)"><g data-mml-node="mtd"><g data-mml-node="msub"><g data-mml-node="mi"><use xlink:href="#MJX-70-TEX-I-1D450"></use></g><g data-mml-node="mn" transform="translate(433, -150) scale(0.707)"><use xlink:href="#MJX-70-TEX-N-33"></use></g></g></g></g></g><g data-mml-node="mo" transform="translate(1503.6, 0)"><use xlink:href="#MJX-70-TEX-S4-23A4" transform="translate(0, 996)"></use><use xlink:href="#MJX-70-TEX-S4-23A6" transform="translate(0, -1006)"></use><svg width="667" height="402" y="49" x="0" viewBox="0 100.5 667 402"><use xlink:href="#MJX-70-TEX-S4-23A5" transform="scale(1, 1.002)"></use></svg></g></g><g data-mml-node="mo" transform="translate(12560.8, 0)"><use xlink:href="#MJX-70-TEX-N-3D"></use></g><g data-mml-node="mrow" transform="translate(13616.6, 0)"><g data-mml-node="mo"><use xlink:href="#MJX-70-TEX-S4-23A1" transform="translate(0, 996)"></use><use xlink:href="#MJX-70-TEX-S4-23A3" transform="translate(0, -1006)"></use><svg width="667" height="402" y="49" x="0" viewBox="0 100.5 667 402"><use xlink:href="#MJX-70-TEX-S4-23A2" transform="scale(1, 1.002)"></use></svg></g><g data-mml-node="mtable" transform="translate(667, 0)"><g data-mml-node="mtr" transform="translate(0, 1400)"><g data-mml-node="mtd" transform="translate(389, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-70-TEX-N-35"></use><use xlink:href="#MJX-70-TEX-N-30" transform="translate(500, 0)"></use><use xlink:href="#MJX-70-TEX-N-30" transform="translate(1000, 0)"></use></g></g></g><g data-mml-node="mtr"><g data-mml-node="mtd" transform="translate(889, 0)"><g data-mml-node="mn"><use xlink:href="#MJX-70-TEX-N-30"></use></g></g></g><g data-mml-node="mtr" transform="translate(0, -1400)"><g data-mml-node="mtd"><g data-mml-node="mo"><use xlink:href="#MJX-70-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(778, 0)"><use xlink:href="#MJX-70-TEX-N-35"></use><use xlink:href="#MJX-70-TEX-N-30" transform="translate(500, 0)"></use><use xlink:href="#MJX-70-TEX-N-30" transform="translate(1000, 0)"></use></g></g></g></g><g data-mml-node="mo" transform="translate(2945, 0)"><use xlink:href="#MJX-70-TEX-S4-23A4" transform="translate(0, 996)"></use><use xlink:href="#MJX-70-TEX-S4-23A6" transform="translate(0, -1006)"></use><svg width="667" height="402" y="49" x="0" viewBox="0 100.5 667 402"><use xlink:href="#MJX-70-TEX-S4-23A5" transform="scale(1, 1.002)"></use></svg></g></g></g></g></svg>
+</center>
+<h3 id="程序设计">程序设计</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%Guass.m</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">function</span> [U,x]=<span style="color:#57c7ff">Gauss</span>(A,b)
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 顺序Gauss消去法求解线性方程组</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 输入参数：</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%---A：线性方程组的系数矩阵</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%---b：线性方程组的右端项</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 输出参数：</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%---U：消元后的上三角方程组的增广矩阵---x：线性方程组的解</span>
+</span></span><span style="display:flex;"><span>n=<span style="color:#ff5c57">length</span>(b);
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 消元过程</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">for</span> k=<span style="color:#ff9f43">1</span>:n<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span> <span style="color:#78787e">% 消元成上三角矩阵</span>
+</span></span><span style="display:flex;"><span>  m=A(k<span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>:n,k)<span style="color:#ff6ac1">/</span>A(k,k);
+</span></span><span style="display:flex;"><span>  A(k<span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>:n,k<span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>:n)=A(k<span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>:n,k<span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>:n)<span style="color:#ff6ac1">-</span>m<span style="color:#ff6ac1">*</span>A(k,k<span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>:n);
+</span></span><span style="display:flex;"><span>  b(k<span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>:n)=b(k<span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>:n)<span style="color:#ff6ac1">-</span>m<span style="color:#ff6ac1">*</span>b(k);
+</span></span><span style="display:flex;"><span>  A(k<span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>:n,k)=<span style="color:#ff5c57">zeros</span>(n<span style="color:#ff6ac1">-</span>k,<span style="color:#ff9f43">1</span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">end</span>
+</span></span><span style="display:flex;"><span>U=[A,b];
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 回代过程</span>
+</span></span><span style="display:flex;"><span>x=<span style="color:#ff5c57">zeros</span>(n,<span style="color:#ff9f43">1</span>);
+</span></span><span style="display:flex;"><span>x(n)=b(n)<span style="color:#ff6ac1">/</span>A(n,n); <span style="color:#78787e">% 求x_n</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">for</span> k=n<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>:<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>:<span style="color:#ff9f43">1</span> <span style="color:#78787e">% 回代</span>
+</span></span><span style="display:flex;"><span>  x(k)=(b(k)<span style="color:#ff6ac1">-</span>A(k,k<span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>:n)<span style="color:#ff6ac1">*</span>x(k<span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>:n))<span style="color:#ff6ac1">/</span>A(k,k); <span style="color:#78787e">% 求 x_k，k=n-1,n-2,…,1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">end</span>
+</span></span></code></pre></div><h3 id="计算结果">计算结果</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%test1.m</span>
+</span></span><span style="display:flex;"><span>A=[<span style="color:#ff9f43">130</span>,<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">30</span>,<span style="color:#ff9f43">0</span>;<span style="color:#ff9f43">90</span>,<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">90</span>,<span style="color:#ff9f43">0</span>;<span style="color:#ff9f43">40</span>,<span style="color:#ff9f43">60</span>,<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">120</span>];
+</span></span><span style="display:flex;"><span>b=[<span style="color:#ff9f43">500</span>;<span style="color:#ff9f43">0</span>;<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">500</span>];
+</span></span><span style="display:flex;"><span>[U,c]=Gauss(A,b);
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">disp</span>(c);
+</span></span></code></pre></div><pre tabindex="0"><code class="language-terminal" data-lang="terminal">&gt;&gt; test1
+    5.0000
+    5.0000
+    8.3333
+</code></pre><h2 id="题目-2">题目 #2</h2>
+<h3 id="问题描述-1">问题描述</h3>
+<p>下面给出了一个迭代模型：</p>
+<center>
+<svg xmlns="http://www.w3.org/2000/svg" width="23.762ex" height="5.62ex" viewBox="0 -1492 10502.9 2483.9" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style=""><defs><path id="MJX-125-TEX-S3-7B" d="M618 -943L612 -949H582L568 -943Q472 -903 411 -841T332 -703Q327 -682 327 -653T325 -350Q324 -28 323 -18Q317 24 301 61T264 124T221 171T179 205T147 225T132 234Q130 238 130 250Q130 255 130 258T131 264T132 267T134 269T139 272T144 275Q207 308 256 367Q310 436 323 519Q324 529 325 851Q326 1124 326 1154T332 1205Q369 1358 566 1443L582 1450H612L618 1444V1429Q618 1413 616 1411L608 1406Q599 1402 585 1393T552 1372T515 1343T479 1305T449 1257T429 1200Q425 1180 425 1152T423 851Q422 579 422 549T416 498Q407 459 388 424T346 364T297 318T250 284T214 264T197 254L188 251L205 242Q290 200 345 138T416 3Q421 -18 421 -48T423 -349Q423 -397 423 -472Q424 -677 428 -694Q429 -697 429 -699Q434 -722 443 -743T465 -782T491 -816T519 -845T548 -868T574 -886T595 -899T610 -908L616 -910Q618 -912 618 -928V-943Z"></path><path id="MJX-125-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path><path id="MJX-125-TEX-I-1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path><path id="MJX-125-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-125-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-125-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-125-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-125-TEX-N-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path id="MJX-125-TEX-N-2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path><path id="MJX-125-TEX-N-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path id="MJX-125-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-125-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-125-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><g data-mml-node="math"><g data-mml-node="mrow"><g data-mml-node="mo"><use xlink:href="#MJX-125-TEX-S3-7B"></use></g><g data-mml-node="mtable" transform="translate(750, 0)"><g data-mml-node="mtr" transform="translate(0, 658)"><g data-mml-node="mtd"><g data-mml-node="msub"><g data-mml-node="mi"><use xlink:href="#MJX-125-TEX-I-1D465"></use></g><g data-mml-node="TeXAtom" transform="translate(572, -150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use xlink:href="#MJX-125-TEX-I-1D458"></use></g><g data-mml-node="mo" transform="translate(521, 0)"><use xlink:href="#MJX-125-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(1299, 0)"><use xlink:href="#MJX-125-TEX-N-31"></use></g></g></g><g data-mml-node="mo" transform="translate(2171.9, 0)"><use xlink:href="#MJX-125-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(3227.6, 0)"><use xlink:href="#MJX-125-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(3949.9, 0)"><use xlink:href="#MJX-125-TEX-N-2B"></use></g><g data-mml-node="msub" transform="translate(4950.1, 0)"><g data-mml-node="mi"><use xlink:href="#MJX-125-TEX-I-1D466"></use></g><g data-mml-node="mi" transform="translate(490, -150) scale(0.707)"><use xlink:href="#MJX-125-TEX-I-1D458"></use></g></g><g data-mml-node="mo" transform="translate(6080.7, 0)"><use xlink:href="#MJX-125-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(7080.9, 0)"><use xlink:href="#MJX-125-TEX-N-31"></use><use xlink:href="#MJX-125-TEX-N-2E" transform="translate(500, 0)"></use><use xlink:href="#MJX-125-TEX-N-34" transform="translate(778, 0)"></use></g><g data-mml-node="msup" transform="translate(8358.9, 0)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="msub"><g data-mml-node="mi"><use xlink:href="#MJX-125-TEX-I-1D465"></use></g><g data-mml-node="mi" transform="translate(572, -150) scale(0.707)"><use xlink:href="#MJX-125-TEX-I-1D458"></use></g></g></g><g data-mml-node="mn" transform="translate(990.4, 363) scale(0.707)"><use xlink:href="#MJX-125-TEX-N-32"></use></g></g></g></g><g data-mml-node="mtr" transform="translate(0, -742)"><g data-mml-node="mtd" transform="translate(2169.4, 0)"><g data-mml-node="msub"><g data-mml-node="mi"><use xlink:href="#MJX-125-TEX-I-1D466"></use></g><g data-mml-node="TeXAtom" transform="translate(490, -150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use xlink:href="#MJX-125-TEX-I-1D458"></use></g><g data-mml-node="mo" transform="translate(521, 0)"><use xlink:href="#MJX-125-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(1299, 0)"><use xlink:href="#MJX-125-TEX-N-31"></use></g></g></g><g data-mml-node="mo" transform="translate(2089.9, 0)"><use xlink:href="#MJX-125-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(3145.6, 0)"><use xlink:href="#MJX-125-TEX-N-30"></use><use xlink:href="#MJX-125-TEX-N-2E" transform="translate(500, 0)"></use><use xlink:href="#MJX-125-TEX-N-33" transform="translate(778, 0)"></use></g><g data-mml-node="msub" transform="translate(4423.6, 0)"><g data-mml-node="mi"><use xlink:href="#MJX-125-TEX-I-1D465"></use></g><g data-mml-node="mi" transform="translate(572, -150) scale(0.707)"><use xlink:href="#MJX-125-TEX-I-1D458"></use></g></g></g></g></g><g data-mml-node="mo" transform="translate(10502.9, 0)"></g></g></g></g></svg>
+</center>
+<p>写出求解该模型的M函数。如果迭代初值为$x_0=y_0=0$，那么，进行<code>30000</code>次迭代求出一组$x$和$y$向量，然后在所有的$x_k$和$y_k$坐标处画一个点（注意不要连线），最后绘制出所需的图形（说明：这样绘制出的图形称为Henon引力线图，它将迭代出来的随机点吸引到一起，最后得出貌似连贯的引力线图）。</p>
+<h3 id="程序设计-1">程序设计</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%Henon.m</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">function</span> XY=<span style="color:#57c7ff">Henon</span>(x0,y0,N)
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% Henon引力线</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 输入参数：</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%---x0：迭代初始值-x0</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%---y0：迭代初始值-y0</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%---N：迭代次数</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 输出参数：</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%</span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">%---XY：Henon引力线的点坐标</span>
+</span></span><span style="display:flex;"><span>x=x0;
+</span></span><span style="display:flex;"><span>y=y0;
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 初始化存储结果的矩阵，第一行存储初始值</span>
+</span></span><span style="display:flex;"><span>XY = [x0, y0];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 迭代模型</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">for</span> k = <span style="color:#ff9f43">1</span>:N
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">% 更新x和y的值</span>
+</span></span><span style="display:flex;"><span>    x_new = <span style="color:#ff9f43">1</span> <span style="color:#ff6ac1">+</span> y <span style="color:#ff6ac1">-</span> <span style="color:#ff9f43">1.4</span> <span style="color:#ff6ac1">*</span> x^<span style="color:#ff9f43">2</span>;
+</span></span><span style="display:flex;"><span>    y_new = <span style="color:#ff9f43">0.3</span> <span style="color:#ff6ac1">*</span> x;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">% 将新的x和y值添加到矩阵的下一行</span>
+</span></span><span style="display:flex;"><span>    XY = [XY; x_new, y_new];
+</span></span><span style="display:flex;"><span>    x=x_new;
+</span></span><span style="display:flex;"><span>    y=y_new;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">% 绘制Henon引力线图</span>
+</span></span><span style="display:flex;"><span>figure;
+</span></span><span style="display:flex;"><span>plot(XY(:,<span style="color:#ff9f43">1</span>), XY(:,<span style="color:#ff9f43">2</span>), <span style="color:#5af78e">&#39;.&#39;</span>); <span style="color:#78787e">% 绘制点，不连线</span>
+</span></span><span style="display:flex;"><span>title(<span style="color:#5af78e">&#39;Henon引力线图&#39;</span>);
+</span></span></code></pre></div><h3 id="计算结果-1">计算结果</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%test2.m</span>
+</span></span><span style="display:flex;"><span>x0=<span style="color:#ff9f43">0</span>;y0=<span style="color:#ff9f43">0</span>;<span style="color:#78787e">%定义初始值</span>
+</span></span><span style="display:flex;"><span>N=<span style="color:#ff9f43">30000</span>;<span style="color:#78787e">%迭代次数</span>
+</span></span><span style="display:flex;"><span>XY=Henon(x0,y0,N);<span style="color:#78787e">%调用函数</span>
+</span></span></code></pre></div><pre tabindex="0"><code class="language-terminal" data-lang="terminal">&gt;&gt; test2
+</code></pre><p><img src="henon.png" alt=""></p>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2024-08-05</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/posts/matlab_%E6%9C%9F%E6%9C%AB/">
+			下回<br>Matlab期末考试
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/rust%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/">
+			上回<br>在Windows安装Mingw版本的Rust工具链
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://www.zhaocloud.work/">
+    
+        <div class="nav-title">
+            April Diary
+        </div>
+        
+        <div class="nav-subtitle">
+            人间四月芳菲尽
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                时间线
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                归档
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8c%97%e9%82%aematlab%e9%80%89%e4%bf%ae-%e6%9c%9f%e4%b8%ad%e4%bd%9c%e4%b8%9a" class="nav-北邮matlab选修-期中作业">
+									北邮Matlab选修 期中作业
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%a2%98%e7%9b%ae-1" class="nav-题目-1">
+									题目 #1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0" class="nav-问题描述">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%95%b0%e5%ad%a6%e6%a8%a1%e5%9e%8b" class="nav-数学模型">
+									数学模型
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e6%95%b0%e5%ad%a6%e5%85%b3%e7%b3%bb" class="nav-数学关系">
+									数学关系
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8c%96%e7%ae%80%e5%b9%b6%e5%be%97%e5%88%b0%e5%af%b9%e5%ba%94%e6%96%b9%e7%a8%8b" class="nav-化简并得到对应方程">
+									化简并得到对应方程
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1" class="nav-程序设计">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c" class="nav-计算结果">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e9%a2%98%e7%9b%ae-2" class="nav-题目-2">
+									题目 #2
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0-1" class="nav-问题描述-1">
+									问题描述
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1-1" class="nav-程序设计-1">
+									程序设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e8%ae%a1%e7%ae%97%e7%bb%93%e6%9e%9c-1" class="nav-计算结果-1">
+									计算结果
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>
