@@ -10,7 +10,7 @@
 <meta name="google-site-verification" content="">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
 <meta content="telephone=no" name="format-detection">
-<meta name="description" content="">
+<meta name="description" content="在一周的辛苦打标签之后，今天使用CloudStudio进行yolo的训练，遇到了一些问题，在这里整理一番">
 <meta name="renderer" content="webkit">
 <meta name="theme-color" content="#ffffff">
 
@@ -19,21 +19,7 @@
 <meta property="og:url" content="https://www.zhaocloud.work/posts/cloudstudio%E9%85%8D%E7%BD%AE/">
   <meta property="og:site_name" content="April Diary">
   <meta property="og:title" content="Cloudstudio配置">
-  <meta property="og:description" content="在腾讯CloudStudio上训练yolo模型的环境配置问题 众所周知：配环境是成为程序员最难的一步。
-在cloud studio运行yolov8时遇到了几个问题，顺手记录在这。
-主要是可以白嫖大显存GPU，本蒟蒻只有可怜兮兮的3050Laptop-4G o(╥﹏╥)o
-第一个问题 ImportError: libGL.so.1: cannot open shared object file: No such file or directory 解决方案也比较简单：
-来源：Stackoverflow
-一行命令就解决了……
-apt install libgl1-mesa-glx 第二个问题 ImportError: /lib/x86_64-linux-gnu/libstdc&#43;&#43;.so.6: version `GLIBCXX_3.4.29&#39; not found (required by /root/miniforge3/lib/python3.10/site-packages/matplotlib/_c_internal_utils.cpython-310-x86_64-linux-gnu.so) 我先使用了同样来自Stackoverflow的解答：点击前往
-也就是如下的方案：
-sudo add-apt-repository ppa:ubuntu-toolchain-r/test # Ignore if not ubuntu sudo apt-get update sudo apt-get install gcc-4.9 sudo apt-get upgrade libstdc&#43;&#43;6 sudo apt-get dist-upgrade 但是非常遗憾，没有效果，还是出现了报错……
-这时候，我非常不情愿的打开了csdn，但是非常幸运，我找到了解决方案。
-以我浅薄的理解，应该是linux中有合适的版本，但是/usr/lib/x86_64-linux-gnu/路径下的libstdc&#43;&#43;默认的依赖是一个比较老的，因此你安装了新的版本也无济于事，因为这个依赖不会自动更改。
-知道问题是解决问题的开始： 首先找个高版本的库：
-sudo find / -name &#34;libstdc&#43;&#43;.so.6*&#34; 一个可能的版本：6.0.29
-然后我们查看这个包是否有GLIBCXX_3.4.29
-strings /.../lib/libstdc&#43;&#43;.so.6.0.29 | grep GLIBCXX 如果有，你应该在控制台输出中找到如下的字符：GLIBCXX_3.4.29">
+  <meta property="og:description" content="在一周的辛苦打标签之后，今天使用CloudStudio进行yolo的训练，遇到了一些问题，在这里整理一番">
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -326,6 +312,10 @@ strings /.../lib/libstdc&#43;&#43;.so.6.0.29 | grep GLIBCXX 如果有，你应�
                 <div class="post-title">
                     Cloudstudio配置
                     
+                    <div class="post-subtitle">
+                        在一周的辛苦打标签之后，今天使用CloudStudio进行yolo的训练，遇到了一些问题，在这里整理一番
+                    </div>
+                    
                     <div class="post-meta">
                         
                         <time itemprop="datePublished">
@@ -424,10 +414,34 @@ ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.29 /usr/lib/x86_64-linux-gnu/li
             </nav>
             <div class="post-comment-wrapper">
                 
-                <p style="opacity: 0.6" align="center">
-                    <small>此篇文章的评论功能已经停用。</small>
-                </p>
-                
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="zhao-leo/zhao-leo.github.io"
+        data-repo-id="R_kgDOKAOfXw"
+        data-category="General"
+        data-category-id="DIC_kwDOKAOfX84CmVot"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
             </div>
         </div>
     </div>
