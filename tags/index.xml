@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <copyright>April. 本站遵循 CC-BY-NC 4.0 协议</copyright>
-    <lastBuildDate>Sat, 25 Jan 2025 13:09:16 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jan 2025 15:51:32 +0800</lastBuildDate>
     <atom:link href="https://www.zhaocloud.work/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux</title>
+      <link>https://www.zhaocloud.work/tags/linux/</link>
+      <pubDate>Sun, 26 Jan 2025 15:51:32 +0800</pubDate>
+      <guid>https://www.zhaocloud.work/tags/linux/</guid>
+      <description></description>
+    </item>
     <item>
       <title>博客维护</title>
       <link>https://www.zhaocloud.work/tags/%E5%8D%9A%E5%AE%A2%E7%BB%B4%E6%8A%A4/</link>

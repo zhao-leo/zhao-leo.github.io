@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh"><head>
-<title>25年春节小记</title>
+<title>Cloudstudio配置</title>
 
 
 
@@ -10,23 +10,36 @@
 <meta name="google-site-verification" content="">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
 <meta content="telephone=no" name="format-detection">
-<meta name="description" content="新年新气象，给博客换个主题吧~">
+<meta name="description" content="">
 <meta name="renderer" content="webkit">
 <meta name="theme-color" content="#ffffff">
 
 
 
-<meta property="og:url" content="https://www.zhaocloud.work/posts/2025%E6%96%B0%E5%B9%B4%E5%A5%BD/">
+<meta property="og:url" content="https://www.zhaocloud.work/posts/cloudstudio%E9%85%8D%E7%BD%AE/">
   <meta property="og:site_name" content="April Diary">
-  <meta property="og:title" content="25年春节小记">
-  <meta property="og:description" content="新年新气象，给博客换个主题吧~">
+  <meta property="og:title" content="Cloudstudio配置">
+  <meta property="og:description" content="在腾讯CloudStudio上训练yolo模型的环境配置问题 众所周知：配环境是成为程序员最难的一步。
+在cloud studio运行yolov8时遇到了几个问题，顺手记录在这。
+主要是可以白嫖大显存GPU，本蒟蒻只有可怜兮兮的3050Laptop-4G o(╥﹏╥)o
+第一个问题 ImportError: libGL.so.1: cannot open shared object file: No such file or directory 解决方案也比较简单：
+来源：Stackoverflow
+一行命令就解决了……
+apt install libgl1-mesa-glx 第二个问题 ImportError: /lib/x86_64-linux-gnu/libstdc&#43;&#43;.so.6: version `GLIBCXX_3.4.29&#39; not found (required by /root/miniforge3/lib/python3.10/site-packages/matplotlib/_c_internal_utils.cpython-310-x86_64-linux-gnu.so) 我先使用了同样来自Stackoverflow的解答：点击前往
+也就是如下的方案：
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test # Ignore if not ubuntu sudo apt-get update sudo apt-get install gcc-4.9 sudo apt-get upgrade libstdc&#43;&#43;6 sudo apt-get dist-upgrade 但是非常遗憾，没有效果，还是出现了报错……
+这时候，我非常不情愿的打开了csdn，但是非常幸运，我找到了解决方案。
+以我浅薄的理解，应该是linux中有合适的版本，但是/usr/lib/x86_64-linux-gnu/路径下的libstdc&#43;&#43;默认的依赖是一个比较老的，因此你安装了新的版本也无济于事，因为这个依赖不会自动更改。
+知道问题是解决问题的开始： 首先找个高版本的库：
+sudo find / -name &#34;libstdc&#43;&#43;.so.6*&#34; 一个可能的版本：6.0.29
+然后我们查看这个包是否有GLIBCXX_3.4.29
+strings /.../lib/libstdc&#43;&#43;.so.6.0.29 | grep GLIBCXX 如果有，你应该在控制台输出中找到如下的字符：GLIBCXX_3.4.29">
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-01-25T13:09:16+08:00">
-    <meta property="article:modified_time" content="2025-01-25T13:09:16+08:00">
-    <meta property="article:tag" content="生活">
-    <meta property="article:tag" content="博客维护">
+    <meta property="article:published_time" content="2025-01-26T15:51:32+08:00">
+    <meta property="article:modified_time" content="2025-01-26T15:51:32+08:00">
+    <meta property="article:tag" content="Linux">
 
 
 
@@ -187,8 +200,8 @@
 						
 						
 							<li>
-								<a href="#%e8%b5%8b%e9%97%b2%e5%9c%a8%e5%ae%b6%e5%8b%be%e6%a0%8f%e5%90%ac%e6%9b%b2" class="nav-赋闲在家勾栏听曲">
-									赋闲在家，勾栏听曲
+								<a href="#%e5%9c%a8%e8%85%be%e8%ae%afcloudstudio%e4%b8%8a%e8%ae%ad%e7%bb%83yolo%e6%a8%a1%e5%9e%8b%e7%9a%84%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%ae%e9%97%ae%e9%a2%98" class="nav-在腾讯cloudstudio上训练yolo模型的环境配置问题">
+									在腾讯CloudStudio上训练yolo模型的环境配置问题
 								</a>
 							</li>
 						
@@ -211,8 +224,8 @@
 						
 						
 							<li>
-								<a href="#%e8%b5%b7%e5%9b%a0" class="nav-起因">
-									起因
+								<a href="#%e7%ac%ac%e4%b8%80%e4%b8%aa%e9%97%ae%e9%a2%98" class="nav-第一个问题">
+									第一个问题
 								</a>
 							</li>
 						
@@ -229,8 +242,8 @@
 						
 						
 							<li>
-								<a href="#%e4%b8%87%e7%89%a9%e8%b5%b7%e6%ba%90" class="nav-万物起源">
-									万物起源
+								<a href="#%e7%ac%ac%e4%ba%8c%e4%b8%aa%e9%97%ae%e9%a2%98" class="nav-第二个问题">
+									第二个问题
 								</a>
 							</li>
 						
@@ -247,68 +260,8 @@
 						
 						
 							<li>
-								<a href="#%e4%b8%bb%e9%a2%98%e6%9b%b4%e8%bf%ad" class="nav-主题更迭">
-									主题更迭
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#hexonext" class="nav-hexonext">
-									Hexo&#43;NexT
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#hugostack" class="nav-hugostack">
-									Hugo&#43;Stack
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#hugodiary" class="nav-hugodiary">
-									Hugo&#43;Diary
+								<a href="#%e7%ac%ac%e4%b8%89%e4%b8%aa%e9%97%ae%e9%a2%98" class="nav-第三个问题">
+									第三个问题
 								</a>
 							</li>
 						
@@ -371,32 +324,25 @@
                 
             >
                 <div class="post-title">
-                    25年春节小记
-                    
-                    <div class="post-subtitle">
-                        新年新气象，给博客换个主题吧~
-                    </div>
+                    Cloudstudio配置
                     
                     <div class="post-meta">
                         
                         <time itemprop="datePublished">
-                            2025-01-25 13:09
+                            2025-01-26 15:51
                         </time>
                         
 
                         
                             <i class="material-icons" style="">folder</i>
-                                <a href="/categories/%E7%94%9F%E6%B4%BB">生活</a>
+                                <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
                                 &nbsp;
                         
 
                         
                             <i class="material-icons" style="">label</i>
                             
-                                <a href="/tags/%E7%94%9F%E6%B4%BB">生活</a>
-                                &nbsp;
-                            
-                                <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BB%B4%E6%8A%A4">博客维护</a>
+                                <a href="/tags/linux">Linux</a>
                                 &nbsp;
                             
                         
@@ -409,45 +355,54 @@
                 
                 <div class="post-body" v-pre>
                 
-                    <h1 id="赋闲在家勾栏听曲">赋闲在家，勾栏听曲</h1>
-<h2 id="起因">起因</h2>
-<p>刚刚度过了大二上学期，成绩还算稳定，考完试之后和同学一起参加工创赛。</p>
-<p>由于要<del>写</del>实验各种程序，我的电脑存储开始捉襟见肘，而<code>windows</code>开发出的程序，在<code>Raspberry</code>上出奇的不好调试，于是痛定思痛，买了一个2T的硬盘做双系统，但是电脑是单盘位，只能和旧硬盘说byebye~</p>
-<p>既然这样，我也懒得转移数据，之前用的<code>stack</code>主题也有一些不满意的地方，于是在github上仔细挑选之后，决定将我的博客迁移到这个新的theme。</p>
-<h2 id="万物起源">万物起源</h2>
-<p>理论上来说，我的博客历史比这个久一些，因为在正式使用自定义域之前，我还有很长时间使用了<code>github.io</code>的子域名，但是<code>archive.org</code>上没有（<del>小破站没人看</del>），<code>github.com</code>上因为我反复删库<del>跑路</del>也没有相关记录，所以具体时间也难以考究，不过，既然现在有了自己的域名，那么就以这个域名的注册日当作博客的起点吧~🎇</p>
-<p>这个域名是在腾讯云上注册的，腾讯云上有记录，能够查到最早是在20年注册的。
-<img src="%E6%96%B0%E5%B9%B4%E5%A5%BD-1.png" alt="腾讯云截图">
-因此我决定啦！<code>2020-10-10</code>就是博客的生日~！</p>
-<p>想想也是，疫情期间在家学习，我又比较摆烂，天天在github上乱逛，于是决定用<code>github.io</code>搭建自己的博客。起初只是想玩玩，顺便薅点羊毛，至于博文，随便水水不久行了~？</p>
-<p>但是上了大学，我接触了更多的编程语言，同时很多内容都是我和朋友在中文互联网大海捞针查出来的，我也不希望每次出现这样的问题都重复操作，于是乎，博客的建设就提上日程。</p>
-<p>不仅如此，上了大学……emm……怎么说呢，就是会有压力很大的时候，什么都不想做，我觉得写一写是不是会好一些……</p>
-<p>我本人其实是最讨厌写作文一类东西的，我话也讲不清楚，逻辑思维也就那回事，每次得分都很低，这样没有评分，没有条条框框限制的，也许才是我想的写作~？</p>
-<h2 id="主题更迭">主题更迭</h2>
-<p><strong>我曾三度遭到背叛(bushi)</strong></p>
-<h3 id="hexonext"><code>Hexo+NexT</code></h3>
-<p>我最早用的是<code>Hexo+NexT</code>的方案，也是网上自建静态博客最经典的方案。</p>
-<p>但是，初出茅庐的我，遇到的问题不能说五花八门，也得说千奇百怪，网上给到的方案完全不能cover我的问题，我用了整整两天时间，解决了npm拉不下来包，版本冲突，主题报错，主题设置报错，主题更改无效等一系列问题之后，我的阉割版<code>Hexo+NexT</code>终于跑起来了！它拥有我自定义的gif头像，一个支持Latex的markdown渲染器，在之后几天更了几篇文章之后，非常不幸，我的电脑就被征用了，于是乎我停更了很久……</p>
-<p>有一天，我添加了一篇文章（数学竞赛的，有很多Latex公式），但是Latex渲染器不能用了！！！它总是会多渲染一个$符号，我尝试了各种方法，最终……，我放弃了……</p>
-<p>从那天起，我就下定决心和node.js说再见了！我承认我逃避了😎🤏😭，我下决心找一个一键启动的静态博客生成器，幸好前人已经造好了轮子——<code>Hugo</code></p>
-<h3 id="hugostack"><code>Hugo+Stack</code></h3>
-<p>同样的，我找了个教程，与上次不同，<code>Hugo</code>的博客教程相对靠谱些（我想这可能也有很大部分是<code>Hugo</code>本身的功劳）。</p>
-<p>不管怎么说，在<code>Stack</code>官方文档👍的帮助下，一个下午就让我的博客跑起来了，它有一个好看的外观，一个全面完整的现代化界面，很快的响应速度，等等你可以想象到的优点，我对这个主题的美化也花了些心思，但是确实是收效甚微，就我自己来说，我对css完全不会，平常写点全靠<code>GPT</code>，最后，我只能加一个不算特别出众的<code>Live2D</code>小人。我知道，这个主题对我来说有点复杂了……</p>
-<p>不过真正让我决心停止使用<code>Stack</code>的……其实是<small><small>个性</small></small>……</p>
-<p>怎么会有那么多人用<code>Stack</code>呀~！！！</p>
-<p>不过看看<code>Star</code>数……，这就不奇怪了~</p>
-<h3 id="hugodiary"><code>Hugo+Diary</code></h3>
-<p>吸取上几次经验，我找了这个相对朴素的主题，在<code>GPT</code>的帮助下，我也可以对这个主题做一些小小的更改，我希望这个主题可以陪我走过整个大学期间（even more）。</p>
-<p>多次主题更换以及长期的鸽，我的网站SEO情况大概率是不理想的，如果这都被你看到了，说明咱们还是很有缘分的，那我悄悄告诉你哦~<small><small>我藏了QQ号~</small></small></p>
-<p>虽然可能有些幼稚，但是就这样幼稚下去，不好嘛~？</p>
-<p>本人文字功底相当一般，文章中可能出现包括但不限于&lt;前言不搭后语&gt;&lt;病句&gt;&lt;逻辑不通&gt;等问题，如果你发现了那么还请见谅，我会努力改正的！(ง๑ •̀_•́)ง</p>
-<p>最后，祝你新的一年每天都开开心心~</p>
-<p>写于2025/01/25/20:27</p>
-<p>补充：之前写的js小玩具暂时先不上线了，后续有机会会修复回来。</p>
+                    <h1 id="在腾讯cloudstudio上训练yolo模型的环境配置问题">在腾讯CloudStudio上训练yolo模型的环境配置问题</h1>
+<blockquote>
+<p>众所周知：配环境是成为程序员最难的一步。</p>
+</blockquote>
+<p>在<code>cloud studio</code>运行<code>yolov8</code>时遇到了几个问题，顺手记录在这。</p>
+<p><small>主要是可以白嫖大显存GPU，本蒟蒻只有可怜兮兮的3050Laptop-4G  o(╥﹏╥)o</small></p>
+<h2 id="第一个问题">第一个问题</h2>
+<pre tabindex="0"><code>ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+</code></pre><p>解决方案也比较简单：</p>
+<p>来源：<a href="https://stackoverflow.com/questions/55313610/importerror-libgl-so-1-cannot-open-shared-object-file-no-such-file-or-directo"><code>Stackoverflow</code></a></p>
+<p>一行命令就解决了……</p>
+<pre tabindex="0"><code>apt install libgl1-mesa-glx
+</code></pre><h2 id="第二个问题">第二个问题</h2>
+<pre tabindex="0"><code>ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29&#39; not found (required by /root/miniforge3/lib/python3.10/site-packages/matplotlib/_c_internal_utils.cpython-310-x86_64-linux-gnu.so)
+</code></pre><p>我先使用了同样来自<code>Stackoverflow</code>的解答：<a href="https://stackoverflow.com/questions/65349875/where-can-i-find-glibcxx-3-4-29">点击前往</a></p>
+<p>也就是如下的方案：</p>
+<pre tabindex="0"><code>sudo add-apt-repository ppa:ubuntu-toolchain-r/test # Ignore if not ubuntu
+sudo apt-get update
+sudo apt-get install gcc-4.9
+sudo apt-get upgrade libstdc++6
+sudo apt-get dist-upgrade
+</code></pre><p>但是非常遗憾，没有效果，还是出现了报错……</p>
+<p>这时候，我非常不情愿的打开了<code>csdn</code>，但是非常幸运，我找到了<a href="https://blog.csdn.net/weixin_39379635/article/details/129159713">解决方案</a>。</p>
+<p>以我浅薄的理解，应该是<code>linux</code>中有合适的版本，但是<code>/usr/lib/x86_64-linux-gnu/</code>路径下的<code>libstdc++</code>默认的依赖是一个比较老的，因此你安装了新的版本也无济于事，因为这个依赖不会自动更改。</p>
+<p>知道问题是解决问题的开始：
+首先找个高版本的库：</p>
+<pre tabindex="0"><code>sudo find / -name &#34;libstdc++.so.6*&#34;
+</code></pre><p>一个可能的版本：<code>6.0.29</code></p>
+<p>然后我们查看这个包是否有<code>GLIBCXX_3.4.29</code></p>
+<pre tabindex="0"><code>strings /.../lib/libstdc++.so.6.0.29 | grep GLIBCXX
+</code></pre><p>如果有，你应该在控制台输出中找到如下的字符：<code>GLIBCXX_3.4.29</code></p>
+<p>然后就是喜闻乐见的<code>除旧迎新</code>环节：</p>
+<pre tabindex="0"><code>cp /.../libstdc++.so.6.0.29 /usr/lib/x86_64-linux-gnu/
+# 除旧
+sudo rm /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+# 迎新
+ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.29 /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+</code></pre><p>文章中说可能会出现文件没有执行权限的问题，这个<code>chmod</code>就可以较好解决，这里不做赘述。</p>
+<h2 id="第三个问题">第三个问题</h2>
+<p>说是问题，不如说是注意事项，因为<code>cloudstudio</code>自带<code>conda</code>环境，所以<code>pip</code>是可以正常安装的，然后vs默认用的是<code>ubuntu</code>的<code>python</code>，所以你直接点启动啥用没有，只会收获很多<code>报错</code>，但是你可以从命令行不指定路径启动就没问题。
+比如：</p>
+<pre tabindex="0"><code>python main.py
+</code></pre><p>PS：Linux使用还是挺有难度的，不过怎么说呢，习惯就好，不行就去网上搜呗~，嘻嘻</p>
+<p>写于2025/01/26</p>
 
                     
                     <HR width="100%" id="EOF">
-		    <p style="color:#777;">最后修改于 2025-01-25</p>
+		    <p style="color:#777;">最后修改于 2025-01-26</p>
                     
                 </div>
             </div>
@@ -456,47 +411,23 @@
             <nav class="post-pagination">
 
                 
-                <a class="newer-posts" href="/posts/cloudstudio%E9%85%8D%E7%BD%AE/">
-			下回<br>Cloudstudio配置
+                <a class="newer-posts">
+			下回<br>已经到头啦。
                 </a>
                 
                 
                 
-                <a class="older-posts" href="/posts/bupt%E6%B0%B4%E4%BD%8D%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C/">
-			上回<br>数字系统实验报告——水位监测
+                <a class="older-posts" href="/posts/2025%E6%96%B0%E5%B9%B4%E5%A5%BD/">
+			上回<br>25年春节小记
                 </a>
                 
             </nav>
             <div class="post-comment-wrapper">
                 
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="https://giscus.app/client.js"
-        data-repo="zhao-leo/zhao-leo.github.io"
-        data-repo-id="R_kgDOKAOfXw"
-        data-category="General"
-        data-category-id="DIC_kwDOKAOfX84CmVot"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
-</script>
-
+                <p style="opacity: 0.6" align="center">
+                    <small>此篇文章的评论功能已经停用。</small>
+                </p>
+                
             </div>
         </div>
     </div>
@@ -607,8 +538,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e8%b5%8b%e9%97%b2%e5%9c%a8%e5%ae%b6%e5%8b%be%e6%a0%8f%e5%90%ac%e6%9b%b2" class="nav-赋闲在家勾栏听曲">
-									赋闲在家，勾栏听曲
+								<a href="#%e5%9c%a8%e8%85%be%e8%ae%afcloudstudio%e4%b8%8a%e8%ae%ad%e7%bb%83yolo%e6%a8%a1%e5%9e%8b%e7%9a%84%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%ae%e9%97%ae%e9%a2%98" class="nav-在腾讯cloudstudio上训练yolo模型的环境配置问题">
+									在腾讯CloudStudio上训练yolo模型的环境配置问题
 								</a>
 							</li>
 						
@@ -631,8 +562,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e8%b5%b7%e5%9b%a0" class="nav-起因">
-									起因
+								<a href="#%e7%ac%ac%e4%b8%80%e4%b8%aa%e9%97%ae%e9%a2%98" class="nav-第一个问题">
+									第一个问题
 								</a>
 							</li>
 						
@@ -649,8 +580,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e4%b8%87%e7%89%a9%e8%b5%b7%e6%ba%90" class="nav-万物起源">
-									万物起源
+								<a href="#%e7%ac%ac%e4%ba%8c%e4%b8%aa%e9%97%ae%e9%a2%98" class="nav-第二个问题">
+									第二个问题
 								</a>
 							</li>
 						
@@ -667,68 +598,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e4%b8%bb%e9%a2%98%e6%9b%b4%e8%bf%ad" class="nav-主题更迭">
-									主题更迭
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#hexonext" class="nav-hexonext">
-									Hexo&#43;NexT
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#hugostack" class="nav-hugostack">
-									Hugo&#43;Stack
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#hugodiary" class="nav-hugodiary">
-									Hugo&#43;Diary
+								<a href="#%e7%ac%ac%e4%b8%89%e4%b8%aa%e9%97%ae%e9%a2%98" class="nav-第三个问题">
+									第三个问题
 								</a>
 							</li>
 						

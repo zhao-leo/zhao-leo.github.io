@@ -7,9 +7,64 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>April. 本站遵循 CC-BY-NC 4.0 协议</copyright>
-    <lastBuildDate>Sat, 25 Jan 2025 13:09:16 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jan 2025 15:51:32 +0800</lastBuildDate>
     
         <atom:link href="https://www.zhaocloud.work/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>Cloudstudio配置</title>
+        <link>https://www.zhaocloud.work/posts/cloudstudio%E9%85%8D%E7%BD%AE/</link>
+        <pubDate>Sun, 26 Jan 2025 15:51:32 +0800</pubDate>
+        
+        <guid>https://www.zhaocloud.work/posts/cloudstudio%E9%85%8D%E7%BD%AE/</guid>
+        <description>April Diary https://www.zhaocloud.work/posts/cloudstudio%E9%85%8D%E7%BD%AE/ -&lt;h1 id=&#34;在腾讯cloudstudio上训练yolo模型的环境配置问题&#34;&gt;在腾讯CloudStudio上训练yolo模型的环境配置问题&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;众所周知：配环境是成为程序员最难的一步。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在&lt;code&gt;cloud studio&lt;/code&gt;运行&lt;code&gt;yolov8&lt;/code&gt;时遇到了几个问题，顺手记录在这。&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;主要是可以白嫖大显存GPU，本蒟蒻只有可怜兮兮的3050Laptop-4G  o(╥﹏╥)o&lt;/small&gt;&lt;/p&gt;
+&lt;h2 id=&#34;第一个问题&#34;&gt;第一个问题&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;解决方案也比较简单：&lt;/p&gt;
+&lt;p&gt;来源：&lt;a href=&#34;https://stackoverflow.com/questions/55313610/importerror-libgl-so-1-cannot-open-shared-object-file-no-such-file-or-directo&#34;&gt;&lt;code&gt;Stackoverflow&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;一行命令就解决了……&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apt install libgl1-mesa-glx
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;第二个问题&#34;&gt;第二个问题&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29&amp;#39; not found (required by /root/miniforge3/lib/python3.10/site-packages/matplotlib/_c_internal_utils.cpython-310-x86_64-linux-gnu.so)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我先使用了同样来自&lt;code&gt;Stackoverflow&lt;/code&gt;的解答：&lt;a href=&#34;https://stackoverflow.com/questions/65349875/where-can-i-find-glibcxx-3-4-29&#34;&gt;点击前往&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;也就是如下的方案：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo add-apt-repository ppa:ubuntu-toolchain-r/test # Ignore if not ubuntu
+sudo apt-get update
+sudo apt-get install gcc-4.9
+sudo apt-get upgrade libstdc++6
+sudo apt-get dist-upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;但是非常遗憾，没有效果，还是出现了报错……&lt;/p&gt;
+&lt;p&gt;这时候，我非常不情愿的打开了&lt;code&gt;csdn&lt;/code&gt;，但是非常幸运，我找到了&lt;a href=&#34;https://blog.csdn.net/weixin_39379635/article/details/129159713&#34;&gt;解决方案&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;以我浅薄的理解，应该是&lt;code&gt;linux&lt;/code&gt;中有合适的版本，但是&lt;code&gt;/usr/lib/x86_64-linux-gnu/&lt;/code&gt;路径下的&lt;code&gt;libstdc++&lt;/code&gt;默认的依赖是一个比较老的，因此你安装了新的版本也无济于事，因为这个依赖不会自动更改。&lt;/p&gt;
+&lt;p&gt;知道问题是解决问题的开始：
+首先找个高版本的库：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo find / -name &amp;#34;libstdc++.so.6*&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;一个可能的版本：&lt;code&gt;6.0.29&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;然后我们查看这个包是否有&lt;code&gt;GLIBCXX_3.4.29&lt;/code&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;strings /.../lib/libstdc++.so.6.0.29 | grep GLIBCXX
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果有，你应该在控制台输出中找到如下的字符：&lt;code&gt;GLIBCXX_3.4.29&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;然后就是喜闻乐见的&lt;code&gt;除旧迎新&lt;/code&gt;环节：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cp /.../libstdc++.so.6.0.29 /usr/lib/x86_64-linux-gnu/
+# 除旧
+sudo rm /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+# 迎新
+ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.29 /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;文章中说可能会出现文件没有执行权限的问题，这个&lt;code&gt;chmod&lt;/code&gt;就可以较好解决，这里不做赘述。&lt;/p&gt;
+&lt;h2 id=&#34;第三个问题&#34;&gt;第三个问题&lt;/h2&gt;
+&lt;p&gt;说是问题，不如说是注意事项，因为&lt;code&gt;cloudstudio&lt;/code&gt;自带&lt;code&gt;conda&lt;/code&gt;环境，所以&lt;code&gt;pip&lt;/code&gt;是可以正常安装的，然后vs默认用的是&lt;code&gt;ubuntu&lt;/code&gt;的&lt;code&gt;python&lt;/code&gt;，所以你直接点启动啥用没有，只会收获很多&lt;code&gt;报错&lt;/code&gt;，但是你可以从命令行不指定路径启动就没问题。
+比如：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;python main.py
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;PS：Linux使用还是挺有难度的，不过怎么说呢，习惯就好，不行就去网上搜呗~，嘻嘻&lt;/p&gt;
+&lt;p&gt;写于2025/01/26&lt;/p&gt;
+- https://www.zhaocloud.work/posts/cloudstudio%E9%85%8D%E7%BD%AE/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
+        </item>
     
     
     
@@ -2009,98 +2064,6 @@ ans =
 The sum of the differences between the two curves is 42414.81 km^2
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;question3.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 - https://www.zhaocloud.work/posts/matlab_%E6%8B%9F%E5%90%88/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
-        </item>
-    
-    
-    
-        <item>
-        <title>Matlab第十四周数值积分</title>
-        <link>https://www.zhaocloud.work/posts/matlab_%E6%95%B0%E5%80%BC%E7%A7%AF%E5%88%86/</link>
-        <pubDate>Mon, 05 Aug 2024 00:00:00 +0000</pubDate>
-        
-        <guid>https://www.zhaocloud.work/posts/matlab_%E6%95%B0%E5%80%BC%E7%A7%AF%E5%88%86/</guid>
-        <description>April Diary https://www.zhaocloud.work/posts/matlab_%E6%95%B0%E5%80%BC%E7%A7%AF%E5%88%86/ -&lt;h1 id=&#34;北邮matlab选修-week-14-数值积分&#34;&gt;北邮Matlab选修 Week 14 数值积分&lt;/h1&gt;
-&lt;h2 id=&#34;问题描述&#34;&gt;问题描述&lt;/h2&gt;
-&lt;p&gt;编写复化自适应步长辛普森积分函数，实现对函数$f(x)=\frac{sin(x)}{x}$在区间$[1,5]$的积分，并分析各分段积分区间的自适应步长值。&lt;/p&gt;
-&lt;h2 id=&#34;程序设计&#34;&gt;程序设计&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;%simpson.m&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;function&lt;/span&gt; [I, steps] = &lt;span style=&#34;color:#57c7ff&#34;&gt;simpson&lt;/span&gt;(fun, a, b, tol, varargin)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 复化自适应步长辛普森公式求解数值积分，并返回区间划分步长&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 输入参数：&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% fun：被积函数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% a, b：积分区间的端点&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% tol：误差容忍度&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% varargin：函数fun的附加参数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 输出参数：&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% I：求得的积分值&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% steps：区间划分的步长列表&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; nargin &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;isempty&lt;/span&gt;(tol)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    tol = &lt;span style=&#34;color:#ff9f43&#34;&gt;1e-4&lt;/span&gt;; &lt;span style=&#34;color:#78787e&#34;&gt;% 默认误差容忍度&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  [I, steps] = adaptiveSimpson(fun, a, b, tol, a, b, varargin{:});
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;function&lt;/span&gt; [I, steps] = &lt;span style=&#34;color:#57c7ff&#34;&gt;adaptiveSimpson&lt;/span&gt;(fun, a, b, tol, fullA, fullB, varargin)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#78787e&#34;&gt;% 自适应辛普森积分辅助函数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#78787e&#34;&gt;% 使用递归方法自动调整积分步长以满足误差要求，并记录每次划分的中点&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  c = (a &lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt; b) &lt;span style=&#34;color:#ff6ac1&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  S1 = simpsonRule(fun, a, b, varargin{:});
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  S2 = simpsonRule(fun, a, c, varargin{:}) &lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt; simpsonRule(fun, c, b, varargin{:});
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;abs&lt;/span&gt;(S1 &lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt; S2) &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;15&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; tol
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    I = S2 &lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt; (S2 &lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt; S1) &lt;span style=&#34;color:#ff6ac1&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;15&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    steps = c;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [IL, stepsL] = adaptiveSimpson(fun, a, c, tol&lt;span style=&#34;color:#ff6ac1&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;, fullA, fullB, varargin{:});
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [IR, stepsR] = adaptiveSimpson(fun, c, b, tol&lt;span style=&#34;color:#ff6ac1&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;, fullA, fullB, varargin{:});
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    I = IL &lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt; IR;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    steps = [stepsL, c, stepsR];
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#78787e&#34;&gt;% 如果是最外层调用，则添加区间的起始和结束点&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; a &lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt; fullA &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; b &lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt; fullB
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    steps = [a, steps, b];
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;function&lt;/span&gt; S = &lt;span style=&#34;color:#57c7ff&#34;&gt;simpsonRule&lt;/span&gt;(fun, a, b, varargin)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#78787e&#34;&gt;% 辛普森规则计算函数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  c = (a &lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt; b) &lt;span style=&#34;color:#ff6ac1&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  fa = feval(fun, a, varargin{:});
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  fb = feval(fun, b, varargin{:});
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  fc = feval(fun, c, varargin{:});
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  S = (b &lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt; a) &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; (fa &lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt;fc &lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt; fb) &lt;span style=&#34;color:#ff6ac1&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;6&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;计算结果&#34;&gt;计算结果&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;%test1.m&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 定义函数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fun = @(x) &lt;span style=&#34;color:#ff5c57&#34;&gt;sin&lt;/span&gt;(x)&lt;span style=&#34;color:#ff6ac1&#34;&gt;./&lt;/span&gt;x;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 求积分，例如从 0 到 10，误差容忍度为 1e-5&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[I, steps] = simpson(fun, &lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ff9f43&#34;&gt;5&lt;/span&gt;, &lt;span style=&#34;color:#ff9f43&#34;&gt;1e-5&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 显示结果&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fprintf(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;积分结果为: %f\n&amp;#39;&lt;/span&gt;, I);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;y_values = arrayfun(fun, steps);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 绘制步长点&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;plot(steps, y_values, &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;o-&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;LineWidth&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;title(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;自适应步长展示&amp;#39;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;grid on;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 增加注释&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;i&lt;/span&gt; = &lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;:&lt;span style=&#34;color:#ff5c57&#34;&gt;length&lt;/span&gt;(steps)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    text(steps(&lt;span style=&#34;color:#ff5c57&#34;&gt;i&lt;/span&gt;), y_values(&lt;span style=&#34;color:#ff5c57&#34;&gt;i&lt;/span&gt;), sprintf(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;(%0.2f, %0.2f)&amp;#39;&lt;/span&gt;, steps(&lt;span style=&#34;color:#ff5c57&#34;&gt;i&lt;/span&gt;), y_values(&lt;span style=&#34;color:#ff5c57&#34;&gt;i&lt;/span&gt;)), &lt;span style=&#34;color:#78787e&#34;&gt;...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;VerticalAlignment&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;bottom&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;HorizontalAlignment&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;right&amp;#39;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-terminal&#34; data-lang=&#34;terminal&#34;&gt;&amp;gt;&amp;gt; test1
-积分结果为: 0.603848
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;untitled.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-- https://www.zhaocloud.work/posts/matlab_%E6%95%B0%E5%80%BC%E7%A7%AF%E5%88%86/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
         </item>
     
     
