@@ -7,9 +7,60 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>April. 本站遵循 CC-BY-NC 4.0 协议</copyright>
-    <lastBuildDate>Thu, 06 Feb 2025 16:33:16 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2025 00:11:40 +0800</lastBuildDate>
     
         <atom:link href="https://www.zhaocloud.work/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>结构数组的使用-PTA</title>
+        <link>https://www.zhaocloud.work/posts/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/</link>
+        <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.zhaocloud.work/posts/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/</guid>
+        <description>April Diary https://www.zhaocloud.work/posts/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/ -&lt;h1 id=&#34;北邮vc实验题-明明的随机数&#34;&gt;北邮VC++实验题 明明的随机数&lt;/h1&gt;
+&lt;h2 id=&#34;题目描述&#34;&gt;题目描述&lt;/h2&gt;
+&lt;p&gt;明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用 计算机生成了N个1到1000之间的随机整数（N≤100），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然 后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作。&lt;/p&gt;
+&lt;h2 id=&#34;输入格式&#34;&gt;输入格式&lt;/h2&gt;
+&lt;p&gt;有2行，第1行为1个正整数，表示所生成的随机数的个数：N
+第2行有N个用空格隔开的正整数，为所产生的随机数。&lt;/p&gt;
+&lt;h2 id=&#34;输出格式&#34;&gt;输出格式&lt;/h2&gt;
+&lt;p&gt;也是2行，第1行为1个正整数M，表示不相同的随机数的个数。第2行为M个用空格隔开的正整数，为从小到大排好序的不相同的随机数。&lt;/p&gt;
+&lt;h2 id=&#34;样例&#34;&gt;样例&lt;/h2&gt;
+&lt;h3 id=&#34;样例输入&#34;&gt;样例输入&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;10
+20 40 32 67 40 20 89 300 400 15
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;样例输出&#34;&gt;样例输出&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;8
+15 20 32 40 67 89 300 400
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;解答&#34;&gt;解答&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#78787e&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;namespace&lt;/span&gt; std;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;main&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; n,total&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;short&lt;/span&gt; &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; a[&lt;span style=&#34;color:#ff9f43&#34;&gt;1000000&lt;/span&gt;]&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    cin&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt;n;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; z;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; i&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;=&lt;/span&gt;n;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cin&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt;z;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(a[z]&lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;)total&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        a[z]&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;total&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;endl;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; zzz&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; i&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1000000&lt;/span&gt;;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(a[i]&lt;span style=&#34;color:#ff6ac1&#34;&gt;!=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(zzz&lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;){cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;i;zzz&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt; cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;i;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://www.zhaocloud.work/posts/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
+        </item>
     
     
     

@@ -7,9 +7,117 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>April. 本站遵循 CC-BY-NC 4.0 协议</copyright>
-    <lastBuildDate>Thu, 06 Feb 2025 16:33:16 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2025 00:11:40 +0800</lastBuildDate>
     
         <atom:link href="https://www.zhaocloud.work/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>Matlab第三周涂料计算</title>
+        <link>https://www.zhaocloud.work/posts/matlab_%E6%B6%82%E6%96%99%E8%AE%A1%E7%AE%97/</link>
+        <pubDate>Mon, 05 Aug 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.zhaocloud.work/posts/matlab_%E6%B6%82%E6%96%99%E8%AE%A1%E7%AE%97/</guid>
+        <description>April Diary https://www.zhaocloud.work/posts/matlab_%E6%B6%82%E6%96%99%E8%AE%A1%E7%AE%97/ -&lt;h1 id=&#34;北邮matlab选修-week-3-涂料计算&#34;&gt;北邮Matlab选修 Week 3 涂料计算&lt;/h1&gt;
+&lt;h2 id=&#34;问题描述&#34;&gt;问题描述&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如图所示的磁盘，半径为&lt;code&gt;R&lt;/code&gt;，高度为&lt;code&gt;h&lt;/code&gt;，它有&lt;code&gt;8&lt;/code&gt;个圆柱形的孔，每个孔的半径为&lt;code&gt;r&lt;/code&gt;，这可能是一个需要刷漆的机器零件，刷完后再与其他零件进行组装。在设计这台机器的过程中，我们可能需要知道这个磁盘的重量和它所需的油漆量。机器的重量和油漆量是各个零件的总和。由于磁盘的重量与它的体积成正比，油漆量与它的“润湿面积”成正比，所以我们需要知道这个磁盘的体积和面积。&lt;/p&gt;
+&lt;p&gt;请编写一个函数，用于求该磁盘的体积和面积，并用一个实例对编写的函数进行测试。&lt;/p&gt;
+&lt;h2 id=&#34;数学模型&#34;&gt;数学模型&lt;/h2&gt;
+&lt;h3 id=&#34;体积计算&#34;&gt;体积计算&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;原始磁盘体积&lt;/p&gt;
+&lt;p&gt;磁盘是一个圆柱体，其体积$V_{disk}$可以通过以下公式计算：&lt;/p&gt;
+&lt;p&gt;$$ V_{disk}=\pi R^2h $$&lt;/p&gt;
+&lt;p&gt;其中，$R$是磁盘的半径，$h$是磁盘的高度。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;孔的体积&lt;/p&gt;
+&lt;p&gt;每个孔也是一个圆柱体，其体积$V_{hole}$可以通过以下公式计算：&lt;/p&gt;
+&lt;p&gt;$$ V_{hole}=\pi r^2 h $$&lt;/p&gt;
+&lt;p&gt;其中：$r$是孔的半径。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;实际磁盘体积&lt;/p&gt;
+&lt;p&gt;实际磁盘体积 $V_{actual}$ 是原始体积减去总孔体积：&lt;/p&gt;
+&lt;p&gt;$$ V_{actual}=V_{disk}-totalholes \times V_{hole} $$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;润湿面积计算&#34;&gt;润湿面积计算&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;原始磁盘表面积&lt;/p&gt;
+&lt;p&gt;磁盘的表面积包括两个底面和一个侧面，其表面积 $S_{disk}$ 可以通过以下公式计算：&lt;/p&gt;
+&lt;p&gt;$$ S_{disk}=2\pi R^2 + 2\pi Rh $$&lt;/p&gt;
+&lt;p&gt;其中，$R$ 是磁盘的半径，$h$是磁盘的高度。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;孔的侧面积&lt;/p&gt;
+&lt;p&gt;每个孔的侧面积$S_{holeside}$可以通过以下公式计算：&lt;/p&gt;
+&lt;p&gt;$$ S_{holeside} = 2 \pi r h $$&lt;/p&gt;
+&lt;p&gt;这里不考虑孔的底面，因为它们位于磁盘内部，不会增加润湿面积，其中，$r$是孔的半径。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;孔的底面和顶面面积&lt;/p&gt;
+&lt;p&gt;每个孔的侧面积$S_{topbuttom}$可以通过以下公式计算：&lt;/p&gt;
+&lt;p&gt;$$ S_{topbuttom} = 2 \pi r^2 $$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;实际磁盘体积&lt;/p&gt;
+&lt;p&gt;最后，实际润湿面积$S_{actual}$是原始表面积加上总孔侧面积减去总孔底面和顶面面积：&lt;/p&gt;
+&lt;p&gt;$$ S_{actual}=S_{disk}+totalholes \times (S_{holeside} - S_{topbuttom}) $$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;程序设计&#34;&gt;程序设计&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;function&lt;/span&gt; [volume, surface_area] = &lt;span style=&#34;color:#57c7ff&#34;&gt;disk_volume_area&lt;/span&gt;(R, h, r)  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;% R - 磁盘的半径  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;% h - 磁盘的高度  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;% r - 每个孔的半径  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;% n_holes - 孔的数量  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n_holes=&lt;span style=&#34;color:#ff9f43&#34;&gt;8&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;% 计算原始磁盘的体积  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    original_volume = &lt;span style=&#34;color:#ff5c57&#34;&gt;pi&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; R^&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; h;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;% 计算原始磁盘的表面积（包括两个底面和一个侧面）  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    original_surface_area = &lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;pi&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; R^&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;pi&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; R &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; h;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;% 计算每个孔的体积  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    hole_volume = &lt;span style=&#34;color:#ff5c57&#34;&gt;pi&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; r^&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; h;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;% 计算每个孔的侧面积（不包括底面，因为底面在磁盘内部，不参与润湿）  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    hole_side_area = &lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;pi&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; r &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; h;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;%计算每个孔的顶、底面积&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    hole_top_buttom_area = &lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;pi&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; r &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; r;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;% 计算所有孔的总体积  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    total_hole_volume = n_holes &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; hole_volume;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;% 计算所有孔的顶、底面积总和  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    total_hole_side_area = n_holes &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; hole_side_area;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;% 计算所有孔的侧面积总和  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    total_hole_top_buttom_area = n_holes &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; hole_top_buttom_area;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;% 计算磁盘的实际体积（减去孔的体积）  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    volume = original_volume &lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt; total_hole_volume;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;% 计算磁盘的实际润湿面积&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    surface_area = original_surface_area &lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt; total_hole_side_area &lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt; total_hole_top_buttom_area;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;计算结果&#34;&gt;计算结果&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-terminal&#34; data-lang=&#34;terminal&#34;&gt;&amp;gt;&amp;gt; R=10;
+&amp;gt;&amp;gt; h=5;
+&amp;gt;&amp;gt; r=2;
+&amp;gt;&amp;gt; [volume, surface_area] = disk_volume_area(R, h, r); 
+&amp;gt;&amp;gt; fprintf(&amp;#39;磁盘的体积为: %f\n&amp;#39;, volume); 
+磁盘的体积为: 1068.141502
+&amp;gt;&amp;gt; fprintf(&amp;#39;磁盘的润湿面积为: %f\n&amp;#39;, surface_area);
+磁盘的润湿面积为: 1244.070691
+&lt;/code&gt;&lt;/pre&gt;- https://www.zhaocloud.work/posts/matlab_%E6%B6%82%E6%96%99%E8%AE%A1%E7%AE%97/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
+        </item>
     
     
     
@@ -1049,57 +1157,6 @@ Notice:在整个联机过程中不要关闭终端窗口！！！&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://www.zhaocloud.work/posts/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E8%BD%AC%E4%BA%8C%E8%BF%9B%E5%88%B6/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
-        </item>
-    
-    
-    
-        <item>
-        <title>结构数组的使用-PTA</title>
-        <link>https://www.zhaocloud.work/posts/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/</link>
-        <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://www.zhaocloud.work/posts/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/</guid>
-        <description>April Diary https://www.zhaocloud.work/posts/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/ -&lt;h1 id=&#34;北邮vc实验题-明明的随机数&#34;&gt;北邮VC++实验题 明明的随机数&lt;/h1&gt;
-&lt;h2 id=&#34;题目描述&#34;&gt;题目描述&lt;/h2&gt;
-&lt;p&gt;明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用 计算机生成了N个1到1000之间的随机整数（N≤100），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然 后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作。&lt;/p&gt;
-&lt;h2 id=&#34;输入格式&#34;&gt;输入格式&lt;/h2&gt;
-&lt;p&gt;有2行，第1行为1个正整数，表示所生成的随机数的个数：N
-第2行有N个用空格隔开的正整数，为所产生的随机数。&lt;/p&gt;
-&lt;h2 id=&#34;输出格式&#34;&gt;输出格式&lt;/h2&gt;
-&lt;p&gt;也是2行，第1行为1个正整数M，表示不相同的随机数的个数。第2行为M个用空格隔开的正整数，为从小到大排好序的不相同的随机数。&lt;/p&gt;
-&lt;h2 id=&#34;样例&#34;&gt;样例&lt;/h2&gt;
-&lt;h3 id=&#34;样例输入&#34;&gt;样例输入&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;10
-20 40 32 67 40 20 89 300 400 15
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;样例输出&#34;&gt;样例输出&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;8
-15 20 32 40 67 89 300 400
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;解答&#34;&gt;解答&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#78787e&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;namespace&lt;/span&gt; std;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;main&lt;/span&gt;()
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; n,total&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;short&lt;/span&gt; &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; a[&lt;span style=&#34;color:#ff9f43&#34;&gt;1000000&lt;/span&gt;]&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;{&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    cin&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt;n;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; z;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; i&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;=&lt;/span&gt;n;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cin&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt;z;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(a[z]&lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;)total&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        a[z]&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;total&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;endl;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; zzz&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; i&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1000000&lt;/span&gt;;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(a[i]&lt;span style=&#34;color:#ff6ac1&#34;&gt;!=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(zzz&lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;){cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;i;zzz&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt; cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;i;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://www.zhaocloud.work/posts/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
         </item>
     
     
