@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh"><head>
-<title>水果颜色-PTA</title>
+<title>记录一次YOLO的RUST实现</title>
 
 
 
@@ -10,23 +10,22 @@
 <meta name="google-site-verification" content="">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
 <meta content="telephone=no" name="format-detection">
-<meta name="description" content="BUPT大一上习题 水果颜色">
+<meta name="description" content="Rust小记">
 <meta name="renderer" content="webkit">
 <meta name="theme-color" content="#ffffff">
 
 
 
-<meta property="og:url" content="https://www.zhaocloud.work/posts/%E6%B0%B4%E6%9E%9C%E9%A2%9C%E8%89%B2/">
+<meta property="og:url" content="https://www.zhaocloud.work/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1yolo%E7%9A%84rust%E5%AE%9E%E7%8E%B0/">
   <meta property="og:site_name" content="April Diary">
-  <meta property="og:title" content="水果颜色-PTA">
-  <meta property="og:description" content="BUPT大一上习题 水果颜色">
+  <meta property="og:title" content="记录一次YOLO的RUST实现">
+  <meta property="og:description" content="Rust小记">
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2023-10-24T00:00:00+00:00">
-    <meta property="article:modified_time" content="2023-10-24T00:00:00+00:00">
-    <meta property="article:tag" content="Cpp">
-    <meta property="article:tag" content="PTA">
+    <meta property="article:published_time" content="2025-02-06T16:33:16+08:00">
+    <meta property="article:modified_time" content="2025-02-06T16:33:16+08:00">
+    <meta property="article:tag" content="Rust">
 
 
 
@@ -188,24 +187,6 @@
 						
 						
 						
-						
-							<li>
-								<a href="#%e5%8c%97%e9%82%aevc%e5%ae%9e%e9%aa%8c%e9%a2%98-%e5%88%a4%e5%88%ab%e6%b0%b4%e6%9e%9c%e9%a2%9c%e8%89%b2" class="nav-北邮vc实验题-判别水果颜色">
-									北邮VC&#43;&#43;实验题 判别水果颜色
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
 							
 								
 									<ul>
@@ -214,8 +195,8 @@
 						
 						
 							<li>
-								<a href="#%e9%a2%98%e7%9b%ae%e6%8f%8f%e8%bf%b0" class="nav-题目描述">
-									题目描述
+								<a href="#%e4%b8%8a%e5%8f%a4%e4%bb%99%e6%9c%af%e6%a0%b8%e5%bf%83%e5%87%ba%e8%a3%85-version-010" class="nav-上古仙术核心出装-version-010">
+									上古仙术，核心出装 Version-0.1.0
 								</a>
 							</li>
 						
@@ -232,8 +213,8 @@
 						
 						
 							<li>
-								<a href="#%e8%be%93%e5%85%a5%e6%a0%bc%e5%bc%8f" class="nav-输入格式">
-									输入格式
+								<a href="#%e6%b3%95%e5%ae%9d%e7%8e%b0%e4%b8%96%e6%9b%b2%e7%ba%bf%e6%95%91%e5%9b%bd-version-012" class="nav-法宝现世曲线救国-version-012">
+									法宝现世，曲线救国 Version-0.1.2
 								</a>
 							</li>
 						
@@ -250,98 +231,8 @@
 						
 						
 							<li>
-								<a href="#%e8%be%93%e5%87%ba%e6%a0%bc%e5%bc%8f" class="nav-输出格式">
-									输出格式
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#%e6%a0%b7%e4%be%8b" class="nav-样例">
-									样例
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#%e8%be%93%e5%85%a5%e6%a0%b7%e4%be%8b" class="nav-输入样例">
-									输入样例
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#%e8%be%93%e5%87%ba%e6%a0%b7%e4%be%8b" class="nav-输出样例">
-									输出样例
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#%e8%a7%a3%e7%ad%94" class="nav-解答">
-									解答
+								<a href="#%e4%b8%b9%e5%87%ba-version-02x" class="nav-丹出-version-02x">
+									丹出~！ Version-0.2.X
 								</a>
 							</li>
 						
@@ -404,32 +295,29 @@
                 
             >
                 <div class="post-title">
-                    水果颜色-PTA
+                    记录一次YOLO的RUST实现
                     
                     <div class="post-subtitle">
-                        BUPT大一上习题 水果颜色
+                        Rust小记
                     </div>
                     
                     <div class="post-meta">
                         
                         <time itemprop="datePublished">
-                            2023-10-24 00:00
+                            2025-02-06 16:33
                         </time>
                         
 
                         
                             <i class="material-icons" style="">folder</i>
-                                <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
+                                <a href="/categories/%E7%94%9F%E6%B4%BB">生活</a>
                                 &nbsp;
                         
 
                         
                             <i class="material-icons" style="">label</i>
                             
-                                <a href="/tags/cpp">Cpp</a>
-                                &nbsp;
-                            
-                                <a href="/tags/pta">PTA</a>
+                                <a href="/tags/rust">Rust</a>
                                 &nbsp;
                             
                         
@@ -442,37 +330,43 @@
                 
                 <div class="post-body" v-pre>
                 
-                    <h1 id="北邮vc实验题-判别水果颜色">北邮VC++实验题 判别水果颜色</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>现在有一堆水果，苹果红色，香蕉黄色，西瓜绿色，其余紫色。
-当输入一种水果名字，要输入其对应的颜色。</p>
-<h2 id="输入格式">输入格式</h2>
-<p>输入水果名字，如：苹果。</p>
-<h2 id="输出格式">输出格式</h2>
-<p>输出颜色，如：红色。</p>
-<h1 id="样例">样例</h1>
-<h3 id="输入样例">输入样例</h3>
-<pre tabindex="0"><code>苹果
-</code></pre><h3 id="输出样例">输出样例</h3>
-<pre tabindex="0"><code>红色
-</code></pre><h2 id="解答">解答</h2>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#78787e">#include</span> <span style="color:#78787e">&lt;iostream&gt;</span><span style="color:#78787e">
-</span></span></span><span style="display:flex;"><span><span style="color:#78787e">#include</span> <span style="color:#78787e">&lt;cstring&gt;</span><span style="color:#78787e">
-</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#78787e">//判断水果颜色
-</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">using</span> <span style="color:#ff6ac1">namespace</span> std;
-</span></span><span style="display:flex;"><span><span style="color:#9aedfe">int</span> <span style="color:#57c7ff">main</span>()
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    string s;
-</span></span><span style="display:flex;"><span>    cin<span style="color:#ff6ac1">&gt;&gt;</span>s;
-</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">if</span>(s<span style="color:#ff6ac1">==</span><span style="color:#5af78e">&#34;苹果&#34;</span>)cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34;红色&#34;</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">else</span> <span style="color:#ff6ac1">if</span>(s<span style="color:#ff6ac1">==</span><span style="color:#5af78e">&#34;香蕉&#34;</span>)cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34;黄色&#34;</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">else</span> <span style="color:#ff6ac1">if</span>(s<span style="color:#ff6ac1">==</span><span style="color:#5af78e">&#34;西瓜&#34;</span>)cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34;绿色&#34;</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">else</span> cout<span style="color:#ff6ac1">&lt;&lt;</span><span style="color:#5af78e">&#34;紫色&#34;</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+                    <blockquote>
+<p>这篇博客不能算是编程相关，因为只是一次记录而已，代码相关可以参考文末仓库和我的相关博客</p>
+</blockquote>
+<p>事情的起因是我和同学在准备工创赛，要做一个智能垃圾桶(AI垃圾分类)，本来是使用<code>Python</code>做推理的，并用了<code>PyQt</code>做前端。</p>
+<p>但是没想到哇٩(ŏ﹏ŏ、)۶！那个Qt在树莓派上始终不能正常安装，于是我们考虑换技术栈，我一开始考虑使用<code>libtorch+cpp</code>的方式实现。不过显然，这个难度完全不是我能对付的……</p>
+<p>不过非常不巧(?!)，我看到了<code>libtorch</code>的<code>rust</code>绑定<code>torch-rs</code>，加上我之前使用过<code>Tauri</code>框架，整体来说能满足我的需求，于是乎，本着折腾ʅ（´◔౪◔）ʃ的原则，我开始先解决核心问题——使用<code>Rust</code>实现<code>yolo</code>的推理。</p>
+<blockquote>
+<p>其中<a href="https://blog.csdn.net/shelgi/article/details/131558507">这篇文章</a>给了我很大启发，文章中介绍了yolo在rust推理的基本原理，版本比较陈旧，但是仍然推荐阅读</p>
+</blockquote>
+<h2 id="上古仙术核心出装-version-010">上古仙术，核心出装 Version-0.1.0</h2>
+<p>我于是依着葫芦画瓢，写了最初的单文件推理版本，这个版本非常简陋，只包含了图片转Tensor和输出结果到命令行，不过也是初具雏形，但是仍然存在如：</p>
+<ul>
+<li>没有形成模块化的package，所有东西是混在<code>main.rs</code>和<code>yolo.rs</code>里面</li>
+<li>没有实现画框和打标签的功能，也就是说完全不能用图片展示</li>
+</ul>
+<p>等等问题，反正就是能用，但不是很能用</p>
+<p><a href="https://github.com/zhao-leo/yolov8_rust_demo/blob/41f508aa2a65183ab30638e598defed8b9f52d82/src/yolo.rs">点击前往</a></p>
+<blockquote>
+<p>顺嘴一提，本来是准备用fast-r-cnn的，但是教程有限，我们组就放弃了。还是yolo封装好哇！</p>
+</blockquote>
+<h2 id="法宝现世曲线救国-version-012">法宝现世，曲线救国 Version-0.1.2</h2>
+<p>由于痛苦的环境配置给我留下了很深刻的印象，在这个版本中，我特意编写了一个启动器，来对主程序进行环境变量的注入，同时编写了两个<code>bat</code>方便推理，不管怎么说，还是可以比较完美的运行的。</p>
+<p>同时，在这个版本，我解决了画框和画字的问题，也就是说，这玩意可以正常运行了(在环境变量正确注入的情况下)。</p>
+<p>但是仍然存在一些不足，也就是<code>torch-rs</code>库本身的问题，使得<code>libtorch</code>不能正确识别我的<code>GPU</code>，我在<code>github issues</code>上看到了解决方案，但是暂时没有想到很好的方法封装进我的仓库。</p>
+<p>而且，这个批量推理bat需要反复将模型载入，就是挺抽象的，嗯……</p>
+<p>版本链接：<a href="https://github.com/zhao-leo/yolov8_rust_demo/tree/006ff1c79284dd9cc9acb15bdc8e8eb25ec5d406">点击前往</a></p>
+<pre tabindex="0"><code>内存：I&#39;m free~!
+</code></pre><h2 id="丹出-version-02x">丹出~！ Version-0.2.X</h2>
+<p>在这个版本，我把核心库分离出来了，封装成了<code>yolo_binding</code>这个库，它能在Windows上很好的运行(尽管<code>docs.rs</code>的构建问题还没有解决)，有一个相对好用的接口，一切都按我设想的运行，主程序只要对模型实例化一次，相关的封装也按照我的设想进行了修改……</p>
+<p>不管怎么说，对我来说，还是有点成就感的，尽管有这样那样的问题没有解决，但是自己尽力就好~</p>
+<p>模块代码：</p>
+<p><a href="https://github.com/zhao-leo/yolo_binding">github</a>
+<a href="https://crates.io/crates/yolo_binding">crates.io</a></p>
+
                     
                     <HR width="100%" id="EOF">
-		    <p style="color:#777;">最后修改于 2023-10-24</p>
+		    <p style="color:#777;">最后修改于 2025-02-06</p>
                     
                 </div>
             </div>
@@ -481,14 +375,14 @@
             <nav class="post-pagination">
 
                 
-                <a class="newer-posts" href="/posts/%E7%A0%B4%E8%A7%A3%E7%AE%80%E5%8D%95%E5%AF%86%E7%A0%81/">
-			下回<br>破解简单密码-PTA
+                <a class="newer-posts">
+			下回<br>已经到头啦。
                 </a>
                 
                 
                 
-                <a class="older-posts" href="/posts/%E6%A0%A1%E5%9B%AD%E6%AD%8C%E6%89%8B%E5%A4%A7%E8%B5%9B%E6%96%B0%E8%A7%84%E5%88%99/">
-			上回<br>校园歌手大赛新规则-PTA
+                <a class="older-posts" href="/posts/cloudstudio%E9%85%8D%E7%BD%AE/">
+			上回<br>Cloudstudio配置
                 </a>
                 
             </nav>
@@ -632,24 +526,6 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 						
-						
-							<li>
-								<a href="#%e5%8c%97%e9%82%aevc%e5%ae%9e%e9%aa%8c%e9%a2%98-%e5%88%a4%e5%88%ab%e6%b0%b4%e6%9e%9c%e9%a2%9c%e8%89%b2" class="nav-北邮vc实验题-判别水果颜色">
-									北邮VC&#43;&#43;实验题 判别水果颜色
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
 							
 								
 									<ul>
@@ -658,8 +534,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e9%a2%98%e7%9b%ae%e6%8f%8f%e8%bf%b0" class="nav-题目描述">
-									题目描述
+								<a href="#%e4%b8%8a%e5%8f%a4%e4%bb%99%e6%9c%af%e6%a0%b8%e5%bf%83%e5%87%ba%e8%a3%85-version-010" class="nav-上古仙术核心出装-version-010">
+									上古仙术，核心出装 Version-0.1.0
 								</a>
 							</li>
 						
@@ -676,8 +552,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e8%be%93%e5%85%a5%e6%a0%bc%e5%bc%8f" class="nav-输入格式">
-									输入格式
+								<a href="#%e6%b3%95%e5%ae%9d%e7%8e%b0%e4%b8%96%e6%9b%b2%e7%ba%bf%e6%95%91%e5%9b%bd-version-012" class="nav-法宝现世曲线救国-version-012">
+									法宝现世，曲线救国 Version-0.1.2
 								</a>
 							</li>
 						
@@ -694,98 +570,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e8%be%93%e5%87%ba%e6%a0%bc%e5%bc%8f" class="nav-输出格式">
-									输出格式
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#%e6%a0%b7%e4%be%8b" class="nav-样例">
-									样例
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#%e8%be%93%e5%85%a5%e6%a0%b7%e4%be%8b" class="nav-输入样例">
-									输入样例
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#%e8%be%93%e5%87%ba%e6%a0%b7%e4%be%8b" class="nav-输出样例">
-									输出样例
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#%e8%a7%a3%e7%ad%94" class="nav-解答">
-									解答
+								<a href="#%e4%b8%b9%e5%87%ba-version-02x" class="nav-丹出-version-02x">
+									丹出~！ Version-0.2.X
 								</a>
 							</li>
 						
