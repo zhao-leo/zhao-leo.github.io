@@ -337,7 +337,7 @@
 <p>但是没想到哇٩(ŏ﹏ŏ、)۶！那个Qt在树莓派上始终不能正常安装，于是我们考虑换技术栈，我一开始考虑使用<code>libtorch+cpp</code>的方式实现。不过显然，这个难度完全不是我能对付的……</p>
 <p>不过非常不巧(?!)，我看到了<code>libtorch</code>的<code>rust</code>绑定<code>torch-rs</code>，加上我之前使用过<code>Tauri</code>框架，整体来说能满足我的需求，于是乎，本着折腾ʅ（´◔౪◔）ʃ的原则，我开始先解决核心问题——使用<code>Rust</code>实现<code>yolo</code>的推理。</p>
 <blockquote>
-<p>其中<a href="https://blog.csdn.net/shelgi/article/details/131558507">这篇文章</a>给了我很大启发，文章中介绍了yolo在rust推理的基本原理，版本比较陈旧，但是仍然推荐阅读</p>
+<p>其中  <a href="https://blog.csdn.net/shelgi/article/details/131558507">这篇文章</a>  给了我很大启发，文章中介绍了yolo在rust推理的基本原理，版本比较陈旧，但是仍然推荐阅读</p>
 </blockquote>
 <h2 id="上古仙术核心出装-version-010">上古仙术，核心出装 Version-0.1.0</h2>
 <p>我于是依着葫芦画瓢，写了最初的单文件推理版本，这个版本非常简陋，只包含了图片转Tensor和输出结果到命令行，不过也是初具雏形，但是仍然存在如：</p>
