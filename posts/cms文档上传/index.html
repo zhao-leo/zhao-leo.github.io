@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<title>CMS文档上传</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="一个小工具，实现了文档上传的功能，比较简单，感谢Claude！">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="https://www.zhaocloud.work/posts/cms%E6%96%87%E6%A1%A3%E4%B8%8A%E4%BC%A0/">
+  <meta property="og:site_name" content="April Diary">
+  <meta property="og:title" content="CMS文档上传">
+  <meta property="og:description" content="一个小工具，实现了文档上传的功能，比较简单，感谢Claude！">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-10T14:07:55+08:00">
+    <meta property="article:modified_time" content="2025-02-10T14:07:55+08:00">
+    <meta property="article:tag" content="前端">
+    <meta property="article:tag" content="Javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "pz9g1z5otp");
+</script>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://www.zhaocloud.work/favicon.ico">
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>console.log("Hello from 'layouts/partials/extended_head.html'")</script>
+<link rel='stylesheet' href='https://www.zhaocloud.work/fonts/result.css' />
+<style>
+  body {
+    font-family: 'SDK_SC_Web', sans-serif;
+  }
+  code {
+    font-family: 'SDK_SC_Web', sans-serif;
+  }
+</style>
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    时间线
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    归档
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    标签
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://www.zhaocloud.work/">
+            April Diary
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://www.zhaocloud.work/">
+        <div class="single-column-header-title">April Diary</div>
+        
+        <div class="single-column-header-subtitle">人间四月芳菲尽</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    CMS文档上传
+                    
+                    <div class="post-subtitle">
+                        一个小工具，实现了文档上传的功能，比较简单，感谢Claude！
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2025-02-10 14:07
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/%E5%89%8D%E7%AB%AF">前端</a>
+                                &nbsp;
+                            
+                                <a href="/tags/javascript">Javascript</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <p>某中文自媒体网站*.docx文件上传解析插件</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#78787e">// ==UserScript==
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// @name         CKEditor DOCX Upload Helper
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// @namespace    http://tampermonkey.net/
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// @version      0.1.2
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// @description  Adds DOCX upload functionality to CKEditor 4.4.1
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// @author       Zhao-Leo
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// @match        http*://example.com/*
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// @grant        none
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// @require      https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.0/mammoth.browser.min.js
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// ==/UserScript==
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>
+</span></span><span style="display:flex;"><span>(<span style="color:#ff5c57">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;use strict&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">let</span> initializationCount <span style="color:#ff6ac1">=</span> <span style="color:#ff9f43">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">const</span> DEBUG <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">true</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">function</span> debugLog(...args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">if</span> (DEBUG) {
+</span></span><span style="display:flex;"><span>            console.log(<span style="color:#5af78e">&#39;[CKEditor DOCX Helper]&#39;</span>, ...args);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// Create a MutationObserver to watch for CKEditor initialization
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff6ac1">const</span> observer <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> MutationObserver((mutations) =&gt; {
+</span></span><span style="display:flex;"><span>        mutations.forEach((mutation) =&gt; {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">if</span> (mutation.addedNodes <span style="color:#ff6ac1">&amp;&amp;</span> mutation.addedNodes.length <span style="color:#ff6ac1">&gt;</span> <span style="color:#ff9f43">0</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#78787e">// Check if CKEDITOR object exists and has instances
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#ff6ac1">if</span> (<span style="color:#ff6ac1">typeof</span> CKEDITOR <span style="color:#ff6ac1">!==</span> <span style="color:#5af78e">&#39;undefined&#39;</span> <span style="color:#ff6ac1">&amp;&amp;</span> CKEDITOR.instances) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff6ac1">const</span> instances <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">Object</span>.keys(CKEDITOR.instances);
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff6ac1">if</span> (instances.length <span style="color:#ff6ac1">&gt;</span> <span style="color:#ff9f43">0</span>) {
+</span></span><span style="display:flex;"><span>                        debugLog(<span style="color:#5af78e">&#39;CKEditor detected:&#39;</span>, instances);
+</span></span><span style="display:flex;"><span>                        <span style="color:#78787e">// Check if the editor is fully initialized
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                        <span style="color:#ff6ac1">const</span> editor <span style="color:#ff6ac1">=</span> CKEDITOR.instances[instances[<span style="color:#ff9f43">0</span>]];
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff6ac1">if</span> (editor <span style="color:#ff6ac1">&amp;&amp;</span> editor.container <span style="color:#ff6ac1">&amp;&amp;</span> editor.container.$) {
+</span></span><span style="display:flex;"><span>                            debugLog(<span style="color:#5af78e">&#39;Editor fully initialized&#39;</span>);
+</span></span><span style="display:flex;"><span>                            observer.disconnect();
+</span></span><span style="display:flex;"><span>                            initializeUploader(editor);
+</span></span><span style="display:flex;"><span>                        } <span style="color:#ff6ac1">else</span> {
+</span></span><span style="display:flex;"><span>                            debugLog(<span style="color:#5af78e">&#39;Editor instance found but not fully initialized&#39;</span>);
+</span></span><span style="display:flex;"><span>                        }
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// Start observing
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    debugLog(<span style="color:#5af78e">&#39;Starting observer...&#39;</span>);
+</span></span><span style="display:flex;"><span>    observer.observe(<span style="color:#ff5c57">document</span>.body, {
+</span></span><span style="display:flex;"><span>        childList<span style="color:#ff6ac1">:</span> <span style="color:#ff6ac1">true</span>,
+</span></span><span style="display:flex;"><span>        subtree<span style="color:#ff6ac1">:</span> <span style="color:#ff6ac1">true</span>
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">function</span> initializeUploader(editor) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">if</span> (initializationCount <span style="color:#ff6ac1">&gt;</span> <span style="color:#ff9f43">0</span>) {
+</span></span><span style="display:flex;"><span>            debugLog(<span style="color:#5af78e">&#39;Uploader already initialized&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">return</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">if</span> (<span style="color:#ff6ac1">!</span>editor <span style="color:#ff6ac1">||</span> <span style="color:#ff6ac1">!</span>editor.container <span style="color:#ff6ac1">||</span> <span style="color:#ff6ac1">!</span>editor.container.$) {
+</span></span><span style="display:flex;"><span>            debugLog(<span style="color:#5af78e">&#39;Editor not properly initialized&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">return</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        debugLog(<span style="color:#5af78e">&#39;Initializing uploader for editor:&#39;</span>, editor.name);
+</span></span><span style="display:flex;"><span>        initializationCount<span style="color:#ff6ac1">++</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// Create upload button
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#ff6ac1">const</span> button <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">document</span>.createElement(<span style="color:#5af78e">&#39;button&#39;</span>);
+</span></span><span style="display:flex;"><span>        button.type <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;button&#39;</span>;
+</span></span><span style="display:flex;"><span>        button.textContent <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;上传文档文件&#39;</span>;
+</span></span><span style="display:flex;"><span>        button.style.cssText <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">`
+</span></span></span><span style="display:flex;"><span><span style="color:#5af78e">            padding: 5px 10px;
+</span></span></span><span style="display:flex;"><span><span style="color:#5af78e">            margin: 5px;
+</span></span></span><span style="display:flex;"><span><span style="color:#5af78e">            background-color: #2196F3;
+</span></span></span><span style="display:flex;"><span><span style="color:#5af78e">            color: white;
+</span></span></span><span style="display:flex;"><span><span style="color:#5af78e">            border: none;
+</span></span></span><span style="display:flex;"><span><span style="color:#5af78e">            border-radius: 3px;
+</span></span></span><span style="display:flex;"><span><span style="color:#5af78e">            cursor: pointer;
+</span></span></span><span style="display:flex;"><span><span style="color:#5af78e">        `</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// Create file input
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#ff6ac1">const</span> fileInput <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">document</span>.createElement(<span style="color:#5af78e">&#39;input&#39;</span>);
+</span></span><span style="display:flex;"><span>        fileInput.type <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;file&#39;</span>;
+</span></span><span style="display:flex;"><span>        fileInput.accept <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;.docx&#39;</span>;
+</span></span><span style="display:flex;"><span>        fileInput.style.display <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;none&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// Insert elements before the editor
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#ff6ac1">const</span> editorElement <span style="color:#ff6ac1">=</span> editor.container.$;
+</span></span><span style="display:flex;"><span>        editorElement.parentNode.insertBefore(button, editorElement);
+</span></span><span style="display:flex;"><span>        editorElement.parentNode.insertBefore(fileInput, editorElement);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        debugLog(<span style="color:#5af78e">&#39;Upload button and file input created&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// Handle click event
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        button.onclick <span style="color:#ff6ac1">=</span> (e) =&gt; {
+</span></span><span style="display:flex;"><span>            e.preventDefault();
+</span></span><span style="display:flex;"><span>            e.stopPropagation(); <span style="color:#78787e">// 阻止事件冒泡
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            debugLog(<span style="color:#5af78e">&#39;Upload button clicked&#39;</span>);
+</span></span><span style="display:flex;"><span>            fileInput.click();
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// Handle file selection
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        fileInput.onchange <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">async</span> (event) =&gt; {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">const</span> file <span style="color:#ff6ac1">=</span> event.target.files[<span style="color:#ff9f43">0</span>];
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">if</span> (<span style="color:#ff6ac1">!</span>file) <span style="color:#ff6ac1">return</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">try</span> {
+</span></span><span style="display:flex;"><span>                debugLog(<span style="color:#5af78e">&#39;Starting file processing...&#39;</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">const</span> arrayBuffer <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">await</span> file.arrayBuffer();
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">const</span> result <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">await</span> mammoth.convertToHtml({ arrayBuffer });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff5c57">let</span> html <span style="color:#ff6ac1">=</span> result.value;
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">const</span> images <span style="color:#ff6ac1">=</span> result.messages.filter(msg =&gt; msg.type <span style="color:#ff6ac1">===</span> <span style="color:#5af78e">&#39;image&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#78787e">// 处理图片
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#ff6ac1">for</span> (<span style="color:#ff5c57">let</span> i <span style="color:#ff6ac1">=</span> <span style="color:#ff9f43">0</span>; i <span style="color:#ff6ac1">&lt;</span> images.length; i<span style="color:#ff6ac1">++</span>) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff6ac1">const</span> image <span style="color:#ff6ac1">=</span> images[i];
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff6ac1">const</span> blob <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Blob([image.imageData.buffer], { type<span style="color:#ff6ac1">:</span> image.mimeType });
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff6ac1">const</span> base64 <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">await</span> <span style="color:#ff6ac1">new</span> <span style="color:#ff5c57">Promise</span>(resolve =&gt; {
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff6ac1">const</span> reader <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> FileReader();
+</span></span><span style="display:flex;"><span>                        reader.onloadend <span style="color:#ff6ac1">=</span> () =&gt; resolve(reader.result);
+</span></span><span style="display:flex;"><span>                        reader.readAsDataURL(blob);
+</span></span><span style="display:flex;"><span>                    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#78787e">// 直接将base64图片插入HTML
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                    html <span style="color:#ff6ac1">=</span> html.replace(<span style="color:#ff6ac1">new</span> <span style="color:#ff5c57">RegExp</span>(<span style="color:#5af78e">`&lt;img[^&gt;]*&gt;`</span>, <span style="color:#5af78e">&#39;i&#39;</span>), <span style="color:#5af78e">`&lt;img src=&#34;</span><span style="color:#5af78e">${</span>base64<span style="color:#5af78e">}</span><span style="color:#5af78e">&#34;&gt;`</span>);
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#78787e">// 清理HTML，只保留加粗格式
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">// const tempDiv = document.createElement(&#39;div&#39;);
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">// tempDiv.innerHTML = html;
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>
+</span></span><span style="display:flex;"><span>                <span style="color:#78787e">// const clean = (node) =&gt; {
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//     if (node.nodeType === 3) return;
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>
+</span></span><span style="display:flex;"><span>                <span style="color:#78787e">//     const isBold = node.tagName === &#39;STRONG&#39; ||
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//         node.tagName === &#39;B&#39; ||
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//         window.getComputedStyle(node).fontWeight === &#39;bold&#39;;
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>
+</span></span><span style="display:flex;"><span>                <span style="color:#78787e">//     if (isBold) {
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//         const bold = document.createElement(&#39;strong&#39;);
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//         bold.textContent = node.textContent;
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//         node.parentNode.replaceChild(bold, node);
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//     } else if (node.children &amp;&amp; node.children.length) {
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//         Array.from(node.children).forEach(clean);
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//         if (node.tagName !== &#39;P&#39; &amp;&amp; node.tagName !== &#39;IMG&#39;) {
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//             while (node.firstChild) {
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//                 node.parentNode.insertBefore(node.firstChild, node);
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//             }
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//             node.parentNode.removeChild(node);
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//         }
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//     } else if (node.tagName !== &#39;IMG&#39;) {
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//         const text = document.createTextNode(node.textContent);
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//         node.parentNode.replaceChild(text, node);
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">//     }
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">// };
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>
+</span></span><span style="display:flex;"><span>                <span style="color:#78787e">// Array.from(tempDiv.children).forEach(clean);
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>
+</span></span><span style="display:flex;"><span>                <span style="color:#78787e">// // 直接设置内容到编辑器
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#78787e">// editor.setData(tempDiv.innerHTML);
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                editor.setData(html);
+</span></span><span style="display:flex;"><span>                debugLog(<span style="color:#5af78e">&#39;Content set to editor&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#78787e">// 重置文件输入
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                fileInput.value <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            } <span style="color:#ff6ac1">catch</span> (error) {
+</span></span><span style="display:flex;"><span>                console.error(<span style="color:#5af78e">&#39;[CKEditor DOCX Helper] Error:&#39;</span>, error);
+</span></span><span style="display:flex;"><span>                alert(<span style="color:#5af78e">&#39;文档处理错误，请重试。&#39;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>        debugLog(<span style="color:#5af78e">&#39;Uploader initialization completed&#39;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    debugLog(<span style="color:#5af78e">&#39;Script loaded&#39;</span>);
+</span></span><span style="display:flex;"><span>})();
+</span></span></code></pre></div>
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2025-02-10</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts">
+			下回<br>已经到头啦。
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/yolo-binding%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86/">
+			上回<br>Yolo Binding的相关代码部分
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="zhao-leo/zhao-leo.github.io"
+        data-repo-id="R_kgDOKAOfXw"
+        data-category="General"
+        data-category-id="DIC_kwDOKAOfX84CmVot"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://www.zhaocloud.work/">
+    
+        <div class="nav-title">
+            April Diary
+        </div>
+        
+        <div class="nav-subtitle">
+            人间四月芳菲尽
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                时间线
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                归档
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+<br>
+<a href="https://icp.gov.moe/?keyword=20250610" target="_blank">萌ICP备20250610号</a>
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+<br>
+<a href="https://icp.gov.moe/?keyword=20250610" target="_blank">萌ICP备20250610号</a>
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>
