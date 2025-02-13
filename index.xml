@@ -4,6 +4,10 @@
     <title>April Diary</title>
     <link>https://www.zhaocloud.work/</link>
     <description>Recent content on April Diary</description>
+    <follow_challenge>
+      <feedId>106577729891546112</feedId>
+      <userId>104891302733339648</userId>
+    </follow_challenge>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>April. 本站遵循 CC-BY-NC 4.0 协议</copyright>
