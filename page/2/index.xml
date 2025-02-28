@@ -11,9 +11,224 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>April. 本站遵循 CC-BY-NC 4.0 协议</copyright>
-    <lastBuildDate>Mon, 10 Feb 2025 14:07:55 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Mar 2025 00:47:40 +0800</lastBuildDate>
     
         <atom:link href="https://www.zhaocloud.work/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>Matlab第九周插值问题（升级版）</title>
+        <link>https://www.zhaocloud.work/posts/matlab_%E6%8F%92%E5%80%BC%E5%8D%87%E7%BA%A7%E7%89%88/</link>
+        <pubDate>Mon, 05 Aug 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.zhaocloud.work/posts/matlab_%E6%8F%92%E5%80%BC%E5%8D%87%E7%BA%A7%E7%89%88/</guid>
+        <description>April Diary https://www.zhaocloud.work/posts/matlab_%E6%8F%92%E5%80%BC%E5%8D%87%E7%BA%A7%E7%89%88/ -&lt;h1 id=&#34;北邮matlab选修-week-9-插值升级版&#34;&gt;北邮Matlab选修 Week 9 插值(升级版)&lt;/h1&gt;
+&lt;h2 id=&#34;插值计算&#34;&gt;插值计算&lt;/h2&gt;
+&lt;h3 id=&#34;问题描述&#34;&gt;问题描述&lt;/h3&gt;
+&lt;p&gt;已知如下函数表，利用牛顿插值计算 $f(1.5)$：&lt;/p&gt;
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$x$&lt;/td&gt;
+      &lt;td&gt;-1&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$f(x)$&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;colgroup&gt;
+    &lt;col&gt;
+    &lt;col&gt;
+    &lt;col&gt;
+    &lt;col&gt;
+    &lt;col&gt;
+  &lt;/colgroup&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;程序设计&#34;&gt;程序设计&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;%lagrange_interp.m&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;function&lt;/span&gt; y=&lt;span style=&#34;color:#57c7ff&#34;&gt;lagrange_interp&lt;/span&gt;(xdata,ydata,x)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% Lagrange 插值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 输入参数：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% ---xdata：给定的节点横坐标&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% ---ydata：给定的节点纵坐标&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% ---x：需要进行插值的节点横坐标&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 输出参数：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% ---y：Lagrange 插值函数在 x 处的函数值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% = &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;n=&lt;span style=&#34;color:#ff5c57&#34;&gt;length&lt;/span&gt;(xdata);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;m=&lt;span style=&#34;color:#ff5c57&#34;&gt;length&lt;/span&gt;(ydata);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; n&lt;span style=&#34;color:#ff6ac1&#34;&gt;~=&lt;/span&gt;m
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;error(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;插值数据长度不等！&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ii=&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;:n;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;y=&lt;span style=&#34;color:#ff5c57&#34;&gt;zeros&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;size&lt;/span&gt;(x));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;i&lt;/span&gt;=ii
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ij=&lt;span style=&#34;color:#ff5c57&#34;&gt;find&lt;/span&gt;(ii&lt;span style=&#34;color:#ff6ac1&#34;&gt;~=&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;i&lt;/span&gt;);V=&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% if sum(abs(xdata(i)-xdata(ij))&amp;lt;eps)&amp;gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% error()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt;=&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;:&lt;span style=&#34;color:#ff5c57&#34;&gt;length&lt;/span&gt;(ij)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;abs&lt;/span&gt;(xdata(&lt;span style=&#34;color:#ff5c57&#34;&gt;i&lt;/span&gt;)&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;xdata(ij(&lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt;)))&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;eps&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;error(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;输入的 n+1 个节点不是互异的。&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;V=V&lt;span style=&#34;color:#ff6ac1&#34;&gt;.*&lt;/span&gt;(x&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;xdata(ij(&lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt;)));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;%prod(x-xdata(ij)&amp;#39;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;y=y&lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt;V&lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt;ydata(&lt;span style=&#34;color:#ff5c57&#34;&gt;i&lt;/span&gt;)&lt;span style=&#34;color:#ff6ac1&#34;&gt;/&lt;/span&gt;prod(xdata(&lt;span style=&#34;color:#ff5c57&#34;&gt;i&lt;/span&gt;)&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;xdata(ij));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;计算结果&#34;&gt;计算结果&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;%question1.m&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;x=&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1.5&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;0.01&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;5.2&lt;/span&gt;; &lt;span style=&#34;color:#78787e&#34;&gt;% 加密数据点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xdata=[&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;]; &lt;span style=&#34;color:#78787e&#34;&gt;% 已知数据点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ydata=[&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;6&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;5&lt;/span&gt;]; &lt;span style=&#34;color:#78787e&#34;&gt;% 点 xdata 处的函数值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;y=lagrange_interp(xdata,ydata,x); &lt;span style=&#34;color:#78787e&#34;&gt;% Lagrange 插值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 计算在 x = 1.5 处的预测值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;x_pred = &lt;span style=&#34;color:#ff9f43&#34;&gt;1.5&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;y_pred = lagrange_interp(xdata,ydata,x_pred);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 绘制图形&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;figure; &lt;span style=&#34;color:#78787e&#34;&gt;% 创建新的图形窗口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;plot(xdata,ydata,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;ko&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;MarkerSize&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;10&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;LineWidth&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;); &lt;span style=&#34;color:#78787e&#34;&gt;% 绘制原始数据点，设置点的大小和线宽&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hold on; &lt;span style=&#34;color:#78787e&#34;&gt;% 保持当前图形，以便在同一图形上添加更多的线或点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;plot(x,y,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;r&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;LineWidth&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;); &lt;span style=&#34;color:#78787e&#34;&gt;% 绘制拉格朗日插值的结果，设置线的颜色和线宽&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;plot(x_pred,y_pred,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;bo&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;MarkerSize&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;10&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;LineWidth&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;); &lt;span style=&#34;color:#78787e&#34;&gt;% 绘制预测点，设置点的颜色、大小和线宽&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;text(x_pred,y_pred,sprintf(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;(%0.1f, %0.2f)&amp;#39;&lt;/span&gt;,x_pred,y_pred),&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;VerticalAlignment&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;bottom&amp;#39;&lt;/span&gt;); &lt;span style=&#34;color:#78787e&#34;&gt;% 在图上显示预测值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hold off; &lt;span style=&#34;color:#78787e&#34;&gt;% 取消保持图形&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 添加标题和轴标签&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;title(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;Lagrange Interpolation&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xlabel(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;x&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ylabel(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;y&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-terminal&#34; data-lang=&#34;terminal&#34;&gt;&amp;gt;&amp;gt; question1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;question1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;代码修改&#34;&gt;代码修改&lt;/h2&gt;
+&lt;h3 id=&#34;问题描述-1&#34;&gt;问题描述&lt;/h3&gt;
+&lt;p&gt;书上给的牛顿插值函数 newton 代码示例中，利用矩阵来记录差商表。但注意到，牛顿插值中实际上只用到了差商表第一行上的元素，因此，只保留第一行元素就够了，其它中间结果并不需保存。请编写一个函数，用于求该磁盘的体积和面积，并用一个实例对编写的函数进行测试。请对书上给出的 newton 代码进行修改：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.将数据合规性检查挪到函数代码执行顺序的前方位置，独立于插值计算；&lt;/li&gt;
+&lt;li&gt;2.修改 newton 函数，用向量来表示差商表中第一行数据的存储。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;完成以上代码修改后，计算作业 1 ，检验程序是否正确。&lt;/p&gt;
+&lt;h3 id=&#34;程序设计-1&#34;&gt;程序设计&lt;/h3&gt;
+&lt;p&gt;原代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;%newton_interp.m&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;function&lt;/span&gt; [y,D]=&lt;span style=&#34;color:#57c7ff&#34;&gt;newton_interp&lt;/span&gt;(xdata,ydata,x)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% Newton 插值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 输入参数：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% ---xdata：给定的节点横坐标&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% ---ydata：给定的节点纵坐标&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% ---x：需要进行插值的节点横坐标&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 输出参数：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% ---y：Newton 插值函数在 x 处的函数值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% ---D：差商表&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;n=&lt;span style=&#34;color:#ff5c57&#34;&gt;length&lt;/span&gt;(xdata);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;m=&lt;span style=&#34;color:#ff5c57&#34;&gt;length&lt;/span&gt;(ydata);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; n&lt;span style=&#34;color:#ff6ac1&#34;&gt;~=&lt;/span&gt;m
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;error(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;插值数据长度不等！&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;D=&lt;span style=&#34;color:#ff5c57&#34;&gt;zeros&lt;/span&gt;(n);D(:,&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;)=ydata&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;#39;&lt;/span&gt;;H=&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt;=&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;:n&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt; k=&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;:n&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;abs&lt;/span&gt;(xdata(&lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt;k)&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;xdata(k))&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;eps&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;error(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;输入的 n+1 个节点不是互异的。&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;D(k,&lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;)=(D(k&lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt;)&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;D(k,&lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt;))&lt;span style=&#34;color:#ff6ac1&#34;&gt;/&lt;/span&gt;(xdata(&lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt;k)&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;xdata(k));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;H=H&lt;span style=&#34;color:#ff6ac1&#34;&gt;.*&lt;/span&gt;(x&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;xdata(&lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;L(&lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt;,:)=H;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;L=[&lt;span style=&#34;color:#ff5c57&#34;&gt;ones&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;size&lt;/span&gt;(x));L];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;y=L&lt;span style=&#34;color:#ff6ac1&#34;&gt;.*&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;repmat&lt;/span&gt;(D(&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,:)&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff5c57&#34;&gt;length&lt;/span&gt;(x));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;y=sum(y);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;改进后的代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;%newton_interp_advanced.m&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;function&lt;/span&gt; [y,D]=&lt;span style=&#34;color:#57c7ff&#34;&gt;newton_interp_advanced&lt;/span&gt;(xdata,ydata,x)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% Newton 插值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 输入参数：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% ---xdata：给定的节点横坐标&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% ---ydata：给定的节点纵坐标&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% ---x：需要进行插值的节点横坐标&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 输出参数：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% ---y：Newton 插值函数在 x 处的函数值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% ---D：差商表&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;n = &lt;span style=&#34;color:#ff5c57&#34;&gt;length&lt;/span&gt;(xdata);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; n &lt;span style=&#34;color:#ff6ac1&#34;&gt;~=&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;length&lt;/span&gt;(ydata)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    error(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;插值数据长度不等！&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;i&lt;/span&gt; = &lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;:n&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;abs&lt;/span&gt;(xdata(&lt;span style=&#34;color:#ff5c57&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;) &lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt; xdata(&lt;span style=&#34;color:#ff5c57&#34;&gt;i&lt;/span&gt;)) &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;eps&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        error(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;输入的 n+1 个节点不是互异的。&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;D = ydata;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;H = &lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;L = &lt;span style=&#34;color:#ff5c57&#34;&gt;zeros&lt;/span&gt;(n&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ff5c57&#34;&gt;length&lt;/span&gt;(x)); &lt;span style=&#34;color:#78787e&#34;&gt;% 预先分配 L 的大小&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt; = &lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;:n&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt; k = n:&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;:&lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        D(k) = (D(k) &lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt; D(k&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;)) &lt;span style=&#34;color:#ff6ac1&#34;&gt;/&lt;/span&gt; (xdata(k) &lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt; xdata(k&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    H = H &lt;span style=&#34;color:#ff6ac1&#34;&gt;.*&lt;/span&gt; (x &lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt; xdata(&lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    L(&lt;span style=&#34;color:#ff5c57&#34;&gt;j&lt;/span&gt;,:) = H;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;L=[&lt;span style=&#34;color:#ff5c57&#34;&gt;ones&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;size&lt;/span&gt;(x));L];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;y=L&lt;span style=&#34;color:#ff6ac1&#34;&gt;.*&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;repmat&lt;/span&gt;(D(&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,:)&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff5c57&#34;&gt;length&lt;/span&gt;(x));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;y=sum(y);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;计算结果-1&#34;&gt;计算结果&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;%question2_newton.m&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;x=&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1.5&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;0.01&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;5.2&lt;/span&gt;; &lt;span style=&#34;color:#78787e&#34;&gt;% 加密数据点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xdata=[&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;]; &lt;span style=&#34;color:#78787e&#34;&gt;% 已知数据点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ydata=[&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;6&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;5&lt;/span&gt;]; &lt;span style=&#34;color:#78787e&#34;&gt;% 点 xdata 处的函数值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;y=newton_interp(xdata,ydata,x); &lt;span style=&#34;color:#78787e&#34;&gt;% Lagrange 插值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 计算在 x = 1.5 处的预测值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;x_pred = &lt;span style=&#34;color:#ff9f43&#34;&gt;1.5&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;y_pred = newton_interp(xdata,ydata,x_pred);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 绘制图形&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;figure; &lt;span style=&#34;color:#78787e&#34;&gt;% 创建新的图形窗口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;plot(xdata,ydata,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;ko&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;MarkerSize&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;10&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;LineWidth&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;); &lt;span style=&#34;color:#78787e&#34;&gt;% 绘制原始数据点，设置点的大小和线宽&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hold on; &lt;span style=&#34;color:#78787e&#34;&gt;% 保持当前图形，以便在同一图形上添加更多的线或点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;plot(x,y,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;r&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;LineWidth&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;); &lt;span style=&#34;color:#78787e&#34;&gt;% 绘制拉格朗日插值的结果，设置线的颜色和线宽&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;plot(x_pred,y_pred,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;bo&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;MarkerSize&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;10&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;LineWidth&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;); &lt;span style=&#34;color:#78787e&#34;&gt;% 绘制预测点，设置点的颜色、大小和线宽&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;text(x_pred,y_pred,sprintf(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;(%0.1f, %0.2f)&amp;#39;&lt;/span&gt;,x_pred,y_pred),&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;VerticalAlignment&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;bottom&amp;#39;&lt;/span&gt;); &lt;span style=&#34;color:#78787e&#34;&gt;% 在图上显示预测值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hold off; &lt;span style=&#34;color:#78787e&#34;&gt;% 取消保持图形&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 添加标题和轴标签&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;title(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;Newton Interpolation&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xlabel(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;x&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ylabel(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;y&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;%question2_newton_advanced.m&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;x=&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1.5&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;0.01&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;5.2&lt;/span&gt;; &lt;span style=&#34;color:#78787e&#34;&gt;% 加密数据点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xdata=[&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;]; &lt;span style=&#34;color:#78787e&#34;&gt;% 已知数据点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ydata=[ &lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;6&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;5&lt;/span&gt;]; &lt;span style=&#34;color:#78787e&#34;&gt;% 点 xdata 处的函数值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;y=newton_interp_advanced(xdata,ydata,x); &lt;span style=&#34;color:#78787e&#34;&gt;% Lagrange 插值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 计算在 x = 1.5 处的预测值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;x_pred = &lt;span style=&#34;color:#ff9f43&#34;&gt;1.5&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;y_pred = newton_interp_advanced(xdata,ydata,x_pred);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 绘制图形&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;figure; &lt;span style=&#34;color:#78787e&#34;&gt;% 创建新的图形窗口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;plot(xdata,ydata,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;ko&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;MarkerSize&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;10&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;LineWidth&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;); &lt;span style=&#34;color:#78787e&#34;&gt;% 绘制原始数据点，设置点的大小和线宽&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hold on; &lt;span style=&#34;color:#78787e&#34;&gt;% 保持当前图形，以便在同一图形上添加更多的线或点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;plot(x,y,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;r&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;LineWidth&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;); &lt;span style=&#34;color:#78787e&#34;&gt;% 绘制拉格朗日插值的结果，设置线的颜色和线宽&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;plot(x_pred,y_pred,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;bo&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;MarkerSize&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;10&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;LineWidth&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;); &lt;span style=&#34;color:#78787e&#34;&gt;% 绘制预测点，设置点的颜色、大小和线宽&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;text(x_pred,y_pred,sprintf(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;(%0.1f, %0.2f)&amp;#39;&lt;/span&gt;,x_pred,y_pred),&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;VerticalAlignment&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;bottom&amp;#39;&lt;/span&gt;); &lt;span style=&#34;color:#78787e&#34;&gt;% 在图上显示预测值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hold off; &lt;span style=&#34;color:#78787e&#34;&gt;% 取消保持图形&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 添加标题和轴标签&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;title(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;Newton Interpolation Advanced&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xlabel(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;x&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ylabel(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;y&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-terminal&#34; data-lang=&#34;terminal&#34;&gt;&amp;gt;&amp;gt; question2_newton
+&amp;gt;&amp;gt; question2_newton_advanced
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;question2_newton.png&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;question2_newton_advanced.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+- https://www.zhaocloud.work/posts/matlab_%E6%8F%92%E5%80%BC%E5%8D%87%E7%BA%A7%E7%89%88/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
+        </item>
     
     
     
@@ -1189,74 +1404,6 @@ Current installation options:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;3) Cancel installation
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最后回车一次，等待程序自动运行即可。&lt;/p&gt;
 - https://www.zhaocloud.work/posts/rust%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
-        </item>
-    
-    
-    
-        <item>
-        <title>Minecraft简单联机教程</title>
-        <link>https://www.zhaocloud.work/posts/minecraft%E8%81%94%E6%9C%BA%E6%8C%87%E5%8D%97/</link>
-        <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
-        
-        <guid>https://www.zhaocloud.work/posts/minecraft%E8%81%94%E6%9C%BA%E6%8C%87%E5%8D%97/</guid>
-        <description>April Diary https://www.zhaocloud.work/posts/minecraft%E8%81%94%E6%9C%BA%E6%8C%87%E5%8D%97/ -&lt;h1 id=&#34;mineraft-java-edition-简单联机教程&#34;&gt;Mineraft-Java Edition 简单联机教程&lt;/h1&gt;
-&lt;h2 id=&#34;情况1玩家们在同一网络范围内&#34;&gt;情况1:玩家们在同一网络范围内&lt;/h2&gt;
-&lt;p&gt;比如:连接同一个路由器 Or 同时连接同一所学校的校园网&lt;/p&gt;
-&lt;h3 id=&#34;11-进入待联机世界&#34;&gt;1.1 进入待联机世界&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Step1:点按Esc键进入游戏菜单
-Step2:点击对局域网开放
-Step3:点击创造一个局域网世界
-（在较高版本上可以自定义端口，在较低版本端口号会显示在聊天框中）
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Notice:不论如何，请记住这个端口号！！！&lt;/p&gt;
-&lt;!-- more --&gt;
-&lt;h3 id=&#34;12-回到桌面不要退出mc&#34;&gt;1.2 回到桌面（不要退出MC）&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Step1:按组合键Windows+R进入运行，在弹出的框中输入cmd，回车运行
-Step2:在弹出的界面输入ipconfig，浏览内容，找到&amp;#34;IPv4 地址&amp;#34;一行，记住后面形如xxx.xxx.xxx.xxx的部分
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;13-回到mc&#34;&gt;1.3 回到MC&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Step1:在好友的电脑上点击多人游戏————直接连接，并输入&amp;#34;IPv4 地址:端口号&amp;#34;连接进入
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;举例说明&#34;&gt;举例说明:&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;在上述 1.1 步骤中获取（设置）的端口号为25565
-在上述 1.2 步骤中获取的IPv4地址为192.168.3.5
-那么好友就应当输入192.168.3.5:25565
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;情况2玩家们不在同一网络范围内&#34;&gt;情况2:玩家们不在同一网络范围内&lt;/h2&gt;
-&lt;p&gt;比如:在两个不同的城市&lt;/p&gt;
-&lt;h3 id=&#34;21-进入待联机世界&#34;&gt;2.1 进入待联机世界&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;同 1.1
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;P.S.:如果端口可以自定义，建议 25565&lt;/p&gt;
-&lt;h3 id=&#34;22-寻找端口映射服务器&#34;&gt;2.2 寻找端口映射服务器&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Step1:建议访问https://panel.chmlfrp.cn/login注册并实名
-Step2:在 隧道管理————隧道列表 页面下点击&amp;#34;添加隧道&amp;#34;，选一个节点（建议海外节点）
-Step3:点击，在&amp;#34;内网端口&amp;#34;一栏填写 1.1 获取（设置）的端口号，点击确定，保存
-Step4*:第一次使用的用户，点击软件下载，下载对应客户端并解压
-Step5:在 隧道管理————配置文件 页面下点击&amp;#34;节点选择&amp;#34;,选择刚刚创建的节点，
-点击&amp;#34;复制配置文件&amp;#34;
-Step6:在客户端文件中找到&amp;#34;frpc.ini&amp;#34;，右键，用记事本打开
-Step7:将Step5中生成的配置文件复制到&amp;#34;frpc.ini&amp;#34;文件中，保存，
-      同时记录server_addr=后面的地址和remote_port=后面的端口号记录下来
-Step8:关闭记事本，打开&amp;#34;frpc.ini&amp;#34;所在的文件夹，右键&amp;#34;在终端中打开&amp;#34;，
-      在弹出的框中输入&amp;#34;./frpc&amp;#34;（没有双引号）即可
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Notice:&amp;ldquo;frpc.ini&amp;quot;中local_port=后面的端口号必须和 2.1 中的端口号完全相同！！！
-Notice:在整个联机过程中不要关闭终端窗口！！！&lt;/p&gt;
-&lt;h3 id=&#34;23-回到mc&#34;&gt;2.3 回到MC&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Step1:在好友的电脑上点击多人游戏————直接连接，并输入&amp;#34;server_addr:remote_port&amp;#34;连接进入
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;举例说明-1&#34;&gt;举例说明:&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;在上述 2.1 步骤中获取（设置）的端口号为25565
-在上述 2.2 步骤中的配置文件如下
-&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;[common]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;server_addr&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;38.299.130.211&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;server_port&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;7000&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;tls_enable&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;false&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;user&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;XXXXXXXXXXXXXXXXXXX&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;token&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;ChmlFrpToken&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;[3dyziJm]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;tcp&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;local_ip&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;127.0.0.1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;local_port&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;25565&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;remote_port&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;45486&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;那么好友就应当输入 38.299.130.211:45486
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;现在开始你们的mc之旅吧&#34;&gt;现在，开始你们的MC之旅吧~&lt;/h2&gt;
-- https://www.zhaocloud.work/posts/minecraft%E8%81%94%E6%9C%BA%E6%8C%87%E5%8D%97/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
         </item>
     
     
