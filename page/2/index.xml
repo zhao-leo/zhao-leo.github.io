@@ -11,9 +11,198 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>April. 本站遵循 CC-BY-NC 4.0 协议</copyright>
-    <lastBuildDate>Mon, 07 Apr 2025 17:34:01 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 15 Apr 2025 23:42:22 +0800</lastBuildDate>
     
         <atom:link href="https://www.zhaocloud.work/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>方块转换</title>
+        <link>https://www.zhaocloud.work/posts/luogu_%E6%96%B9%E5%9D%97%E8%BD%AC%E6%8D%A2/</link>
+        <pubDate>Tue, 08 Oct 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.zhaocloud.work/posts/luogu_%E6%96%B9%E5%9D%97%E8%BD%AC%E6%8D%A2/</guid>
+        <description>April Diary https://www.zhaocloud.work/posts/luogu_%E6%96%B9%E5%9D%97%E8%BD%AC%E6%8D%A2/ -&lt;h1 id=&#34;p1205-usaco12-方块转换-transformations&#34;&gt;P1205 [USACO1.2] 方块转换 Transformations&lt;/h1&gt;
+&lt;h2 id=&#34;题目描述&#34;&gt;题目描述&lt;/h2&gt;
+&lt;p&gt;一块 $n \times n$ 正方形的黑白瓦片的图案要被转换成新的正方形图案。写一个程序来找出将原始图案按照以下列转换方法转换成新图案的最小方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;转 $90\degree$：图案按顺时针转 $90\degree$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;转 $180\degree$：图案按顺时针转 $180\degree$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;转 $270\degree$：图案按顺时针转 $270\degree$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;反射：图案在水平方向翻转（以中央铅垂线为中心形成原图案的镜像）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;组合：图案在水平方向翻转，然后再按照 $1 \sim 3$ 之间的一种再次转换。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不改变：原图案不改变。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;无效转换：无法用以上方法得到新图案。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果有多种可用的转换方法，请选择序号最小的那个。&lt;/p&gt;
+&lt;p&gt;只使用上述 $7$ 个中的一个步骤来完成这次转换。&lt;/p&gt;
+&lt;h2 id=&#34;输入格式&#34;&gt;输入格式&lt;/h2&gt;
+&lt;p&gt;第一行一个正整数 $n$。&lt;/p&gt;
+&lt;p&gt;然后 $n$ 行，每行 $n$ 个字符，全部为 &lt;code&gt;@&lt;/code&gt; 或 &lt;code&gt;-&lt;/code&gt;，表示初始的正方形。&lt;/p&gt;
+&lt;p&gt;接下来 $n$ 行，每行 $n$ 个字符，全部为 &lt;code&gt;@&lt;/code&gt; 或 &lt;code&gt;-&lt;/code&gt;，表示最终的正方形。&lt;/p&gt;
+&lt;h2 id=&#34;输出格式&#34;&gt;输出格式&lt;/h2&gt;
+&lt;p&gt;单独的一行包括 $1 \sim 7$ 之间的一个数字（在上文已描述）表明需要将转换前的正方形变为转换后的正方形的转换方法。&lt;/p&gt;
+&lt;h2 id=&#34;样例-1&#34;&gt;样例 #1&lt;/h2&gt;
+&lt;h3 id=&#34;样例输入-1&#34;&gt;样例输入 #1&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;3
+@-@
+---
+@@-
+@-@
+@--
+--@
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;样例输出-1&#34;&gt;样例输出 #1&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;1
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;提示&#34;&gt;提示&lt;/h2&gt;
+&lt;p&gt;【数据范围】&lt;br&gt;
+对于 $100%$ 的数据，$1\le n \le 10$。&lt;/p&gt;
+&lt;p&gt;题目翻译来自 NOCOW。&lt;/p&gt;
+&lt;p&gt;USACO Training Section 1.2&lt;/p&gt;
+&lt;h2 id=&#34;解答&#34;&gt;解答&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#78787e&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;namespace&lt;/span&gt; std; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#f3f99d&#34;&gt;matrix&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;char&lt;/span&gt; a[&lt;span style=&#34;color:#ff9f43&#34;&gt;12&lt;/span&gt;][&lt;span style=&#34;color:#ff9f43&#34;&gt;12&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; dim;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}A,B;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;matrix &lt;span style=&#34;color:#57c7ff&#34;&gt;Real_Reflex&lt;/span&gt;(matrix x)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; n &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; x.dim;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; i&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;n;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; j&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;j&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;n&lt;span style=&#34;color:#ff6ac1&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;;j&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; temp &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; x.a[i][j];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            x.a[i][j] &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; x.a[i][n&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;j&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            x.a[i][n&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;j&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; temp;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; x;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;matrix &lt;span style=&#34;color:#57c7ff&#34;&gt;Real_Rorate&lt;/span&gt;(matrix x)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; n &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; x.dim;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; i&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;n&lt;span style=&#34;color:#ff6ac1&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; j&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;i;j&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;n&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;;j&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; temp &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; x.a[i][j];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            x.a[i][j] &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; x.a[n&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;j&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;][i];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            x.a[n&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;j&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;][i] &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; x.a[n&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;][n&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;j&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            x.a[n&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;][n&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;j&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; x.a[j][n&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            x.a[j][n&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; temp;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; x;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;Are_they_the_same&lt;/span&gt;(matrix X)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; n &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; X.dim;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; flag &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; i&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;n;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; j&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;j&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;n;j&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(X.a[i][j]&lt;span style=&#34;color:#ff6ac1&#34;&gt;!=&lt;/span&gt;B.a[i][j])
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                flag &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(flag&lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;main&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; n;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    cin&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt;n;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    A.dim &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; n;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    B.dim &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; n;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; i&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;n;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;)&lt;span style=&#34;color:#78787e&#34;&gt;//cin the matrixA
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; j&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;j&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;n;j&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            cin&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt;A.a[i][j];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; i&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;n;i&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;)&lt;span style=&#34;color:#78787e&#34;&gt;//cin the matrixB
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; j&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;j&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;n;j&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            cin&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt;B.a[i][j];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(Are_they_the_same(Real_Rorate(A))&lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;)&lt;span style=&#34;color:#78787e&#34;&gt;//rorate 90 degrees
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(Are_they_the_same(Real_Rorate(Real_Rorate(A))))&lt;span style=&#34;color:#78787e&#34;&gt;//rorate 180 degrees
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(Are_they_the_same(Real_Rorate(Real_Rorate(Real_Rorate(A)))))&lt;span style=&#34;color:#78787e&#34;&gt;//rorate 270 degrees
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(Are_they_the_same(Real_Reflex(A))&lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;)&lt;span style=&#34;color:#78787e&#34;&gt;//reflex
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;4&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(Are_they_the_same(Real_Rorate(Real_Reflex(A)))&lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;)&lt;span style=&#34;color:#78787e&#34;&gt;//rorate 90 degrees and reflex
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;5&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(Are_they_the_same(Real_Rorate(Real_Rorate(Real_Reflex(A))))&lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;)&lt;span style=&#34;color:#78787e&#34;&gt;//rorate 180 degrees and reflex
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;5&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(Are_they_the_same(Real_Rorate(Real_Rorate(Real_Rorate(Real_Reflex(A))))))&lt;span style=&#34;color:#78787e&#34;&gt;//rorate 270 degrees and reflex
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;5&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(Are_they_the_same(A))&lt;span style=&#34;color:#78787e&#34;&gt;//no rorate
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;6&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;7&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://www.zhaocloud.work/posts/luogu_%E6%96%B9%E5%9D%97%E8%BD%AC%E6%8D%A2/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
+        </item>
     
     
     
@@ -1186,169 +1375,6 @@ ans =
     0.6219
     0.9685
 &lt;/code&gt;&lt;/pre&gt;- https://www.zhaocloud.work/posts/matlab_%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E6%B3%95/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
-        </item>
-    
-    
-    
-        <item>
-        <title>Matlab期末考试</title>
-        <link>https://www.zhaocloud.work/posts/matlab_%E6%9C%9F%E6%9C%AB/</link>
-        <pubDate>Mon, 05 Aug 2024 00:00:00 +0000</pubDate>
-        
-        <guid>https://www.zhaocloud.work/posts/matlab_%E6%9C%9F%E6%9C%AB/</guid>
-        <description>April Diary https://www.zhaocloud.work/posts/matlab_%E6%9C%9F%E6%9C%AB/ -&lt;h1 id=&#34;北邮matlab选修-期末作业&#34;&gt;北邮Matlab选修 期末作业&lt;/h1&gt;
-&lt;h2 id=&#34;题目-1&#34;&gt;题目 #1&lt;/h2&gt;
-&lt;h3 id=&#34;问题描述&#34;&gt;问题描述&lt;/h3&gt;
-&lt;p&gt;对于自由降落的伞兵，其阻力为线性函数，速度的解析表达式为：
-$$v\left(t\right)=\frac{gm}{c}\left(1-e^{-\frac{c}{m}t}\right)$$
-其中&lt;code&gt;v(t)&lt;/code&gt;是速度$m/s$，&lt;code&gt;t&lt;/code&gt;是时间$s$，$g=9.81m/s^2$，&lt;code&gt;m&lt;/code&gt;是质量(kg)，&lt;code&gt;c&lt;/code&gt;是线性阻力系数$kg/s$。使用数值积分算法计算跳伞员在自由落体最初的&lt;code&gt;8&lt;/code&gt;秒内下降的高度。给定$m=80kg$，$c=10kg/s$&lt;/p&gt;
-&lt;h3 id=&#34;数学模型&#34;&gt;数学模型&lt;/h3&gt;
-&lt;p&gt;对于给定的$v\left(t\right)$，在时间从$t_0$到$t_1$时行过的路程：
-$$x=\int_{t_0}^{t_1}v\left(t\right)dt$$&lt;/p&gt;
-&lt;p&gt;为了求自由落体最初的8秒内下降的高度，即求$\int_{0}^{8}v\left(t\right)dt$的数值。&lt;/p&gt;
-&lt;h3 id=&#34;程序设计&#34;&gt;程序设计&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;%question1.m&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 定义参数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;g = &lt;span style=&#34;color:#ff9f43&#34;&gt;9.81&lt;/span&gt;; &lt;span style=&#34;color:#78787e&#34;&gt;% 重力加速度，单位 m/s^2&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;m = &lt;span style=&#34;color:#ff9f43&#34;&gt;80&lt;/span&gt;;  &lt;span style=&#34;color:#78787e&#34;&gt;% 质量，单位 kg&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;c = &lt;span style=&#34;color:#ff9f43&#34;&gt;10&lt;/span&gt;;  &lt;span style=&#34;color:#78787e&#34;&gt;% 线性阻力系数，单位 kg/s&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 定义符号变量&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;syms t
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 速度函数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;v = g&lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt;m&lt;span style=&#34;color:#ff6ac1&#34;&gt;/&lt;/span&gt;c &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt; (&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;exp&lt;/span&gt;(&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;c&lt;span style=&#34;color:#ff6ac1&#34;&gt;/&lt;/span&gt;m&lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt;t));
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 定义时间向量，这里我们使用足够小的时间间隔来确保积分的准确性&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;t_span = &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;0.001&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;8&lt;/span&gt;; &lt;span style=&#34;color:#78787e&#34;&gt;% 从0秒到8秒，步长为0.01秒&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 计算对应时间点的速度值&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;v_values = double(subs(v, t, t_span)); &lt;span style=&#34;color:#78787e&#34;&gt;% 将符号表达式替换为数值，并转换为双精度浮点数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 使用梯形法计算位移（即高度），初始高度设为0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 注意：这里的高度实际上是相对于初始位置的位移，因此初始值设置为0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;height_increase = trapz(t_span, v_values); &lt;span style=&#34;color:#78787e&#34;&gt;% trapz函数计算的是增量，所以结果就是从0开始的位移&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 输出结果&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fprintf(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;跳伞员在最初的8秒内下降的高度为:%.2f m\n&amp;#39;&lt;/span&gt;, height_increase);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;计算结果&#34;&gt;计算结果&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-terminal&#34; data-lang=&#34;terminal&#34;&gt;&amp;gt;&amp;gt; question1
-跳伞员在最初的8秒内下降的高度为:230.97 m
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;题目-2&#34;&gt;题目 #2&lt;/h2&gt;
-&lt;h3 id=&#34;问题描述-1&#34;&gt;问题描述&lt;/h3&gt;
-&lt;p&gt;在加热盘的不同点上测量温度如下表所示。估计下面各点的温度：（a）$x=4$，$y=3.2$；（b）$x=4.3$，$y=2.7$。&lt;/p&gt;
-&lt;table&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;
-        &lt;td&gt;$x=0$&lt;/td&gt;
-        &lt;td&gt;$x=2$&lt;/td&gt;
-        &lt;td&gt;$x=4$&lt;/td&gt;
-        &lt;td&gt;$x=6$&lt;/td&gt;
-        &lt;td&gt;$x=8$&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;$y=0$&lt;/td&gt;
-        &lt;td&gt;100.00&lt;/td&gt;
-        &lt;td&gt;90.00&lt;/td&gt;
-        &lt;td&gt;80.00&lt;/td&gt;
-        &lt;td&gt;70.00&lt;/td&gt;
-        &lt;td&gt;60.00&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;$y=2$&lt;/td&gt;
-        &lt;td&gt;85.00&lt;/td&gt;
-        &lt;td&gt;64.49&lt;/td&gt;
-        &lt;td&gt;53.50&lt;/td&gt;
-        &lt;td&gt;48.15&lt;/td&gt;
-        &lt;td&gt;50.00&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;$y=4$&lt;/td&gt;
-        &lt;td&gt;70.00&lt;/td&gt;
-        &lt;td&gt;48.90&lt;/td&gt;
-        &lt;td&gt;38.43&lt;/td&gt;
-        &lt;td&gt;35.03&lt;/td&gt;
-        &lt;td&gt;40.00&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;$y=6$&lt;/td&gt;
-        &lt;td&gt;55.00&lt;/td&gt;
-        &lt;td&gt;38.78&lt;/td&gt;
-        &lt;td&gt;30.39&lt;/td&gt;
-        &lt;td&gt;27.07&lt;/td&gt;
-        &lt;td&gt;30.00&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;$y=8$&lt;/td&gt;
-        &lt;td&gt;40.00&lt;/td&gt;
-        &lt;td&gt;35.00&lt;/td&gt;
-        &lt;td&gt;30.00&lt;/td&gt;
-        &lt;td&gt;25.00&lt;/td&gt;
-        &lt;td&gt;20.00&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;数学模型-1&#34;&gt;数学模型&lt;/h3&gt;
-&lt;p&gt;题目中给定了有限的温度取样点，要得知a和b点的温度，需要我们根据给定点的温度进行插值，如果采用线性插值，显然不符合事实， 这里我选择三次样条插值，使结果更加平滑。&lt;/p&gt;
-&lt;h3 id=&#34;程序设计-1&#34;&gt;程序设计&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;%question2.m&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 定义x和y的网格点&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[x_grid, y_grid] = &lt;span style=&#34;color:#ff5c57&#34;&gt;meshgrid&lt;/span&gt;(&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;8&lt;/span&gt;, &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;8&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 温度矩阵（索引从1开始，与x_grid和y_grid匹配）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;T = [
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff9f43&#34;&gt;100.00&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;90.00&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;80.00&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;70.00&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;60.00&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff9f43&#34;&gt;85.00&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;64.49&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;53.50&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;48.15&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;50.00&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff9f43&#34;&gt;70.00&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;48.90&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;38.43&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;35.03&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;40.00&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff9f43&#34;&gt;55.00&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;38.78&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;30.39&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;27.07&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;30.00&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff9f43&#34;&gt;40.00&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;35.00&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;30.00&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;25.00&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;20.00&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ];
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 创建一个更精细的网格用于绘图&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[xq, yq] = &lt;span style=&#34;color:#ff5c57&#34;&gt;meshgrid&lt;/span&gt;(&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;0.01&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;8&lt;/span&gt;, &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;0.01&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;8&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 使用线性插值估计温度&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Tq_spline = interp2(x_grid, y_grid, T, xq, yq,&amp;#34;spline&amp;#34;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 估计特定点的温度&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;point_a_x = &lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;point_a_y = &lt;span style=&#34;color:#ff9f43&#34;&gt;3.2&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;point_b_x = &lt;span style=&#34;color:#ff9f43&#34;&gt;4.3&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;point_b_y = &lt;span style=&#34;color:#ff9f43&#34;&gt;2.7&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 使用interp2函数估计温度&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;temp_a = interp2(x_grid, y_grid, T, point_a_x, point_a_y, &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;spline&amp;#39;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;temp_b = interp2(x_grid, y_grid, T, point_b_x, point_b_y, &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;spline&amp;#39;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 显示估计的温度&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fprintf(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;点(a)x=4, y=3.2 的温度估计为：%.2f°C\n&amp;#39;&lt;/span&gt;, temp_a);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fprintf(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;点(b)x=4.3, y=2.7 的温度估计为：%.2f°C\n&amp;#39;&lt;/span&gt;, temp_b);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 绘制二维彩色网格图&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pcolor(xq, yq, Tq_spline);  &lt;span style=&#34;color:#78787e&#34;&gt;% 使用pcolor绘制二维彩色网格图&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;shading interp;  &lt;span style=&#34;color:#78787e&#34;&gt;% 平滑颜色过渡&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 设置颜色映射&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;colormap(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;jet&amp;#39;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 添加颜色条&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;colorbar;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 添加坐标轴标签和标题&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xlabel(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;X坐标&amp;#39;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ylabel(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;Y坐标&amp;#39;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;title(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;温度分布二维图像&amp;#39;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;% 可以在图上添加估计点的标记&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hold on;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;plot(point_a_x, point_a_y, &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;r*-&amp;#39;&lt;/span&gt;); &lt;span style=&#34;color:#78787e&#34;&gt;% 点（a）红色&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;plot(point_b_x, point_b_y, &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;b*-&amp;#39;&lt;/span&gt;); &lt;span style=&#34;color:#78787e&#34;&gt;% 点（b）绿色&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hold off;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;计算结果-1&#34;&gt;计算结果&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-terminal&#34; data-lang=&#34;terminal&#34;&gt;&amp;gt;&amp;gt; question2
-点(a)x=4, y=3.2 的温度估计为：43.45°C
-点(b)x=4.3, y=2.7 的温度估计为：46.15°C
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;question.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-- https://www.zhaocloud.work/posts/matlab_%E6%9C%9F%E6%9C%AB/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
         </item>
     
     

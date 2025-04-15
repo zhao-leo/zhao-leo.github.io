@@ -3,26 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.zhaocloud.work/</loc>
-    <lastmod>2025-04-07T17:34:01+08:00</lastmod>
+    <lastmod>2025-04-15T23:42:22+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://www.zhaocloud.work/categories/</loc>
-    <lastmod>2025-04-07T17:34:01+08:00</lastmod>
+    <lastmod>2025-04-15T23:42:22+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://www.zhaocloud.work/posts/</loc>
-    <lastmod>2025-04-07T17:34:01+08:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://www.zhaocloud.work/tags/python/</loc>
-    <lastmod>2025-04-07T17:34:01+08:00</lastmod>
+    <lastmod>2025-04-15T23:42:22+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://www.zhaocloud.work/tags/</loc>
+    <lastmod>2025-04-15T23:42:22+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://www.zhaocloud.work/tags/typst/</loc>
+    <lastmod>2025-04-15T23:42:22+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://www.zhaocloud.work/categories/%E6%A8%A1%E6%9D%BF/</loc>
+    <lastmod>2025-04-15T23:42:22+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://www.zhaocloud.work/posts/bupt-report-typst/</loc>
+    <lastmod>2025-04-15T23:42:22+08:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://www.zhaocloud.work/tags/python/</loc>
     <lastmod>2025-04-07T17:34:01+08:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
