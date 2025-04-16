@@ -10,7 +10,7 @@
 <meta name="google-site-verification" content="">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
 <meta content="telephone=no" name="format-detection">
-<meta name="description" content="">
+<meta name="description" content="北邮实验报告的Typst模板（一般用于DSP实验和模电实验）">
 <meta name="renderer" content="webkit">
 <meta name="theme-color" content="#ffffff">
 
@@ -19,14 +19,7 @@
 <meta property="og:url" content="https://www.zhaocloud.work/posts/bupt-report-typst/">
   <meta property="og:site_name" content="April Diary">
   <meta property="og:title" content="用Typst打造的BUPT实验报告模板">
-  <meta property="og:description" content="代码仓库：https://github.com/zhao-leo/BUPT-Report-Typst
-天下苦排版久矣！
-Word的文本和排版混合的模式虽然提供了所见即所得的效果，但是，Word完全不能让我专心码字！
-同时，Word的图注编辑较为麻烦（对我来说），Word代码块没有高亮等等各种问题让我下定决心，用Typst写一套BUPT的DSP实验报告模板。
-如何使用 #import &#34;template.typ&#34;: experiment-report #show: doc =&gt; experiment-report( class: &#34;2023211113&#34;, name: &#34;张三&#34;, student-id: &#34;2021123456&#34;, date: &#34;2024年4月14日&#34;, doc ) 将这两行插入你的Typst文档，随后就可以自动生成包含校徽、专业信息、日期等要素的标准化封面页，以及调整好的字体、缩进、样式，让你专注于完成自己的实验报告，取得High Score！
-具体格式 基本格式 页边距
-set page( paper: &#34;a4&#34;, margin: (top: 2.54cm, bottom: 2.54cm, left: 3.18cm, right: 3.18cm), ) 封面样式
-align(center)[ #v(4em) // 第一行：学年学期 #text(size: 22pt,font: &#34;STZhongsong&#34;,weight: &#34;bold&#34;)[2024-2025学年第二学期] // 第二行：实验报告标题 #text(size: 22pt,font:&#34;STZhongsong&#34;,weight: &#34;bold&#34;)[《信号处理实验》实验报告] #v(4.5em) // Logo #image(&#34;assets/bupt-logo.jpg&#34;, width: 40%) #v(8em) // 学生信息表格函数 #let info-row(label, content) = { grid( columns: (auto, auto), align(right)[#text(font: &#34;STSong&#34;,size: 14pt)[#label]], [ #box(width: 180pt)[ #set text(font: &#34;STSong&#34;,size: 14pt) #box(width: 180pt)[ #place(dx: 0pt, dy: 14pt)[#line(length: 180pt)] #align(center)[#content] ] ] ] ) } #set text(font: &#34;STSong&#34;, size: 14pt) #grid( // 生成基本信息 align: center, rows: 4, row-gutter: 2em, info-row(&#34;专业班级&#34;, class), info-row(&#34;姓　名&#34;, name), info-row(&#34;学　号&#34;, student-id), info-row(&#34;报告日期&#34;, date) ) ] pagebreak() // 生成分页 格式规范自动适配 正文首行缩进2字符 中英文字体自动匹配（中文宋体/英文Times New Roman） 1.2倍行距标准 set par(first-line-indent: 2em,leading: 1.2em) show raw.where(block: true): block =&gt; [ #pad(left: 2.5em)[ #block ] ] 题注小五号仿宋字体 show figure.caption: it =&gt; { set text(font: (&#34;Times New Roman&#34;, &#34;FangSong&#34;), size: 9pt) it } 正文五号字 set text(font: (&#34;Times New Roman&#34;, &#34;SimHei&#34;), size: 12pt, weight: &#34;regular&#34;) 快速上手指南 环境准备 安装Typst 通过Git拉取本项目 按照example.typ编写自己的报告 导出 基础使用 // 导入模板 #import &#34;template.typ&#34;: experiment-report // 设置文档参数 #show: doc =&gt; experiment-report( class: &#34;电子信息工程2023级&#34;, name: &#34;王小明&#34;, student-id: &#34;202311001&#34;, date: &#34;2024年4月20日&#34;, doc ) // 开始撰写内容 = 实验二 数字滤波器设计 == 实验原理 ... 结语：让写作回归本质 通过本模板，你可以将精力完全集中在实验内容的创作上，无需再为格式调整耗费时间。">
+  <meta property="og:description" content="北邮实验报告的Typst模板（一般用于DSP实验和模电实验）">
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -407,19 +400,16 @@ align(center)[ #v(4em) // 第一行：学年学期 #text(size: 22pt,font: &#34;S
             
             
             
-                
-            
 
-            <div class="post-head-wrapper"
-                
-                    
-                    
-                    style="background-image: url('https://www.zhaocloud.work/%E5%8C%97%E9%82%AE%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E7%9A%84Typst%E6%A8%A1%E6%9D%BF%EF%BC%88%E4%B8%80%E8%88%AC%E7%94%A8%E4%BA%8EDSP%E5%AE%9E%E9%AA%8C%E5%92%8C%E6%A8%A1%E7%94%B5%E5%AE%9E%E9%AA%8C%EF%BC%89')"
-                    
+            <div class="post-head-wrapper-text-only"
                 
             >
                 <div class="post-title">
                     用Typst打造的BUPT实验报告模板
+                    
+                    <div class="post-subtitle">
+                        北邮实验报告的Typst模板（一般用于DSP实验和模电实验）
+                    </div>
                     
                     <div class="post-meta">
                         
@@ -580,8 +570,8 @@ align(center)[ #v(4em) // 第一行：学年学期 #text(size: 22pt,font: &#34;S
             <nav class="post-pagination">
 
                 
-                <a class="newer-posts">
-			下回<br>已经到头啦。
+                <a class="newer-posts" href="/posts/%E9%9F%B3%E4%B9%90/">
+			下回<br>各类歌曲大合集
                 </a>
                 
                 

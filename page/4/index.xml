@@ -11,9 +11,47 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>April. 本站遵循 CC-BY-NC 4.0 协议</copyright>
-    <lastBuildDate>Tue, 15 Apr 2025 23:42:22 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 16 Apr 2025 23:40:16 +0800</lastBuildDate>
     
         <atom:link href="https://www.zhaocloud.work/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>水果颜色-PTA</title>
+        <link>https://www.zhaocloud.work/posts/%E6%B0%B4%E6%9E%9C%E9%A2%9C%E8%89%B2/</link>
+        <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.zhaocloud.work/posts/%E6%B0%B4%E6%9E%9C%E9%A2%9C%E8%89%B2/</guid>
+        <description>April Diary https://www.zhaocloud.work/posts/%E6%B0%B4%E6%9E%9C%E9%A2%9C%E8%89%B2/ -&lt;h1 id=&#34;北邮vc实验题-判别水果颜色&#34;&gt;北邮VC++实验题 判别水果颜色&lt;/h1&gt;
+&lt;h2 id=&#34;题目描述&#34;&gt;题目描述&lt;/h2&gt;
+&lt;p&gt;现在有一堆水果，苹果红色，香蕉黄色，西瓜绿色，其余紫色。
+当输入一种水果名字，要输入其对应的颜色。&lt;/p&gt;
+&lt;h2 id=&#34;输入格式&#34;&gt;输入格式&lt;/h2&gt;
+&lt;p&gt;输入水果名字，如：苹果。&lt;/p&gt;
+&lt;h2 id=&#34;输出格式&#34;&gt;输出格式&lt;/h2&gt;
+&lt;p&gt;输出颜色，如：红色。&lt;/p&gt;
+&lt;h1 id=&#34;样例&#34;&gt;样例&lt;/h1&gt;
+&lt;h3 id=&#34;输入样例&#34;&gt;输入样例&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;苹果
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;输出样例&#34;&gt;输出样例&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;红色
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;解答&#34;&gt;解答&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#78787e&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#78787e&#34;&gt;&amp;lt;cstring&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;//判断水果颜色
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;namespace&lt;/span&gt; std;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;main&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    string s;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    cin&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt;s;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(s&lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;苹果&amp;#34;&lt;/span&gt;)cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;红色&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(s&lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;香蕉&amp;#34;&lt;/span&gt;)cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;黄色&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt;(s&lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;西瓜&amp;#34;&lt;/span&gt;)cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;绿色&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt; cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;紫色&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://www.zhaocloud.work/posts/%E6%B0%B4%E6%9E%9C%E9%A2%9C%E8%89%B2/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
+        </item>
     
     
     
