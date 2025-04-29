@@ -205,6 +205,58 @@
     <div class="post-list-container post-list-container-no-background">
         
         
+            <a href="/posts/wsl%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/" class="a-block">
+                <div class="post-item-wrapper">
+                    <div class="post-item post-item-no-divider">
+                        <div class="post-item-info-wrapper">
+                            <div class="post-item-title">
+                                WSL服务器外网访问
+                            </div>
+                            <div class="post-item-summary">
+                                
+                                    <h1 id="实现的基本方法分步骤">实现的基本方法（分步骤）</h1>
+<h2 id="一核心原理">一、核心原理</h2>
+<p>通过 Windows 的 <code>netsh</code> 工具建立端口转发规则，并配合防火墙设置，实现外部设备访问 WSL 中运行的服务。</p>
+<h2 id="二操作步骤">二、操作步骤</h2>
+<ol>
+<li>
+<p>获取 WSL IP 地址</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#78787e"># 在 WSL 终端执行</span>
+</span></span><span style="display:flex;"><span>ip addr show eth0 | grep <span style="color:#5af78e">&#39;inet\b&#39;</span> | awk <span style="color:#5af78e">&#39;{print $2}&#39;</span> | cut -d/ -f1
+</span></span></code></pre></div></li>
+<li>
+<p>创建端口转发规则</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#78787e"># 在 PowerShell 管理员模式执行</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$WSL_IP</span> = <span style="color:#5af78e">&#34;替换为WSL实际IP&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$port</span> = <span style="color:#5af78e">&#34;目标端口&#34;</span>
+</span></span><span style="display:flex;"><span>netsh interface portproxy add v4tov4 listenport=<span style="color:#ff5c57">$port</span> listenaddress=<span style="color:#ff9f43">0.0</span>.0.0 connectport=<span style="color:#ff5c57">$port</span> connectaddress=<span style="color:#ff5c57">$WSL_IP</span>
+</span></span></code></pre></div></li>
+<li>
+<p>配置防火墙规则</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#ff5c57">New-NetFirewallRule</span> -DisplayName <span style="color:#5af78e">&#34;Allow WSL Port </span><span style="color:#ff5c57">$port</span><span style="color:#5af78e">&#34;</span> `
+</span></span><span style="display:flex;"><span>  -Direction Inbound -Action Allow `
+</span></span><span style="display:flex;"><span>  -Protocol TCP -LocalPort <span style="color:#ff5c57">$port</span>
+</span></span></code></pre></div></li>
+<li>
+<p>验证访问</p>
+                                
+                            </div>
+                            <div class="post-item-meta">
+    2025-04-29
+    &emsp;
+    
+    
+    
+    &emsp;
+    
+</div>
+
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+        
             <a href="/posts/%E9%9F%B3%E4%B9%90/" class="a-block">
                 <div class="post-item-wrapper">
                     <div class="post-item post-item-no-divider">
@@ -443,34 +495,6 @@
                             </div>
                             <div class="post-item-meta">
     2025-01-26
-    &emsp;
-    
-    
-    
-    &emsp;
-    
-</div>
-
-                        </div>
-                        
-                        
-                    </div>
-                </div>
-        
-            <a href="/posts/2025%E6%96%B0%E5%B9%B4%E5%A5%BD/" class="a-block">
-                <div class="post-item-wrapper">
-                    <div class="post-item post-item-no-divider">
-                        <div class="post-item-info-wrapper">
-                            <div class="post-item-title">
-                                25年春节小记
-                            </div>
-                            <div class="post-item-summary">
-                                
-                                    新年新气象，给博客换个主题吧~
-                                
-                            </div>
-                            <div class="post-item-meta">
-    2025-01-25
     &emsp;
     
     

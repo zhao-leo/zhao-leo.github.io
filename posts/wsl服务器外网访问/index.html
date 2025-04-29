@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+<title>WSL服务器外网访问</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="https://www.zhaocloud.work/posts/wsl%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/">
+  <meta property="og:site_name" content="April Diary">
+  <meta property="og:title" content="WSL服务器外网访问">
+  <meta property="og:description" content="实现的基本方法（分步骤） 一、核心原理 通过 Windows 的 netsh 工具建立端口转发规则，并配合防火墙设置，实现外部设备访问 WSL 中运行的服务。
+二、操作步骤 获取 WSL IP 地址
+# 在 WSL 终端执行 ip addr show eth0 | grep &#39;inet\b&#39; | awk &#39;{print $2}&#39; | cut -d/ -f1 创建端口转发规则
+# 在 PowerShell 管理员模式执行 $WSL_IP = &#34;替换为WSL实际IP&#34; $port = &#34;目标端口&#34; netsh interface portproxy add v4tov4 listenport=$port listenaddress=0.0.0.0 connectport=$port connectaddress=$WSL_IP 配置防火墙规则
+New-NetFirewallRule -DisplayName &#34;Allow WSL Port $port&#34; ` -Direction Inbound -Action Allow ` -Protocol TCP -LocalPort $port 验证访问">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-29T23:47:11+08:00">
+    <meta property="article:modified_time" content="2025-04-29T23:47:11+08:00">
+    <meta property="article:tag" content="WSL">
+    <meta property="article:tag" content="Windows">
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "pz9g1z5otp");
+</script>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://www.zhaocloud.work/favicon.ico">
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>console.log("Hello from 'layouts/partials/extended_head.html'")</script>
+<link rel='stylesheet' href='https://www.zhaocloud.work/fonts/result.css' />
+<style>
+  body {
+    font-family: 'SDK_SC_Web', sans-serif;
+  }
+  code {
+    font-family: 'SDK_SC_Web', sans-serif;
+  }
+</style>
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    时间线
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    归档
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    标签
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%ae%9e%e7%8e%b0%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%96%b9%e6%b3%95%e5%88%86%e6%ad%a5%e9%aa%a4" class="nav-实现的基本方法分步骤">
+									实现的基本方法（分步骤）
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e4%b8%80%e6%a0%b8%e5%bf%83%e5%8e%9f%e7%90%86" class="nav-一核心原理">
+									一、核心原理
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%ba%8c%e6%93%8d%e4%bd%9c%e6%ad%a5%e9%aa%a4" class="nav-二操作步骤">
+									二、操作步骤
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%89%e8%a7%84%e5%88%99%e7%ae%a1%e7%90%86" class="nav-三规则管理">
+									三、规则管理
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%9b%9b%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9" class="nav-四注意事项">
+									四、注意事项
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e8%87%aa%e5%8a%a8%e5%8c%96%e8%84%9a%e6%9c%ac" class="nav-自动化脚本">
+									自动化脚本
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e4%b8%80powershell-%e4%b8%bb%e8%84%9a%e6%9c%acconfigure-wsl-portps1" class="nav-一powershell-主脚本configure-wsl-portps1">
+									一、PowerShell 主脚本 Configure-WSL-Port.ps1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%ba%8c%e4%bd%bf%e7%94%a8%e6%8c%87%e5%8d%97" class="nav-二使用指南">
+									二、使用指南
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1-%e4%bf%9d%e5%ad%98%e8%84%9a%e6%9c%ac" class="nav-1-保存脚本">
+									1. 保存脚本
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2-%e9%85%8d%e7%bd%ae%e7%ab%af%e5%8f%a3%e8%bd%ac%e5%8f%91powershell" class="nav-2-配置端口转发powershell">
+									2. 配置端口转发（PowerShell）
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#3-%e6%a3%80%e9%aa%8c%e6%98%af%e5%90%a6%e5%8f%af%e4%bb%a5%e8%bf%9e%e9%80%9a" class="nav-3-检验是否可以连通">
+									3. 检验是否可以连通
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://www.zhaocloud.work/">
+            April Diary
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://www.zhaocloud.work/">
+        <div class="single-column-header-title">April Diary</div>
+        
+        <div class="single-column-header-subtitle">人间四月芳菲尽</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    WSL服务器外网访问
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2025-04-29 23:47
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/wsl">WSL</a>
+                                &nbsp;
+                            
+                                <a href="/tags/windows">Windows</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="实现的基本方法分步骤">实现的基本方法（分步骤）</h1>
+<h2 id="一核心原理">一、核心原理</h2>
+<p>通过 Windows 的 <code>netsh</code> 工具建立端口转发规则，并配合防火墙设置，实现外部设备访问 WSL 中运行的服务。</p>
+<h2 id="二操作步骤">二、操作步骤</h2>
+<ol>
+<li>
+<p>获取 WSL IP 地址</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#78787e"># 在 WSL 终端执行</span>
+</span></span><span style="display:flex;"><span>ip addr show eth0 | grep <span style="color:#5af78e">&#39;inet\b&#39;</span> | awk <span style="color:#5af78e">&#39;{print $2}&#39;</span> | cut -d/ -f1
+</span></span></code></pre></div></li>
+<li>
+<p>创建端口转发规则</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#78787e"># 在 PowerShell 管理员模式执行</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$WSL_IP</span> = <span style="color:#5af78e">&#34;替换为WSL实际IP&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$port</span> = <span style="color:#5af78e">&#34;目标端口&#34;</span>
+</span></span><span style="display:flex;"><span>netsh interface portproxy add v4tov4 listenport=<span style="color:#ff5c57">$port</span> listenaddress=<span style="color:#ff9f43">0.0</span>.0.0 connectport=<span style="color:#ff5c57">$port</span> connectaddress=<span style="color:#ff5c57">$WSL_IP</span>
+</span></span></code></pre></div></li>
+<li>
+<p>配置防火墙规则</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#ff5c57">New-NetFirewallRule</span> -DisplayName <span style="color:#5af78e">&#34;Allow WSL Port </span><span style="color:#ff5c57">$port</span><span style="color:#5af78e">&#34;</span> `
+</span></span><span style="display:flex;"><span>  -Direction Inbound -Action Allow `
+</span></span><span style="display:flex;"><span>  -Protocol TCP -LocalPort <span style="color:#ff5c57">$port</span>
+</span></span></code></pre></div></li>
+<li>
+<p>验证访问</p>
+<p>浏览器访问 <code>http://[Windows_IP]:[端口]</code></p>
+</li>
+</ol>
+<h2 id="三规则管理">三、规则管理</h2>
+<ul>
+<li>
+<p>🔍 查看所有转发规则</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>netsh interface portproxy show all
+</span></span></code></pre></div></li>
+<li>
+<p>🗑️ 删除转发规则</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>netsh interface portproxy delete v4tov4 listenport=端口 listenaddress=0.0.0.0
+</span></span></code></pre></div></li>
+<li>
+<p>🔧 防火墙规则管理</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#78787e"># 查看特定端口规则</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">Get-NetFirewallPortFilter</span> | <span style="color:#ff5c57">Where-Object</span> { <span style="color:#ff5c57">$_</span>.LocalPort <span style="color:#ff6ac1">-eq</span> <span style="color:#ff9f43">3000</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e"># 启用/禁用规则</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">Enable-NetFirewallRule</span> -DisplayName <span style="color:#5af78e">&#34;Allow WSL Port 3000&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">Disable-NetFirewallRule</span> -DisplayName <span style="color:#5af78e">&#34;Allow WSL Port 3000&#34;</span>
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="四注意事项">四、注意事项</h2>
+<ol>
+<li>需使用 <strong>管理员权限</strong> 运行 PowerShell</li>
+<li>WSL IP 可能在每次重启后变化，建议通过脚本自动获取：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#ff5c57">$WSL_IP</span> = wsl hostname -I
+</span></span></code></pre></div><ol start="3">
+<li>开放 0.0.0.0 监听适用于开发环境，生产环境建议更严格的地址限制</li>
+<li>若遇到连接问题，按顺序检查：
+<ul>
+<li>端口转发规则是否存在</li>
+<li>防火墙是否放行</li>
+<li>WSL 内部服务是否正常监听</li>
+</ul>
+</li>
+</ol>
+<h1 id="自动化脚本">自动化脚本</h1>
+<h2 id="一powershell-主脚本configure-wsl-portps1">一、PowerShell 主脚本 <code>Configure-WSL-Port.ps1</code></h2>
+<blockquote>
+<p>注意以<code>gb2312</code>编码保存</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#78787e">&lt;#
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">.</span><span style="color:#5af78e">SYNOPSIS</span><span style="color:#78787e">
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">自动化配置WSL端口转发和防火墙规则
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">.</span><span style="color:#5af78e">DESCRIPTION</span><span style="color:#78787e">
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">功能包括：
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">1. 自动获取WSL2 IP地址
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">2. 创建端口转发规则
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">3. 配置Windows防火墙
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">4. 支持多端口批量操作
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">5. 清理旧规则功能
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">.PARAMETER Ports
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">需要转发的端口号（支持逗号分隔多个端口）
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">.PARAMETER Cleanup
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">清理模式（删除指定端口规则）
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">.</span><span style="color:#5af78e">EXAMPLE</span><span style="color:#78787e">
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">.\Configure-WSL-Port.ps1 -Ports 3000,8080
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">.\Configure-WSL-Port.ps1 -Ports 3000 -Cleanup
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">#&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">param</span>(
+</span></span><span style="display:flex;"><span>    [<span style="color:#ff5c57">Parameter</span>(<span style="color:#57c7ff">Mandatory</span>=$true)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#ff9f43">string</span>]<span style="color:#ff5c57">$Ports</span>,
+</span></span><span style="display:flex;"><span>    [<span style="color:#ff9f43">switch</span>]<span style="color:#ff5c57">$Cleanup</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e"># 管理员权限检查</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">if</span> (<span style="color:#ff6ac1">-NOT</span> ([<span style="color:#ff9f43">Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity</span>]::GetCurrent()).IsInRole([<span style="color:#ff9f43">Security.Principal.WindowsBuiltInRole</span>] <span style="color:#5af78e">&#34;Administrator&#34;</span>)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;正在请求管理员权限...&#34;</span> -ForegroundColor Yellow
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Start-Process</span> powershell.exe <span style="color:#5af78e">&#34;-NoProfile -ExecutionPolicy Bypass -File </span><span style="color:#5af78e">`&#34;</span><span style="color:#ff5c57">$PSCommandPath</span><span style="color:#5af78e">`&#34;</span><span style="color:#5af78e"> -Ports </span><span style="color:#5af78e">`&#34;</span><span style="color:#ff5c57">$Ports</span><span style="color:#5af78e">`&#34;</span><span style="color:#5af78e"> </span>$(<span style="color:#ff6ac1">if</span>(<span style="color:#ff5c57">$Cleanup</span>){<span style="color:#5af78e">&#39;-Cleanup&#39;</span>})<span style="color:#5af78e">&#34;</span> -Verb RunAs
+</span></span><span style="display:flex;"><span>    exit
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e"># 解析端口列表</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$portArray</span> = <span style="color:#ff5c57">$Ports</span> -split <span style="color:#5af78e">&#39;,&#39;</span> | <span style="color:#ff5c57">ForEach-Object</span> { <span style="color:#ff5c57">$_</span>.Trim() }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">try</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e"># 获取WSL IP（自动处理多IP情况）</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$wslIP</span> = (wsl hostname -I) -split <span style="color:#5af78e">&#39;\s+&#39;</span> | <span style="color:#ff5c57">Where-Object</span> { <span style="color:#ff5c57">$_</span> <span style="color:#ff6ac1">-match</span> <span style="color:#5af78e">&#39;\d+\.\d+\.\d+\.\d+&#39;</span> } | <span style="color:#ff5c57">Select-Object</span> -First <span style="color:#ff9f43">1</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">if</span> (<span style="color:#ff6ac1">-not</span> <span style="color:#ff5c57">$wslIP</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">throw</span> <span style="color:#5af78e">&#34;无法获取WSL IP地址，请确认WSL正在运行&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;</span><span style="color:#5af78e">`n</span><span style="color:#5af78e">=== WSL 配置信息 ===&#34;</span> -ForegroundColor Cyan
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;检测到 WSL IP: </span><span style="color:#ff5c57">$wslIP</span><span style="color:#5af78e">&#34;</span> -ForegroundColor Green
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;操作模式: </span>$(<span style="color:#ff6ac1">if</span>(<span style="color:#ff5c57">$Cleanup</span>){<span style="color:#5af78e">&#39;清理&#39;</span>}<span style="color:#ff6ac1">else</span>{<span style="color:#5af78e">&#39;配置&#39;</span>})<span style="color:#5af78e">&#34;</span> -ForegroundColor Green
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;目标端口: </span>$(<span style="color:#ff5c57">$portArray</span> -join <span style="color:#5af78e">&#39;, &#39;</span>)<span style="color:#5af78e">`n</span><span style="color:#5af78e">&#34;</span> -ForegroundColor Green
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">foreach</span> (<span style="color:#ff5c57">$port</span> <span style="color:#ff6ac1">in</span> <span style="color:#ff5c57">$portArray</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">if</span> (<span style="color:#ff6ac1">-not</span> (<span style="color:#ff5c57">$port</span> <span style="color:#ff6ac1">-match</span> <span style="color:#5af78e">&#39;^\d+$&#39;</span> <span style="color:#ff6ac1">-and</span> [<span style="color:#ff9f43">int</span>]<span style="color:#ff5c57">$port</span> <span style="color:#ff6ac1">-ge</span> <span style="color:#ff9f43">1</span> <span style="color:#ff6ac1">-and</span> [<span style="color:#ff9f43">int</span>]<span style="color:#ff5c57">$port</span> <span style="color:#ff6ac1">-le</span> <span style="color:#ff9f43">65535</span>)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;无效端口号: </span><span style="color:#ff5c57">$port</span><span style="color:#5af78e">&#34;</span> -ForegroundColor Red
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">continue</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">if</span> (<span style="color:#ff5c57">$Cleanup</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e"># 清理模式</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;</span><span style="color:#5af78e">`n</span><span style="color:#5af78e">正在清理端口 </span><span style="color:#ff5c57">$port</span><span style="color:#5af78e"> ...&#34;</span> -ForegroundColor Yellow
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e"># 删除端口转发</span>
+</span></span><span style="display:flex;"><span>            netsh interface portproxy delete v4tov4 listenport=<span style="color:#ff5c57">$port</span> listenaddress=<span style="color:#ff9f43">0.0</span>.0.0 <span style="color:#ff9f43">2</span>&gt;&amp;<span style="color:#ff9f43">1</span> | <span style="color:#ff5c57">Out-Null</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e"># 删除防火墙规则</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$ruleName</span> = <span style="color:#5af78e">&#34;Allow WSL Port </span><span style="color:#ff5c57">$port</span><span style="color:#5af78e">&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">if</span> (<span style="color:#ff5c57">Get-NetFirewallRule</span> -DisplayName <span style="color:#ff5c57">$ruleName</span> -ErrorAction SilentlyContinue) {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff5c57">Remove-NetFirewallRule</span> -DisplayName <span style="color:#ff5c57">$ruleName</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;已删除防火墙规则: </span><span style="color:#ff5c57">$ruleName</span><span style="color:#5af78e">&#34;</span> -ForegroundColor Magenta
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        } <span style="color:#ff6ac1">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e"># 配置模式</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;</span><span style="color:#5af78e">`n</span><span style="color:#5af78e">正在配置端口 </span><span style="color:#ff5c57">$port</span><span style="color:#5af78e"> ...&#34;</span> -ForegroundColor Cyan
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e"># 创建端口转发</span>
+</span></span><span style="display:flex;"><span>            netsh interface portproxy add v4tov4 listenport=<span style="color:#ff5c57">$port</span> listenaddress=<span style="color:#ff9f43">0.0</span>.0.0 connectport=<span style="color:#ff5c57">$port</span> connectaddress=<span style="color:#ff5c57">$wslIP</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e"># 创建防火墙规则（如果不存在）</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$ruleName</span> = <span style="color:#5af78e">&#34;Allow WSL Port </span><span style="color:#ff5c57">$port</span><span style="color:#5af78e">&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">if</span> (<span style="color:#ff6ac1">-not</span> (<span style="color:#ff5c57">Get-NetFirewallRule</span> -DisplayName <span style="color:#ff5c57">$ruleName</span> -ErrorAction SilentlyContinue)) {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff5c57">New-NetFirewallRule</span> -DisplayName <span style="color:#ff5c57">$ruleName</span> `
+</span></span><span style="display:flex;"><span>                    -Direction Inbound -Action Allow `
+</span></span><span style="display:flex;"><span>                    -Protocol TCP -LocalPort <span style="color:#ff5c57">$port</span> | <span style="color:#ff5c57">Out-Null</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;已创建防火墙规则: </span><span style="color:#ff5c57">$ruleName</span><span style="color:#5af78e">&#34;</span> -ForegroundColor Magenta
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e"># 显示最终配置</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;</span><span style="color:#5af78e">`n</span><span style="color:#5af78e">=== 当前端口转发规则 ===&#34;</span> -ForegroundColor Cyan
+</span></span><span style="display:flex;"><span>    netsh interface portproxy show v4tov4
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;</span><span style="color:#5af78e">`n</span><span style="color:#5af78e">=== 相关防火墙规则 ===&#34;</span> -ForegroundColor Cyan
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Get-NetFirewallRule</span> -DisplayName <span style="color:#5af78e">&#34;Allow WSL Port*&#34;</span> | <span style="color:#ff5c57">Format-Table</span> DisplayName,Enabled,Direction,Action
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>} <span style="color:#ff6ac1">catch</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;</span><span style="color:#5af78e">`n</span><span style="color:#5af78e">错误发生: </span><span style="color:#ff5c57">$_</span><span style="color:#5af78e">&#34;</span> -ForegroundColor Red
+</span></span><span style="display:flex;"><span>    exit <span style="color:#ff9f43">1</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e"># 显示访问提示（仅配置模式）</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">if</span> (<span style="color:#ff6ac1">-not</span> <span style="color:#ff5c57">$Cleanup</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$localIP</span> = (<span style="color:#ff5c57">Get-NetIPAddress</span> -AddressFamily IPv4 | <span style="color:#ff5c57">Where-Object</span> { <span style="color:#ff5c57">$_</span>.InterfaceAlias <span style="color:#ff6ac1">-notmatch</span> <span style="color:#5af78e">&#39;Loopback&#39;</span> }).IPAddress | <span style="color:#ff5c57">Select-Object</span> -First <span style="color:#ff9f43">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;</span><span style="color:#5af78e">`n</span><span style="color:#5af78e">=== 访问提示 ===&#34;</span> -ForegroundColor Cyan
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;本地访问: http://localhost:</span>$(<span style="color:#ff5c57">$portArray</span>[<span style="color:#ff9f43">0</span>])<span style="color:#5af78e">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;网络访问: http://</span><span style="color:#ff5c57">${localIP}</span><span style="color:#5af78e">:</span>$(<span style="color:#ff5c57">$portArray</span>[<span style="color:#ff9f43">0</span>])<span style="color:#5af78e">&#34;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;</span><span style="color:#5af78e">`n</span><span style="color:#5af78e">请在WSL中运行以下命令验证服务状态:&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;wsl ./check_wsl_port.sh </span>$(<span style="color:#ff5c57">$portArray</span>[<span style="color:#ff9f43">0</span>])<span style="color:#5af78e">&#34;</span> -ForegroundColor Green
+</span></span><span style="display:flex;"><span><span style="color:#78787e"># 在退出提示部分可改为：</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$countdown</span> = <span style="color:#ff9f43">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">while</span> (<span style="color:#ff5c57">$countdown</span> <span style="color:#ff6ac1">-gt</span> <span style="color:#ff9f43">0</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Write-Host</span> <span style="color:#5af78e">&#34;</span><span style="color:#5af78e">`r</span><span style="color:#5af78e">自动退出倒计时 </span><span style="color:#ff5c57">${countdown}</span><span style="color:#5af78e"> 秒 (按任意键立即退出)...&#34;</span> -NoNewline -ForegroundColor DarkGray
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">if</span> ([<span style="color:#ff9f43">Console</span>]::KeyAvailable) { <span style="color:#ff6ac1">break</span> }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Start-Sleep</span> -Seconds <span style="color:#ff9f43">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$countdown</span>--
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="二使用指南">二、使用指南</h2>
+<h3 id="1-保存脚本">1. 保存脚本</h3>
+<p>将PowerShell脚本保存为 <code>Configure-WSL-Port.ps1</code></p>
+<h3 id="2-配置端口转发powershell">2. 配置端口转发（PowerShell）</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e"># 开放单个端口</span>
+</span></span><span style="display:flex;"><span>.\<span style="color:#ff5c57">Configure-WSL</span>-Port.ps1 -Ports <span style="color:#ff9f43">3000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e"># 批量开放多个端口</span>
+</span></span><span style="display:flex;"><span>.\<span style="color:#ff5c57">Configure-WSL</span>-Port.ps1 -Ports <span style="color:#5af78e">&#34;3000, 8080, 8888&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e"># 清理端口配置</span>
+</span></span><span style="display:flex;"><span>.\<span style="color:#ff5c57">Configure-WSL</span>-Port.ps1 -Ports <span style="color:#ff9f43">3000</span> -Cleanup
+</span></span></code></pre></div><h3 id="3-检验是否可以连通">3. 检验是否可以连通</h3>
+<p>略，自行验证即可😁</p>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2025-04-29</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts">
+			下回<br>已经到头啦。
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/%E9%9F%B3%E4%B9%90/">
+			上回<br>各类歌曲大合集
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="zhao-leo/zhao-leo.github.io"
+        data-repo-id="R_kgDOKAOfXw"
+        data-category="General"
+        data-category-id="DIC_kwDOKAOfX84CmVot"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://www.zhaocloud.work/">
+    
+        <div class="nav-title">
+            April Diary
+        </div>
+        
+        <div class="nav-subtitle">
+            人间四月芳菲尽
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                时间线
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                归档
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+<br>
+<a href="https://icp.gov.moe/?keyword=20250610" target="_blank">萌ICP备20250610号</a>
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%ae%9e%e7%8e%b0%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%96%b9%e6%b3%95%e5%88%86%e6%ad%a5%e9%aa%a4" class="nav-实现的基本方法分步骤">
+									实现的基本方法（分步骤）
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e4%b8%80%e6%a0%b8%e5%bf%83%e5%8e%9f%e7%90%86" class="nav-一核心原理">
+									一、核心原理
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%ba%8c%e6%93%8d%e4%bd%9c%e6%ad%a5%e9%aa%a4" class="nav-二操作步骤">
+									二、操作步骤
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%89%e8%a7%84%e5%88%99%e7%ae%a1%e7%90%86" class="nav-三规则管理">
+									三、规则管理
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%9b%9b%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9" class="nav-四注意事项">
+									四、注意事项
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e8%87%aa%e5%8a%a8%e5%8c%96%e8%84%9a%e6%9c%ac" class="nav-自动化脚本">
+									自动化脚本
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e4%b8%80powershell-%e4%b8%bb%e8%84%9a%e6%9c%acconfigure-wsl-portps1" class="nav-一powershell-主脚本configure-wsl-portps1">
+									一、PowerShell 主脚本 Configure-WSL-Port.ps1
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%ba%8c%e4%bd%bf%e7%94%a8%e6%8c%87%e5%8d%97" class="nav-二使用指南">
+									二、使用指南
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1-%e4%bf%9d%e5%ad%98%e8%84%9a%e6%9c%ac" class="nav-1-保存脚本">
+									1. 保存脚本
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2-%e9%85%8d%e7%bd%ae%e7%ab%af%e5%8f%a3%e8%bd%ac%e5%8f%91powershell" class="nav-2-配置端口转发powershell">
+									2. 配置端口转发（PowerShell）
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#3-%e6%a3%80%e9%aa%8c%e6%98%af%e5%90%a6%e5%8f%af%e4%bb%a5%e8%bf%9e%e9%80%9a" class="nav-3-检验是否可以连通">
+									3. 检验是否可以连通
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	April. 本站遵循 CC-BY-NC 4.0 协议
+	
+<br>
+<a href="https://icp.gov.moe/?keyword=20250610" target="_blank">萌ICP备20250610号</a>
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>
