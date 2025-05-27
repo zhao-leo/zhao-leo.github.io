@@ -61,7 +61,7 @@
     
     <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+<link rel="stylesheet" href="/scss/dark-mode.min.fa793cdb4ae2d683f9cccdaf1c7922313b4cf124910b552cbc6b3a7ae3b45926.css" integrity="sha256-&#43;nk820ri1oP5zM2vHHkiMTtM8SSRC1UsvGs6euO0WSY=" media="screen">
 
 
 <link rel="stylesheet"
@@ -418,14 +418,12 @@
 </ul>
 <h2 id="代码相关">代码相关</h2>
 <blockquote>
-<p>这里不会展示所有代码，完整代码可以去仓库查看</p>
-</blockquote>
+<p>这里不会展示所有代码，完整代码可以去仓库查看</p></blockquote>
 <h3 id="预处理">预处理</h3>
 <p>在这个环节，我使用了<code>tch</code>库中封装好的函数。</p>
 <p>但这个环节会对原图像进行拉伸,归一化，建议输入正方形图片</p>
 <blockquote>
-<p>本来写了蒙灰色底版，但是<code>DynamicImage</code>转<code>Tensor</code>没有解决，后续再说吧</p>
-</blockquote>
+<p>本来写了蒙灰色底版，但是<code>DynamicImage</code>转<code>Tensor</code>没有解决，后续再说吧</p></blockquote>
 <p>整体代码类似，这里只展示一个：</p>
 <div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff6ac1">pub</span> <span style="color:#ff6ac1">fn</span> <span style="color:#57c7ff">load_one_image</span>(image_path: <span style="color:#ff6ac1">&amp;</span><span style="color:#9aedfe">str</span>) -&gt; <span style="color:#ff5c57">Result</span><span style="color:#ff6ac1">&lt;</span>Tensor, <span style="color:#ff5c57">Box</span><span style="color:#ff6ac1">&lt;</span><span style="color:#ff6ac1">dyn</span> Error<span style="color:#ff6ac1">&gt;&gt;</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">let</span> image_tensor <span style="color:#ff6ac1">=</span> vision::image::load(Path::new(<span style="color:#ff6ac1">&amp;</span>image_path))<span style="color:#ff6ac1">?</span>;
@@ -451,7 +449,7 @@
 </span></span><span style="display:flex;"><span>            LoadLibraryA(path.as_ptr() <span style="color:#ff6ac1">as</span> <span style="color:#ff6ac1">*</span><span style="color:#ff6ac1">const</span> c_char);            }
 </span></span><span style="display:flex;"><span>            Device::cuda_if_available()
 </span></span><span style="display:flex;"><span>    } <span style="color:#ff6ac1">else</span> {
-</span></span><span style="display:flex;"><span>        panic!(
+</span></span><span style="display:flex;"><span>        <span style="color:#57c7ff">panic!</span>(
 </span></span><span style="display:flex;"><span>            <span style="color:#5af78e">&#34;No </span><span style="color:#5af78e">{}</span><span style="color:#5af78e"> exist,please check your libtorch version or set &#39;cuda&#39; false instead&#34;</span>,
 </span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">&amp;</span>libtorch_path
 </span></span><span style="display:flex;"><span>        );
@@ -462,15 +460,13 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">let</span> model <span style="color:#ff6ac1">=</span> CModule::load_on_device(Path::new(model_path), device).expect(<span style="color:#5af78e">&#34;load model failed&#34;</span>);
 </span></span></code></pre></div><p>YOLO导出的<code>torchscript</code>模型中是有元信息的，但是我没有在<code>torch-rs</code>中找到有关接口，因此：</p>
 <blockquote>
-<p>二进制，启动！！！</p>
-</blockquote>
+<p>二进制，启动！！！</p></blockquote>
 <p>这部分代码比较多，我不在这里展示，不过大概阐述一下原理，
 我看了两个导出的模型，元信息是包在开始的九个<code>0x5A</code>和结尾的<code>0x504B</code>中，因此我们可以直接读入，然后进行解析</p>
 <blockquote>
 <p>事实上，这个<code>torchscript</code>文件是一个<code>.zip</code>的文件，因此你可以用<code>zip</code>进行解压，但是通过字节读取，我们可以得到更快的速度。</p>
 <p>只是我没有见识，因此在下一版，我会把后识别符修改成<code>0x504B</code></p>
-<p>2025/02/06T23:12在刷B站时发现的</p>
-</blockquote>
+<p>2025/02/06T23:12在刷B站时发现的</p></blockquote>
 <p>模型推理反倒是最简单的了，因为接口一步到位，只要注意张量设备转移就好。</p>
 <p><strong>模型推理</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff5c57">let</span> input <span style="color:#ff6ac1">=</span> input.to_device(device);
@@ -531,7 +527,7 @@
 </span></span><span style="display:flex;"><span>    threshold: <span style="color:#9aedfe">f64</span>,
 </span></span><span style="display:flex;"><span>) -&gt; <span style="color:#ff5c57">Vec</span><span style="color:#ff6ac1">&lt;</span>(<span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">f64</span>)<span style="color:#ff6ac1">&gt;</span> {
 </span></span><span style="display:flex;"><span>    boxes.sort_unstable_by(<span style="color:#ff6ac1">|</span>a, b<span style="color:#ff6ac1">|</span> b.<span style="color:#ff9f43">5.</span>partial_cmp(<span style="color:#ff6ac1">&amp;</span>a.<span style="color:#ff9f43">5</span>).unwrap_or(std::cmp::Ordering::Equal));
-</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">let</span> <span style="color:#ff6ac1">mut</span> suppressed <span style="color:#ff6ac1">=</span> vec![<span style="color:#ff6ac1">false</span>; boxes.len()];
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">let</span> <span style="color:#ff6ac1">mut</span> suppressed <span style="color:#ff6ac1">=</span> <span style="color:#57c7ff">vec!</span>[<span style="color:#ff6ac1">false</span>; boxes.len()];
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">let</span> to_xyxy <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">|</span>x: <span style="color:#9aedfe">i64</span>, y: <span style="color:#9aedfe">i64</span>, w: <span style="color:#9aedfe">i64</span>, h: <span style="color:#9aedfe">i64</span><span style="color:#ff6ac1">|</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#ff5c57">let</span> (x, y, w, h) <span style="color:#ff6ac1">=</span> (x <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f64</span>, y <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f64</span>, w <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f64</span>, h <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f64</span>);
 </span></span><span style="display:flex;"><span>        <span style="color:#ff5c57">let</span> x1 <span style="color:#ff6ac1">=</span> x <span style="color:#ff6ac1">-</span> w <span style="color:#ff6ac1">/</span> <span style="color:#ff9f43">2.0</span>;

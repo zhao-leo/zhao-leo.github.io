@@ -10,7 +10,7 @@
 <meta name="google-site-verification" content="">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
 <meta content="telephone=no" name="format-detection">
-<meta name="description" content="">
+<meta name="description" content="在外部连接WSL内部服务器">
 <meta name="renderer" content="webkit">
 <meta name="theme-color" content="#ffffff">
 
@@ -19,11 +19,7 @@
 <meta property="og:url" content="https://www.zhaocloud.work/posts/wsl%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/">
   <meta property="og:site_name" content="April Diary">
   <meta property="og:title" content="WSL服务器外网访问">
-  <meta property="og:description" content="实现的基本方法（分步骤） 一、核心原理 通过 Windows 的 netsh 工具建立端口转发规则，并配合防火墙设置，实现外部设备访问 WSL 中运行的服务。
-二、操作步骤 获取 WSL IP 地址
-# 在 WSL 终端执行 ip addr show eth0 | grep &#39;inet\b&#39; | awk &#39;{print $2}&#39; | cut -d/ -f1 创建端口转发规则
-# 在 PowerShell 管理员模式执行 $WSL_IP = &#34;替换为WSL实际IP&#34; $port = &#34;目标端口&#34; netsh interface portproxy add v4tov4 listenport=$port listenaddress=0.0.0.0 connectport=$port connectaddress=$WSL_IP 配置防火墙规则
-New-NetFirewallRule -DisplayName &#34;Allow WSL Port $port&#34; ` -Direction Inbound -Action Allow ` -Protocol TCP -LocalPort $port 验证访问">
+  <meta property="og:description" content="在外部连接WSL内部服务器">
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -66,7 +62,7 @@ New-NetFirewallRule -DisplayName &#34;Allow WSL Port $port&#34; ` -Direction Inb
     
     <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+<link rel="stylesheet" href="/scss/dark-mode.min.fa793cdb4ae2d683f9cccdaf1c7922313b4cf124910b552cbc6b3a7ae3b45926.css" integrity="sha256-&#43;nk820ri1oP5zM2vHHkiMTtM8SSRC1UsvGs6euO0WSY=" media="screen">
 
 
 <link rel="stylesheet"
@@ -462,6 +458,10 @@ New-NetFirewallRule -DisplayName &#34;Allow WSL Port $port&#34; ` -Direction Inb
                 <div class="post-title">
                     WSL服务器外网访问
                     
+                    <div class="post-subtitle">
+                        在外部连接WSL内部服务器
+                    </div>
+                    
                     <div class="post-meta">
                         
                         <time itemprop="datePublished">
@@ -518,8 +518,8 @@ New-NetFirewallRule -DisplayName &#34;Allow WSL Port $port&#34; ` -Direction Inb
 </span></span><span style="display:flex;"><span>  -Protocol TCP -LocalPort <span style="color:#ff5c57">$port</span>
 </span></span></code></pre></div></li>
 <li>
-<p>验证访问</p>
-<p>浏览器访问 <code>http://[Windows_IP]:[端口]</code></p>
+<p>验证访问
+浏览器访问 <code>http://[Windows_IP]:[端口]</code></p>
 </li>
 </ol>
 <h2 id="三规则管理">三、规则管理</h2>
@@ -561,8 +561,7 @@ New-NetFirewallRule -DisplayName &#34;Allow WSL Port $port&#34; ` -Direction Inb
 <h1 id="自动化脚本">自动化脚本</h1>
 <h2 id="一powershell-主脚本configure-wsl-portps1">一、PowerShell 主脚本 <code>Configure-WSL-Port.ps1</code></h2>
 <blockquote>
-<p>注意以<code>gb2312</code>编码保存</p>
-</blockquote>
+<p>注意以<code>gb2312</code>编码保存</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#78787e">&lt;#
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e">.</span><span style="color:#5af78e">SYNOPSIS</span><span style="color:#78787e">
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e">自动化配置WSL端口转发和防火墙规则
@@ -587,7 +586,7 @@ New-NetFirewallRule -DisplayName &#34;Allow WSL Port $port&#34; ` -Direction Inb
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e">#&gt;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff6ac1">param</span>(
-</span></span><span style="display:flex;"><span>    [<span style="color:#ff5c57">Parameter</span>(<span style="color:#57c7ff">Mandatory</span>=$true)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#ff5c57">Parameter</span>(<span style="color:#57c7ff">Mandatory</span>=<span style="color:#ff5c57">$true</span>)]
 </span></span><span style="display:flex;"><span>    [<span style="color:#ff9f43">string</span>]<span style="color:#ff5c57">$Ports</span>,
 </span></span><span style="display:flex;"><span>    [<span style="color:#ff9f43">switch</span>]<span style="color:#ff5c57">$Cleanup</span>
 </span></span><span style="display:flex;"><span>)
@@ -708,8 +707,8 @@ New-NetFirewallRule -DisplayName &#34;Allow WSL Port $port&#34; ` -Direction Inb
             <nav class="post-pagination">
 
                 
-                <a class="newer-posts">
-			下回<br>已经到头啦。
+                <a class="newer-posts" href="/posts/%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BA/">
+			下回<br>一次失败的模型导出
                 </a>
                 
                 

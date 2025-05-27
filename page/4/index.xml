@@ -11,9 +11,88 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>April. 本站遵循 CC-BY-NC 4.0 协议</copyright>
-    <lastBuildDate>Tue, 29 Apr 2025 23:47:11 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 May 2025 22:44:07 +0800</lastBuildDate>
     
         <atom:link href="https://www.zhaocloud.work/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>老王赛马-PTA</title>
+        <link>https://www.zhaocloud.work/posts/%E8%80%81%E7%8E%8B%E8%B5%9B%E9%A9%AC/</link>
+        <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.zhaocloud.work/posts/%E8%80%81%E7%8E%8B%E8%B5%9B%E9%A9%AC/</guid>
+        <description>April Diary https://www.zhaocloud.work/posts/%E8%80%81%E7%8E%8B%E8%B5%9B%E9%A9%AC/ -&lt;h1 id=&#34;北邮vc实验题-老王赛马&#34;&gt;北邮VC++实验题 老王赛马&lt;/h1&gt;
+&lt;h2 id=&#34;题目描述&#34;&gt;题目描述&lt;/h2&gt;
+&lt;p&gt;赛马是一古老的游戏，早在公元前四世纪的中国，处在诸侯割据的状态，历史上称为“战国时期”。在魏国作官的孙膑，因为受到同僚庞涓的迫害，被齐国使臣救出后，到达齐国国都。&lt;/p&gt;
+&lt;p&gt;赛马是当时最受齐国贵族欢迎的娱乐项目。上至国王，下到大臣，常常以赛马取乐，并以重金赌输赢。田忌多次与国王及其他大臣赌输赢，屡赌屡输。一天他赛马又输了，回家后闷闷不乐。孙膑安慰他说：“下次有机会带我到马场看看，也许我能帮你。”&lt;/p&gt;
+&lt;p&gt;孙膑仔细观察后发现，田忌的马和其他人的马相差并不远，只是策略运用不当，以致失败。&lt;/p&gt;
+&lt;p&gt;比赛前田忌按照孙膑的主意，用上等马鞍将下等马装饰起来，冒充上等马，与齐王的上等马比赛。第二场比赛，还是按照孙膑的安排，田忌用自己的上等马与国王的中等马比赛，在一片喝彩中，只见田忌的马竟然冲到齐王的马前面，赢了第二场。关键的第三场，田忌的中等马和国王的下等马比赛，田忌的马又一次冲到国王的马前面，结果二比一，田忌赢了国王。&lt;/p&gt;
+&lt;p&gt;就是这么简单，现在老王也来赛一赛马。假设每匹马都有恒定的速度，所以速度大的马一定比速度小的马先到终点（没有意外！！）。不允许出现平局。最后谁赢的场数多于一半(不包括一半)，谁就是赢家(可能没有赢家)。老王有N(1≤N≤1000)匹马参加比赛。对手的马的数量与渊子马的数量一样，并且知道所有的马的速度。聪明的你来预测一下这场世纪之战的结果，看看老王能否赢得比赛。&lt;/p&gt;
+&lt;h2 id=&#34;输入格式&#34;&gt;输入格式&lt;/h2&gt;
+&lt;p&gt;输入有多组测试数据。
+每组测试数据包括3行：
+第一行输入N(1≤N≤1000)。表示马的数量。
+第二行有N个整型数字，即老王的N匹马的速度。
+第三行有N个整型数字，即对手的N匹马的速度。
+当N为0时退出。&lt;/p&gt;
+&lt;h2 id=&#34;输出格式&#34;&gt;输出格式&lt;/h2&gt;
+&lt;p&gt;若通过聪明的你精心安排，如果老王能赢得比赛，那么输出“YES”。
+否则输出“NO”。&lt;/p&gt;
+&lt;h2 id=&#34;样例&#34;&gt;样例&lt;/h2&gt;
+&lt;h3 id=&#34;样例输入&#34;&gt;样例输入&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;5
+2 3 3 4 5
+1 2 3 4 5
+4
+2 2 1 2
+2 2 3 1
+0
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;样例输出&#34;&gt;样例输出&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;YES
+NO
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;解答&#34;&gt;解答&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#78787e&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;namespace&lt;/span&gt; std;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;main&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; n &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; flag&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;while&lt;/span&gt; (n)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        scanf(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&lt;/span&gt;n);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; (n &lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; (flag&lt;span style=&#34;color:#ff6ac1&#34;&gt;!=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;){cout&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;endl;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        flag&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; a[n], b[n], c[n];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;; i &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt; n; i&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            scanf(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&lt;/span&gt;a[i]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;; i &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt; n; i&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            scanf(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&lt;/span&gt;b[i]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        sort(a, a &lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt; n);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        sort(b, b &lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt; n);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; win &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; n &lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;; i &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;; i&lt;span style=&#34;color:#ff6ac1&#34;&gt;--&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt; j &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; i &lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;; j &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;; j&lt;span style=&#34;color:#ff6ac1&#34;&gt;--&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; (a[i] &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&lt;/span&gt; b[j]){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    win&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                b[j] &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; a[i];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;break&lt;/span&gt;;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; (win &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&lt;/span&gt; n &lt;span style=&#34;color:#ff6ac1&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            printf(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;YES&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            printf(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;NO&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://www.zhaocloud.work/posts/%E8%80%81%E7%8E%8B%E8%B5%9B%E9%A9%AC/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
+        </item>
     
     
     

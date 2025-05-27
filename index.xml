@@ -11,9 +11,124 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>April. 本站遵循 CC-BY-NC 4.0 协议</copyright>
-    <lastBuildDate>Tue, 29 Apr 2025 23:47:11 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 May 2025 22:44:07 +0800</lastBuildDate>
     
         <atom:link href="https://www.zhaocloud.work/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>一次失败的模型导出</title>
+        <link>https://www.zhaocloud.work/posts/%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BA/</link>
+        <pubDate>Tue, 27 May 2025 22:44:07 +0800</pubDate>
+        
+        <guid>https://www.zhaocloud.work/posts/%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BA/</guid>
+        <description>April Diary https://www.zhaocloud.work/posts/%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BA/ -&lt;blockquote&gt;
+&lt;p&gt;PS: 今天看网站才发现出BUG了（😅）
+今天实现的部分是针对&lt;a href=&#34;https://github.com/opendatalab/PDF-Extract-Kit&#34;&gt;PDF-Extract-Kit&lt;/a&gt;的两个YOLO布局检测（公式检测）模型的。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;其主要逻辑仍然是我之前写过的&lt;a href=&#34;https://www.zhaocloud.work/posts/yolo-binding%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86/&#34;&gt;Yolo Binding的相关代码部分&lt;/a&gt;，但是不同的是这次我会使用静态链接库以提高可移植性。&lt;/p&gt;
+&lt;p&gt;Thanks to &lt;code&gt;tch-rs&lt;/code&gt;，我们可以通过环境变量&lt;code&gt;LIBTORCH_STATIC=1&lt;/code&gt;来选择使用静态链接库(回看一下，这个也没搞定)&lt;/p&gt;
+&lt;p&gt;下面需要解决的事情是将官方提供的pt模型转成jit模型提高速度和可移植性。&lt;/p&gt;
+&lt;h2 id=&#34;doclayout-yolo&#34;&gt;&lt;a href=&#34;https://github.com/opendatalab/DocLayout-YOLO&#34;&gt;DocLayout-YOLO&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;首先，根据官网&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;说明，去&lt;a href=&#34;https://www.modelscope.cn/models/OpenDataLab/PDF-Extract-Kit-1.0&#34;&gt;modelscope&lt;/a&gt;/&lt;a href=&#34;https://huggingface.co/opendatalab/PDF-Extract-Kit-1.0&#34;&gt;huggingface&lt;/a&gt;上下载模型，随后下载包如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install &lt;span style=&#34;color:#ff5c57&#34;&gt;doclayout-yolo&lt;/span&gt; &lt;span style=&#34;color:#78787e&#34;&gt;# 安装官方提供的包&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install &lt;span style=&#34;color:#ff5c57&#34;&gt;huggingface-hub&lt;/span&gt; &lt;span style=&#34;color:#78787e&#34;&gt;# 没有这个无法运行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install torch torchvision torchaudio --index-url https&lt;span style=&#34;color:#ff5c57&#34;&gt;:&lt;/span&gt;//download.pytorch.org/whl/cu128 &lt;span style=&#34;color:#78787e&#34;&gt;# 更新torch使其支持torch&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;检验安装&#34;&gt;检验安装&lt;/h3&gt;
+&lt;p&gt;之后创建&lt;code&gt;test.py&lt;/code&gt;检验安装情况：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; cv2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;from&lt;/span&gt; doclayout_yolo &lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; YOLOv10
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;# Load the pre-trained model&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;model &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; YOLOv10(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;./models/Layout/YOLO/doclayout_yolo_ft.pt&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;# Perform prediction&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;det_res &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; model&lt;span style=&#34;color:#ff6ac1&#34;&gt;.&lt;/span&gt;predict(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;path/to/image&amp;#34;&lt;/span&gt;,   &lt;span style=&#34;color:#78787e&#34;&gt;# Image to predict&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    imgsz&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1024&lt;/span&gt;,        &lt;span style=&#34;color:#78787e&#34;&gt;# Prediction image size&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    conf&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0.2&lt;/span&gt;,          &lt;span style=&#34;color:#78787e&#34;&gt;# Confidence threshold&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    device&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;cuda:0&amp;#34;&lt;/span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;# Device to use (e.g., &amp;#39;cuda:0&amp;#39; or &amp;#39;cpu&amp;#39;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;# Annotate and save the result&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;annotated_frame &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; det_res[&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;]&lt;span style=&#34;color:#ff6ac1&#34;&gt;.&lt;/span&gt;plot(pil&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;True&lt;/span&gt;, line_width&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;5&lt;/span&gt;, font_size&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;20&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cv2&lt;span style=&#34;color:#ff6ac1&#34;&gt;.&lt;/span&gt;imwrite(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;result.jpg&amp;#34;&lt;/span&gt;, annotated_frame)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;看到终端输出类似即说明安装成功：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Speed: 8.4ms preprocess, 112.7ms inference, 101.9ms postprocess per image at shape (1, 3, 1024, 768)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;开始导出&#34;&gt;开始导出&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;from&lt;/span&gt; doclayout_yolo &lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; YOLOv10
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;# Load the pre-trained model&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;model &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; YOLOv10(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;../models/Layout/YOLO/doclayout_yolo_ft.pt&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;model&lt;span style=&#34;color:#ff6ac1&#34;&gt;.&lt;/span&gt;export(&lt;span style=&#34;color:#ff5c57&#34;&gt;format&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;torchscript&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;看到终端输出类似即说明导出成功：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ultralytics YOLOv0.0.3 🚀 Python-3.13.3 torch-2.7.0+cu128 CPU (12th Gen Intel Core(TM) i7-12700H)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;PyTorch: starting from &amp;#39;E:\Projects\PDF-Extract-Kit-1.0\weights\..\models\Layout\YOLO\doclayout_yolo_ft.pt&amp;#39; with input shape (1, 3, 1024, 1024) BCHW and output shape(s) (1, 300, 6) (38.8 MB)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TorchScript: starting export with torch 2.7.0+cu128...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TorchScript: export success ✅ 17.8s, saved as &amp;#39;E:\Projects\PDF-Extract-Kit-1.0\weights\..\models\Layout\YOLO\doclayout_yolo_ft.torchscript&amp;#39; (78.1 MB)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Export complete (21.7s)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Results saved to E:\Projects\PDF-Extract-Kit-1.0\models\Layout\YOLO
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Predict:         yolo predict task=detect model=E:\Projects\PDF-Extract-Kit-1.0\weights\..\models\Layout\YOLO\doclayout_yolo_ft.torchscript imgsz=1024  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Validate:        yolo val task=detect model=E:\Projects\PDF-Extract-Kit-1.0\weights\..\models\Layout\YOLO\doclayout_yolo_ft.torchscript imgsz=1024 data=/mnt/petrelfs/zhaozhiyuan/layout/yolov10/ultralytics/cfg/datasets/0830_mixed.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Visualize:       https://netron.app
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;至此，我们就搞定了jit格式的导出&lt;/p&gt;
+&lt;p&gt;但是现有的&lt;code&gt;Rust&lt;/code&gt;推理框架不完全兼容相关模型，所以我进行了修理完善并&lt;code&gt;refactor&lt;/code&gt;了相关代码，让功能更好用&lt;/p&gt;
+&lt;h2 id=&#34;公式识别&#34;&gt;公式识别&lt;/h2&gt;
+&lt;p&gt;该模型是一个基于yolov8的模型，目测没有没有什么奇特之处，用官方库即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ultralytics 8.3.122  Python-3.13.3 torch-2.7.0+cu128 CPU (12th Gen Intel Core(TM) i7-12700H)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;YOLOv8l summary (fused): 112 layers, 43,608,150 parameters, 0 gradients, 164.8 GFLOPs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;PyTorch: starting from &amp;#39;models\MFD\YOLO\yolo_v8_ft.pt&amp;#39; with input shape (1, 3, 1888, 1888) BCHW and output shape(s) (1, 6, 73101) (333.7 MB)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TorchScript: starting export with torch 2.7.0+cu128...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TorchScript: export success  26.5s, saved as &amp;#39;models\MFD\YOLO\yolo_v8_ft.torchscript&amp;#39; (167.7 MB)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Export complete (37.7s)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Results saved to E:\Projects\PDF-Extract-Kit-1.0\models\MFD\YOLO
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Predict:         yolo predict task=detect model=models\MFD\YOLO\yolo_v8_ft.torchscript imgsz=1888  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Validate:        yolo val task=detect model=models\MFD\YOLO\yolo_v8_ft.torchscript imgsz=1888 data=/mnt/petrelfs/ouyanglinke/document-ocr/ultralytics/cfg/mfd_dataset/mfd_v4_newtrain_addignore_withouscihubtrain_addr4.yaml  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Visualize:       https://netron.app
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;公式转latex&#34;&gt;公式转LaTex&lt;/h2&gt;
+&lt;p&gt;这步真是非常痛苦的事情，他的模型写的糊里糊涂的，而且代码不是很易读&lt;/p&gt;
+&lt;p&gt;不过Thanks to Deepwiki&lt;a href=&#34;https://deepwiki.com/opendatalab/UniMERNet/3.2-command-line-interface&#34;&gt;Command Line Interface | opendatalab/UniMERNet | DeepWiki&lt;/a&gt;，我最终还是想办法来解决这个问题&lt;/p&gt;
+&lt;p&gt;其官方包使用了严格的&lt;code&gt;huggingface-hub&lt;/code&gt;，这就导致其依赖于严格版本的&lt;code&gt;tokenizers&lt;/code&gt;，但是这玩意不支持&lt;code&gt;python3.13&lt;/code&gt;，于是我只能被迫下载&lt;code&gt;python3.12&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;下面对模型配置文件进行修改，使其能正确指向文件：
+&lt;img src=&#34;1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;然后根据claude的提示添加了装饰器：
+&lt;img src=&#34;2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;拉倒吧，这个有点过于麻烦了，而且前后处理也没说，不太好弄&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;又干俩小时，确实是难绷，拉倒吧，试试用&lt;a href=&#34;https://nuitka.net/&#34;&gt;Nuitka the Python Compiler — Nuitka the Python Compiler&lt;/a&gt;打个包&lt;/p&gt;
+&lt;p&gt;也不行，现在使用pyinstaller打包，可以正常打包出来，下面解决一个问题&lt;/p&gt;&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;FileNotFoundError: [Errno 2] No such file or directory: &amp;#39;E:\\Projects\\package-onnx\\dist\\run\\_internal\\unimernet\\configs\\default.yaml&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我的方案是直接从&lt;code&gt;.venv\Lib\site-packages\unimernet\configs&lt;/code&gt;里面复制一个到&lt;code&gt;_internal\unimernet\configs\default.yaml&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PS：需要拷贝完整&lt;code&gt;config&lt;/code&gt;文件夹&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;下一个问题：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Failed to load model: Failed to import transformers.models.gemma2.configuration_gemma2 because of the following error (look up to see its traceback):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;No module named &amp;#39;transformers.models.gemma2.configuration_gemma2&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;解决方案同上&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NO_SUCHFILE : Load model from E:\Projects\package-onnx\dist\run\_internal\onnxocr\models\ppocrv4\det\det.onnx failed:Load model E:\Projects\package-onnx\dist\run\_internal\onnxocr\models\ppocrv4\det\det.onnx failed. File doesn&amp;#39;t exist
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;解决方案同上&lt;/p&gt;
+&lt;p&gt;这个玩意缺了不少素材，我在文件夹下面打了一个&lt;code&gt;patch&lt;/code&gt;包，下次打包时之后放进去就好了&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/opendatalab/PDF-Extract-Kit&#34;&gt;https://github.com/opendatalab/PDF-Extract-Kit&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/opendatalab/DocLayout-YOLO&#34;&gt;https://github.com/opendatalab/DocLayout-YOLO&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+- https://www.zhaocloud.work/posts/%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BA/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
+        </item>
     
     
     
@@ -47,8 +162,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -Protocol TCP -LocalPort &lt;span style=&#34;color:#ff5c57&#34;&gt;$port&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;验证访问&lt;/p&gt;
-&lt;p&gt;浏览器访问 &lt;code&gt;http://[Windows_IP]:[端口]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;验证访问
+浏览器访问 &lt;code&gt;http://[Windows_IP]:[端口]&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;三规则管理&#34;&gt;三、规则管理&lt;/h2&gt;
@@ -90,8 +205,7 @@
 &lt;h1 id=&#34;自动化脚本&#34;&gt;自动化脚本&lt;/h1&gt;
 &lt;h2 id=&#34;一powershell-主脚本configure-wsl-portps1&#34;&gt;一、PowerShell 主脚本 &lt;code&gt;Configure-WSL-Port.ps1&lt;/code&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;注意以&lt;code&gt;gb2312&lt;/code&gt;编码保存&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;注意以&lt;code&gt;gb2312&lt;/code&gt;编码保存&lt;/p&gt;&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&amp;lt;#
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;SYNOPSIS&lt;/span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;自动化配置WSL端口转发和防火墙规则
@@ -116,7 +230,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;#&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;param&lt;/span&gt;(
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#ff5c57&#34;&gt;Parameter&lt;/span&gt;(&lt;span style=&#34;color:#57c7ff&#34;&gt;Mandatory&lt;/span&gt;=$true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#ff5c57&#34;&gt;Parameter&lt;/span&gt;(&lt;span style=&#34;color:#57c7ff&#34;&gt;Mandatory&lt;/span&gt;=&lt;span style=&#34;color:#ff5c57&#34;&gt;$true&lt;/span&gt;)]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#ff9f43&#34;&gt;string&lt;/span&gt;]&lt;span style=&#34;color:#ff5c57&#34;&gt;$Ports&lt;/span&gt;,
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#ff9f43&#34;&gt;switch&lt;/span&gt;]&lt;span style=&#34;color:#ff5c57&#34;&gt;$Cleanup&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
@@ -471,8 +585,7 @@
 &lt;p&gt;通过本模板，你可以将精力完全集中在实验内容的创作上，无需再为格式调整耗费时间。&lt;/p&gt;
 &lt;p&gt;该模板已在Github开源（示例仓库地址），欢迎提交Issue和Pull Request共同完善。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;TIP&lt;/strong&gt;: 配合VS Code的Tinymist Typst插件，可实时检查格式规范，实现「即写即所得」的完美写作体验。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TIP&lt;/strong&gt;: 配合VS Code的Tinymist Typst插件，可实时检查格式规范，实现「即写即所得」的完美写作体验。&lt;/p&gt;&lt;/blockquote&gt;
 - https://www.zhaocloud.work/posts/bupt-report-typst/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
         </item>
     
@@ -602,7 +715,7 @@
 &lt;/table&gt;
 &lt;h2 id=&#34;四使用示例&#34;&gt;四、使用示例&lt;/h2&gt;
 &lt;p&gt;运行效果演示：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;__main__&amp;#34;&lt;/span&gt;:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;__name__&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;__main__&amp;#34;&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    today_limit, tomorrow_limit &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; xianxing()
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;--------------------------------------------&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;今天限行尾号:&amp;#34;&lt;/span&gt;, today_limit)     &lt;span style=&#34;color:#78787e&#34;&gt;# 显示当天限行尾号&lt;/span&gt;
@@ -626,8 +739,7 @@
 &lt;li&gt;网站数据抓取需遵守《网络安全法》&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
-&lt;p&gt;部分内容使用deepseek生成&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;部分内容使用deepseek生成&lt;/p&gt;&lt;/blockquote&gt;
 - https://www.zhaocloud.work/posts/%E5%8C%97%E4%BA%AC%E9%99%90%E8%A1%8C/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
         </item>
     
@@ -642,8 +754,7 @@
         <description>April Diary https://www.zhaocloud.work/posts/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85opnecv-rust/ -&lt;h2 id=&#34;前情提要&#34;&gt;前情提要&lt;/h2&gt;
 &lt;p&gt;在解决了&lt;code&gt;libtorch&lt;/code&gt;无法在树莓派运行后，我们要解决第二个大问题，即&lt;code&gt;Open CV&lt;/code&gt;库在树莓派上的使用，以下是方法总结。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;本人最后使用的是&lt;code&gt;Ubuntu&lt;/code&gt;系统，故而不能保证下文所述&lt;code&gt;Debain&lt;/code&gt;的脚本能正常运行，慎用！&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;本人最后使用的是&lt;code&gt;Ubuntu&lt;/code&gt;系统，故而不能保证下文所述&lt;code&gt;Debain&lt;/code&gt;的脚本能正常运行，慎用！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;准备工作&#34;&gt;准备工作&lt;/h2&gt;
 &lt;p&gt;如果你是&lt;code&gt;ubuntu&lt;/code&gt;系统，请按照以下规则选择&lt;code&gt;Open CV&lt;/code&gt;的版本：&lt;/p&gt;
 &lt;table&gt;
@@ -673,8 +784,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;另有环境变量&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;OPENCV_LINKAGE&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;dynamic      &lt;span style=&#34;color:#78787e&#34;&gt;# 或 static&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以选用&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以选用&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
 &lt;h3 id=&#34;如果你的树莓派是ubuntu系统那么推荐执行官方脚本&#34;&gt;如果你的树莓派是&lt;code&gt;Ubuntu&lt;/code&gt;系统，那么推荐执行官方脚本：&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;#!/bin/bash
@@ -1248,8 +1358,7 @@
 &lt;/ol&gt;
 &lt;h2 id=&#34;构建libtorch&#34;&gt;构建libtorch&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;建议使用&lt;code&gt;Cmake&lt;/code&gt;构建&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;建议使用&lt;code&gt;Cmake&lt;/code&gt;构建&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;在pytorch同级目录创建构建文件夹&#34;&gt;在pytorch同级目录创建构建文件夹&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir pytorch-build &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;cd&lt;/span&gt; pytorch-build
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;执行cmake指令&#34;&gt;执行Cmake指令&lt;/h3&gt;
@@ -1518,14 +1627,12 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;代码相关&#34;&gt;代码相关&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;这里不会展示所有代码，完整代码可以去仓库查看&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;这里不会展示所有代码，完整代码可以去仓库查看&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;预处理&#34;&gt;预处理&lt;/h3&gt;
 &lt;p&gt;在这个环节，我使用了&lt;code&gt;tch&lt;/code&gt;库中封装好的函数。&lt;/p&gt;
 &lt;p&gt;但这个环节会对原图像进行拉伸,归一化，建议输入正方形图片&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;本来写了蒙灰色底版，但是&lt;code&gt;DynamicImage&lt;/code&gt;转&lt;code&gt;Tensor&lt;/code&gt;没有解决，后续再说吧&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;本来写了蒙灰色底版，但是&lt;code&gt;DynamicImage&lt;/code&gt;转&lt;code&gt;Tensor&lt;/code&gt;没有解决，后续再说吧&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;整体代码类似，这里只展示一个：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;pub&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;fn&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;load_one_image&lt;/span&gt;(image_path: &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;str&lt;/span&gt;) -&amp;gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;Result&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;Tensor, &lt;span style=&#34;color:#ff5c57&#34;&gt;Box&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;dyn&lt;/span&gt; Error&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;let&lt;/span&gt; image_tensor &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; vision::image::load(Path::new(&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&lt;/span&gt;image_path))&lt;span style=&#34;color:#ff6ac1&#34;&gt;?&lt;/span&gt;;
@@ -1551,7 +1658,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            LoadLibraryA(path.as_ptr() &lt;span style=&#34;color:#ff6ac1&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;const&lt;/span&gt; c_char);            }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Device::cuda_if_available()
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        panic!(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#57c7ff&#34;&gt;panic!&lt;/span&gt;(
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;No &lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt; exist,please check your libtorch version or set &amp;#39;cuda&amp;#39; false instead&amp;#34;&lt;/span&gt;,
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&lt;/span&gt;libtorch_path
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        );
@@ -1562,15 +1669,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;let&lt;/span&gt; model &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; CModule::load_on_device(Path::new(model_path), device).expect(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;load model failed&amp;#34;&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;YOLO导出的&lt;code&gt;torchscript&lt;/code&gt;模型中是有元信息的，但是我没有在&lt;code&gt;torch-rs&lt;/code&gt;中找到有关接口，因此：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;二进制，启动！！！&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;二进制，启动！！！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;这部分代码比较多，我不在这里展示，不过大概阐述一下原理，
 我看了两个导出的模型，元信息是包在开始的九个&lt;code&gt;0x5A&lt;/code&gt;和结尾的&lt;code&gt;0x504B&lt;/code&gt;中，因此我们可以直接读入，然后进行解析&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;事实上，这个&lt;code&gt;torchscript&lt;/code&gt;文件是一个&lt;code&gt;.zip&lt;/code&gt;的文件，因此你可以用&lt;code&gt;zip&lt;/code&gt;进行解压，但是通过字节读取，我们可以得到更快的速度。&lt;/p&gt;
 &lt;p&gt;只是我没有见识，因此在下一版，我会把后识别符修改成&lt;code&gt;0x504B&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;2025/02/06T23:12在刷B站时发现的&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;2025/02/06T23:12在刷B站时发现的&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;模型推理反倒是最简单的了，因为接口一步到位，只要注意张量设备转移就好。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;模型推理&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;let&lt;/span&gt; input &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; input.to_device(device);
@@ -1631,7 +1736,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    threshold: &lt;span style=&#34;color:#9aedfe&#34;&gt;f64&lt;/span&gt;,
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;) -&amp;gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;Vec&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;(&lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;, &lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;, &lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;, &lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;, &lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;, &lt;span style=&#34;color:#9aedfe&#34;&gt;f64&lt;/span&gt;)&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    boxes.sort_unstable_by(&lt;span style=&#34;color:#ff6ac1&#34;&gt;|&lt;/span&gt;a, b&lt;span style=&#34;color:#ff6ac1&#34;&gt;|&lt;/span&gt; b.&lt;span style=&#34;color:#ff9f43&#34;&gt;5.&lt;/span&gt;partial_cmp(&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&lt;/span&gt;a.&lt;span style=&#34;color:#ff9f43&#34;&gt;5&lt;/span&gt;).unwrap_or(std::cmp::Ordering::Equal));
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;mut&lt;/span&gt; suppressed &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; vec![&lt;span style=&#34;color:#ff6ac1&#34;&gt;false&lt;/span&gt;; boxes.len()];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;mut&lt;/span&gt; suppressed &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;vec!&lt;/span&gt;[&lt;span style=&#34;color:#ff6ac1&#34;&gt;false&lt;/span&gt;; boxes.len()];
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;let&lt;/span&gt; to_xyxy &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;|&lt;/span&gt;x: &lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;, y: &lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;, w: &lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;, h: &lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;|&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff5c57&#34;&gt;let&lt;/span&gt; (x, y, w, h) &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; (x &lt;span style=&#34;color:#ff6ac1&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#9aedfe&#34;&gt;f64&lt;/span&gt;, y &lt;span style=&#34;color:#ff6ac1&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#9aedfe&#34;&gt;f64&lt;/span&gt;, w &lt;span style=&#34;color:#ff6ac1&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#9aedfe&#34;&gt;f64&lt;/span&gt;, h &lt;span style=&#34;color:#ff6ac1&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#9aedfe&#34;&gt;f64&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff5c57&#34;&gt;let&lt;/span&gt; x1 &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; x &lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt; w &lt;span style=&#34;color:#ff6ac1&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;2.0&lt;/span&gt;;
@@ -1731,14 +1836,12 @@
         
         <guid>https://www.zhaocloud.work/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1yolo%E7%9A%84rust%E5%AE%9E%E7%8E%B0/</guid>
         <description>April Diary https://www.zhaocloud.work/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1yolo%E7%9A%84rust%E5%AE%9E%E7%8E%B0/ -&lt;blockquote&gt;
-&lt;p&gt;这篇博客不能算是编程相关，因为只是一次记录而已，代码相关可以参考文末仓库和我的  &lt;a href=&#34;https://www.zhaocloud.work/posts/yolo-binding%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86/&#34;&gt;相关博客&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;这篇博客不能算是编程相关，因为只是一次记录而已，代码相关可以参考文末仓库和我的  &lt;a href=&#34;https://www.zhaocloud.work/posts/yolo-binding%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86/&#34;&gt;相关博客&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;事情的起因是我和同学在准备工创赛，要做一个智能垃圾桶(AI垃圾分类)，本来是使用&lt;code&gt;Python&lt;/code&gt;做推理的，并用了&lt;code&gt;PyQt&lt;/code&gt;做前端。&lt;/p&gt;
 &lt;p&gt;但是没想到哇٩(ŏ﹏ŏ、)۶！那个Qt在树莓派上始终不能正常安装，于是我们考虑换技术栈，我一开始考虑使用&lt;code&gt;libtorch+cpp&lt;/code&gt;的方式实现。不过显然，这个难度完全不是我能对付的……&lt;/p&gt;
 &lt;p&gt;不过非常不巧(?!)，我看到了&lt;code&gt;libtorch&lt;/code&gt;的&lt;code&gt;rust&lt;/code&gt;绑定&lt;code&gt;torch-rs&lt;/code&gt;，加上我之前使用过&lt;code&gt;Tauri&lt;/code&gt;框架，整体来说能满足我的需求，于是乎，本着折腾ʅ（´◔౪◔）ʃ的原则，我开始先解决核心问题——使用&lt;code&gt;Rust&lt;/code&gt;实现&lt;code&gt;yolo&lt;/code&gt;的推理。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;其中  &lt;a href=&#34;https://blog.csdn.net/shelgi/article/details/131558507&#34;&gt;这篇文章&lt;/a&gt;  给了我很大启发，文章中介绍了yolo在rust推理的基本原理，版本比较陈旧，但是仍然推荐阅读&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;其中  &lt;a href=&#34;https://blog.csdn.net/shelgi/article/details/131558507&#34;&gt;这篇文章&lt;/a&gt;  给了我很大启发，文章中介绍了yolo在rust推理的基本原理，版本比较陈旧，但是仍然推荐阅读&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;上古仙术核心出装-version-010&#34;&gt;上古仙术，核心出装 Version-0.1.0&lt;/h2&gt;
 &lt;p&gt;我于是依着葫芦画瓢，写了最初的单文件推理版本，这个版本非常简陋，只包含了图片转Tensor和输出结果到命令行，不过也是初具雏形，但是仍然存在如：&lt;/p&gt;
 &lt;ul&gt;
@@ -1748,8 +1851,7 @@
 &lt;p&gt;等等问题，反正就是能用，但不是很能用&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/zhao-leo/yolov8_rust_demo/blob/41f508aa2a65183ab30638e598defed8b9f52d82/src/yolo.rs&#34;&gt;点击前往&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;顺嘴一提，本来是准备用fast-r-cnn的，但是教程有限，我们组就放弃了。还是yolo封装好哇！&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;顺嘴一提，本来是准备用fast-r-cnn的，但是教程有限，我们组就放弃了。还是yolo封装好哇！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;法宝现世曲线救国-version-012&#34;&gt;法宝现世，曲线救国 Version-0.1.2&lt;/h2&gt;
 &lt;p&gt;由于痛苦的环境配置给我留下了很深刻的印象，在这个版本中，我特意编写了一个启动器，来对主程序进行环境变量的注入，同时编写了两个&lt;code&gt;bat&lt;/code&gt;方便推理，不管怎么说，还是可以比较完美的运行的。&lt;/p&gt;
 &lt;p&gt;同时，在这个版本，我解决了画框和画字的问题，也就是说，这玩意可以正常运行了(在环境变量正确注入的情况下)。&lt;/p&gt;
@@ -1764,61 +1866,6 @@
 &lt;p&gt;&lt;a href=&#34;https://github.com/zhao-leo/yolo_binding&#34;&gt;github&lt;/a&gt;
 &lt;a href=&#34;https://crates.io/crates/yolo_binding&#34;&gt;crates.io&lt;/a&gt;&lt;/p&gt;
 - https://www.zhaocloud.work/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1yolo%E7%9A%84rust%E5%AE%9E%E7%8E%B0/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
-        </item>
-    
-    
-    
-        <item>
-        <title>Cloudstudio配置</title>
-        <link>https://www.zhaocloud.work/posts/cloudstudio%E9%85%8D%E7%BD%AE/</link>
-        <pubDate>Sun, 26 Jan 2025 15:51:32 +0800</pubDate>
-        
-        <guid>https://www.zhaocloud.work/posts/cloudstudio%E9%85%8D%E7%BD%AE/</guid>
-        <description>April Diary https://www.zhaocloud.work/posts/cloudstudio%E9%85%8D%E7%BD%AE/ -&lt;h1 id=&#34;在腾讯cloudstudio上训练yolo模型的环境配置问题&#34;&gt;在腾讯CloudStudio上训练yolo模型的环境配置问题&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;众所周知：配环境是成为程序员最难的一步。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;在&lt;code&gt;cloud studio&lt;/code&gt;运行&lt;code&gt;yolov8&lt;/code&gt;时遇到了几个问题，顺手记录在这。&lt;/p&gt;
-&lt;p&gt;&lt;small&gt;主要是可以白嫖大显存GPU，本蒟蒻只有可怜兮兮的3050Laptop-4G  o(╥﹏╥)o&lt;/small&gt;&lt;/p&gt;
-&lt;h2 id=&#34;第一个问题&#34;&gt;第一个问题&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ImportError: libGL.so.1: cannot open shared object file: No such file or directory
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;解决方案也比较简单：&lt;/p&gt;
-&lt;p&gt;来源：&lt;a href=&#34;https://stackoverflow.com/questions/55313610/importerror-libgl-so-1-cannot-open-shared-object-file-no-such-file-or-directo&#34;&gt;&lt;code&gt;Stackoverflow&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;一行命令就解决了……&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apt install libgl1-mesa-glx
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;第二个问题&#34;&gt;第二个问题&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29&amp;#39; not found (required by /root/miniforge3/lib/python3.10/site-packages/matplotlib/_c_internal_utils.cpython-310-x86_64-linux-gnu.so)
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我先使用了同样来自&lt;code&gt;Stackoverflow&lt;/code&gt;的解答：&lt;a href=&#34;https://stackoverflow.com/questions/65349875/where-can-i-find-glibcxx-3-4-29&#34;&gt;点击前往&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;也就是如下的方案：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo add-apt-repository ppa:ubuntu-toolchain-r/test # Ignore if not ubuntu
-sudo apt-get update
-sudo apt-get install gcc-4.9
-sudo apt-get upgrade libstdc++6
-sudo apt-get dist-upgrade
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;但是非常遗憾，没有效果，还是出现了报错……&lt;/p&gt;
-&lt;p&gt;这时候，我非常不情愿的打开了&lt;code&gt;csdn&lt;/code&gt;，但是非常幸运，我找到了&lt;a href=&#34;https://blog.csdn.net/weixin_39379635/article/details/129159713&#34;&gt;解决方案&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;以我浅薄的理解，应该是&lt;code&gt;linux&lt;/code&gt;中有合适的版本，但是&lt;code&gt;/usr/lib/x86_64-linux-gnu/&lt;/code&gt;路径下的&lt;code&gt;libstdc++&lt;/code&gt;默认的依赖是一个比较老的，因此你安装了新的版本也无济于事，因为这个依赖不会自动更改。&lt;/p&gt;
-&lt;p&gt;知道问题是解决问题的开始：
-首先找个高版本的库：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo find / -name &amp;#34;libstdc++.so.6*&amp;#34;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;一个可能的版本：&lt;code&gt;6.0.29&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;然后我们查看这个包是否有&lt;code&gt;GLIBCXX_3.4.29&lt;/code&gt;&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;strings /.../lib/libstdc++.so.6.0.29 | grep GLIBCXX
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果有，你应该在控制台输出中找到如下的字符：&lt;code&gt;GLIBCXX_3.4.29&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;然后就是喜闻乐见的&lt;code&gt;除旧迎新&lt;/code&gt;环节：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cp /.../libstdc++.so.6.0.29 /usr/lib/x86_64-linux-gnu/
-# 除旧
-sudo rm /usr/lib/x86_64-linux-gnu/libstdc++.so.6
-# 迎新
-ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.29 /usr/lib/x86_64-linux-gnu/libstdc++.so.6
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;文章中说可能会出现文件没有执行权限的问题，这个&lt;code&gt;chmod&lt;/code&gt;就可以较好解决，这里不做赘述。&lt;/p&gt;
-&lt;h2 id=&#34;第三个问题&#34;&gt;第三个问题&lt;/h2&gt;
-&lt;p&gt;说是问题，不如说是注意事项，因为&lt;code&gt;cloudstudio&lt;/code&gt;自带&lt;code&gt;conda&lt;/code&gt;环境，所以&lt;code&gt;pip&lt;/code&gt;是可以正常安装的，然后vs默认用的是&lt;code&gt;ubuntu&lt;/code&gt;的&lt;code&gt;python&lt;/code&gt;，所以你直接点启动啥用没有，只会收获很多&lt;code&gt;报错&lt;/code&gt;，但是你可以从命令行不指定路径启动就没问题。
-比如：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;python main.py
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;PS：Linux使用还是挺有难度的，不过怎么说呢，习惯就好，不行就去网上搜呗~，嘻嘻&lt;/p&gt;
-&lt;p&gt;写于2025/01/26&lt;/p&gt;
-- https://www.zhaocloud.work/posts/cloudstudio%E9%85%8D%E7%BD%AE/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
         </item>
     
     
