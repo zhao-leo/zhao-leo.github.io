@@ -25,11 +25,12 @@
         <guid>https://www.zhaocloud.work/posts/%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BA/</guid>
         <description>April Diary https://www.zhaocloud.work/posts/%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%A8%A1%E5%9E%8B%E5%AF%BC%E5%87%BA/ -&lt;blockquote&gt;
 &lt;p&gt;PS: 今天看网站才发现出BUG了（😅）
-今天实现的部分是针对&lt;a href=&#34;https://github.com/opendatalab/PDF-Extract-Kit&#34;&gt;PDF-Extract-Kit&lt;/a&gt;的两个YOLO布局检测（公式检测）模型的。&lt;/p&gt;&lt;/blockquote&gt;
+今天实现的部分是针对&lt;a href=&#34;https://github.com/opendatalab/PDF-Extract-Kit&#34;&gt;PDF-Extract-Kit&lt;/a&gt;的两个YOLO布局检测（公式检测）模型的。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;其主要逻辑仍然是我之前写过的&lt;a href=&#34;https://www.zhaocloud.work/posts/yolo-binding%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86/&#34;&gt;Yolo Binding的相关代码部分&lt;/a&gt;，但是不同的是这次我会使用静态链接库以提高可移植性。&lt;/p&gt;
 &lt;p&gt;Thanks to &lt;code&gt;tch-rs&lt;/code&gt;，我们可以通过环境变量&lt;code&gt;LIBTORCH_STATIC=1&lt;/code&gt;来选择使用静态链接库(回看一下，这个也没搞定)&lt;/p&gt;
 &lt;p&gt;下面需要解决的事情是将官方提供的pt模型转成jit模型提高速度和可移植性。&lt;/p&gt;
-&lt;h2 id=&#34;doclayout-yolo&#34;&gt;&lt;a href=&#34;https://github.com/opendatalab/DocLayout-YOLO&#34;&gt;DocLayout-YOLO&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;doclayout-yolohttpsgithubcomopendatalabdoclayout-yolo&#34;&gt;&lt;a href=&#34;https://github.com/opendatalab/DocLayout-YOLO&#34;&gt;DocLayout-YOLO&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;首先，根据官网&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;说明，去&lt;a href=&#34;https://www.modelscope.cn/models/OpenDataLab/PDF-Extract-Kit-1.0&#34;&gt;modelscope&lt;/a&gt;/&lt;a href=&#34;https://huggingface.co/opendatalab/PDF-Extract-Kit-1.0&#34;&gt;huggingface&lt;/a&gt;上下载模型，随后下载包如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install &lt;span style=&#34;color:#ff5c57&#34;&gt;doclayout-yolo&lt;/span&gt; &lt;span style=&#34;color:#78787e&#34;&gt;# 安装官方提供的包&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install &lt;span style=&#34;color:#ff5c57&#34;&gt;huggingface-hub&lt;/span&gt; &lt;span style=&#34;color:#78787e&#34;&gt;# 没有这个无法运行&lt;/span&gt;
@@ -104,11 +105,13 @@
 &lt;p&gt;拉倒吧，这个有点过于麻烦了，而且前后处理也没说，不太好弄&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;又干俩小时，确实是难绷，拉倒吧，试试用&lt;a href=&#34;https://nuitka.net/&#34;&gt;Nuitka the Python Compiler — Nuitka the Python Compiler&lt;/a&gt;打个包&lt;/p&gt;
-&lt;p&gt;也不行，现在使用pyinstaller打包，可以正常打包出来，下面解决一个问题&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;也不行，现在使用pyinstaller打包，可以正常打包出来，下面解决一个问题&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;FileNotFoundError: [Errno 2] No such file or directory: &amp;#39;E:\\Projects\\package-onnx\\dist\\run\\_internal\\unimernet\\configs\\default.yaml&amp;#39;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我的方案是直接从&lt;code&gt;.venv\Lib\site-packages\unimernet\configs&lt;/code&gt;里面复制一个到&lt;code&gt;_internal\unimernet\configs\default.yaml&lt;/code&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;PS：需要拷贝完整&lt;code&gt;config&lt;/code&gt;文件夹&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;PS：需要拷贝完整&lt;code&gt;config&lt;/code&gt;文件夹&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;下一个问题：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Failed to load model: Failed to import transformers.models.gemma2.configuration_gemma2 because of the following error (look up to see its traceback):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;No module named &amp;#39;transformers.models.gemma2.configuration_gemma2&amp;#39;
@@ -205,7 +208,8 @@
 &lt;h1 id=&#34;自动化脚本&#34;&gt;自动化脚本&lt;/h1&gt;
 &lt;h2 id=&#34;一powershell-主脚本configure-wsl-portps1&#34;&gt;一、PowerShell 主脚本 &lt;code&gt;Configure-WSL-Port.ps1&lt;/code&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;注意以&lt;code&gt;gb2312&lt;/code&gt;编码保存&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;注意以&lt;code&gt;gb2312&lt;/code&gt;编码保存&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&amp;lt;#
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;SYNOPSIS&lt;/span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;自动化配置WSL端口转发和防火墙规则
@@ -230,7 +234,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;#&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;param&lt;/span&gt;(
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#ff5c57&#34;&gt;Parameter&lt;/span&gt;(&lt;span style=&#34;color:#57c7ff&#34;&gt;Mandatory&lt;/span&gt;=&lt;span style=&#34;color:#ff5c57&#34;&gt;$true&lt;/span&gt;)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#ff5c57&#34;&gt;Parameter&lt;/span&gt;(&lt;span style=&#34;color:#57c7ff&#34;&gt;Mandatory&lt;/span&gt;=$true)]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#ff9f43&#34;&gt;string&lt;/span&gt;]&lt;span style=&#34;color:#ff5c57&#34;&gt;$Ports&lt;/span&gt;,
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#ff9f43&#34;&gt;switch&lt;/span&gt;]&lt;span style=&#34;color:#ff5c57&#34;&gt;$Cleanup&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
@@ -474,88 +478,88 @@
 &lt;p&gt;Word的文本和排版混合的模式虽然提供了所见即所得的效果，但是，Word完全不能让我专心码字！&lt;/p&gt;
 &lt;p&gt;同时，Word的图注编辑较为麻烦（对我来说），Word代码块没有高亮等等各种问题让我下定决心，用Typst写一套BUPT的DSP实验报告模板。&lt;/p&gt;
 &lt;h2 id=&#34;如何使用&#34;&gt;如何使用&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-typst&#34; data-lang=&#34;typst&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;#import&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;template.typ&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ff5c57&#34;&gt;experiment-report&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;#show&lt;/span&gt;: &lt;span style=&#34;color:#ff5c57&#34;&gt;doc&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;experiment-report&lt;/span&gt;(
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff5c57&#34;&gt;class&lt;/span&gt;: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;2023211113&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff5c57&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;张三&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff5c57&#34;&gt;student-id&lt;/span&gt;: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;2021123456&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff5c57&#34;&gt;date&lt;/span&gt;: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;2024年4月14日&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff5c57&#34;&gt;doc&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;将这两行插入你的Typst文档，随后就可以自动生成包含校徽、专业信息、日期等要素的标准化封面页，以及调整好的字体、缩进、样式，让你专注于完成自己的实验报告，取得&lt;code&gt;High Score&lt;/code&gt;！&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-typst&#34; data-lang=&#34;typst&#34;&gt;#import &amp;#34;template.typ&amp;#34;: experiment-report
+
+#show: doc =&amp;gt; experiment-report(
+  class: &amp;#34;2023211113&amp;#34;,
+  name: &amp;#34;张三&amp;#34;,
+  student-id: &amp;#34;2021123456&amp;#34;,
+  date: &amp;#34;2024年4月14日&amp;#34;,
+  doc
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将这两行插入你的Typst文档，随后就可以自动生成包含校徽、专业信息、日期等要素的标准化封面页，以及调整好的字体、缩进、样式，让你专注于完成自己的实验报告，取得&lt;code&gt;High Score&lt;/code&gt;！&lt;/p&gt;
 &lt;h2 id=&#34;具体格式&#34;&gt;具体格式&lt;/h2&gt;
 &lt;h3 id=&#34;基本格式&#34;&gt;基本格式&lt;/h3&gt;
 &lt;p&gt;页边距&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-typst&#34; data-lang=&#34;typst&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set page(
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    paper: &amp;#34;a4&amp;#34;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    margin: (top: 2.54cm, bottom: 2.54cm, left: 3.18cm, right: 3.18cm),
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;封面样式&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-typst&#34; data-lang=&#34;typst&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;align(center)[
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#57c7ff&#34;&gt;#v&lt;/span&gt;(&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;em&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;// 第一行：学年学期&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#57c7ff&#34;&gt;#text&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;size&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;22&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;pt&lt;/span&gt;,&lt;span style=&#34;color:#ff5c57&#34;&gt;font&lt;/span&gt;: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;STZhongsong&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#ff5c57&#34;&gt;weight&lt;/span&gt;: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;bold&amp;#34;&lt;/span&gt;)[2024-2025学年第二学期]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;// 第二行：实验报告标题&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#57c7ff&#34;&gt;#text&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;size&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;22&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;pt&lt;/span&gt;,&lt;span style=&#34;color:#ff5c57&#34;&gt;font&lt;/span&gt;:&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;STZhongsong&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#ff5c57&#34;&gt;weight&lt;/span&gt;: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;bold&amp;#34;&lt;/span&gt;)[《信号处理实验》实验报告]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#57c7ff&#34;&gt;#v&lt;/span&gt;(&lt;span style=&#34;color:#ff9f43&#34;&gt;4.5&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;em&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;// Logo&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#57c7ff&#34;&gt;#image&lt;/span&gt;(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;assets/bupt-logo.jpg&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ff5c57&#34;&gt;width&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;40&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;%&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#57c7ff&#34;&gt;#v&lt;/span&gt;(&lt;span style=&#34;color:#ff9f43&#34;&gt;8&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;em&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#78787e&#34;&gt;// 学生信息表格函数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;#let&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;info-row&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;label&lt;/span&gt;, &lt;span style=&#34;color:#ff5c57&#34;&gt;content&lt;/span&gt;) &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#57c7ff&#34;&gt;grid&lt;/span&gt;(
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff5c57&#34;&gt;columns&lt;/span&gt;: (&lt;span style=&#34;color:#ff6ac1&#34;&gt;auto&lt;/span&gt;, &lt;span style=&#34;color:#ff6ac1&#34;&gt;auto&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#57c7ff&#34;&gt;align&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;right&lt;/span&gt;)[&lt;span style=&#34;color:#57c7ff&#34;&gt;#text&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;font&lt;/span&gt;: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;STSong&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#ff5c57&#34;&gt;size&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;14&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;pt&lt;/span&gt;)[&lt;span style=&#34;color:#ff5c57&#34;&gt;#label&lt;/span&gt;]],
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        [
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#57c7ff&#34;&gt;#box&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;width&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;180&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;pt&lt;/span&gt;)[
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff5c57&#34;&gt;#set&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;text&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;font&lt;/span&gt;: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;STSong&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#ff5c57&#34;&gt;size&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;14&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;pt&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#57c7ff&#34;&gt;#box&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;width&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;180&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;pt&lt;/span&gt;)[
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#57c7ff&#34;&gt;#place&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;dx&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;pt&lt;/span&gt;, &lt;span style=&#34;color:#ff5c57&#34;&gt;dy&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;14&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;pt&lt;/span&gt;)[&lt;span style=&#34;color:#57c7ff&#34;&gt;#line&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;length&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;180&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;pt&lt;/span&gt;)]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#57c7ff&#34;&gt;#align&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;center&lt;/span&gt;)[&lt;span style=&#34;color:#ff5c57&#34;&gt;#content&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          ]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      )
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;#set&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;text&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;font&lt;/span&gt;: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;STSong&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ff5c57&#34;&gt;size&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;14&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;pt&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#57c7ff&#34;&gt;#grid&lt;/span&gt;( &lt;span style=&#34;color:#78787e&#34;&gt;// 生成基本信息&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ff5c57&#34;&gt;align&lt;/span&gt;: &lt;span style=&#34;color:#ff5c57&#34;&gt;center&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ff5c57&#34;&gt;rows&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ff5c57&#34;&gt;row-gutter&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;em&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#57c7ff&#34;&gt;info-row&lt;/span&gt;(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;专业班级&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ff5c57&#34;&gt;class&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#57c7ff&#34;&gt;info-row&lt;/span&gt;(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;姓　　名&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ff5c57&#34;&gt;name&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#57c7ff&#34;&gt;info-row&lt;/span&gt;(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;学　　号&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ff5c57&#34;&gt;student-id&lt;/span&gt;),
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#57c7ff&#34;&gt;info-row&lt;/span&gt;(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;报告日期&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ff5c57&#34;&gt;date&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ]&lt;span style=&#34;color:#ff5c57&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;pagebreak() // 生成分页
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;格式规范自动适配&#34;&gt;格式规范自动适配&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-typst&#34; data-lang=&#34;typst&#34;&gt;set page(
+    paper: &amp;#34;a4&amp;#34;,
+    margin: (top: 2.54cm, bottom: 2.54cm, left: 3.18cm, right: 3.18cm),
+)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;封面样式&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-typst&#34; data-lang=&#34;typst&#34;&gt;align(center)[
+    #v(4em)
+    // 第一行：学年学期
+    #text(size: 22pt,font: &amp;#34;STZhongsong&amp;#34;,weight: &amp;#34;bold&amp;#34;)[2024-2025学年第二学期]
+
+    // 第二行：实验报告标题
+    #text(size: 22pt,font:&amp;#34;STZhongsong&amp;#34;,weight: &amp;#34;bold&amp;#34;)[《信号处理实验》实验报告]
+    #v(4.5em)
+    
+    // Logo
+    #image(&amp;#34;assets/bupt-logo.jpg&amp;#34;, width: 40%)
+    #v(8em)
+    
+   // 学生信息表格函数
+    #let info-row(label, content) = {
+      grid(
+        columns: (auto, auto),
+        align(right)[#text(font: &amp;#34;STSong&amp;#34;,size: 14pt)[#label]],
+        [
+          #box(width: 180pt)[
+            #set text(font: &amp;#34;STSong&amp;#34;,size: 14pt)
+            #box(width: 180pt)[
+              #place(dx: 0pt, dy: 14pt)[#line(length: 180pt)]
+              #align(center)[#content]
+            ]
+          ]
+        ]
+      )
+    }
+    
+    #set text(font: &amp;#34;STSong&amp;#34;, size: 14pt)
+    #grid( // 生成基本信息
+      align: center,
+      rows: 4,
+      row-gutter: 2em,
+      info-row(&amp;#34;专业班级&amp;#34;, class),
+      info-row(&amp;#34;姓　　名&amp;#34;, name),
+      info-row(&amp;#34;学　　号&amp;#34;, student-id),
+      info-row(&amp;#34;报告日期&amp;#34;, date)
+    )
+  ]
+pagebreak() // 生成分页
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;格式规范自动适配&#34;&gt;格式规范自动适配&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;正文首行缩进2字符&lt;/li&gt;
 &lt;li&gt;中英文字体自动匹配（中文宋体/英文Times New Roman）&lt;/li&gt;
 &lt;li&gt;1.2倍行距标准
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-typst&#34; data-lang=&#34;typst&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set par(first-line-indent: 2em,leading: 1.2em)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;show raw.where(block: true): block =&amp;gt; [
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#57c7ff&#34;&gt;#pad&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;left&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;2.5&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;em&lt;/span&gt;)[
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;#block&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-typst&#34; data-lang=&#34;typst&#34;&gt;set par(first-line-indent: 2em,leading: 1.2em)
+show raw.where(block: true): block =&amp;gt; [
+    #pad(left: 2.5em)[
+    #block
+    ]
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;题注小五号仿宋字体
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-typst&#34; data-lang=&#34;typst&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;show figure.caption: it =&amp;gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    set text(font: (&amp;#34;Times New Roman&amp;#34;, &amp;#34;FangSong&amp;#34;), size: 9pt)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    it
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-typst&#34; data-lang=&#34;typst&#34;&gt;show figure.caption: it =&amp;gt; {
+    set text(font: (&amp;#34;Times New Roman&amp;#34;, &amp;#34;FangSong&amp;#34;), size: 9pt)
+    it
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;正文五号字&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-typst&#34; data-lang=&#34;typst&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set text(font: (&amp;#34;Times New Roman&amp;#34;, &amp;#34;SimHei&amp;#34;), size: 12pt, weight: &amp;#34;regular&amp;#34;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;快速上手指南&#34;&gt;快速上手指南&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-typst&#34; data-lang=&#34;typst&#34;&gt;set text(font: (&amp;#34;Times New Roman&amp;#34;, &amp;#34;SimHei&amp;#34;), size: 12pt, weight: &amp;#34;regular&amp;#34;)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;快速上手指南&#34;&gt;快速上手指南&lt;/h2&gt;
 &lt;h3 id=&#34;环境准备&#34;&gt;环境准备&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;安装&lt;a href=&#34;https://typst.app/&#34;&gt;Typst&lt;/a&gt;&lt;/li&gt;
@@ -564,28 +568,29 @@
 &lt;li&gt;导出&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;基础使用&#34;&gt;基础使用&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-typst&#34; data-lang=&#34;typst&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;// 导入模板&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;#import&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;template.typ&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ff5c57&#34;&gt;experiment-report&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;// 设置文档参数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;#show&lt;/span&gt;: &lt;span style=&#34;color:#ff5c57&#34;&gt;doc&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;experiment-report&lt;/span&gt;(
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff5c57&#34;&gt;class&lt;/span&gt;: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;电子信息工程2023级&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff5c57&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;王小明&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff5c57&#34;&gt;student-id&lt;/span&gt;: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;202311001&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff5c57&#34;&gt;date&lt;/span&gt;: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;2024年4月20日&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff5c57&#34;&gt;doc&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;// 开始撰写内容&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;font-weight:bold&#34;&gt;= 实验二 数字滤波器设计&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;font-weight:bold&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;font-weight:bold&#34;&gt;== 实验原理&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;结语让写作回归本质&#34;&gt;结语：让写作回归本质&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-typst&#34; data-lang=&#34;typst&#34;&gt;// 导入模板
+#import &amp;#34;template.typ&amp;#34;: experiment-report
+
+// 设置文档参数
+#show: doc =&amp;gt; experiment-report(
+  class: &amp;#34;电子信息工程2023级&amp;#34;,
+  name: &amp;#34;王小明&amp;#34;,
+  student-id: &amp;#34;202311001&amp;#34;,
+  date: &amp;#34;2024年4月20日&amp;#34;,
+  doc
+)
+
+// 开始撰写内容
+= 实验二 数字滤波器设计
+
+== 实验原理
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;结语让写作回归本质&#34;&gt;结语：让写作回归本质&lt;/h2&gt;
 &lt;p&gt;通过本模板，你可以将精力完全集中在实验内容的创作上，无需再为格式调整耗费时间。&lt;/p&gt;
 &lt;p&gt;该模板已在Github开源（示例仓库地址），欢迎提交Issue和Pull Request共同完善。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;TIP&lt;/strong&gt;: 配合VS Code的Tinymist Typst插件，可实时检查格式规范，实现「即写即所得」的完美写作体验。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TIP&lt;/strong&gt;: 配合VS Code的Tinymist Typst插件，可实时检查格式规范，实现「即写即所得」的完美写作体验。&lt;/p&gt;
+&lt;/blockquote&gt;
 - https://www.zhaocloud.work/posts/bupt-report-typst/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
         </item>
     
@@ -715,7 +720,7 @@
 &lt;/table&gt;
 &lt;h2 id=&#34;四使用示例&#34;&gt;四、使用示例&lt;/h2&gt;
 &lt;p&gt;运行效果演示：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;__name__&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;__main__&amp;#34;&lt;/span&gt;:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#ff6ac1&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;__main__&amp;#34;&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    today_limit, tomorrow_limit &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; xianxing()
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;--------------------------------------------&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;今天限行尾号:&amp;#34;&lt;/span&gt;, today_limit)     &lt;span style=&#34;color:#78787e&#34;&gt;# 显示当天限行尾号&lt;/span&gt;
@@ -739,7 +744,8 @@
 &lt;li&gt;网站数据抓取需遵守《网络安全法》&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
-&lt;p&gt;部分内容使用deepseek生成&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;部分内容使用deepseek生成&lt;/p&gt;
+&lt;/blockquote&gt;
 - https://www.zhaocloud.work/posts/%E5%8C%97%E4%BA%AC%E9%99%90%E8%A1%8C/ - April. 本站遵循 CC-BY-NC 4.0 协议</description>
         </item>
     
@@ -754,7 +760,8 @@
         <description>April Diary https://www.zhaocloud.work/posts/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85opnecv-rust/ -&lt;h2 id=&#34;前情提要&#34;&gt;前情提要&lt;/h2&gt;
 &lt;p&gt;在解决了&lt;code&gt;libtorch&lt;/code&gt;无法在树莓派运行后，我们要解决第二个大问题，即&lt;code&gt;Open CV&lt;/code&gt;库在树莓派上的使用，以下是方法总结。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;本人最后使用的是&lt;code&gt;Ubuntu&lt;/code&gt;系统，故而不能保证下文所述&lt;code&gt;Debain&lt;/code&gt;的脚本能正常运行，慎用！&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;本人最后使用的是&lt;code&gt;Ubuntu&lt;/code&gt;系统，故而不能保证下文所述&lt;code&gt;Debain&lt;/code&gt;的脚本能正常运行，慎用！&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;准备工作&#34;&gt;准备工作&lt;/h2&gt;
 &lt;p&gt;如果你是&lt;code&gt;ubuntu&lt;/code&gt;系统，请按照以下规则选择&lt;code&gt;Open CV&lt;/code&gt;的版本：&lt;/p&gt;
 &lt;table&gt;
@@ -784,7 +791,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;另有环境变量&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;OPENCV_LINKAGE&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;dynamic      &lt;span style=&#34;color:#78787e&#34;&gt;# 或 static&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以选用&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以选用&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
 &lt;h3 id=&#34;如果你的树莓派是ubuntu系统那么推荐执行官方脚本&#34;&gt;如果你的树莓派是&lt;code&gt;Ubuntu&lt;/code&gt;系统，那么推荐执行官方脚本：&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;#!/bin/bash
@@ -1358,7 +1366,8 @@
 &lt;/ol&gt;
 &lt;h2 id=&#34;构建libtorch&#34;&gt;构建libtorch&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;建议使用&lt;code&gt;Cmake&lt;/code&gt;构建&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;建议使用&lt;code&gt;Cmake&lt;/code&gt;构建&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;在pytorch同级目录创建构建文件夹&#34;&gt;在pytorch同级目录创建构建文件夹&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir pytorch-build &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;cd&lt;/span&gt; pytorch-build
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;执行cmake指令&#34;&gt;执行Cmake指令&lt;/h3&gt;
@@ -1627,12 +1636,14 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;代码相关&#34;&gt;代码相关&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;这里不会展示所有代码，完整代码可以去仓库查看&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;这里不会展示所有代码，完整代码可以去仓库查看&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;预处理&#34;&gt;预处理&lt;/h3&gt;
 &lt;p&gt;在这个环节，我使用了&lt;code&gt;tch&lt;/code&gt;库中封装好的函数。&lt;/p&gt;
 &lt;p&gt;但这个环节会对原图像进行拉伸,归一化，建议输入正方形图片&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;本来写了蒙灰色底版，但是&lt;code&gt;DynamicImage&lt;/code&gt;转&lt;code&gt;Tensor&lt;/code&gt;没有解决，后续再说吧&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;本来写了蒙灰色底版，但是&lt;code&gt;DynamicImage&lt;/code&gt;转&lt;code&gt;Tensor&lt;/code&gt;没有解决，后续再说吧&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;整体代码类似，这里只展示一个：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;pub&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;fn&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;load_one_image&lt;/span&gt;(image_path: &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;str&lt;/span&gt;) -&amp;gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;Result&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;Tensor, &lt;span style=&#34;color:#ff5c57&#34;&gt;Box&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;dyn&lt;/span&gt; Error&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;let&lt;/span&gt; image_tensor &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; vision::image::load(Path::new(&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&lt;/span&gt;image_path))&lt;span style=&#34;color:#ff6ac1&#34;&gt;?&lt;/span&gt;;
@@ -1658,7 +1669,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            LoadLibraryA(path.as_ptr() &lt;span style=&#34;color:#ff6ac1&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;const&lt;/span&gt; c_char);            }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Device::cuda_if_available()
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#ff6ac1&#34;&gt;else&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#57c7ff&#34;&gt;panic!&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        panic!(
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;No &lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt; exist,please check your libtorch version or set &amp;#39;cuda&amp;#39; false instead&amp;#34;&lt;/span&gt;,
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&lt;/span&gt;libtorch_path
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        );
@@ -1669,13 +1680,15 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;let&lt;/span&gt; model &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; CModule::load_on_device(Path::new(model_path), device).expect(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;load model failed&amp;#34;&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;YOLO导出的&lt;code&gt;torchscript&lt;/code&gt;模型中是有元信息的，但是我没有在&lt;code&gt;torch-rs&lt;/code&gt;中找到有关接口，因此：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;二进制，启动！！！&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;二进制，启动！！！&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;这部分代码比较多，我不在这里展示，不过大概阐述一下原理，
 我看了两个导出的模型，元信息是包在开始的九个&lt;code&gt;0x5A&lt;/code&gt;和结尾的&lt;code&gt;0x504B&lt;/code&gt;中，因此我们可以直接读入，然后进行解析&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;事实上，这个&lt;code&gt;torchscript&lt;/code&gt;文件是一个&lt;code&gt;.zip&lt;/code&gt;的文件，因此你可以用&lt;code&gt;zip&lt;/code&gt;进行解压，但是通过字节读取，我们可以得到更快的速度。&lt;/p&gt;
 &lt;p&gt;只是我没有见识，因此在下一版，我会把后识别符修改成&lt;code&gt;0x504B&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;2025/02/06T23:12在刷B站时发现的&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;2025/02/06T23:12在刷B站时发现的&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;模型推理反倒是最简单的了，因为接口一步到位，只要注意张量设备转移就好。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;模型推理&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;let&lt;/span&gt; input &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; input.to_device(device);
@@ -1736,7 +1749,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    threshold: &lt;span style=&#34;color:#9aedfe&#34;&gt;f64&lt;/span&gt;,
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;) -&amp;gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;Vec&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;(&lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;, &lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;, &lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;, &lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;, &lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;, &lt;span style=&#34;color:#9aedfe&#34;&gt;f64&lt;/span&gt;)&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    boxes.sort_unstable_by(&lt;span style=&#34;color:#ff6ac1&#34;&gt;|&lt;/span&gt;a, b&lt;span style=&#34;color:#ff6ac1&#34;&gt;|&lt;/span&gt; b.&lt;span style=&#34;color:#ff9f43&#34;&gt;5.&lt;/span&gt;partial_cmp(&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&lt;/span&gt;a.&lt;span style=&#34;color:#ff9f43&#34;&gt;5&lt;/span&gt;).unwrap_or(std::cmp::Ordering::Equal));
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;mut&lt;/span&gt; suppressed &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;vec!&lt;/span&gt;[&lt;span style=&#34;color:#ff6ac1&#34;&gt;false&lt;/span&gt;; boxes.len()];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;mut&lt;/span&gt; suppressed &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; vec![&lt;span style=&#34;color:#ff6ac1&#34;&gt;false&lt;/span&gt;; boxes.len()];
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;let&lt;/span&gt; to_xyxy &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;|&lt;/span&gt;x: &lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;, y: &lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;, w: &lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;, h: &lt;span style=&#34;color:#9aedfe&#34;&gt;i64&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;|&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff5c57&#34;&gt;let&lt;/span&gt; (x, y, w, h) &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; (x &lt;span style=&#34;color:#ff6ac1&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#9aedfe&#34;&gt;f64&lt;/span&gt;, y &lt;span style=&#34;color:#ff6ac1&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#9aedfe&#34;&gt;f64&lt;/span&gt;, w &lt;span style=&#34;color:#ff6ac1&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#9aedfe&#34;&gt;f64&lt;/span&gt;, h &lt;span style=&#34;color:#ff6ac1&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#9aedfe&#34;&gt;f64&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff5c57&#34;&gt;let&lt;/span&gt; x1 &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; x &lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt; w &lt;span style=&#34;color:#ff6ac1&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;2.0&lt;/span&gt;;
@@ -1836,12 +1849,14 @@
         
         <guid>https://www.zhaocloud.work/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1yolo%E7%9A%84rust%E5%AE%9E%E7%8E%B0/</guid>
         <description>April Diary https://www.zhaocloud.work/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1yolo%E7%9A%84rust%E5%AE%9E%E7%8E%B0/ -&lt;blockquote&gt;
-&lt;p&gt;这篇博客不能算是编程相关，因为只是一次记录而已，代码相关可以参考文末仓库和我的  &lt;a href=&#34;https://www.zhaocloud.work/posts/yolo-binding%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86/&#34;&gt;相关博客&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;这篇博客不能算是编程相关，因为只是一次记录而已，代码相关可以参考文末仓库和我的  &lt;a href=&#34;https://www.zhaocloud.work/posts/yolo-binding%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86/&#34;&gt;相关博客&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;事情的起因是我和同学在准备工创赛，要做一个智能垃圾桶(AI垃圾分类)，本来是使用&lt;code&gt;Python&lt;/code&gt;做推理的，并用了&lt;code&gt;PyQt&lt;/code&gt;做前端。&lt;/p&gt;
 &lt;p&gt;但是没想到哇٩(ŏ﹏ŏ、)۶！那个Qt在树莓派上始终不能正常安装，于是我们考虑换技术栈，我一开始考虑使用&lt;code&gt;libtorch+cpp&lt;/code&gt;的方式实现。不过显然，这个难度完全不是我能对付的……&lt;/p&gt;
 &lt;p&gt;不过非常不巧(?!)，我看到了&lt;code&gt;libtorch&lt;/code&gt;的&lt;code&gt;rust&lt;/code&gt;绑定&lt;code&gt;torch-rs&lt;/code&gt;，加上我之前使用过&lt;code&gt;Tauri&lt;/code&gt;框架，整体来说能满足我的需求，于是乎，本着折腾ʅ（´◔౪◔）ʃ的原则，我开始先解决核心问题——使用&lt;code&gt;Rust&lt;/code&gt;实现&lt;code&gt;yolo&lt;/code&gt;的推理。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;其中  &lt;a href=&#34;https://blog.csdn.net/shelgi/article/details/131558507&#34;&gt;这篇文章&lt;/a&gt;  给了我很大启发，文章中介绍了yolo在rust推理的基本原理，版本比较陈旧，但是仍然推荐阅读&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;其中  &lt;a href=&#34;https://blog.csdn.net/shelgi/article/details/131558507&#34;&gt;这篇文章&lt;/a&gt;  给了我很大启发，文章中介绍了yolo在rust推理的基本原理，版本比较陈旧，但是仍然推荐阅读&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;上古仙术核心出装-version-010&#34;&gt;上古仙术，核心出装 Version-0.1.0&lt;/h2&gt;
 &lt;p&gt;我于是依着葫芦画瓢，写了最初的单文件推理版本，这个版本非常简陋，只包含了图片转Tensor和输出结果到命令行，不过也是初具雏形，但是仍然存在如：&lt;/p&gt;
 &lt;ul&gt;
@@ -1851,7 +1866,8 @@
 &lt;p&gt;等等问题，反正就是能用，但不是很能用&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/zhao-leo/yolov8_rust_demo/blob/41f508aa2a65183ab30638e598defed8b9f52d82/src/yolo.rs&#34;&gt;点击前往&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;顺嘴一提，本来是准备用fast-r-cnn的，但是教程有限，我们组就放弃了。还是yolo封装好哇！&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;顺嘴一提，本来是准备用fast-r-cnn的，但是教程有限，我们组就放弃了。还是yolo封装好哇！&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;法宝现世曲线救国-version-012&#34;&gt;法宝现世，曲线救国 Version-0.1.2&lt;/h2&gt;
 &lt;p&gt;由于痛苦的环境配置给我留下了很深刻的印象，在这个版本中，我特意编写了一个启动器，来对主程序进行环境变量的注入，同时编写了两个&lt;code&gt;bat&lt;/code&gt;方便推理，不管怎么说，还是可以比较完美的运行的。&lt;/p&gt;
 &lt;p&gt;同时，在这个版本，我解决了画框和画字的问题，也就是说，这玩意可以正常运行了(在环境变量正确注入的情况下)。&lt;/p&gt;

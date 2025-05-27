@@ -61,7 +61,7 @@
     
     <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="/scss/dark-mode.min.fa793cdb4ae2d683f9cccdaf1c7922313b4cf124910b552cbc6b3a7ae3b45926.css" integrity="sha256-&#43;nk820ri1oP5zM2vHHkiMTtM8SSRC1UsvGs6euO0WSY=" media="screen">
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
 
 
 <link rel="stylesheet"
@@ -331,12 +331,14 @@
                 <div class="post-body" v-pre>
                 
                     <blockquote>
-<p>这篇博客不能算是编程相关，因为只是一次记录而已，代码相关可以参考文末仓库和我的  <a href="https://www.zhaocloud.work/posts/yolo-binding%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86/">相关博客</a></p></blockquote>
+<p>这篇博客不能算是编程相关，因为只是一次记录而已，代码相关可以参考文末仓库和我的  <a href="https://www.zhaocloud.work/posts/yolo-binding%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86/">相关博客</a></p>
+</blockquote>
 <p>事情的起因是我和同学在准备工创赛，要做一个智能垃圾桶(AI垃圾分类)，本来是使用<code>Python</code>做推理的，并用了<code>PyQt</code>做前端。</p>
 <p>但是没想到哇٩(ŏ﹏ŏ、)۶！那个Qt在树莓派上始终不能正常安装，于是我们考虑换技术栈，我一开始考虑使用<code>libtorch+cpp</code>的方式实现。不过显然，这个难度完全不是我能对付的……</p>
 <p>不过非常不巧(?!)，我看到了<code>libtorch</code>的<code>rust</code>绑定<code>torch-rs</code>，加上我之前使用过<code>Tauri</code>框架，整体来说能满足我的需求，于是乎，本着折腾ʅ（´◔౪◔）ʃ的原则，我开始先解决核心问题——使用<code>Rust</code>实现<code>yolo</code>的推理。</p>
 <blockquote>
-<p>其中  <a href="https://blog.csdn.net/shelgi/article/details/131558507">这篇文章</a>  给了我很大启发，文章中介绍了yolo在rust推理的基本原理，版本比较陈旧，但是仍然推荐阅读</p></blockquote>
+<p>其中  <a href="https://blog.csdn.net/shelgi/article/details/131558507">这篇文章</a>  给了我很大启发，文章中介绍了yolo在rust推理的基本原理，版本比较陈旧，但是仍然推荐阅读</p>
+</blockquote>
 <h2 id="上古仙术核心出装-version-010">上古仙术，核心出装 Version-0.1.0</h2>
 <p>我于是依着葫芦画瓢，写了最初的单文件推理版本，这个版本非常简陋，只包含了图片转Tensor和输出结果到命令行，不过也是初具雏形，但是仍然存在如：</p>
 <ul>
@@ -346,7 +348,8 @@
 <p>等等问题，反正就是能用，但不是很能用</p>
 <p><a href="https://github.com/zhao-leo/yolov8_rust_demo/blob/41f508aa2a65183ab30638e598defed8b9f52d82/src/yolo.rs">点击前往</a></p>
 <blockquote>
-<p>顺嘴一提，本来是准备用fast-r-cnn的，但是教程有限，我们组就放弃了。还是yolo封装好哇！</p></blockquote>
+<p>顺嘴一提，本来是准备用fast-r-cnn的，但是教程有限，我们组就放弃了。还是yolo封装好哇！</p>
+</blockquote>
 <h2 id="法宝现世曲线救国-version-012">法宝现世，曲线救国 Version-0.1.2</h2>
 <p>由于痛苦的环境配置给我留下了很深刻的印象，在这个版本中，我特意编写了一个启动器，来对主程序进行环境变量的注入，同时编写了两个<code>bat</code>方便推理，不管怎么说，还是可以比较完美的运行的。</p>
 <p>同时，在这个版本，我解决了画框和画字的问题，也就是说，这玩意可以正常运行了(在环境变量正确注入的情况下)。</p>

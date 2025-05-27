@@ -25,7 +25,8 @@
         <guid>https://www.zhaocloud.work/posts/cloudstudio%E9%85%8D%E7%BD%AE/</guid>
         <description>April Diary https://www.zhaocloud.work/posts/cloudstudio%E9%85%8D%E7%BD%AE/ -&lt;h1 id=&#34;在腾讯cloudstudio上训练yolo模型的环境配置问题&#34;&gt;在腾讯CloudStudio上训练yolo模型的环境配置问题&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;众所周知：配环境是成为程序员最难的一步。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;众所周知：配环境是成为程序员最难的一步。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;在&lt;code&gt;cloud studio&lt;/code&gt;运行&lt;code&gt;yolov8&lt;/code&gt;时遇到了几个问题，顺手记录在这。&lt;/p&gt;
 &lt;p&gt;&lt;small&gt;主要是可以白嫖大显存GPU，本蒟蒻只有可怜兮兮的3050Laptop-4G  o(╥﹏╥)o&lt;/small&gt;&lt;/p&gt;
 &lt;h2 id=&#34;第一个问题&#34;&gt;第一个问题&lt;/h2&gt;
@@ -1195,7 +1196,7 @@ ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.29 /usr/lib/x86_64-linux-gnu/li
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;# 从环境变量中读取端口，如果未设置则随机选择一个开放的端口&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;PORT &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;int&lt;/span&gt;(os&lt;span style=&#34;color:#ff6ac1&#34;&gt;.&lt;/span&gt;getenv(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;CHATGLM_PROXY_PORT&amp;#39;&lt;/span&gt;, find_open_port()))
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;app &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; Flask(&lt;span style=&#34;color:#ff5c57&#34;&gt;__name__&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;app &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; Flask(__name__)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TARGET_URL &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;https://open.bigmodel.cn/api/paas/v4/chat/completions&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#78787e&#34;&gt;# 替换为你的目标 URL&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;@app.route&lt;/span&gt;(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;/v1/chat/completions&amp;#39;&lt;/span&gt;, methods&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;[&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;])

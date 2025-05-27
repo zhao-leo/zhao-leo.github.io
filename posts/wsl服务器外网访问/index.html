@@ -62,7 +62,7 @@
     
     <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="/scss/dark-mode.min.fa793cdb4ae2d683f9cccdaf1c7922313b4cf124910b552cbc6b3a7ae3b45926.css" integrity="sha256-&#43;nk820ri1oP5zM2vHHkiMTtM8SSRC1UsvGs6euO0WSY=" media="screen">
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
 
 
 <link rel="stylesheet"
@@ -561,7 +561,8 @@
 <h1 id="自动化脚本">自动化脚本</h1>
 <h2 id="一powershell-主脚本configure-wsl-portps1">一、PowerShell 主脚本 <code>Configure-WSL-Port.ps1</code></h2>
 <blockquote>
-<p>注意以<code>gb2312</code>编码保存</p></blockquote>
+<p>注意以<code>gb2312</code>编码保存</p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#78787e">&lt;#
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e">.</span><span style="color:#5af78e">SYNOPSIS</span><span style="color:#78787e">
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e">自动化配置WSL端口转发和防火墙规则
@@ -586,7 +587,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e">#&gt;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff6ac1">param</span>(
-</span></span><span style="display:flex;"><span>    [<span style="color:#ff5c57">Parameter</span>(<span style="color:#57c7ff">Mandatory</span>=<span style="color:#ff5c57">$true</span>)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#ff5c57">Parameter</span>(<span style="color:#57c7ff">Mandatory</span>=$true)]
 </span></span><span style="display:flex;"><span>    [<span style="color:#ff9f43">string</span>]<span style="color:#ff5c57">$Ports</span>,
 </span></span><span style="display:flex;"><span>    [<span style="color:#ff9f43">switch</span>]<span style="color:#ff5c57">$Cleanup</span>
 </span></span><span style="display:flex;"><span>)

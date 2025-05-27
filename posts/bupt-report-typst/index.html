@@ -61,7 +61,7 @@
     
     <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="/scss/dark-mode.min.fa793cdb4ae2d683f9cccdaf1c7922313b4cf124910b552cbc6b3a7ae3b45926.css" integrity="sha256-&#43;nk820ri1oP5zM2vHHkiMTtM8SSRC1UsvGs6euO0WSY=" media="screen">
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
 
 
 <link rel="stylesheet"
@@ -445,88 +445,88 @@
 <p>Word的文本和排版混合的模式虽然提供了所见即所得的效果，但是，Word完全不能让我专心码字！</p>
 <p>同时，Word的图注编辑较为麻烦（对我来说），Word代码块没有高亮等等各种问题让我下定决心，用Typst写一套BUPT的DSP实验报告模板。</p>
 <h2 id="如何使用">如何使用</h2>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typst" data-lang="typst"><span style="display:flex;"><span><span style="color:#ff6ac1">#import</span> <span style="color:#5af78e">&#34;template.typ&#34;</span>: <span style="color:#ff5c57">experiment-report</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff5c57">#show</span>: <span style="color:#ff5c57">doc</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#57c7ff">experiment-report</span>(
-</span></span><span style="display:flex;"><span>  <span style="color:#ff5c57">class</span>: <span style="color:#5af78e">&#34;2023211113&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#ff5c57">name</span>: <span style="color:#5af78e">&#34;张三&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#ff5c57">student-id</span>: <span style="color:#5af78e">&#34;2021123456&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#ff5c57">date</span>: <span style="color:#5af78e">&#34;2024年4月14日&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#ff5c57">doc</span>
-</span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><p>将这两行插入你的Typst文档，随后就可以自动生成包含校徽、专业信息、日期等要素的标准化封面页，以及调整好的字体、缩进、样式，让你专注于完成自己的实验报告，取得<code>High Score</code>！</p>
+<pre tabindex="0"><code class="language-typst" data-lang="typst">#import &#34;template.typ&#34;: experiment-report
+
+#show: doc =&gt; experiment-report(
+  class: &#34;2023211113&#34;,
+  name: &#34;张三&#34;,
+  student-id: &#34;2021123456&#34;,
+  date: &#34;2024年4月14日&#34;,
+  doc
+)
+</code></pre><p>将这两行插入你的Typst文档，随后就可以自动生成包含校徽、专业信息、日期等要素的标准化封面页，以及调整好的字体、缩进、样式，让你专注于完成自己的实验报告，取得<code>High Score</code>！</p>
 <h2 id="具体格式">具体格式</h2>
 <h3 id="基本格式">基本格式</h3>
 <p>页边距</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typst" data-lang="typst"><span style="display:flex;"><span>set page(
-</span></span><span style="display:flex;"><span>    paper: &#34;a4&#34;,
-</span></span><span style="display:flex;"><span>    margin: (top: 2.54cm, bottom: 2.54cm, left: 3.18cm, right: 3.18cm),
-</span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><p>封面样式</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typst" data-lang="typst"><span style="display:flex;"><span>align(center)[
-</span></span><span style="display:flex;"><span>    <span style="color:#57c7ff">#v</span>(<span style="color:#ff9f43">4</span><span style="color:#ff6ac1">em</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 第一行：学年学期</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57c7ff">#text</span>(<span style="color:#ff5c57">size</span>: <span style="color:#ff9f43">22</span><span style="color:#ff6ac1">pt</span>,<span style="color:#ff5c57">font</span>: <span style="color:#5af78e">&#34;STZhongsong&#34;</span>,<span style="color:#ff5c57">weight</span>: <span style="color:#5af78e">&#34;bold&#34;</span>)[2024-2025学年第二学期]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 第二行：实验报告标题</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57c7ff">#text</span>(<span style="color:#ff5c57">size</span>: <span style="color:#ff9f43">22</span><span style="color:#ff6ac1">pt</span>,<span style="color:#ff5c57">font</span>:<span style="color:#5af78e">&#34;STZhongsong&#34;</span>,<span style="color:#ff5c57">weight</span>: <span style="color:#5af78e">&#34;bold&#34;</span>)[《信号处理实验》实验报告]
-</span></span><span style="display:flex;"><span>    <span style="color:#57c7ff">#v</span>(<span style="color:#ff9f43">4.5</span><span style="color:#ff6ac1">em</span>)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// Logo</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#57c7ff">#image</span>(<span style="color:#5af78e">&#34;assets/bupt-logo.jpg&#34;</span>, <span style="color:#ff5c57">width</span>: <span style="color:#ff9f43">40</span><span style="color:#ff6ac1">%</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#57c7ff">#v</span>(<span style="color:#ff9f43">8</span><span style="color:#ff6ac1">em</span>)
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>   <span style="color:#78787e">// 学生信息表格函数</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">#let</span> <span style="color:#57c7ff">info-row</span>(<span style="color:#ff5c57">label</span>, <span style="color:#ff5c57">content</span>) <span style="color:#ff6ac1">=</span> {
-</span></span><span style="display:flex;"><span>      <span style="color:#57c7ff">grid</span>(
-</span></span><span style="display:flex;"><span>        <span style="color:#ff5c57">columns</span>: (<span style="color:#ff6ac1">auto</span>, <span style="color:#ff6ac1">auto</span>),
-</span></span><span style="display:flex;"><span>        <span style="color:#57c7ff">align</span>(<span style="color:#ff5c57">right</span>)[<span style="color:#57c7ff">#text</span>(<span style="color:#ff5c57">font</span>: <span style="color:#5af78e">&#34;STSong&#34;</span>,<span style="color:#ff5c57">size</span>: <span style="color:#ff9f43">14</span><span style="color:#ff6ac1">pt</span>)[<span style="color:#ff5c57">#label</span>]],
-</span></span><span style="display:flex;"><span>        [
-</span></span><span style="display:flex;"><span>          <span style="color:#57c7ff">#box</span>(<span style="color:#ff5c57">width</span>: <span style="color:#ff9f43">180</span><span style="color:#ff6ac1">pt</span>)[
-</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">#set</span> <span style="color:#57c7ff">text</span>(<span style="color:#ff5c57">font</span>: <span style="color:#5af78e">&#34;STSong&#34;</span>,<span style="color:#ff5c57">size</span>: <span style="color:#ff9f43">14</span><span style="color:#ff6ac1">pt</span>)
-</span></span><span style="display:flex;"><span>            <span style="color:#57c7ff">#box</span>(<span style="color:#ff5c57">width</span>: <span style="color:#ff9f43">180</span><span style="color:#ff6ac1">pt</span>)[
-</span></span><span style="display:flex;"><span>              <span style="color:#57c7ff">#place</span>(<span style="color:#ff5c57">dx</span>: <span style="color:#ff9f43">0</span><span style="color:#ff6ac1">pt</span>, <span style="color:#ff5c57">dy</span>: <span style="color:#ff9f43">14</span><span style="color:#ff6ac1">pt</span>)[<span style="color:#57c7ff">#line</span>(<span style="color:#ff5c57">length</span>: <span style="color:#ff9f43">180</span><span style="color:#ff6ac1">pt</span>)]
-</span></span><span style="display:flex;"><span>              <span style="color:#57c7ff">#align</span>(<span style="color:#ff5c57">center</span>)[<span style="color:#ff5c57">#content</span>]
-</span></span><span style="display:flex;"><span>            ]
-</span></span><span style="display:flex;"><span>          ]
-</span></span><span style="display:flex;"><span>        ]
-</span></span><span style="display:flex;"><span>      )
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">#set</span> <span style="color:#57c7ff">text</span>(<span style="color:#ff5c57">font</span>: <span style="color:#5af78e">&#34;STSong&#34;</span>, <span style="color:#ff5c57">size</span>: <span style="color:#ff9f43">14</span><span style="color:#ff6ac1">pt</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#57c7ff">#grid</span>( <span style="color:#78787e">// 生成基本信息</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff5c57">align</span>: <span style="color:#ff5c57">center</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#ff5c57">rows</span>: <span style="color:#ff9f43">4</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#ff5c57">row-gutter</span>: <span style="color:#ff9f43">2</span><span style="color:#ff6ac1">em</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#57c7ff">info-row</span>(<span style="color:#5af78e">&#34;专业班级&#34;</span>, <span style="color:#ff5c57">class</span>),
-</span></span><span style="display:flex;"><span>      <span style="color:#57c7ff">info-row</span>(<span style="color:#5af78e">&#34;姓　　名&#34;</span>, <span style="color:#ff5c57">name</span>),
-</span></span><span style="display:flex;"><span>      <span style="color:#57c7ff">info-row</span>(<span style="color:#5af78e">&#34;学　　号&#34;</span>, <span style="color:#ff5c57">student-id</span>),
-</span></span><span style="display:flex;"><span>      <span style="color:#57c7ff">info-row</span>(<span style="color:#5af78e">&#34;报告日期&#34;</span>, <span style="color:#ff5c57">date</span>)
-</span></span><span style="display:flex;"><span>    )
-</span></span><span style="display:flex;"><span>  ]<span style="color:#ff5c57">
-</span></span></span><span style="display:flex;"><span><span style="color:#ff5c57">pagebreak() // 生成分页
-</span></span></span></code></pre></div><h3 id="格式规范自动适配">格式规范自动适配</h3>
+<pre tabindex="0"><code class="language-typst" data-lang="typst">set page(
+    paper: &#34;a4&#34;,
+    margin: (top: 2.54cm, bottom: 2.54cm, left: 3.18cm, right: 3.18cm),
+)
+</code></pre><p>封面样式</p>
+<pre tabindex="0"><code class="language-typst" data-lang="typst">align(center)[
+    #v(4em)
+    // 第一行：学年学期
+    #text(size: 22pt,font: &#34;STZhongsong&#34;,weight: &#34;bold&#34;)[2024-2025学年第二学期]
+
+    // 第二行：实验报告标题
+    #text(size: 22pt,font:&#34;STZhongsong&#34;,weight: &#34;bold&#34;)[《信号处理实验》实验报告]
+    #v(4.5em)
+    
+    // Logo
+    #image(&#34;assets/bupt-logo.jpg&#34;, width: 40%)
+    #v(8em)
+    
+   // 学生信息表格函数
+    #let info-row(label, content) = {
+      grid(
+        columns: (auto, auto),
+        align(right)[#text(font: &#34;STSong&#34;,size: 14pt)[#label]],
+        [
+          #box(width: 180pt)[
+            #set text(font: &#34;STSong&#34;,size: 14pt)
+            #box(width: 180pt)[
+              #place(dx: 0pt, dy: 14pt)[#line(length: 180pt)]
+              #align(center)[#content]
+            ]
+          ]
+        ]
+      )
+    }
+    
+    #set text(font: &#34;STSong&#34;, size: 14pt)
+    #grid( // 生成基本信息
+      align: center,
+      rows: 4,
+      row-gutter: 2em,
+      info-row(&#34;专业班级&#34;, class),
+      info-row(&#34;姓　　名&#34;, name),
+      info-row(&#34;学　　号&#34;, student-id),
+      info-row(&#34;报告日期&#34;, date)
+    )
+  ]
+pagebreak() // 生成分页
+</code></pre><h3 id="格式规范自动适配">格式规范自动适配</h3>
 <ul>
 <li>正文首行缩进2字符</li>
 <li>中英文字体自动匹配（中文宋体/英文Times New Roman）</li>
 <li>1.2倍行距标准
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typst" data-lang="typst"><span style="display:flex;"><span>set par(first-line-indent: 2em,leading: 1.2em)
-</span></span><span style="display:flex;"><span>show raw.where(block: true): block =&gt; [
-</span></span><span style="display:flex;"><span>    <span style="color:#57c7ff">#pad</span>(<span style="color:#ff5c57">left</span>: <span style="color:#ff9f43">2.5</span><span style="color:#ff6ac1">em</span>)[
-</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">#block</span>
-</span></span><span style="display:flex;"><span>    ]
-</span></span><span style="display:flex;"><span>]
-</span></span></code></pre></div></li>
+<pre tabindex="0"><code class="language-typst" data-lang="typst">set par(first-line-indent: 2em,leading: 1.2em)
+show raw.where(block: true): block =&gt; [
+    #pad(left: 2.5em)[
+    #block
+    ]
+]
+</code></pre></li>
 <li>题注小五号仿宋字体
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typst" data-lang="typst"><span style="display:flex;"><span>show figure.caption: it =&gt; {
-</span></span><span style="display:flex;"><span>    set text(font: (&#34;Times New Roman&#34;, &#34;FangSong&#34;), size: 9pt)
-</span></span><span style="display:flex;"><span>    it
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<pre tabindex="0"><code class="language-typst" data-lang="typst">show figure.caption: it =&gt; {
+    set text(font: (&#34;Times New Roman&#34;, &#34;FangSong&#34;), size: 9pt)
+    it
+}
+</code></pre></li>
 <li>正文五号字</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typst" data-lang="typst"><span style="display:flex;"><span>set text(font: (&#34;Times New Roman&#34;, &#34;SimHei&#34;), size: 12pt, weight: &#34;regular&#34;)
-</span></span></code></pre></div><h2 id="快速上手指南">快速上手指南</h2>
+<pre tabindex="0"><code class="language-typst" data-lang="typst">set text(font: (&#34;Times New Roman&#34;, &#34;SimHei&#34;), size: 12pt, weight: &#34;regular&#34;)
+</code></pre><h2 id="快速上手指南">快速上手指南</h2>
 <h3 id="环境准备">环境准备</h3>
 <ol>
 <li>安装<a href="https://typst.app/">Typst</a></li>
@@ -535,28 +535,29 @@
 <li>导出</li>
 </ol>
 <h3 id="基础使用">基础使用</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typst" data-lang="typst"><span style="display:flex;"><span><span style="color:#78787e">// 导入模板</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">#import</span> <span style="color:#5af78e">&#34;template.typ&#34;</span>: <span style="color:#ff5c57">experiment-report</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#78787e">// 设置文档参数</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff5c57">#show</span>: <span style="color:#ff5c57">doc</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#57c7ff">experiment-report</span>(
-</span></span><span style="display:flex;"><span>  <span style="color:#ff5c57">class</span>: <span style="color:#5af78e">&#34;电子信息工程2023级&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#ff5c57">name</span>: <span style="color:#5af78e">&#34;王小明&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#ff5c57">student-id</span>: <span style="color:#5af78e">&#34;202311001&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#ff5c57">date</span>: <span style="color:#5af78e">&#34;2024年4月20日&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#ff5c57">doc</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#78787e">// 开始撰写内容</span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">= 实验二 数字滤波器设计</span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold">
-</span></span></span><span style="display:flex;"><span><span style="font-weight:bold">== 实验原理</span>
-</span></span><span style="display:flex;"><span>...
-</span></span></code></pre></div><h2 id="结语让写作回归本质">结语：让写作回归本质</h2>
+<pre tabindex="0"><code class="language-typst" data-lang="typst">// 导入模板
+#import &#34;template.typ&#34;: experiment-report
+
+// 设置文档参数
+#show: doc =&gt; experiment-report(
+  class: &#34;电子信息工程2023级&#34;,
+  name: &#34;王小明&#34;,
+  student-id: &#34;202311001&#34;,
+  date: &#34;2024年4月20日&#34;,
+  doc
+)
+
+// 开始撰写内容
+= 实验二 数字滤波器设计
+
+== 实验原理
+...
+</code></pre><h2 id="结语让写作回归本质">结语：让写作回归本质</h2>
 <p>通过本模板，你可以将精力完全集中在实验内容的创作上，无需再为格式调整耗费时间。</p>
 <p>该模板已在Github开源（示例仓库地址），欢迎提交Issue和Pull Request共同完善。</p>
 <blockquote>
-<p><strong>TIP</strong>: 配合VS Code的Tinymist Typst插件，可实时检查格式规范，实现「即写即所得」的完美写作体验。</p></blockquote>
+<p><strong>TIP</strong>: 配合VS Code的Tinymist Typst插件，可实时检查格式规范，实现「即写即所得」的完美写作体验。</p>
+</blockquote>
 
                     
                     <HR width="100%" id="EOF">

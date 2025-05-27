@@ -62,7 +62,7 @@
     
     <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="/scss/dark-mode.min.fa793cdb4ae2d683f9cccdaf1c7922313b4cf124910b552cbc6b3a7ae3b45926.css" integrity="sha256-&#43;nk820ri1oP5zM2vHHkiMTtM8SSRC1UsvGs6euO0WSY=" media="screen">
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
 
 
 <link rel="stylesheet"
@@ -196,7 +196,7 @@
 						
 						
 							<li>
-								<a href="#doclayout-yolo" class="nav-doclayout-yolo">
+								<a href="#doclayout-yolohttpsgithubcomopendatalabdoclayout-yolo" class="nav-doclayout-yolohttpsgithubcomopendatalabdoclayout-yolo">
 									DocLayout-YOLO
 								</a>
 							</li>
@@ -382,11 +382,12 @@
                 
                     <blockquote>
 <p>PS: 今天看网站才发现出BUG了（😅）
-今天实现的部分是针对<a href="https://github.com/opendatalab/PDF-Extract-Kit">PDF-Extract-Kit</a>的两个YOLO布局检测（公式检测）模型的。</p></blockquote>
+今天实现的部分是针对<a href="https://github.com/opendatalab/PDF-Extract-Kit">PDF-Extract-Kit</a>的两个YOLO布局检测（公式检测）模型的。</p>
+</blockquote>
 <p>其主要逻辑仍然是我之前写过的<a href="https://www.zhaocloud.work/posts/yolo-binding%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86/">Yolo Binding的相关代码部分</a>，但是不同的是这次我会使用静态链接库以提高可移植性。</p>
 <p>Thanks to <code>tch-rs</code>，我们可以通过环境变量<code>LIBTORCH_STATIC=1</code>来选择使用静态链接库(回看一下，这个也没搞定)</p>
 <p>下面需要解决的事情是将官方提供的pt模型转成jit模型提高速度和可移植性。</p>
-<h2 id="doclayout-yolo"><a href="https://github.com/opendatalab/DocLayout-YOLO">DocLayout-YOLO</a></h2>
+<h2 id="doclayout-yolohttpsgithubcomopendatalabdoclayout-yolo"><a href="https://github.com/opendatalab/DocLayout-YOLO">DocLayout-YOLO</a></h2>
 <p>首先，根据官网<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>说明，去<a href="https://www.modelscope.cn/models/OpenDataLab/PDF-Extract-Kit-1.0">modelscope</a>/<a href="https://huggingface.co/opendatalab/PDF-Extract-Kit-1.0">huggingface</a>上下载模型，随后下载包如下：</p>
 <div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>pip install <span style="color:#ff5c57">doclayout-yolo</span> <span style="color:#78787e"># 安装官方提供的包</span>
 </span></span><span style="display:flex;"><span>pip install <span style="color:#ff5c57">huggingface-hub</span> <span style="color:#78787e"># 没有这个无法运行</span>
@@ -461,11 +462,13 @@
 <p>拉倒吧，这个有点过于麻烦了，而且前后处理也没说，不太好弄</p>
 <blockquote>
 <p>又干俩小时，确实是难绷，拉倒吧，试试用<a href="https://nuitka.net/">Nuitka the Python Compiler — Nuitka the Python Compiler</a>打个包</p>
-<p>也不行，现在使用pyinstaller打包，可以正常打包出来，下面解决一个问题</p></blockquote>
+<p>也不行，现在使用pyinstaller打包，可以正常打包出来，下面解决一个问题</p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>FileNotFoundError: [Errno 2] No such file or directory: &#39;E:\\Projects\\package-onnx\\dist\\run\\_internal\\unimernet\\configs\\default.yaml&#39;
 </span></span></code></pre></div><p>我的方案是直接从<code>.venv\Lib\site-packages\unimernet\configs</code>里面复制一个到<code>_internal\unimernet\configs\default.yaml</code></p>
 <blockquote>
-<p>PS：需要拷贝完整<code>config</code>文件夹</p></blockquote>
+<p>PS：需要拷贝完整<code>config</code>文件夹</p>
+</blockquote>
 <p>下一个问题：</p>
 <div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Failed to load model: Failed to import transformers.models.gemma2.configuration_gemma2 because of the following error (look up to see its traceback):
 </span></span><span style="display:flex;"><span>No module named &#39;transformers.models.gemma2.configuration_gemma2&#39;
@@ -655,7 +658,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#doclayout-yolo" class="nav-doclayout-yolo">
+								<a href="#doclayout-yolohttpsgithubcomopendatalabdoclayout-yolo" class="nav-doclayout-yolohttpsgithubcomopendatalabdoclayout-yolo">
 									DocLayout-YOLO
 								</a>
 							</li>
