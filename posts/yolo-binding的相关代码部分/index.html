@@ -161,6 +161,16 @@
                 
                 
                 
+                <a class="a-block drawer-menu-item false" href="/friends">
+                    友链
+                </a>
+                
+            
+                
+                
+                
+                
+                
                 <a class="a-block drawer-menu-item false" href="/index.xml">
                     RSS
                 </a>
@@ -391,27 +401,53 @@
                 <div class="post-body" v-pre>
                 
                     <h2 id="文件组织">文件组织</h2>
-<pre tabindex="0"><code>YOLO_BINDING
-│  .gitignore
-│  Cargo.lock
-│  Cargo.toml
-│  LICENSE
-│  readme.md
-│
-└─src
-    │  lib.rs
-    │
-    ├─core
-    │      export.rs
-    │      load.rs
-    │      mod.rs
-    │      predict.rs
-    │
-    └─utils
-            HarmonyOS_Sans_Regular.ttf
-            mod.rs
-            picture.rs
-</code></pre><p>一个好的项目要从文件开始设计(虽然咱是蒟蒻，也要有成为牛犇的理想哇！)</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>YOLO_BINDING
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">│</span>  <span style="color:#ff6ac1">.</span>gitignore
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">│</span>  Cargo<span style="color:#ff6ac1">.</span>lock
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">│</span>  Cargo<span style="color:#ff6ac1">.</span>toml
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">│</span>  LICENSE
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">│</span>  readme<span style="color:#ff6ac1">.</span>md
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">│</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">└─</span>src
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">│</span>  lib<span style="color:#ff6ac1">.</span>rs
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">│</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">├─</span>core
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">│</span>      <span style="color:#ff6ac1">export</span><span style="color:#ff6ac1">.</span>rs
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">│</span>      <span style="color:#ff5c57">load</span><span style="color:#ff6ac1">.</span>rs
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">│</span>      mod<span style="color:#ff6ac1">.</span>rs
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">│</span>      predict<span style="color:#ff6ac1">.</span>rs
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">│</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">└─</span>utils
+</span></span><span style="display:flex;"><span>            HarmonyOS_Sans_Regular<span style="color:#ff6ac1">.</span>ttf
+</span></span><span style="display:flex;"><span>            mod<span style="color:#ff6ac1">.</span>rs
+</span></span><span style="display:flex;"><span>            picture<span style="color:#ff6ac1">.</span>rs
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>一个好的项目要从文件开始设计(虽然咱是蒟蒻，也要有成为牛犇的理想哇！)</p>
 <ul>
 <li><code>core</code>是主推理环节，同时实现了预处理，推理，后处理三部分，是核心部分</li>
 <li><code>utils</code>是对解析出的数据进行下一步解析，比如画框，打标签等，后续也是可以拓展的</li>
@@ -427,7 +463,20 @@
 <p>本来写了蒙灰色底版，但是<code>DynamicImage</code>转<code>Tensor</code>没有解决，后续再说吧</p>
 </blockquote>
 <p>整体代码类似，这里只展示一个：</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff6ac1">pub</span> <span style="color:#ff6ac1">fn</span> <span style="color:#57c7ff">load_one_image</span>(image_path: <span style="color:#ff6ac1">&amp;</span><span style="color:#9aedfe">str</span>) -&gt; <span style="color:#ff5c57">Result</span><span style="color:#ff6ac1">&lt;</span>Tensor, <span style="color:#ff5c57">Box</span><span style="color:#ff6ac1">&lt;</span><span style="color:#ff6ac1">dyn</span> Error<span style="color:#ff6ac1">&gt;&gt;</span> {
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff6ac1">pub</span> <span style="color:#ff6ac1">fn</span> <span style="color:#57c7ff">load_one_image</span>(image_path: <span style="color:#ff6ac1">&amp;</span><span style="color:#9aedfe">str</span>) -&gt; <span style="color:#ff5c57">Result</span><span style="color:#ff6ac1">&lt;</span>Tensor, <span style="color:#ff5c57">Box</span><span style="color:#ff6ac1">&lt;</span><span style="color:#ff6ac1">dyn</span> Error<span style="color:#ff6ac1">&gt;&gt;</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">let</span> image_tensor <span style="color:#ff6ac1">=</span> vision::image::load(Path::new(<span style="color:#ff6ac1">&amp;</span>image_path))<span style="color:#ff6ac1">?</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">let</span> image <span style="color:#ff6ac1">=</span> tch::vision::image::resize(<span style="color:#ff6ac1">&amp;</span>image_tensor, <span style="color:#ff9f43">640</span>, <span style="color:#ff9f43">640</span>)
 </span></span><span style="display:flex;"><span>        .unwrap()
@@ -436,13 +485,37 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">/</span> <span style="color:#ff9f43">255.</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">Ok</span>(image)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>YOLO的输入张量形状:<code>[X,3,640,640]</code>，其中<code>X</code>是图片数量</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>YOLO的输入张量形状:<code>[X,3,640,640]</code>，其中<code>X</code>是图片数量</p>
 <h3 id="模型引入推理">模型引入&amp;推理</h3>
 <p>由于<code>libtorch</code>的封装相当好，我们直接调用<code>torchscript</code>模型就可以</p>
 <p>但是注意之前<code>torch_cuda.dll</code>的坑。</p>
 <p>因为是自用的原因，我们直接调用在编写的时候，为了尽可能避免报错，允许在用户设置为<code>Gpu</code>时仍然调用<code>Cpu</code>，这点后续会删除，避免误导。</p>
 <p><strong>模型加载</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff5c57">let</span> device <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">if</span> cuda <span style="color:#ff6ac1">==</span> <span style="color:#ff6ac1">true</span> {
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff5c57">let</span> device <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">if</span> cuda <span style="color:#ff6ac1">==</span> <span style="color:#ff6ac1">true</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">let</span> <span style="color:#ff6ac1">mut</span> libtorch_path <span style="color:#ff6ac1">=</span> env::var(<span style="color:#5af78e">&#34;LIBTORCH&#34;</span>).unwrap();
 </span></span><span style="display:flex;"><span>    libtorch_path.push_str(<span style="color:#5af78e">r</span><span style="color:#5af78e">&#34;\lib\torch_cuda.dll&#34;</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">if</span> Path::new(<span style="color:#ff6ac1">&amp;</span>libtorch_path).exists() {
@@ -460,7 +533,9 @@
 </span></span><span style="display:flex;"><span>    Device::Cpu
 </span></span><span style="display:flex;"><span>}; <span style="color:#78787e">// device choiced
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">let</span> model <span style="color:#ff6ac1">=</span> CModule::load_on_device(Path::new(model_path), device).expect(<span style="color:#5af78e">&#34;load model failed&#34;</span>);
-</span></span></code></pre></div><p>YOLO导出的<code>torchscript</code>模型中是有元信息的，但是我没有在<code>torch-rs</code>中找到有关接口，因此：</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>YOLO导出的<code>torchscript</code>模型中是有元信息的，但是我没有在<code>torch-rs</code>中找到有关接口，因此：</p>
 <blockquote>
 <p>二进制，启动！！！</p>
 </blockquote>
@@ -473,12 +548,23 @@
 </blockquote>
 <p>模型推理反倒是最简单的了，因为接口一步到位，只要注意张量设备转移就好。</p>
 <p><strong>模型推理</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff5c57">let</span> input <span style="color:#ff6ac1">=</span> input.to_device(device);
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff5c57">let</span> input <span style="color:#ff6ac1">=</span> input.to_device(device);
 </span></span><span style="display:flex;"><span><span style="color:#ff5c57">let</span> output <span style="color:#ff6ac1">=</span> model
 </span></span><span style="display:flex;"><span>    .yolo_model
 </span></span><span style="display:flex;"><span>    .forward_ts(<span style="color:#ff6ac1">&amp;</span>[input])
 </span></span><span style="display:flex;"><span>    .expect(<span style="color:#5af78e">&#34;forward failed&#34;</span>);
-</span></span></code></pre></div><h3 id="后处理-之-core">后处理 之 core</h3>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="后处理-之-core">后处理 之 core</h3>
 <p>这部分是将YOLO推理出的矩阵进行变换，得到一个格式化数据的过程。</p>
 <p>这里的代码编写时，对<code>Tensor</code>切分的逻辑放在了<code>mod.rs</code>中，后续会进行修改。</p>
 <p>YOLO本身的输出张量形状时这样的:<code>[X,Y,8400]</code>，其中<code>X</code>是图片数量，<code>Y</code>是<code>xywh</code>+分类类型</p>
@@ -494,7 +580,42 @@
 </ol>
 <p>偷懒(✿◡‿◡)，代码黏在下面了：</p>
 <p><strong>置信度筛选</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff6ac1">fn</span> <span style="color:#57c7ff">filter_confidence</span>(
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff6ac1">fn</span> <span style="color:#57c7ff">filter_confidence</span>(
 </span></span><span style="display:flex;"><span>    tensor: <span style="color:#ff6ac1">&amp;</span><span style="color:#f3f99d">Tensor</span>,
 </span></span><span style="display:flex;"><span>    confidence: <span style="color:#9aedfe">f64</span>,
 </span></span><span style="display:flex;"><span>) -&gt; <span style="color:#ff5c57">Vec</span><span style="color:#ff6ac1">&lt;</span>(<span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">f64</span>)<span style="color:#ff6ac1">&gt;</span> {
@@ -525,8 +646,76 @@
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    filtered_results
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><strong>NMS筛选</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff6ac1">fn</span> <span style="color:#57c7ff">nms</span>(
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>NMS筛选</strong></p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff6ac1">fn</span> <span style="color:#57c7ff">nms</span>(
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">mut</span> boxes: <span style="color:#ff5c57">Vec</span><span style="color:#ff6ac1">&lt;</span>(<span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">f64</span>)<span style="color:#ff6ac1">&gt;</span>,
 </span></span><span style="display:flex;"><span>    threshold: <span style="color:#9aedfe">f64</span>,
 </span></span><span style="display:flex;"><span>) -&gt; <span style="color:#ff5c57">Vec</span><span style="color:#ff6ac1">&lt;</span>(<span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">i64</span>, <span style="color:#9aedfe">f64</span>)<span style="color:#ff6ac1">&gt;</span> {
@@ -588,12 +777,27 @@
 </span></span><span style="display:flex;"><span>        .map(<span style="color:#ff6ac1">|</span>(_, b)<span style="color:#ff6ac1">|</span> b)
 </span></span><span style="display:flex;"><span>        .collect()
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>核心逻辑都是一些简单的循环，主要是协调各个API，使程序正常工作。</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>核心逻辑都是一些简单的循环，主要是协调各个API，使程序正常工作。</p>
 <h3 id="后处理-之-utils">后处理 之 utils</h3>
 <p>这部分主要实现画框的逻辑</p>
 <p>主要依赖于Rust的<code>imageproc</code>库</p>
 <p>首先是将<code>xywh</code>转成合适的<code>xyxy</code>形式的坐标</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff5c57">let</span> (x, y, w, h) <span style="color:#ff6ac1">=</span> (x <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f64</span>, y <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f64</span>, w <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f64</span>, h <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f64</span>);
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff5c57">let</span> (x, y, w, h) <span style="color:#ff6ac1">=</span> (x <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f64</span>, y <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f64</span>, w <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f64</span>, h <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f64</span>);
 </span></span><span style="display:flex;"><span><span style="color:#ff5c57">let</span> (width, height) <span style="color:#ff6ac1">=</span> picture.dimensions();
 </span></span><span style="display:flex;"><span><span style="color:#ff5c57">let</span> (x1, y1, x2, y2) <span style="color:#ff6ac1">=</span> (
 </span></span><span style="display:flex;"><span>    (x <span style="color:#ff6ac1">-</span> w <span style="color:#ff6ac1">/</span> <span style="color:#ff9f43">2.</span>) <span style="color:#ff6ac1">/</span> <span style="color:#ff9f43">640.</span> <span style="color:#ff6ac1">*</span> width <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f64</span>,
@@ -602,13 +806,39 @@
 </span></span><span style="display:flex;"><span>    (y <span style="color:#ff6ac1">+</span> h <span style="color:#ff6ac1">/</span> <span style="color:#ff9f43">2.</span>) <span style="color:#ff6ac1">/</span> <span style="color:#ff9f43">640.</span> <span style="color:#ff6ac1">*</span> height <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f64</span>,
 </span></span><span style="display:flex;"><span>);
 </span></span><span style="display:flex;"><span><span style="color:#ff5c57">let</span> (x1, y1, x2, y2) <span style="color:#ff6ac1">=</span> (x1 <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f32</span>, y1 <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f32</span>, x2 <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f32</span>, y2 <span style="color:#ff6ac1">as</span> <span style="color:#9aedfe">f32</span>);
-</span></span></code></pre></div><p>之后是画框</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>draw_line_segment_mut(<span style="color:#ff6ac1">&amp;</span><span style="color:#ff6ac1">mut</span> picture, (x1, y1), (x2, y1), Rgba([<span style="color:#ff9f43">255</span>, <span style="color:#ff9f43">0</span>, <span style="color:#ff9f43">0</span>, <span style="color:#ff9f43">255</span>]));
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>之后是画框</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>draw_line_segment_mut(<span style="color:#ff6ac1">&amp;</span><span style="color:#ff6ac1">mut</span> picture, (x1, y1), (x2, y1), Rgba([<span style="color:#ff9f43">255</span>, <span style="color:#ff9f43">0</span>, <span style="color:#ff9f43">0</span>, <span style="color:#ff9f43">255</span>]));
 </span></span><span style="display:flex;"><span>draw_line_segment_mut(<span style="color:#ff6ac1">&amp;</span><span style="color:#ff6ac1">mut</span> picture, (x2, y1), (x2, y2), Rgba([<span style="color:#ff9f43">255</span>, <span style="color:#ff9f43">0</span>, <span style="color:#ff9f43">0</span>, <span style="color:#ff9f43">255</span>]));
 </span></span><span style="display:flex;"><span>draw_line_segment_mut(<span style="color:#ff6ac1">&amp;</span><span style="color:#ff6ac1">mut</span> picture, (x2, y2), (x1, y2), Rgba([<span style="color:#ff9f43">255</span>, <span style="color:#ff9f43">0</span>, <span style="color:#ff9f43">0</span>, <span style="color:#ff9f43">255</span>]));
 </span></span><span style="display:flex;"><span>draw_line_segment_mut(<span style="color:#ff6ac1">&amp;</span><span style="color:#ff6ac1">mut</span> picture, (x1, y2), (x1, y1), Rgba([<span style="color:#ff9f43">255</span>, <span style="color:#ff9f43">0</span>, <span style="color:#ff9f43">0</span>, <span style="color:#ff9f43">255</span>]));
-</span></span></code></pre></div><p>最后是画字</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff5c57">let</span> scale <span style="color:#ff6ac1">=</span> ab_glyph::PxScale::from(<span style="color:#ff9f43">20.0</span>);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最后是画字</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff5c57">let</span> scale <span style="color:#ff6ac1">=</span> ab_glyph::PxScale::from(<span style="color:#ff9f43">20.0</span>);
 </span></span><span style="display:flex;"><span>draw_text_mut(
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">&amp;</span><span style="color:#ff6ac1">mut</span> picture,
 </span></span><span style="display:flex;"><span>    Rgba([<span style="color:#ff9f43">255</span>, <span style="color:#ff9f43">0</span>, <span style="color:#ff9f43">0</span>, <span style="color:#ff9f43">255</span>]),
@@ -618,7 +848,9 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">&amp;</span>font,
 </span></span><span style="display:flex;"><span>    type_name,
 </span></span><span style="display:flex;"><span>        );
-</span></span></code></pre></div><p>至此，我们就用Rust实现了基本的<code>yolo-detection</code>封装。</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>至此，我们就用Rust实现了基本的<code>yolo-detection</code>封装。</p>
 
                     
                     <HR width="100%" id="EOF">
@@ -724,6 +956,16 @@
             
             <a class="a-block nav-link-item false" href="/tags">
                 标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/friends">
+                友链
             </a>
             
         

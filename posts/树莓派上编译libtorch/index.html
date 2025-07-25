@@ -162,6 +162,16 @@
                 
                 
                 
+                <a class="a-block drawer-menu-item false" href="/friends">
+                    友链
+                </a>
+                
+            
+                
+                
+                
+                
+                
                 <a class="a-block drawer-menu-item false" href="/index.xml">
                     RSS
                 </a>
@@ -451,22 +461,53 @@
 </li>
 <li>
 <p>有一台树莓派4并执行命令如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
 </span></span><span style="display:flex;"><span>sudo apt-get install gcc cmake clang openssh-server curl
-</span></span></code></pre></div></li>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 <h2 id="构建libtorch">构建libtorch</h2>
 <blockquote>
 <p>建议使用<code>Cmake</code>构建</p>
 </blockquote>
 <h3 id="在pytorch同级目录创建构建文件夹">在pytorch同级目录创建构建文件夹</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir pytorch-build <span style="color:#ff6ac1">&amp;&amp;</span> <span style="color:#ff5c57">cd</span> pytorch-build
-</span></span></code></pre></div><h3 id="执行cmake指令">执行Cmake指令</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir pytorch-build <span style="color:#ff6ac1">&amp;&amp;</span> <span style="color:#ff5c57">cd</span> pytorch-build
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="执行cmake指令">执行Cmake指令</h3>
 <p>相关环境变量设置的来源：</p>
 <p><code>DCAFFE2_CPU_FLAGS=&quot;-mfpu=neon -mfloat-abi=hard&quot;</code><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
 <p>其他环境变量<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
 <p><strong>总指令</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cmake <span style="color:#5af78e">\
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cmake <span style="color:#5af78e">\
 </span></span></span><span style="display:flex;"><span><span style="color:#5af78e"></span>  -DCMAKE_BUILD_TYPE<span style="color:#ff6ac1">=</span>Release <span style="color:#5af78e">\
 </span></span></span><span style="display:flex;"><span><span style="color:#5af78e"></span>  -DCMAKE_INSTALL_PREFIX<span style="color:#ff6ac1">=</span>../pytorch-install <span style="color:#5af78e">\
 </span></span></span><span style="display:flex;"><span><span style="color:#5af78e"></span>  -DPYTHON_EXECUTABLE<span style="color:#ff6ac1">=</span><span style="color:#ff6ac1">$(</span>which python3<span style="color:#ff6ac1">)</span> <span style="color:#5af78e">\
@@ -478,9 +519,18 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#5af78e"></span>  -USE_DISTRIBUTED<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">0</span> <span style="color:#5af78e">\
 </span></span></span><span style="display:flex;"><span><span style="color:#5af78e"></span>  -DCFLAGS<span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;-march=armv8-a+crc -mtune=cortex-a72&#34;</span> <span style="color:#5af78e">\
 </span></span></span><span style="display:flex;"><span><span style="color:#5af78e"></span> ../pytorch 
-</span></span></code></pre></div><h3 id="启动构建">启动构建</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cmake --build . --target install -j <span style="color:#ff9f43">2</span>
-</span></span></code></pre></div><p>不出意外，你能在<code>pytorch</code>同级文件夹找到<code>pytorch-install</code>文件夹，这就是需要的<code>libtorch</code>库。</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="启动构建">启动构建</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cmake --build . --target install -j <span style="color:#ff9f43">2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不出意外，你能在<code>pytorch</code>同级文件夹找到<code>pytorch-install</code>文件夹，这就是需要的<code>libtorch</code>库。</p>
 <h2 id="总结">总结</h2>
 <p>这个问题困扰了我们整整3天，我们一开始用的是<code>v2.6.0</code>，尝试了在各种<code>ARM</code>机器上构建，通过不同渠道获得了一些<code>ARM</code>版本的<code>libtorch</code>，但是最终都会报错。</p>
 <p>不过幸好看见了<code>github</code>上面的<code>issue</code>，在<code>2.5.1</code>版本下最终顺利构建了，虽然解决方式没有那么<code>硬核</code>，不过结果还是非常好的。</p>
@@ -606,6 +656,16 @@
             
             <a class="a-block nav-link-item false" href="/tags">
                 标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/friends">
+                友链
             </a>
             
         

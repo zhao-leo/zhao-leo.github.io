@@ -161,6 +161,16 @@
                 
                 
                 
+                <a class="a-block drawer-menu-item false" href="/friends">
+                    友链
+                </a>
+                
+            
+                
+                
+                
+                
+                
                 <a class="a-block drawer-menu-item false" href="/index.xml">
                     RSS
                 </a>
@@ -559,7 +569,32 @@
 <h3 id="问题描述">问题描述</h3>
 <p>设$f(x)=xe^x,x \in [0,1.5]$，求$f(x)$的三次近似最佳平方逼近多项式。</p>
 <h3 id="程序设计">程序设计</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%question1.m</span>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%question1.m</span>
 </span></span><span style="display:flex;"><span>x0=[<span style="color:#ff9f43">10</span>;<span style="color:#ff9f43">10</span>;<span style="color:#ff9f43">10</span>;<span style="color:#ff9f43">10</span>];<span style="color:#78787e">%初始参数猜测值</span>
 </span></span><span style="display:flex;"><span>xdata=<span style="color:#ff5c57">linspace</span>(<span style="color:#ff9f43">0</span>,<span style="color:#ff9f43">1.5</span>,<span style="color:#ff9f43">5000</span>);<span style="color:#78787e">%生成x数据点</span>
 </span></span><span style="display:flex;"><span>ydata=xdata<span style="color:#ff6ac1">.*</span><span style="color:#ff5c57">exp</span>(xdata);<span style="color:#78787e">%生成对应的y数据点</span>
@@ -580,11 +615,22 @@
 </span></span><span style="display:flex;"><span>title(<span style="color:#5af78e">&#39;使用lsqcurvefit拟合的曲线&#39;</span>);
 </span></span><span style="display:flex;"><span>xlabel(<span style="color:#5af78e">&#39;x&#39;</span>);
 </span></span><span style="display:flex;"><span>ylabel(<span style="color:#5af78e">&#39;y&#39;</span>);
-</span></span></code></pre></div><h3 id="计算结果">计算结果</h3>
-<pre tabindex="0"><code class="language-terminal" data-lang="terminal">&gt;&gt; question1
-拟合的参数:a=1.3877,b=-0.0047124,c=1.3623,d=-0.028475
-拟合的方程:1.3877*x^3+-0.0047124*x^2+1.3623*x+-0.028475
-</code></pre><p><img src="question1.png" alt=""></p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="计算结果">计算结果</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt; question1
+</span></span><span style="display:flex;"><span>拟合的参数:a=1.3877,b=-0.0047124,c=1.3623,d=-0.028475
+</span></span><span style="display:flex;"><span>拟合的方程:1.3877*x^3+-0.0047124*x^2+1.3623*x+-0.028475
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="question1.png" alt=""></p>
 <h2 id="计算参数">计算参数</h2>
 <h3 id="问题描述-1">问题描述</h3>
 <p>已知一组观测数据$(x_i,y_i)$见下表，函数的原型为$y=a_1+a_2x^2+a_3e^{-5x^3}+a_4cos(-2x)+a_5x^4$，试用所给数据求出待定系数$a_i$的值。</p>
@@ -643,7 +689,32 @@
   </tbody>
 </table>
 <h3 id="程序设计-1">程序设计</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%question2.m</span>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%question2.m</span>
 </span></span><span style="display:flex;"><span>x0=[<span style="color:#ff9f43">10</span>;<span style="color:#ff9f43">10</span>;<span style="color:#ff9f43">10</span>;<span style="color:#ff9f43">10</span>;<span style="color:#ff9f43">10</span>];<span style="color:#78787e">%初始参数猜测值</span>
 </span></span><span style="display:flex;"><span>x1=<span style="color:#ff5c57">linspace</span>(<span style="color:#ff9f43">0</span>,<span style="color:#ff9f43">3</span>,<span style="color:#ff9f43">5000</span>);<span style="color:#78787e">%生成x数据点</span>
 </span></span><span style="display:flex;"><span>xdata=[<span style="color:#ff9f43">0</span>;<span style="color:#ff9f43">0.1</span>;<span style="color:#ff9f43">0.3</span>;<span style="color:#ff9f43">0.4</span>;<span style="color:#ff9f43">0.7</span>;<span style="color:#ff9f43">0.9</span>;<span style="color:#ff9f43">0.95</span>;<span style="color:#ff9f43">1.1</span>;<span style="color:#ff9f43">1.3</span>;<span style="color:#ff9f43">1.8</span>;<span style="color:#ff9f43">2.1</span>;<span style="color:#ff9f43">2.6</span>;<span style="color:#ff9f43">3.0</span>];<span style="color:#78787e">%生成x数据点</span>
@@ -664,10 +735,20 @@
 </span></span><span style="display:flex;"><span>title(<span style="color:#5af78e">&#39;使用lsqcurvefit拟合的曲线&#39;</span>);
 </span></span><span style="display:flex;"><span>xlabel(<span style="color:#5af78e">&#39;x&#39;</span>);
 </span></span><span style="display:flex;"><span>ylabel(<span style="color:#5af78e">&#39;y&#39;</span>);
-</span></span></code></pre></div><h3 id="计算结果-1">计算结果</h3>
-<pre tabindex="0"><code class="language-terminal" data-lang="terminal">&gt;&gt; question2
-拟合的参数:a1=9.4777,a2=-16.5136,a3=22.4145,a4=-25.3911,a5=2.3676
-</code></pre><p><img src="question2.png" alt=""></p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="计算结果-1">计算结果</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt; question2
+</span></span><span style="display:flex;"><span>拟合的参数:a1=9.4777,a2=-16.5136,a3=22.4145,a4=-25.3911,a5=2.3676
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="question2.png" alt=""></p>
 <h2 id="面积计算">面积计算</h2>
 <h3 id="问题描述-2">问题描述</h3>
 <p>已知欧洲某个国家的地图如下图所示，为了计算出它的国土面积，首先对地图进行如下测量：以由西向东方为$x$轴，由南向北方为$y$轴，选择方便的原点，并将从最西边界点到最东边界点在$x$轴上的区间适当的分成若干段，在每个点的$y$方向测出南边界点和北边界点的$y$坐标$y_1$和$y_2$，这样就得到了表中所示的测量数据（单位：mm）。
@@ -791,7 +872,26 @@
 <h3 id="数学模型">数学模型</h3>
 <p>事实上，由图像不难看出，该国家的国土面积实际上是由$y_1=f_1(x)$和$y_2=f_2(x)$两条曲线包围起来的。因此，我们只需要求解$f_1(x)$和$f_2(x)$，然后通过积分$\int\limits_{7.0}^{56}(f_2(x)-f_1(x))dx $就可以得到。</p>
 <h3 id="程序设计-2">程序设计</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%question3.m</span>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#78787e">%question3.m</span>
 </span></span><span style="display:flex;"><span><span style="color:#78787e">%定义初始值</span>
 </span></span><span style="display:flex;"><span>x=[<span style="color:#ff9f43">7.0</span>,<span style="color:#ff9f43">10.5</span>,<span style="color:#ff9f43">13.0</span>,<span style="color:#ff9f43">17.5</span>,<span style="color:#ff9f43">34</span>,<span style="color:#ff9f43">40.5</span>,<span style="color:#ff9f43">44.5</span>,<span style="color:#ff9f43">48</span>,<span style="color:#ff9f43">56</span>,<span style="color:#ff9f43">61</span>,<span style="color:#ff9f43">68.5</span>,<span style="color:#ff9f43">76.5</span>,<span style="color:#ff9f43">80.5</span>,<span style="color:#ff9f43">91</span>,<span style="color:#ff9f43">96</span>,<span style="color:#ff9f43">101</span>,<span style="color:#ff9f43">104</span>,<span style="color:#ff9f43">106</span>,<span style="color:#ff9f43">111.5</span>,<span style="color:#ff9f43">118</span>,<span style="color:#ff9f43">123.5</span>,<span style="color:#ff9f43">136.5</span>,<span style="color:#ff9f43">142</span>,<span style="color:#ff9f43">146</span>,<span style="color:#ff9f43">150</span>,<span style="color:#ff9f43">157</span>,<span style="color:#ff9f43">158</span>];
 </span></span><span style="display:flex;"><span>y1=[<span style="color:#ff9f43">44</span>,<span style="color:#ff9f43">45</span>,<span style="color:#ff9f43">47</span>,<span style="color:#ff9f43">50</span>,<span style="color:#ff9f43">50</span>,<span style="color:#ff9f43">38</span>,<span style="color:#ff9f43">30</span>,<span style="color:#ff9f43">30</span>,<span style="color:#ff9f43">34</span>,<span style="color:#ff9f43">36</span>,<span style="color:#ff9f43">34</span>,<span style="color:#ff9f43">41</span>,<span style="color:#ff9f43">45</span>,<span style="color:#ff9f43">46</span>,<span style="color:#ff9f43">43</span>,<span style="color:#ff9f43">37</span>,<span style="color:#ff9f43">33</span>,<span style="color:#ff9f43">28</span>,<span style="color:#ff9f43">32</span>,<span style="color:#ff9f43">65</span>,<span style="color:#ff9f43">55</span>,<span style="color:#ff9f43">54</span>,<span style="color:#ff9f43">52</span>,<span style="color:#ff9f43">50</span>,<span style="color:#ff9f43">66</span>,<span style="color:#ff9f43">66</span>,<span style="color:#ff9f43">68</span>];
@@ -806,10 +906,20 @@
 </span></span><span style="display:flex;"><span><span style="color:#78787e">%输出结果</span>
 </span></span><span style="display:flex;"><span>fprintf(<span style="color:#5af78e">&#39;The sum of the differences between the two curves is %.2f km^2\n&#39;</span>,s);
 </span></span><span style="display:flex;"><span>plot(x,y1,<span style="color:#5af78e">&#39;b&#39;</span>,x,y2,<span style="color:#5af78e">&#39;b&#39;</span>);
-</span></span></code></pre></div><h3 id="计算结果-2">计算结果</h3>
-<pre tabindex="0"><code class="language-terminal" data-lang="terminal">&gt;&gt; question3
-The sum of the differences between the two curves is 42414.81 km^2
-</code></pre><p><img src="question3.png" alt=""></p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="计算结果-2">计算结果</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&gt;&gt; question3
+</span></span><span style="display:flex;"><span>The sum of the differences between the two curves is 42414.81 km^2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="question3.png" alt=""></p>
 
                     
                     <HR width="100%" id="EOF">
@@ -915,6 +1025,16 @@ The sum of the differences between the two curves is 42414.81 km^2
             
             <a class="a-block nav-link-item false" href="/tags">
                 标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/friends">
+                友链
             </a>
             
         

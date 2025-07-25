@@ -161,6 +161,16 @@
                 
                 
                 
+                <a class="a-block drawer-menu-item false" href="/friends">
+                    友链
+                </a>
+                
+            
+                
+                
+                
+                
+                
                 <a class="a-block drawer-menu-item false" href="/index.xml">
                     RSS
                 </a>
@@ -445,88 +455,190 @@
 <p>Word的文本和排版混合的模式虽然提供了所见即所得的效果，但是，Word完全不能让我专心码字！</p>
 <p>同时，Word的图注编辑较为麻烦（对我来说），Word代码块没有高亮等等各种问题让我下定决心，用Typst写一套BUPT的DSP实验报告模板。</p>
 <h2 id="如何使用">如何使用</h2>
-<pre tabindex="0"><code class="language-typst" data-lang="typst">#import &#34;template.typ&#34;: experiment-report
-
-#show: doc =&gt; experiment-report(
-  class: &#34;2023211113&#34;,
-  name: &#34;张三&#34;,
-  student-id: &#34;2021123456&#34;,
-  date: &#34;2024年4月14日&#34;,
-  doc
-)
-</code></pre><p>将这两行插入你的Typst文档，随后就可以自动生成包含校徽、专业信息、日期等要素的标准化封面页，以及调整好的字体、缩进、样式，让你专注于完成自己的实验报告，取得<code>High Score</code>！</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>#import &#34;template.typ&#34;: experiment-report
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#show: doc =&gt; experiment-report(
+</span></span><span style="display:flex;"><span>  class: &#34;2023211113&#34;,
+</span></span><span style="display:flex;"><span>  name: &#34;张三&#34;,
+</span></span><span style="display:flex;"><span>  student-id: &#34;2021123456&#34;,
+</span></span><span style="display:flex;"><span>  date: &#34;2024年4月14日&#34;,
+</span></span><span style="display:flex;"><span>  doc
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将这两行插入你的Typst文档，随后就可以自动生成包含校徽、专业信息、日期等要素的标准化封面页，以及调整好的字体、缩进、样式，让你专注于完成自己的实验报告，取得<code>High Score</code>！</p>
 <h2 id="具体格式">具体格式</h2>
 <h3 id="基本格式">基本格式</h3>
 <p>页边距</p>
-<pre tabindex="0"><code class="language-typst" data-lang="typst">set page(
-    paper: &#34;a4&#34;,
-    margin: (top: 2.54cm, bottom: 2.54cm, left: 3.18cm, right: 3.18cm),
-)
-</code></pre><p>封面样式</p>
-<pre tabindex="0"><code class="language-typst" data-lang="typst">align(center)[
-    #v(4em)
-    // 第一行：学年学期
-    #text(size: 22pt,font: &#34;STZhongsong&#34;,weight: &#34;bold&#34;)[2024-2025学年第二学期]
-
-    // 第二行：实验报告标题
-    #text(size: 22pt,font:&#34;STZhongsong&#34;,weight: &#34;bold&#34;)[《信号处理实验》实验报告]
-    #v(4.5em)
-    
-    // Logo
-    #image(&#34;assets/bupt-logo.jpg&#34;, width: 40%)
-    #v(8em)
-    
-   // 学生信息表格函数
-    #let info-row(label, content) = {
-      grid(
-        columns: (auto, auto),
-        align(right)[#text(font: &#34;STSong&#34;,size: 14pt)[#label]],
-        [
-          #box(width: 180pt)[
-            #set text(font: &#34;STSong&#34;,size: 14pt)
-            #box(width: 180pt)[
-              #place(dx: 0pt, dy: 14pt)[#line(length: 180pt)]
-              #align(center)[#content]
-            ]
-          ]
-        ]
-      )
-    }
-    
-    #set text(font: &#34;STSong&#34;, size: 14pt)
-    #grid( // 生成基本信息
-      align: center,
-      rows: 4,
-      row-gutter: 2em,
-      info-row(&#34;专业班级&#34;, class),
-      info-row(&#34;姓　　名&#34;, name),
-      info-row(&#34;学　　号&#34;, student-id),
-      info-row(&#34;报告日期&#34;, date)
-    )
-  ]
-pagebreak() // 生成分页
-</code></pre><h3 id="格式规范自动适配">格式规范自动适配</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>set page(
+</span></span><span style="display:flex;"><span>    paper: &#34;a4&#34;,
+</span></span><span style="display:flex;"><span>    margin: (top: 2.54cm, bottom: 2.54cm, left: 3.18cm, right: 3.18cm),
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>封面样式</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>align(center)[
+</span></span><span style="display:flex;"><span>    #v(4em)
+</span></span><span style="display:flex;"><span>    // 第一行：学年学期
+</span></span><span style="display:flex;"><span>    #text(size: 22pt,font: &#34;STZhongsong&#34;,weight: &#34;bold&#34;)[2024-2025学年第二学期]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    // 第二行：实验报告标题
+</span></span><span style="display:flex;"><span>    #text(size: 22pt,font:&#34;STZhongsong&#34;,weight: &#34;bold&#34;)[《信号处理实验》实验报告]
+</span></span><span style="display:flex;"><span>    #v(4.5em)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    // Logo
+</span></span><span style="display:flex;"><span>    #image(&#34;assets/bupt-logo.jpg&#34;, width: 40%)
+</span></span><span style="display:flex;"><span>    #v(8em)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>   // 学生信息表格函数
+</span></span><span style="display:flex;"><span>    #let info-row(label, content) = {
+</span></span><span style="display:flex;"><span>      grid(
+</span></span><span style="display:flex;"><span>        columns: (auto, auto),
+</span></span><span style="display:flex;"><span>        align(right)[#text(font: &#34;STSong&#34;,size: 14pt)[#label]],
+</span></span><span style="display:flex;"><span>        [
+</span></span><span style="display:flex;"><span>          #box(width: 180pt)[
+</span></span><span style="display:flex;"><span>            #set text(font: &#34;STSong&#34;,size: 14pt)
+</span></span><span style="display:flex;"><span>            #box(width: 180pt)[
+</span></span><span style="display:flex;"><span>              #place(dx: 0pt, dy: 14pt)[#line(length: 180pt)]
+</span></span><span style="display:flex;"><span>              #align(center)[#content]
+</span></span><span style="display:flex;"><span>            ]
+</span></span><span style="display:flex;"><span>          ]
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      )
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    #set text(font: &#34;STSong&#34;, size: 14pt)
+</span></span><span style="display:flex;"><span>    #grid( // 生成基本信息
+</span></span><span style="display:flex;"><span>      align: center,
+</span></span><span style="display:flex;"><span>      rows: 4,
+</span></span><span style="display:flex;"><span>      row-gutter: 2em,
+</span></span><span style="display:flex;"><span>      info-row(&#34;专业班级&#34;, class),
+</span></span><span style="display:flex;"><span>      info-row(&#34;姓　　名&#34;, name),
+</span></span><span style="display:flex;"><span>      info-row(&#34;学　　号&#34;, student-id),
+</span></span><span style="display:flex;"><span>      info-row(&#34;报告日期&#34;, date)
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>pagebreak() // 生成分页
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="格式规范自动适配">格式规范自动适配</h3>
 <ul>
 <li>正文首行缩进2字符</li>
 <li>中英文字体自动匹配（中文宋体/英文Times New Roman）</li>
 <li>1.2倍行距标准
-<pre tabindex="0"><code class="language-typst" data-lang="typst">set par(first-line-indent: 2em,leading: 1.2em)
-show raw.where(block: true): block =&gt; [
-    #pad(left: 2.5em)[
-    #block
-    ]
-]
-</code></pre></li>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>set par(first-line-indent: 2em,leading: 1.2em)
+</span></span><span style="display:flex;"><span>show raw.where(block: true): block =&gt; [
+</span></span><span style="display:flex;"><span>    #pad(left: 2.5em)[
+</span></span><span style="display:flex;"><span>    #block
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
 <li>题注小五号仿宋字体
-<pre tabindex="0"><code class="language-typst" data-lang="typst">show figure.caption: it =&gt; {
-    set text(font: (&#34;Times New Roman&#34;, &#34;FangSong&#34;), size: 9pt)
-    it
-}
-</code></pre></li>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>show figure.caption: it =&gt; {
+</span></span><span style="display:flex;"><span>    set text(font: (&#34;Times New Roman&#34;, &#34;FangSong&#34;), size: 9pt)
+</span></span><span style="display:flex;"><span>    it
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
 <li>正文五号字</li>
 </ul>
-<pre tabindex="0"><code class="language-typst" data-lang="typst">set text(font: (&#34;Times New Roman&#34;, &#34;SimHei&#34;), size: 12pt, weight: &#34;regular&#34;)
-</code></pre><h2 id="快速上手指南">快速上手指南</h2>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>set text(font: (&#34;Times New Roman&#34;, &#34;SimHei&#34;), size: 12pt, weight: &#34;regular&#34;)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="快速上手指南">快速上手指南</h2>
 <h3 id="环境准备">环境准备</h3>
 <ol>
 <li>安装<a href="https://typst.app/">Typst</a></li>
@@ -535,24 +647,47 @@ show raw.where(block: true): block =&gt; [
 <li>导出</li>
 </ol>
 <h3 id="基础使用">基础使用</h3>
-<pre tabindex="0"><code class="language-typst" data-lang="typst">// 导入模板
-#import &#34;template.typ&#34;: experiment-report
-
-// 设置文档参数
-#show: doc =&gt; experiment-report(
-  class: &#34;电子信息工程2023级&#34;,
-  name: &#34;王小明&#34;,
-  student-id: &#34;202311001&#34;,
-  date: &#34;2024年4月20日&#34;,
-  doc
-)
-
-// 开始撰写内容
-= 实验二 数字滤波器设计
-
-== 实验原理
-...
-</code></pre><h2 id="结语让写作回归本质">结语：让写作回归本质</h2>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>// 导入模板
+</span></span><span style="display:flex;"><span>#import &#34;template.typ&#34;: experiment-report
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// 设置文档参数
+</span></span><span style="display:flex;"><span>#show: doc =&gt; experiment-report(
+</span></span><span style="display:flex;"><span>  class: &#34;电子信息工程2023级&#34;,
+</span></span><span style="display:flex;"><span>  name: &#34;王小明&#34;,
+</span></span><span style="display:flex;"><span>  student-id: &#34;202311001&#34;,
+</span></span><span style="display:flex;"><span>  date: &#34;2024年4月20日&#34;,
+</span></span><span style="display:flex;"><span>  doc
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// 开始撰写内容
+</span></span><span style="display:flex;"><span>= 实验二 数字滤波器设计
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>== 实验原理
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="结语让写作回归本质">结语：让写作回归本质</h2>
 <p>通过本模板，你可以将精力完全集中在实验内容的创作上，无需再为格式调整耗费时间。</p>
 <p>该模板已在Github开源（示例仓库地址），欢迎提交Issue和Pull Request共同完善。</p>
 <blockquote>
@@ -663,6 +798,16 @@ show raw.where(block: true): block =&gt; [
             
             <a class="a-block nav-link-item false" href="/tags">
                 标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/friends">
+                友链
             </a>
             
         

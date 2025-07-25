@@ -161,6 +161,16 @@
                 
                 
                 
+                <a class="a-block drawer-menu-item false" href="/friends">
+                    友链
+                </a>
+                
+            
+                
+                
+                
+                
+                
                 <a class="a-block drawer-menu-item false" href="/index.xml">
                     RSS
                 </a>
@@ -355,42 +365,106 @@
 <p>在<code>cloud studio</code>运行<code>yolov8</code>时遇到了几个问题，顺手记录在这。</p>
 <p><small>主要是可以白嫖大显存GPU，本蒟蒻只有可怜兮兮的3050Laptop-4G  o(╥﹏╥)o</small></p>
 <h2 id="第一个问题">第一个问题</h2>
-<pre tabindex="0"><code>ImportError: libGL.so.1: cannot open shared object file: No such file or directory
-</code></pre><p>解决方案也比较简单：</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>解决方案也比较简单：</p>
 <p>来源：<a href="https://stackoverflow.com/questions/55313610/importerror-libgl-so-1-cannot-open-shared-object-file-no-such-file-or-directo"><code>Stackoverflow</code></a></p>
 <p>一行命令就解决了……</p>
-<pre tabindex="0"><code>apt install libgl1-mesa-glx
-</code></pre><h2 id="第二个问题">第二个问题</h2>
-<pre tabindex="0"><code>ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29&#39; not found (required by /root/miniforge3/lib/python3.10/site-packages/matplotlib/_c_internal_utils.cpython-310-x86_64-linux-gnu.so)
-</code></pre><p>我先使用了同样来自<code>Stackoverflow</code>的解答：<a href="https://stackoverflow.com/questions/65349875/where-can-i-find-glibcxx-3-4-29">点击前往</a></p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>apt install libgl1-mesa-glx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="第二个问题">第二个问题</h2>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29&#39; not found (required by /root/miniforge3/lib/python3.10/site-packages/matplotlib/_c_internal_utils.cpython-310-x86_64-linux-gnu.so)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我先使用了同样来自<code>Stackoverflow</code>的解答：<a href="https://stackoverflow.com/questions/65349875/where-can-i-find-glibcxx-3-4-29">点击前往</a></p>
 <p>也就是如下的方案：</p>
-<pre tabindex="0"><code>sudo add-apt-repository ppa:ubuntu-toolchain-r/test # Ignore if not ubuntu
-sudo apt-get update
-sudo apt-get install gcc-4.9
-sudo apt-get upgrade libstdc++6
-sudo apt-get dist-upgrade
-</code></pre><p>但是非常遗憾，没有效果，还是出现了报错……</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>sudo add<span style="color:#ff6ac1">-</span>apt<span style="color:#ff6ac1">-</span>repository ppa:ubuntu<span style="color:#ff6ac1">-</span>toolchain<span style="color:#ff6ac1">-</span>r<span style="color:#ff6ac1">/</span>test <span style="color:#78787e"># Ignore if not ubuntu</span>
+</span></span><span style="display:flex;"><span>sudo apt<span style="color:#ff6ac1">-</span>get update
+</span></span><span style="display:flex;"><span>sudo apt<span style="color:#ff6ac1">-</span>get install gcc<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">4.9</span>
+</span></span><span style="display:flex;"><span>sudo apt<span style="color:#ff6ac1">-</span>get upgrade libstdc<span style="color:#ff6ac1">++</span><span style="color:#ff9f43">6</span>
+</span></span><span style="display:flex;"><span>sudo apt<span style="color:#ff6ac1">-</span>get dist<span style="color:#ff6ac1">-</span>upgrade
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>但是非常遗憾，没有效果，还是出现了报错……</p>
 <p>这时候，我非常不情愿的打开了<code>csdn</code>，但是非常幸运，我找到了<a href="https://blog.csdn.net/weixin_39379635/article/details/129159713">解决方案</a>。</p>
 <p>以我浅薄的理解，应该是<code>linux</code>中有合适的版本，但是<code>/usr/lib/x86_64-linux-gnu/</code>路径下的<code>libstdc++</code>默认的依赖是一个比较老的，因此你安装了新的版本也无济于事，因为这个依赖不会自动更改。</p>
 <p>知道问题是解决问题的开始：
 首先找个高版本的库：</p>
-<pre tabindex="0"><code>sudo find / -name &#34;libstdc++.so.6*&#34;
-</code></pre><p>一个可能的版本：<code>6.0.29</code></p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo find / -name &#34;libstdc++.so.6*&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>一个可能的版本：<code>6.0.29</code></p>
 <p>然后我们查看这个包是否有<code>GLIBCXX_3.4.29</code></p>
-<pre tabindex="0"><code>strings /.../lib/libstdc++.so.6.0.29 | grep GLIBCXX
-</code></pre><p>如果有，你应该在控制台输出中找到如下的字符：<code>GLIBCXX_3.4.29</code></p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>strings /.../lib/libstdc++.so.6.0.29 | grep GLIBCXX
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果有，你应该在控制台输出中找到如下的字符：<code>GLIBCXX_3.4.29</code></p>
 <p>然后就是喜闻乐见的<code>除旧迎新</code>环节：</p>
-<pre tabindex="0"><code>cp /.../libstdc++.so.6.0.29 /usr/lib/x86_64-linux-gnu/
-# 除旧
-sudo rm /usr/lib/x86_64-linux-gnu/libstdc++.so.6
-# 迎新
-ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.29 /usr/lib/x86_64-linux-gnu/libstdc++.so.6
-</code></pre><p>文章中说可能会出现文件没有执行权限的问题，这个<code>chmod</code>就可以较好解决，这里不做赘述。</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cp /.../libstdc++.so.6.0.29 /usr/lib/x86_64-linux-gnu/
+</span></span><span style="display:flex;"><span># 除旧
+</span></span><span style="display:flex;"><span>sudo rm /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+</span></span><span style="display:flex;"><span># 迎新
+</span></span><span style="display:flex;"><span>ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.29 /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>文章中说可能会出现文件没有执行权限的问题，这个<code>chmod</code>就可以较好解决，这里不做赘述。</p>
 <h2 id="第三个问题">第三个问题</h2>
 <p>说是问题，不如说是注意事项，因为<code>cloudstudio</code>自带<code>conda</code>环境，所以<code>pip</code>是可以正常安装的，然后vs默认用的是<code>ubuntu</code>的<code>python</code>，所以你直接点启动啥用没有，只会收获很多<code>报错</code>，但是你可以从命令行不指定路径启动就没问题。
 比如：</p>
-<pre tabindex="0"><code>python main.py
-</code></pre><p>PS：Linux使用还是挺有难度的，不过怎么说呢，习惯就好，不行就去网上搜呗~，嘻嘻</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>python main.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>PS：Linux使用还是挺有难度的，不过怎么说呢，习惯就好，不行就去网上搜呗~，嘻嘻</p>
 <p>写于2025/01/26</p>
 
                     
@@ -497,6 +571,16 @@ ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.29 /usr/lib/x86_64-linux-gnu/li
             
             <a class="a-block nav-link-item false" href="/tags">
                 标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/friends">
+                友链
             </a>
             
         

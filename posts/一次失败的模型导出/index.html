@@ -162,6 +162,16 @@
                 
                 
                 
+                <a class="a-block drawer-menu-item false" href="/friends">
+                    友链
+                </a>
+                
+            
+                
+                
+                
+                
+                
                 <a class="a-block drawer-menu-item false" href="/index.xml">
                     RSS
                 </a>
@@ -389,12 +399,42 @@
 <p>下面需要解决的事情是将官方提供的pt模型转成jit模型提高速度和可移植性。</p>
 <h2 id="doclayout-yolohttpsgithubcomopendatalabdoclayout-yolo"><a href="https://github.com/opendatalab/DocLayout-YOLO">DocLayout-YOLO</a></h2>
 <p>首先，根据官网<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>说明，去<a href="https://www.modelscope.cn/models/OpenDataLab/PDF-Extract-Kit-1.0">modelscope</a>/<a href="https://huggingface.co/opendatalab/PDF-Extract-Kit-1.0">huggingface</a>上下载模型，随后下载包如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>pip install <span style="color:#ff5c57">doclayout-yolo</span> <span style="color:#78787e"># 安装官方提供的包</span>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>pip install <span style="color:#ff5c57">doclayout-yolo</span> <span style="color:#78787e"># 安装官方提供的包</span>
 </span></span><span style="display:flex;"><span>pip install <span style="color:#ff5c57">huggingface-hub</span> <span style="color:#78787e"># 没有这个无法运行</span>
 </span></span><span style="display:flex;"><span>pip install torch torchvision torchaudio --index-url https<span style="color:#ff5c57">:</span>//download.pytorch.org/whl/cu128 <span style="color:#78787e"># 更新torch使其支持torch</span>
-</span></span></code></pre></div><h3 id="检验安装">检验安装</h3>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="检验安装">检验安装</h3>
 <p>之后创建<code>test.py</code>检验安装情况：</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> cv2
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> cv2
 </span></span><span style="display:flex;"><span><span style="color:#ff6ac1">from</span> doclayout_yolo <span style="color:#ff6ac1">import</span> YOLOv10
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#78787e"># Load the pre-trained model</span>
@@ -411,18 +451,56 @@
 </span></span><span style="display:flex;"><span><span style="color:#78787e"># Annotate and save the result</span>
 </span></span><span style="display:flex;"><span>annotated_frame <span style="color:#ff6ac1">=</span> det_res[<span style="color:#ff9f43">0</span>]<span style="color:#ff6ac1">.</span>plot(pil<span style="color:#ff6ac1">=</span><span style="color:#ff6ac1">True</span>, line_width<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">5</span>, font_size<span style="color:#ff6ac1">=</span><span style="color:#ff9f43">20</span>)
 </span></span><span style="display:flex;"><span>cv2<span style="color:#ff6ac1">.</span>imwrite(<span style="color:#5af78e">&#34;result.jpg&#34;</span>, annotated_frame)
-</span></span></code></pre></div><p>看到终端输出类似即说明安装成功：</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Speed: 8.4ms preprocess, 112.7ms inference, 101.9ms postprocess per image at shape (1, 3, 1024, 768)
-</span></span></code></pre></div><h3 id="开始导出">开始导出</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff6ac1">from</span> doclayout_yolo <span style="color:#ff6ac1">import</span> YOLOv10
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>看到终端输出类似即说明安装成功：</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Speed: 8.4ms preprocess, 112.7ms inference, 101.9ms postprocess per image at shape (1, 3, 1024, 768)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="开始导出">开始导出</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff6ac1">from</span> doclayout_yolo <span style="color:#ff6ac1">import</span> YOLOv10
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#78787e"># Load the pre-trained model</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>model <span style="color:#ff6ac1">=</span> YOLOv10(<span style="color:#5af78e">&#34;../models/Layout/YOLO/doclayout_yolo_ft.pt&#34;</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>model<span style="color:#ff6ac1">.</span>export(<span style="color:#ff5c57">format</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;torchscript&#34;</span>)
-</span></span></code></pre></div><p>看到终端输出类似即说明导出成功：</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Ultralytics YOLOv0.0.3 🚀 Python-3.13.3 torch-2.7.0+cu128 CPU (12th Gen Intel Core(TM) i7-12700H)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>看到终端输出类似即说明导出成功：</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Ultralytics YOLOv0.0.3 🚀 Python-3.13.3 torch-2.7.0+cu128 CPU (12th Gen Intel Core(TM) i7-12700H)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>PyTorch: starting from &#39;E:\Projects\PDF-Extract-Kit-1.0\weights\..\models\Layout\YOLO\doclayout_yolo_ft.pt&#39; with input shape (1, 3, 1024, 1024) BCHW and output shape(s) (1, 300, 6) (38.8 MB)
 </span></span><span style="display:flex;"><span>
@@ -434,11 +512,30 @@
 </span></span><span style="display:flex;"><span>Predict:         yolo predict task=detect model=E:\Projects\PDF-Extract-Kit-1.0\weights\..\models\Layout\YOLO\doclayout_yolo_ft.torchscript imgsz=1024  
 </span></span><span style="display:flex;"><span>Validate:        yolo val task=detect model=E:\Projects\PDF-Extract-Kit-1.0\weights\..\models\Layout\YOLO\doclayout_yolo_ft.torchscript imgsz=1024 data=/mnt/petrelfs/zhaozhiyuan/layout/yolov10/ultralytics/cfg/datasets/0830_mixed.yaml
 </span></span><span style="display:flex;"><span>Visualize:       https://netron.app
-</span></span></code></pre></div><p>至此，我们就搞定了jit格式的导出</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>至此，我们就搞定了jit格式的导出</p>
 <p>但是现有的<code>Rust</code>推理框架不完全兼容相关模型，所以我进行了修理完善并<code>refactor</code>了相关代码，让功能更好用</p>
 <h2 id="公式识别">公式识别</h2>
 <p>该模型是一个基于yolov8的模型，目测没有没有什么奇特之处，用官方库即可</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Ultralytics 8.3.122  Python-3.13.3 torch-2.7.0+cu128 CPU (12th Gen Intel Core(TM) i7-12700H)
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Ultralytics 8.3.122  Python-3.13.3 torch-2.7.0+cu128 CPU (12th Gen Intel Core(TM) i7-12700H)
 </span></span><span style="display:flex;"><span>YOLOv8l summary (fused): 112 layers, 43,608,150 parameters, 0 gradients, 164.8 GFLOPs
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>PyTorch: starting from &#39;models\MFD\YOLO\yolo_v8_ft.pt&#39; with input shape (1, 3, 1888, 1888) BCHW and output shape(s) (1, 6, 73101) (333.7 MB)
@@ -451,7 +548,9 @@
 </span></span><span style="display:flex;"><span>Predict:         yolo predict task=detect model=models\MFD\YOLO\yolo_v8_ft.torchscript imgsz=1888  
 </span></span><span style="display:flex;"><span>Validate:        yolo val task=detect model=models\MFD\YOLO\yolo_v8_ft.torchscript imgsz=1888 data=/mnt/petrelfs/ouyanglinke/document-ocr/ultralytics/cfg/mfd_dataset/mfd_v4_newtrain_addignore_withouscihubtrain_addr4.yaml  
 </span></span><span style="display:flex;"><span>Visualize:       https://netron.app
-</span></span></code></pre></div><h2 id="公式转latex">公式转LaTex</h2>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="公式转latex">公式转LaTex</h2>
 <p>这步真是非常痛苦的事情，他的模型写的糊里糊涂的，而且代码不是很易读</p>
 <p>不过Thanks to Deepwiki<a href="https://deepwiki.com/opendatalab/UniMERNet/3.2-command-line-interface">Command Line Interface | opendatalab/UniMERNet | DeepWiki</a>，我最终还是想办法来解决这个问题</p>
 <p>其官方包使用了严格的<code>huggingface-hub</code>，这就导致其依赖于严格版本的<code>tokenizers</code>，但是这玩意不支持<code>python3.13</code>，于是我只能被迫下载<code>python3.12</code></p>
@@ -464,17 +563,39 @@
 <p>又干俩小时，确实是难绷，拉倒吧，试试用<a href="https://nuitka.net/">Nuitka the Python Compiler — Nuitka the Python Compiler</a>打个包</p>
 <p>也不行，现在使用pyinstaller打包，可以正常打包出来，下面解决一个问题</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>FileNotFoundError: [Errno 2] No such file or directory: &#39;E:\\Projects\\package-onnx\\dist\\run\\_internal\\unimernet\\configs\\default.yaml&#39;
-</span></span></code></pre></div><p>我的方案是直接从<code>.venv\Lib\site-packages\unimernet\configs</code>里面复制一个到<code>_internal\unimernet\configs\default.yaml</code></p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>FileNotFoundError: [Errno 2] No such file or directory: &#39;E:\\Projects\\package-onnx\\dist\\run\\_internal\\unimernet\\configs\\default.yaml&#39;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我的方案是直接从<code>.venv\Lib\site-packages\unimernet\configs</code>里面复制一个到<code>_internal\unimernet\configs\default.yaml</code></p>
 <blockquote>
 <p>PS：需要拷贝完整<code>config</code>文件夹</p>
 </blockquote>
 <p>下一个问题：</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Failed to load model: Failed to import transformers.models.gemma2.configuration_gemma2 because of the following error (look up to see its traceback):
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Failed to load model: Failed to import transformers.models.gemma2.configuration_gemma2 because of the following error (look up to see its traceback):
 </span></span><span style="display:flex;"><span>No module named &#39;transformers.models.gemma2.configuration_gemma2&#39;
-</span></span></code></pre></div><p>解决方案同上</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>NO_SUCHFILE : Load model from E:\Projects\package-onnx\dist\run\_internal\onnxocr\models\ppocrv4\det\det.onnx failed:Load model E:\Projects\package-onnx\dist\run\_internal\onnxocr\models\ppocrv4\det\det.onnx failed. File doesn&#39;t exist
-</span></span></code></pre></div><p>解决方案同上</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>解决方案同上</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>NO_SUCHFILE : Load model from E:\Projects\package-onnx\dist\run\_internal\onnxocr\models\ppocrv4\det\det.onnx failed:Load model E:\Projects\package-onnx\dist\run\_internal\onnxocr\models\ppocrv4\det\det.onnx failed. File doesn&#39;t exist
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>解决方案同上</p>
 <p>这个玩意缺了不少素材，我在文件夹下面打了一个<code>patch</code>包，下次打包时之后放进去就好了</p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
@@ -499,8 +620,8 @@
             <nav class="post-pagination">
 
                 
-                <a class="newer-posts">
-			下回<br>已经到头啦。
+                <a class="newer-posts" href="/posts/25%E4%B8%83%E6%9C%88%E6%80%BB%E7%BB%93/">
+			下回<br>25七月总结
                 </a>
                 
                 
@@ -592,6 +713,16 @@
             
             <a class="a-block nav-link-item false" href="/tags">
                 标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/friends">
+                友链
             </a>
             
         

@@ -161,6 +161,16 @@
                 
                 
                 
+                <a class="a-block drawer-menu-item false" href="/friends">
+                    友链
+                </a>
+                
+            
+                
+                
+                
+                
+                
                 <a class="a-block drawer-menu-item false" href="/index.xml">
                     RSS
                 </a>
@@ -356,8 +366,15 @@
 <p>但是仍然存在一些不足，也就是<code>torch-rs</code>库本身的问题，使得<code>libtorch</code>不能正确识别我的<code>GPU</code>，我在<code>github issues</code>上看到了解决方案，但是暂时没有想到很好的方法封装进我的仓库。</p>
 <p>而且，这个批量推理bat需要反复将模型载入，就是挺抽象的，嗯……</p>
 <p>版本链接：<a href="https://github.com/zhao-leo/yolov8_rust_demo/tree/006ff1c79284dd9cc9acb15bdc8e8eb25ec5d406">点击前往</a></p>
-<pre tabindex="0"><code>内存：I&#39;m free~!
-</code></pre><h2 id="丹出-version-02x">丹出~！ Version-0.2.X</h2>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>内存：I&#39;m free~!
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="丹出-version-02x">丹出~！ Version-0.2.X</h2>
 <p>在这个版本，我把核心库分离出来了，封装成了<code>yolo_binding</code>这个库，它能在Windows上很好的运行(尽管<code>docs.rs</code>的构建问题还没有解决)，有一个相对好用的接口，一切都按我设想的运行，主程序只要对模型实例化一次，相关的封装也按照我的设想进行了修改……</p>
 <p>不管怎么说，对我来说，还是有点成就感的，尽管有这样那样的问题没有解决，但是自己尽力就好~</p>
 <p>模块代码：</p>
@@ -468,6 +485,16 @@
             
             <a class="a-block nav-link-item false" href="/tags">
                 标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/friends">
+                友链
             </a>
             
         

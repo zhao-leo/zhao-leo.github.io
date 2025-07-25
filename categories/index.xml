@@ -7,20 +7,20 @@
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <copyright>April. 本站遵循 CC-BY-NC 4.0 协议</copyright>
-    <lastBuildDate>Tue, 27 May 2025 22:44:07 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 26 Jul 2025 04:45:21 +0800</lastBuildDate>
     <atom:link href="https://www.zhaocloud.work/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>生活</title>
+      <link>https://www.zhaocloud.work/categories/%E7%94%9F%E6%B4%BB/</link>
+      <pubDate>Sat, 26 Jul 2025 04:45:21 +0800</pubDate>
+      <guid>https://www.zhaocloud.work/categories/%E7%94%9F%E6%B4%BB/</guid>
+      <description></description>
+    </item>
     <item>
       <title>编程</title>
       <link>https://www.zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Tue, 27 May 2025 22:44:07 +0800</pubDate>
       <guid>https://www.zhaocloud.work/categories/%E7%BC%96%E7%A8%8B/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>生活</title>
-      <link>https://www.zhaocloud.work/categories/%E7%94%9F%E6%B4%BB/</link>
-      <pubDate>Wed, 16 Apr 2025 23:40:16 +0800</pubDate>
-      <guid>https://www.zhaocloud.work/categories/%E7%94%9F%E6%B4%BB/</guid>
       <description></description>
     </item>
     <item>
